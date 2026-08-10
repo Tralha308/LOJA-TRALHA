@@ -7,1085 +7,970 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LOJA TRALHA | Design & Criação</title>
+<title>Loja Tralha — Design & Criação</title>
 
 <style>
 
-/* =========================================================
+/* =====================================================
    LOJA TRALHA
    PALETA
-   =========================================================
+   Preto: #050505
+   Dourado: #C8A43A
+   Dourado claro: #E6CC6A
+   Branco: #FFFFFF
+   Cinza: #888888
+   ===================================================== */
 
-   PRETO:       #050505
-   PRETO 2:     #0D0D0D
-   DOURADO:     #C8A43A
-   DOURADO CLARO:#E6CC6A
-   BRANCO:      #FFFFFF
-   CINZA:       #999999
-   BORDA:       #252525
-
-   ========================================================= */
-
-
-/* RESET */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-
-    background: #050505;
-
-    color: #fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overflow-x: hidden;
+body{
+    background:#050505;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
 }
 
 
-/* =========================================================
-   FUNDO LUXUOSO
-   ========================================================= */
+/* =====================================================
+   FUNDO
+   ===================================================== */
 
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 700px;
-    height: 700px;
-
-    top: -350px;
-    right: -250px;
-
-    background:
-        rgba(200,164,58,0.08);
-
-    border-radius: 50%;
-
-    filter: blur(100px);
-
-    pointer-events: none;
-
-    z-index: -1;
+body::before{
+    content:"";
+    position:fixed;
+    width:650px;
+    height:650px;
+    right:-300px;
+    top:-300px;
+    background:rgba(200,164,58,.08);
+    border-radius:50%;
+    filter:blur(100px);
+    pointer-events:none;
+    z-index:-1;
 }
 
-body::after {
-
-    content: "";
-
-    position: fixed;
-
-    width: 500px;
-    height: 500px;
-
-    bottom: -300px;
-    left: -200px;
-
-    background:
-        rgba(200,164,58,0.04);
-
-    border-radius: 50%;
-
-    filter: blur(100px);
-
-    pointer-events: none;
-
-    z-index: -1;
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    left:-300px;
+    bottom:-300px;
+    background:rgba(200,164,58,.05);
+    border-radius:50%;
+    filter:blur(100px);
+    pointer-events:none;
+    z-index:-1;
 }
 
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
+/* =====================================================
+   MENU
+   ===================================================== */
 
-header {
+header{
+    position:fixed;
+    top:0;
+    left:0;
 
-    position: fixed;
+    width:100%;
+    height:82px;
 
-    top: 0;
-    left: 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    width: 100%;
+    padding:0 7%;
 
-    height: 85px;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(20px);
 
-    padding:
-        0 7%;
+    border-bottom:1px solid #1b1b1b;
 
-    display: flex;
+    z-index:999;
+}
 
-    align-items: center;
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:4px;
+    white-space:nowrap;
+}
 
-    justify-content: space-between;
+.logo span{
+    color:#C8A43A;
+}
 
-    background:
-        rgba(5,5,5,0.80);
+nav{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
 
-    backdrop-filter:
-        blur(20px);
+nav a{
+    position:relative;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,0.06);
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
 
-    z-index: 9999;
+    color:#888;
+
+    transition:.3s;
+}
+
+nav a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-9px;
+
+    width:0;
+    height:1px;
+
+    background:#C8A43A;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#E6CC6A;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 
-.logo {
-
-    font-size: 22px;
-
-    font-weight: 900;
-
-    letter-spacing: 4px;
-}
-
-
-.logo span {
-    color: #C8A43A;
-}
-
-
-nav {
-
-    display: flex;
-
-    gap: 32px;
-}
-
-
-nav a {
-
-    color: #777;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    transition: .3s;
-}
-
-
-nav a:hover {
-
-    color: #E6CC6A;
-}
-
-
-/* =========================================================
+/* =====================================================
    HERO
-   ========================================================= */
+   ===================================================== */
 
-.hero {
+.hero{
+    min-height:100vh;
 
-    min-height: 100vh;
+    padding:180px 7% 110px;
 
-    padding:
-        170px 7%
-        100px;
+    display:flex;
+    align-items:center;
 
-    display: flex;
+    border-bottom:1px solid #181818;
+}
 
-    align-items: center;
+.hero-content{
+    max-width:1150px;
+}
 
-    position: relative;
+.hero-tag{
+    color:#C8A43A;
 
-    border-bottom:
-        1px solid #181818;
+    font-size:11px;
+
+    letter-spacing:6px;
+
+    font-weight:bold;
+
+    margin-bottom:32px;
+}
+
+.hero h1{
+    font-size:clamp(65px,10vw,150px);
+
+    line-height:.82;
+
+    letter-spacing:-8px;
+
+    margin-bottom:45px;
+}
+
+.hero h1 span{
+    color:#C8A43A;
+    display:block;
+}
+
+.hero p{
+    max-width:680px;
+
+    color:#888;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    margin-bottom:42px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:18px 32px;
+
+    border-radius:4px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+.gold{
+    background:#C8A43A;
+    color:#050505;
+}
+
+.gold:hover{
+    background:#E6CC6A;
+    transform:translateY(-5px);
+}
+
+.outline{
+    border:1px solid #333;
+    color:#aaa;
+}
+
+.outline:hover{
+    border-color:#C8A43A;
+    color:#E6CC6A;
+    transform:translateY(-5px);
 }
 
 
-.hero-content {
+/* =====================================================
+   MARQUEE
+   ===================================================== */
 
-    max-width: 1100px;
+.marquee{
+    overflow:hidden;
+
+    border-bottom:1px solid #181818;
+    border-top:1px solid #181818;
+
+    padding:25px 0;
+
+    white-space:nowrap;
+}
+
+.marquee-track{
+    display:inline-block;
+
+    animation:move 25s linear infinite;
+}
+
+.marquee span{
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    margin:0 35px;
+
+    color:#555;
+}
+
+.marquee strong{
+    color:#C8A43A;
+}
+
+@keyframes move{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
 }
 
 
-.hero-tag {
-
-    color: #C8A43A;
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 30px;
-}
-
-
-.hero h1 {
-
-    font-size:
-        clamp(
-            65px,
-            10vw,
-            145px
-        );
-
-    line-height: .82;
-
-    letter-spacing: -7px;
-
-    margin-bottom: 40px;
-}
-
-
-.hero h1 span {
-
-    color: #C8A43A;
-
-    display: block;
-}
-
-
-.hero-text {
-
-    max-width: 650px;
-
-    color: #888;
-
-    font-size: 18px;
-
-    line-height: 1.9;
-
-    margin-bottom: 40px;
-}
-
-
-.hero-buttons {
-
-    display: flex;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-}
-
-
-.btn {
-
-    padding:
-        17px 30px;
-
-    border-radius: 4px;
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-
-    transition: .3s;
-}
-
-
-.btn-gold {
-
-    background: #C8A43A;
-
-    color: #050505;
-}
-
-
-.btn-gold:hover {
-
-    background: #E6CC6A;
-
-    transform:
-        translateY(-5px);
-}
-
-
-.btn-outline {
-
-    border:
-        1px solid #333;
-
-    color: #aaa;
-}
-
-
-.btn-outline:hover {
-
-    border-color:
-        #C8A43A;
-
-    color: #E6CC6A;
-
-    transform:
-        translateY(-5px);
-}
-
-
-/* =========================================================
+/* =====================================================
    FRASE
-   ========================================================= */
+   ===================================================== */
 
-.phrase {
+.big-phrase{
+    padding:150px 7%;
 
-    padding:
-        100px 7%;
+    text-align:center;
+}
 
-    text-align: center;
+.big-phrase h2{
+    max-width:1100px;
 
-    border-bottom:
-        1px solid #181818;
+    margin:auto;
+
+    font-size:clamp(40px,6vw,82px);
+
+    line-height:1;
+
+    letter-spacing:-5px;
+}
+
+.big-phrase span{
+    color:#C8A43A;
 }
 
 
-.phrase p {
-
-    max-width: 1000px;
-
-    margin: auto;
-
-    font-size:
-        clamp(
-            30px,
-            5vw,
-            65px
-        );
-
-    font-weight: 800;
-
-    line-height: 1.1;
-
-    letter-spacing: -2px;
-}
-
-
-.phrase span {
-
-    color: #C8A43A;
-}
-
-
-/* =========================================================
+/* =====================================================
    SEÇÕES
-   ========================================================= */
+   ===================================================== */
 
-section {
+section{
+    padding:130px 7%;
+}
 
-    padding:
-        130px 7%;
+.section-head{
+    max-width:1200px;
+
+    margin:0 auto 75px;
+}
+
+.number{
+    color:#C8A43A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    margin-bottom:22px;
+}
+
+.title{
+    font-size:clamp(50px,7vw,90px);
+
+    line-height:.9;
+
+    letter-spacing:-5px;
+}
+
+.title span{
+    color:#C8A43A;
+}
+
+.description{
+    max-width:650px;
+
+    margin-top:28px;
+
+    color:#777;
+
+    line-height:1.9;
 }
 
 
-.section-top {
-
-    max-width: 1200px;
-
-    margin:
-        0 auto 70px;
-}
-
-
-.section-number {
-
-    color: #C8A43A;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 18px;
-}
-
-
-.section-title {
-
-    font-size:
-        clamp(
-            45px,
-            7vw,
-            85px
-        );
-
-    line-height: .95;
-
-    letter-spacing: -4px;
-}
-
-
-.section-title span {
-
-    color: #C8A43A;
-}
-
-
-.section-description {
-
-    max-width: 650px;
-
-    color: #777;
-
-    line-height: 1.8;
-
-    margin-top: 22px;
-}
-
-
-/* =========================================================
+/* =====================================================
    SERVIÇOS
-   ========================================================= */
+   ===================================================== */
 
-.services {
+.services{
+    max-width:1200px;
 
-    max-width: 1200px;
+    margin:auto;
 
-    margin: auto;
+    display:grid;
 
-    display: grid;
+    grid-template-columns:repeat(3,1fr);
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    gap:20px;
+}
 
-    gap: 25px;
+.service{
+    min-height:350px;
+
+    padding:42px;
+
+    background:linear-gradient(
+        145deg,
+        #121212,
+        #080808
+    );
+
+    border:1px solid #242424;
+
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+
+    border-color:#C8A43A;
+}
+
+.service-number{
+    color:#C8A43A;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+}
+
+.service h3{
+    font-size:30px;
+
+    margin:80px 0 20px;
+}
+
+.service p{
+    color:#777;
+
+    line-height:1.8;
 }
 
 
-.service {
-
-    min-height: 340px;
-
-    padding: 45px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #121212,
-            #080808
-        );
-
-    border:
-        1px solid #242424;
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition: .4s;
-}
-
-
-.service:hover {
-
-    transform:
-        translateY(-10px);
-
-    border-color:
-        #C8A43A;
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.5);
-}
-
-
-.service-number {
-
-    color: #C8A43A;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 70px;
-}
-
-
-.service h3 {
-
-    font-size: 35px;
-
-    margin-bottom: 18px;
-}
-
-
-.service p {
-
-    max-width: 500px;
-
-    color: #777;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
+/* =====================================================
    FLYERS
-   ========================================================= */
+   ===================================================== */
 
-#flyers {
+#flyers{
+    background:#080808;
 
-    background:
-        #080808;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
+}
 
-    border-top:
-        1px solid #151515;
+.flyers{
+    max-width:1400px;
 
-    border-bottom:
-        1px solid #151515;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+}
+
+.flyer{
+    background:#0D0D0D;
+
+    padding:10px;
+
+    border:1px solid #252525;
+
+    transition:.4s;
+}
+
+.flyer:hover{
+    transform:translateY(-8px);
+
+    border-color:#C8A43A;
+}
+
+.flyer img{
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    /*
+       SEM ALTURA FIXA.
+       OS FLYERS NÃO SERÃO CORTADOS.
+    */
+
+    object-fit:contain;
+}
+
+.flyer-info{
+    padding:25px 15px 18px;
+}
+
+.flyer-info h3{
+    font-size:18px;
+
+    margin-bottom:8px;
+}
+
+.flyer-info p{
+    color:#666;
+
+    font-size:12px;
 }
 
 
-.flyers-grid {
-
-    max-width: 1350px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 30px;
-
-    align-items: start;
-}
-
-
-.flyer {
-
-    background: #0D0D0D;
-
-    border:
-        1px solid #252525;
-
-    padding: 10px;
-
-    transition: .4s;
-}
-
-
-.flyer:hover {
-
-    transform:
-        translateY(-10px);
-
-    border-color:
-        #C8A43A;
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.5);
-}
-
-
-.flyer img {
-
-    width: 100%;
-
-    height: auto;
-
-    display: block;
-
-    object-fit: contain;
-
-    border-radius: 3px;
-}
-
-
-.flyer-info {
-
-    padding:
-        22px 15px 15px;
-}
-
-
-.flyer-info h3 {
-
-    font-size: 17px;
-
-    margin-bottom: 8px;
-}
-
-
-.flyer-info p {
-
-    color: #666;
-
-    font-size: 12px;
-}
-
-
-/* =========================================================
+/* =====================================================
    LOGOS
-   ========================================================= */
+   ===================================================== */
 
-#logos {
+.logo-grid{
+    max-width:1200px;
 
-    background: #050505;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
 }
 
-
-.logos-area {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-
-.logo-card {
-
-    min-height: 260px;
+.logo-box{
+    min-height:300px;
 
     background:
         radial-gradient(
             circle,
-            #151515,
+            #171717,
             #090909
         );
 
-    border:
-        1px solid #252525;
+    border:1px solid #242424;
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    position: relative;
+    transition:.4s;
+}
 
-    overflow: hidden;
+.logo-box:hover{
+    transform:translateY(-8px);
 
-    transition: .4s;
+    border-color:#C8A43A;
+}
+
+.logo-box div{
+    text-align:center;
+}
+
+.logo-box strong{
+    display:block;
+
+    color:#C8A43A;
+
+    font-size:34px;
+
+    letter-spacing:5px;
+
+    margin-bottom:10px;
+}
+
+.logo-box small{
+    color:#555;
+
+    letter-spacing:3px;
 }
 
 
-.logo-card:hover {
+/* =====================================================
+   HISTÓRIA
+   ===================================================== */
 
-    border-color:
-        #C8A43A;
+#historia{
+    background:#090909;
 
-    transform:
-        translateY(-8px);
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
+}
+
+.history{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.5fr;
+
+    gap:90px;
+}
+
+.history-left{
+    position:relative;
+}
+
+.history-number{
+    font-size:clamp(130px,18vw,230px);
+
+    font-weight:900;
+
+    color:rgba(200,164,58,.08);
+
+    line-height:.7;
+}
+
+.history-left h3{
+    font-size:45px;
+
+    margin-left:20px;
+}
+
+.founder{
+    margin-top:35px;
+
+    margin-left:20px;
+
+    color:#555;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+}
+
+.history-text{
+    color:#999;
+
+    font-size:17px;
+
+    line-height:2;
+}
+
+.history-text p{
+    margin-bottom:25px;
+}
+
+.history-text strong{
+    color:#E6CC6A;
 }
 
 
-.logo-card::before {
+/* =====================================================
+   PROCESSO
+   ===================================================== */
 
-    content: "LOGO";
+.process{
+    max-width:1200px;
 
-    position: absolute;
+    margin:auto;
 
-    top: 20px;
-    left: 20px;
+    display:grid;
 
-    color: #333;
+    grid-template-columns:repeat(4,1fr);
 
-    font-size: 10px;
+    gap:20px;
+}
 
-    letter-spacing: 4px;
+.process-card{
+    padding:35px;
+
+    min-height:270px;
+
+    border:1px solid #242424;
+
+    background:#0D0D0D;
+
+    transition:.3s;
+}
+
+.process-card:hover{
+    border-color:#C8A43A;
+
+    transform:translateY(-6px);
+}
+
+.process-card span{
+    color:#C8A43A;
+
+    letter-spacing:4px;
+
+    font-size:11px;
+}
+
+.process-card h3{
+    font-size:24px;
+
+    margin:45px 0 15px;
+}
+
+.process-card p{
+    color:#666;
+
+    line-height:1.8;
 }
 
 
-.logo-placeholder {
+/* =====================================================
+   DIFERENCIAIS
+   ===================================================== */
 
-    text-align: center;
+.differentials{
+    max-width:1200px;
 
-    padding: 30px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+}
+
+.difference{
+    padding:45px;
+
+    border:1px solid #242424;
+
+    background:#0D0D0D;
+}
+
+.difference h3{
+    color:#C8A43A;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+}
+
+.difference p{
+    color:#777;
+
+    line-height:1.8;
 }
 
 
-.logo-placeholder strong {
+/* =====================================================
+   STATUS
+   ===================================================== */
 
-    display: block;
+.status-section{
+    padding:90px 7%;
 
-    color: #C8A43A;
+    text-align:center;
+}
 
-    font-size: 35px;
+.status{
+    max-width:700px;
 
-    letter-spacing: 5px;
+    margin:auto;
 
-    margin-bottom: 10px;
+    padding:35px;
+
+    background:#0D0D0D;
+
+    border:1px solid #242424;
+}
+
+.status-dot{
+    display:inline-block;
+
+    width:10px;
+
+    height:10px;
+
+    background:#49d66b;
+
+    border-radius:50%;
+
+    margin-right:8px;
+
+    box-shadow:0 0 15px #49d66b;
+}
+
+.status h3{
+    margin-bottom:12px;
+}
+
+.status p{
+    color:#666;
+
+    font-size:13px;
 }
 
 
-.logo-placeholder small {
-
-    color: #555;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================================
-   MINHA HISTÓRIA
-   ========================================================= */
-
-#historia {
-
-    background:
-        #090909;
-
-    border-top:
-        1px solid #181818;
-
-    border-bottom:
-        1px solid #181818;
-}
-
-
-.history {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1.5fr;
-
-    gap: 90px;
-
-    align-items: center;
-}
-
-
-.history-left {
-
-    position: relative;
-}
-
-
-.history-number {
-
-    font-size:
-        clamp(
-            100px,
-            15vw,
-            200px
-        );
-
-    font-weight: 900;
-
-    color:
-        rgba(
-            200,
-            164,
-            58,
-            .08
-        );
-
-    line-height: .7;
-}
-
-
-.history-left h3 {
-
-    position: absolute;
-
-    left: 20px;
-
-    bottom: 10px;
-
-    font-size: 40px;
-}
-
-
-.history-text {
-
-    color: #999;
-
-    font-size: 17px;
-
-    line-height: 2;
-}
-
-
-.history-text p {
-
-    margin-bottom: 25px;
-}
-
-
-.history-text strong {
-
-    color: #E6CC6A;
-}
-
-
-/* =========================================================
-   COMO TRABALHAMOS
-   ========================================================= */
-
-.process {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-
-.process-card {
-
-    padding: 35px;
-
-    border:
-        1px solid #242424;
-
-    background:
-        #0D0D0D;
-
-    transition: .3s;
-}
-
-
-.process-card:hover {
-
-    border-color:
-        #C8A43A;
-}
-
-
-.process-card span {
-
-    color: #C8A43A;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-}
-
-
-.process-card h3 {
-
-    margin:
-        30px 0 15px;
-
-    font-size: 22px;
-}
-
-
-.process-card p {
-
-    color: #666;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
+/* =====================================================
    CONTATO
-   ========================================================= */
+   ===================================================== */
 
-#contato {
+#contato{
+    text-align:center;
 
-    text-align: center;
+    padding:170px 7%;
+}
 
-    padding:
-        170px 7%;
+.contact-small{
+    color:#C8A43A;
 
-    position: relative;
+    letter-spacing:5px;
 
-    overflow: hidden;
+    font-size:11px;
+}
+
+#contato h2{
+    max-width:1000px;
+
+    margin:25px auto;
+
+    font-size:clamp(50px,9vw,110px);
+
+    line-height:.9;
+
+    letter-spacing:-6px;
+}
+
+#contato h2 span{
+    color:#C8A43A;
+}
+
+#contato p{
+    max-width:600px;
+
+    margin:0 auto 35px;
+
+    color:#777;
+
+    line-height:1.8;
 }
 
 
-.contact-small {
-
-    color: #C8A43A;
-
-    font-size: 11px;
-
-    letter-spacing: 5px;
-}
-
-
-#contato h2 {
-
-    max-width: 1000px;
-
-    margin:
-        25px auto;
-
-    font-size:
-        clamp(
-            50px,
-            9vw,
-            110px
-        );
-
-    line-height: .9;
-
-    letter-spacing: -5px;
-}
-
-
-#contato h2 span {
-
-    color: #C8A43A;
-}
-
-
-#contato p {
-
-    max-width: 600px;
-
-    margin:
-        0 auto 35px;
-
-    color: #777;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
+/* =====================================================
    FOOTER
-   ========================================================= */
+   ===================================================== */
 
-footer {
+footer{
+    padding:45px 7%;
 
-    padding:
-        40px 7%;
+    border-top:1px solid #181818;
 
-    border-top:
-        1px solid #181818;
+    display:flex;
 
-    display: flex;
+    justify-content:space-between;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: space-between;
+    color:#555;
 
-    color: #555;
+    font-size:12px;
+}
 
-    font-size: 12px;
+footer span{
+    color:#C8A43A;
 }
 
 
-footer span {
-
-    color: #C8A43A;
-}
-
-
-/* =========================================================
+/* =====================================================
    RESPONSIVO
-   ========================================================= */
+   ===================================================== */
 
-@media(max-width: 800px) {
+@media(max-width:900px){
 
-    header {
-
-        justify-content: center;
-
+    header{
+        padding:0 5%;
     }
 
-    nav {
-
-        display: none;
+    nav{
+        gap:15px;
     }
 
-
-    .hero h1 {
-
-        font-size: 65px;
-
-        letter-spacing: -4px;
+    nav a{
+        font-size:9px;
     }
 
-
-    .services {
-
-        grid-template-columns: 1fr;
+    .hero h1{
+        font-size:65px;
     }
 
-
-    .flyers-grid {
-
-        grid-template-columns: 1fr;
+    .services{
+        grid-template-columns:1fr;
     }
 
-
-    .logos-area {
-
-        grid-template-columns: 1fr;
+    .flyers{
+        grid-template-columns:1fr;
     }
 
-
-    .history {
-
-        grid-template-columns: 1fr;
-
-        gap: 40px;
+    .logo-grid{
+        grid-template-columns:1fr;
     }
 
+    .history{
+        grid-template-columns:1fr;
 
-    .process {
-
-        grid-template-columns: 1fr;
+        gap:40px;
     }
 
-
-    section {
-
-        padding:
-            90px 5%;
+    .process{
+        grid-template-columns:1fr 1fr;
     }
 
-
-    .phrase {
-
-        padding:
-            80px 5%;
-    }
-
-
-    footer {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-        text-align: center;
+    .differentials{
+        grid-template-columns:1fr;
     }
 
 }
 
+@media(max-width:600px){
+
+    header{
+        height:auto;
+
+        min-height:70px;
+
+        padding:15px 5%;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    nav{
+        gap:14px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:8px;
+    }
+
+    .hero{
+        padding:
+            160px 5%
+            90px;
+    }
+
+    .hero h1{
+        font-size:55px;
+
+        letter-spacing:-4px;
+    }
+
+    section{
+        padding:90px 5%;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+    }
+
+}
 
 </style>
 
@@ -1095,25 +980,24 @@ footer span {
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      MENU
-     ========================================================= -->
+     ===================================================== -->
 
 <header>
 
     <div class="logo">
-        LOJA <span>TRALHA</span>
+
+        LOJA
+        <span>TRALHA</span>
+
     </div>
 
 
     <nav>
 
-        <a href="#inicio">
-            INÍCIO
-        </a>
-
-        <a href="#servicos">
-            SERVIÇOS
+        <a href="#historia">
+            HISTÓRIA
         </a>
 
         <a href="#flyers">
@@ -1122,10 +1006,6 @@ footer span {
 
         <a href="#logos">
             LOGOS
-        </a>
-
-        <a href="#historia">
-            MINHA HISTÓRIA
         </a>
 
         <a href="#contato">
@@ -1137,59 +1017,65 @@ footer span {
 </header>
 
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
+<!-- =====================================================
+     INÍCIO
+     ===================================================== -->
 
-<section
-    class="hero"
-    id="inicio"
->
+<section class="hero" id="inicio">
 
     <div class="hero-content">
 
         <div class="hero-tag">
-            LOJA DE DESIGN • CRIAÇÃO • IDENTIDADE
+
+            LOJA TRALHA
+            •
+            DESIGN
+            •
+            CRIAÇÃO
+
         </div>
 
 
         <h1>
 
-            IDEIAS
-            <span>QUE MARCAM.</span>
+            DESIGN
+
+            <span>
+                QUE MARCA.
+            </span>
 
         </h1>
 
 
-        <p class="hero-text">
+        <p>
 
-            A Loja Tralha nasceu da vontade
-            de transformar criatividade em
-            trabalhos que realmente chamam
-            atenção.
-
-            Criamos flyers e logos com
-            personalidade, estilo e dedicação
-            em cada detalhe.
+            Criatividade, dedicação e personalidade
+            em cada projeto. A Loja Tralha transforma
+            ideias em flyers e identidades visuais
+            feitas para chamar atenção.
 
         </p>
 
 
-        <div class="hero-buttons">
+        <div class="buttons">
 
             <a
                 href="#flyers"
-                class="btn btn-gold"
+                class="btn gold"
             >
-                VER MEUS FLYERS
+
+                VER PORTFÓLIO
+
             </a>
 
 
             <a
-                href="#historia"
-                class="btn btn-outline"
+                href="#contato"
+                class="btn outline"
             >
-                CONHECER MINHA HISTÓRIA
+
+                FALE COMIGO
+
             </a>
 
         </div>
@@ -1199,55 +1085,119 @@ footer span {
 </section>
 
 
-<!-- =========================================================
-     FRASE
-     ========================================================= -->
+<!-- =====================================================
+     MARQUEE
+     ===================================================== -->
 
-<div class="phrase">
+<div class="marquee">
 
-    <p>
+    <div class="marquee-track">
 
-        DESIGN NÃO É APENAS
-        <span>CRIAR UMA IMAGEM.</span>
+        <span>
+            LOJA <strong>TRALHA</strong>
+        </span>
 
-        É TRANSFORMAR UMA IDEIA
-        EM ALGO QUE AS PESSOAS
-        <span>LEMBREM.</span>
+        <span>
+            FLYERS
+        </span>
 
-    </p>
+        <span>
+            LOGOS
+        </span>
+
+        <span>
+            DESIGN
+        </span>
+
+        <span>
+            CRIATIVIDADE
+        </span>
+
+        <span>
+            IDENTIDADE
+        </span>
+
+        <span>
+            LOJA <strong>TRALHA</strong>
+        </span>
+
+        <span>
+            FLYERS
+        </span>
+
+        <span>
+            LOGOS
+        </span>
+
+        <span>
+            DESIGN
+        </span>
+
+        <span>
+            CRIATIVIDADE
+        </span>
+
+        <span>
+            IDENTIDADE
+        </span>
+
+    </div>
 
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     FRASE
+     ===================================================== -->
+
+<div class="big-phrase">
+
+    <h2>
+
+        UMA BOA ARTE NÃO PRECISA
+
+        <span>
+            GRITAR.
+        </span>
+
+        ELA PRECISA
+
+        <span>
+            SER LEMBRADA.
+        </span>
+
+    </h2>
+
+</div>
+
+
+<!-- =====================================================
      SERVIÇOS
-     ========================================================= -->
+     ===================================================== -->
 
-<section
-    id="servicos"
->
+<section id="servicos">
 
-    <div class="section-top">
+    <div class="section-head">
 
-        <div class="section-number">
-            01 — O QUE EU FAÇO
+        <div class="number">
+            01 — SERVIÇOS
         </div>
 
+        <h2 class="title">
 
-        <h2 class="section-title">
+            O QUE EU
 
-            CRIAÇÃO COM
-            <span>PERSONALIDADE.</span>
+            <span>
+                FAÇO.
+            </span>
 
         </h2>
 
+        <p class="description">
 
-        <p class="section-description">
-
-            Meu trabalho é focado principalmente
-            em criação de flyers e logos.
-            Cada projeto é desenvolvido pensando
-            no estilo e na finalidade da arte.
+            Trabalho principalmente com criação
+            de flyers e logos, buscando adaptar
+            cada arte ao estilo e objetivo do projeto.
 
         </p>
 
@@ -1263,17 +1213,14 @@ footer span {
                 01 / FLYERS
             </div>
 
-
             <h3>
                 Flyers
             </h3>
 
-
             <p>
 
-                Artes para divulgação,
-                eventos, anúncios,
-                servidores, cidades,
+                Artes para divulgação, eventos,
+                anúncios, servidores, cidades,
                 redes sociais e projetos.
 
             </p>
@@ -1287,17 +1234,36 @@ footer span {
                 02 / LOGOS
             </div>
 
-
             <h3>
                 Logos
             </h3>
 
+            <p>
+
+                Identidades visuais criadas para
+                representar marcas, projetos,
+                comunidades e servidores.
+
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">
+                03 / PERSONALIZAÇÃO
+            </div>
+
+            <h3>
+                Seu estilo
+            </h3>
 
             <p>
 
-                Criação de logos para marcas,
-                servidores, cidades, projetos
-                e comunidades.
+                A ideia é entender o que você
+                procura e adaptar a criação para
+                chegar ao resultado desejado.
 
             </p>
 
@@ -1309,58 +1275,53 @@ footer span {
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      FLYERS
-     ========================================================= -->
+     ===================================================== -->
 
 <section id="flyers">
 
+    <div class="section-head">
 
-    <div class="section-top">
-
-        <div class="section-number">
+        <div class="number">
             02 — PORTFÓLIO
         </div>
 
-
-        <h2 class="section-title">
+        <h2 class="title">
 
             MEUS
-            <span>FLYERS.</span>
+
+            <span>
+                FLYERS.
+            </span>
 
         </h2>
 
+        <p class="description">
 
-        <p class="section-description">
-
-            Alguns dos trabalhos que já
-            desenvolvi. As artes são exibidas
-            em seu formato original para
-            preservar todos os detalhes.
+            Alguns dos trabalhos desenvolvidos
+            pela Loja Tralha.
 
         </p>
 
     </div>
 
 
-    <div class="flyers-grid">
+    <div class="flyers">
 
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
-                alt="Flyer 01"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 01
+                    Flyer 01
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1370,19 +1331,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
-                alt="Flyer 02"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 02
+                    Flyer 02
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1392,19 +1350,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
-                alt="Flyer 03"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 03
+                    Flyer 03
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1414,19 +1369,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
-                alt="Flyer 04"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 04
+                    Flyer 04
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1436,19 +1388,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
-                alt="Flyer 05"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 05
+                    Flyer 05
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1458,19 +1407,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
-                alt="Flyer 06"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 06
+                    Flyer 06
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1480,19 +1426,16 @@ footer span {
 
         <div class="flyer">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
-                alt="Flyer 07"
-            >
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
 
             <div class="flyer-info">
 
                 <h3>
-                    Projeto Flyer 07
+                    Flyer 07
                 </h3>
 
                 <p>
-                    Criação personalizada
+                    Projeto de design
                 </p>
 
             </div>
@@ -1505,45 +1448,44 @@ footer span {
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      LOGOS
-     ========================================================= -->
+     ===================================================== -->
 
 <section id="logos">
 
+    <div class="section-head">
 
-    <div class="section-top">
-
-        <div class="section-number">
-            03 — IDENTIDADE
+        <div class="number">
+            03 — IDENTIDADE VISUAL
         </div>
 
-
-        <h2 class="section-title">
+        <h2 class="title">
 
             MEUS
-            <span>LOGOS.</span>
+
+            <span>
+                LOGOS.
+            </span>
 
         </h2>
 
+        <p class="description">
 
-        <p class="section-description">
-
-            Uma identidade começa por uma
-            marca visual que consiga representar
-            uma ideia.
+            Um espaço para apresentar as identidades
+            visuais criadas pela Loja Tralha.
 
         </p>
 
     </div>
 
 
-    <div class="logos-area">
+    <div class="logo-grid">
 
 
-        <div class="logo-card">
+        <div class="logo-box">
 
-            <div class="logo-placeholder">
+            <div>
 
                 <strong>
                     TRALHA
@@ -1558,9 +1500,9 @@ footer span {
         </div>
 
 
-        <div class="logo-card">
+        <div class="logo-box">
 
-            <div class="logo-placeholder">
+            <div>
 
                 <strong>
                     LOGO
@@ -1575,9 +1517,9 @@ footer span {
         </div>
 
 
-        <div class="logo-card">
+        <div class="logo-box">
 
-            <div class="logo-placeholder">
+            <div>
 
                 <strong>
                     LOGO
@@ -1597,26 +1539,34 @@ footer span {
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HISTÓRIA
-     ========================================================= -->
+     ===================================================== -->
 
 <section id="historia">
 
+    <div class="section-head">
 
-    <div class="section-top">
-
-        <div class="section-number">
-            04 — SOBRE MIM
+        <div class="number">
+            04 — A HISTÓRIA POR TRÁS DA MARCA
         </div>
 
+        <h2 class="title">
 
-        <h2 class="section-title">
+            TUDO COMEÇOU
 
-            MINHA
-            <span>HISTÓRIA.</span>
+            <span>
+                COM UMA IDEIA.
+            </span>
 
         </h2>
+
+        <p class="description">
+
+            Antes de existir uma loja,
+            existia apenas a vontade de criar.
+
+        </p>
 
     </div>
 
@@ -1630,10 +1580,17 @@ footer span {
                 14
             </div>
 
-
             <h3>
                 ANOS
             </h3>
+
+            <div class="founder">
+
+                DAVID
+                •
+                FUNDADOR
+
+            </div>
 
         </div>
 
@@ -1642,57 +1599,142 @@ footer span {
 
             <p>
 
-                Meu nome é <strong>David</strong> e
-                comecei a me interessar por design
-                ainda novo, principalmente através
-                da internet e dos projetos que eu
-                acompanhava no dia a dia.
+                <strong>
+                    Meu nome é David.
+                </strong>
+
+                Tenho 14 anos e, como muitas coisas
+                grandes, a história da Loja Tralha
+                começou de uma forma simples:
+                com curiosidade.
 
             </p>
 
 
             <p>
 
-                No começo, eu fazia artes simplesmente
-                por curiosidade. Testava fontes,
-                cores, efeitos e diferentes estilos
-                para descobrir o que ficava melhor.
-                Nem tudo dava certo, mas cada tentativa
-                acabava me ensinando alguma coisa.
+                No começo, eu não tinha uma grande
+                estrutura, uma equipe ou anos de
+                experiência. Eu tinha apenas vontade
+                de aprender e descobrir até onde
+                conseguiria chegar.
 
             </p>
 
 
             <p>
 
-                Com o tempo, comecei a levar o design
-                mais a sério. Passei a prestar mais
-                atenção nos detalhes e a tentar entender
-                não apenas como fazer uma arte bonita,
-                mas como fazer uma arte que realmente
-                tivesse uma finalidade.
+                Comecei experimentando. Testava
+                fontes, cores, efeitos, posições
+                e diferentes estilos. Algumas artes
+                ficavam boas. Outras não ficavam
+                nem perto do que eu imaginava.
+
+                <strong>
+                    E tudo bem.
+                </strong>
+
+                Cada erro fazia parte do aprendizado.
 
             </p>
 
 
             <p>
 
-                A <strong>Loja Tralha</strong> nasceu
-                dessa vontade de continuar aprendendo
-                e transformar aquilo que começou como
-                uma brincadeira em um projeto próprio.
+                Com o passar do tempo, percebi que
+                aquilo já não era apenas uma brincadeira.
+                Eu realmente gostava de criar.
+
+                Comecei a olhar para uma tela vazia
+                não como um espaço em branco, mas
+                como uma oportunidade de transformar
+                uma ideia em alguma coisa que pudesse
+                ser vista e lembrada.
 
             </p>
 
 
             <p>
 
-                Ainda estou no começo da minha jornada
-                e tenho muito para aprender. Mas é
-                justamente isso que me motiva:
-                continuar praticando, melhorar a cada
-                trabalho e construir meu espaço no
-                mundo do design.
+                Foi então que nasceu a
+                <strong>
+                    Loja Tralha.
+                </strong>
+
+                Não nasceu pronta.
+
+                Não nasceu perfeita.
+
+                Nasceu pequena, com muito para aprender,
+                mas com uma coisa que continua sendo
+                a mesma desde o primeiro dia:
+
+                <strong>
+                    vontade de crescer.
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                Hoje, cada flyer que eu crio,
+                cada logo que desenvolvo e cada
+                detalhe que eu aprendo representa
+                mais um passo nessa caminhada.
+
+                Eu sei que ainda estou no começo.
+                Sei que existem muitas coisas que
+                ainda preciso aprender e melhorar.
+
+            </p>
+
+
+            <p>
+
+                Mas talvez essa seja justamente
+                a parte mais importante dessa história.
+
+                <strong>
+
+                    Eu não quero apenas criar artes.
+                    Quero construir algo que, daqui
+                    a alguns anos, eu possa olhar para
+                    trás e lembrar de onde tudo começou.
+
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                A Loja Tralha começou com uma ideia.
+
+                Hoje é um projeto.
+
+                Amanhã, eu quero que seja uma marca
+                reconhecida pelo trabalho, pela
+                criatividade e pela dedicação colocada
+                em cada criação.
+
+            </p>
+
+
+            <p>
+
+                E se existe uma coisa que eu aprendi
+                até aqui, é que você não precisa
+                começar grande para sonhar grande.
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Você só precisa começar.
+                </strong>
 
             </p>
 
@@ -1703,34 +1745,27 @@ footer span {
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      PROCESSO
-     ========================================================= -->
+     ===================================================== -->
 
 <section>
 
+    <div class="section-head">
 
-    <div class="section-top">
-
-        <div class="section-number">
+        <div class="number">
             05 — PROCESSO
         </div>
 
-
-        <h2 class="section-title">
+        <h2 class="title">
 
             COMO EU
-            <span>TRABALHO.</span>
+
+            <span>
+                TRABALHO.
+            </span>
 
         </h2>
-
-
-        <p class="section-description">
-
-            Cada projeto passa por algumas
-            etapas para chegar ao resultado final.
-
-        </p>
 
     </div>
 
@@ -1744,17 +1779,14 @@ footer span {
                 01
             </span>
 
-
             <h3>
                 Ideia
             </h3>
 
-
             <p>
 
-                Primeiro entendo o que você
-                precisa e qual estilo deseja
-                para sua arte.
+                Entendo o que você precisa
+                e o estilo que procura.
 
             </p>
 
@@ -1767,17 +1799,14 @@ footer span {
                 02
             </span>
 
-
             <h3>
                 Criação
             </h3>
 
-
             <p>
 
-                Depois começo a desenvolver
-                a composição, cores, fontes
-                e elementos visuais.
+                Desenvolvo a composição
+                e os elementos da arte.
 
             </p>
 
@@ -1790,18 +1819,34 @@ footer span {
                 03
             </span>
 
-
             <h3>
-                Resultado
+                Ajustes
             </h3>
-
 
             <p>
 
-                Após os ajustes, finalizo
-                a arte para entregar um
-                resultado que represente
-                sua ideia.
+                Faço os ajustes necessários
+                para chegar ao resultado.
+
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <span>
+                04
+            </span>
+
+            <h3>
+                Entrega
+            </h3>
+
+            <p>
+
+                Finalizo o projeto e preparo
+                o arquivo para utilização.
 
             </p>
 
@@ -1813,32 +1858,164 @@ footer span {
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
+     DIFERENCIAIS
+     ===================================================== -->
+
+<section>
+
+    <div class="section-head">
+
+        <div class="number">
+            06 — DIFERENCIAIS
+        </div>
+
+        <h2 class="title">
+
+            POR QUE A
+
+            <span>
+                TRALHA?
+            </span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="differentials">
+
+
+        <div class="difference">
+
+            <h3>
+                Criatividade
+            </h3>
+
+            <p>
+
+                Busco testar ideias diferentes
+                e encontrar uma composição
+                que combine com cada projeto.
+
+            </p>
+
+        </div>
+
+
+        <div class="difference">
+
+            <h3>
+                Dedicação
+            </h3>
+
+            <p>
+
+                Cada trabalho é uma oportunidade
+                de aprender e melhorar meu
+                processo de criação.
+
+            </p>
+
+        </div>
+
+
+        <div class="difference">
+
+            <h3>
+                Personalidade
+            </h3>
+
+            <p>
+
+                A proposta é criar algo que
+                tenha identidade e não pareça
+                apenas mais uma arte comum.
+
+            </p>
+
+        </div>
+
+
+        <div class="difference">
+
+            <h3>
+                Evolução
+            </h3>
+
+            <p>
+
+                Estou sempre buscando aprender
+                novas técnicas e melhorar
+                meus trabalhos.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATUS
+     ===================================================== -->
+
+<div class="status-section">
+
+    <div class="status">
+
+        <h3>
+
+            <span class="status-dot"></span>
+
+            LOJA TRALHA ONLINE
+
+        </h3>
+
+        <p>
+
+            O site está funcionando normalmente.
+            Seja bem-vindo à Loja Tralha.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
      CONTATO
-     ========================================================= -->
+     ===================================================== -->
 
 <section id="contato">
 
-
     <div class="contact-small">
+
         VAMOS CRIAR?
+
     </div>
 
 
     <h2>
 
         SUA IDEIA
-        <span>MERECE DESIGN.</span>
+
+        <span>
+            MERECE DESIGN.
+        </span>
 
     </h2>
 
 
     <p>
 
-        Se você precisa de um flyer,
-        uma logo ou simplesmente quer
-        conversar sobre um projeto,
-        entre em contato comigo.
+        Precisa de um flyer, uma logo
+        ou quer conversar sobre um projeto?
+        Entre em contato comigo.
 
     </p>
 
@@ -1846,32 +2023,40 @@ footer span {
     <a
         href="https://discord.gg/QtNjjgXZ9"
         target="_blank"
-        class="btn btn-gold"
+        class="btn gold"
     >
-        ENTRAR EM CONTATO
-    </a>
 
+        ENTRAR EM CONTATO
+
+    </a>
 
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+<!-- =====================================================
+     RODAPÉ
+     ===================================================== -->
 
 <footer>
 
     <div>
 
         © 2026
-        <span>LOJA TRALHA</span>
+
+        <span>
+            LOJA TRALHA
+        </span>
 
     </div>
 
 
     <div>
 
-        DESIGN • CRIAÇÃO • IDENTIDADE
+        DESIGN
+        •
+        FLYERS
+        •
+        LOGOS
 
     </div>
 
