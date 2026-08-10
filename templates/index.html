@@ -14,7 +14,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
         }
 
         html {
@@ -22,8 +21,9 @@
         }
 
         body {
-            background: #080808;
-            color: white;
+            background: #070707;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
 
@@ -32,27 +32,28 @@
         ========================= */
 
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 25px 8%;
+
+            padding: 22px 7%;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
+            background: rgba(7, 7, 7, 0.90);
+            backdrop-filter: blur(15px);
 
-            background: rgba(8, 8, 8, 0.94);
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(184, 148, 31, 0.25);
 
-            border-bottom: 1px solid #222;
+            z-index: 999;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 800;
             letter-spacing: 3px;
         }
 
@@ -60,15 +61,20 @@
             color: #b8941f;
         }
 
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
         nav a {
-            color: #ddd;
+            color: #bbb;
             text-decoration: none;
-            margin-left: 30px;
+            font-size: 15px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #b8941f;
+            color: #d4b23a;
         }
 
 
@@ -85,23 +91,46 @@
 
             text-align: center;
 
-            padding: 120px 20px 60px;
+            padding: 130px 20px 80px;
 
             background:
                 radial-gradient(
-                    circle at center,
-                    #211b0d 0%,
-                    #080808 55%
-                );
+                    circle at 50% 40%,
+                    rgba(184, 148, 31, 0.18),
+                    transparent 45%
+                ),
+                #070707;
         }
 
         .hero-content {
             max-width: 850px;
         }
 
+        .tag {
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(184, 148, 31, 0.5);
+
+            border-radius: 50px;
+
+            color: #d4b23a;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
         .hero h1 {
-            font-size: 70px;
+            font-size: clamp(45px, 8vw, 80px);
+
             letter-spacing: 6px;
+
             margin-bottom: 20px;
         }
 
@@ -110,10 +139,15 @@
         }
 
         .hero p {
-            color: #ccc;
-            font-size: 19px;
-            line-height: 1.7;
-            margin-bottom: 35px;
+            color: #aaa;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            max-width: 680px;
+
+            margin: auto auto 35px;
         }
 
 
@@ -124,23 +158,33 @@
         .botao {
             display: inline-block;
 
-            padding: 15px 35px;
+            padding: 15px 32px;
+
+            color: #080808;
+
+            background: #b8941f;
 
             border: 1px solid #b8941f;
 
-            color: #b8941f;
+            border-radius: 6px;
 
             text-decoration: none;
 
-            border-radius: 5px;
+            font-weight: bold;
 
             transition: 0.3s;
+
+            box-shadow:
+                0 10px 35px rgba(184, 148, 31, 0.15);
         }
 
         .botao:hover {
-            background: #b8941f;
-            color: #080808;
-            transform: translateY(-3px);
+            background: #d4b23a;
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 40px rgba(184, 148, 31, 0.25);
         }
 
 
@@ -149,25 +193,27 @@
         ========================= */
 
         section {
-            padding: 100px 8%;
+            padding: 100px 7%;
         }
 
         .titulo {
             text-align: center;
+
             margin-bottom: 55px;
         }
 
         .titulo h2 {
             font-size: 40px;
+
             margin-bottom: 12px;
         }
 
-        .titulo span {
+        .titulo h2 span {
             color: #b8941f;
         }
 
         .titulo p {
-            color: #888;
+            color: #777;
         }
 
 
@@ -176,46 +222,64 @@
         ========================= */
 
         .servicos {
+            max-width: 1000px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
+                repeat(auto-fit, minmax(280px, 1fr));
 
             gap: 25px;
         }
 
         .servico {
-            background: #111;
+            padding: 40px 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #141414,
+                    #0c0c0c
+                );
 
             border: 1px solid #222;
 
-            padding: 35px;
+            border-radius: 14px;
 
             text-align: center;
 
-            border-radius: 10px;
-
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .servico:hover {
             transform: translateY(-8px);
+
             border-color: #b8941f;
-        }
 
-        .servico h3 {
-            margin: 15px 0;
-            font-size: 24px;
-        }
-
-        .servico p {
-            color: #888;
-            line-height: 1.6;
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.5);
         }
 
         .icone {
-            font-size: 45px;
+            font-size: 42px;
+
             color: #b8941f;
+
+            margin-bottom: 15px;
+        }
+
+        .servico h3 {
+            font-size: 23px;
+
+            margin-bottom: 12px;
+        }
+
+        .servico p {
+            color: #777;
+
+            line-height: 1.7;
         }
 
 
@@ -224,6 +288,10 @@
         ========================= */
 
         .portfolio {
+            max-width: 1250px;
+
+            margin: auto;
+
             display: grid;
 
             grid-template-columns:
@@ -234,67 +302,89 @@
             align-items: start;
         }
 
+
+        /* CARD DO FLYER */
+
         .projeto {
-            background: #111;
+            background: #101010;
 
             border: 1px solid #222;
 
-            border-radius: 10px;
+            border-radius: 14px;
 
             overflow: hidden;
 
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .projeto:hover {
             transform: translateY(-8px);
+
             border-color: #b8941f;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
 
-        /* ÁREA DOS FLYERS */
+        /* =========================
+           IMAGEM
+           SEM CORTE
+        ========================= */
 
         .imagem {
             width: 100%;
 
-            height: 430px;
+            background: #050505;
 
-            background: #090909;
+            padding: 10px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            overflow: hidden;
-
-            padding: 12px;
         }
-
-
-        /* MOSTRA O FLYER INTEIRO */
 
         .imagem img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: contain;
-
             display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            max-width: 100%;
+
+            transition: 0.4s;
+        }
+
+        .projeto:hover .imagem img {
+            transform: scale(1.025);
         }
 
 
+        /* =========================
+           INFORMAÇÕES
+        ========================= */
+
         .projeto-info {
-            padding: 20px;
+            padding: 20px 22px 24px;
+
+            border-top: 1px solid #202020;
         }
 
         .projeto-info h3 {
+            font-size: 19px;
+
             margin-bottom: 8px;
         }
 
         .projeto-info p {
             color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.5;
         }
 
 
@@ -304,17 +394,28 @@
 
         .contato {
             text-align: center;
-            background: #0d0d0d;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(184, 148, 31, 0.10),
+                    transparent 45%
+                ),
+                #0b0b0b;
+
+            border-top: 1px solid #1c1c1c;
+
+            border-bottom: 1px solid #1c1c1c;
         }
 
-        .contato p {
-            color: #999;
+        .contato-texto {
+            max-width: 650px;
 
-            margin: 20px auto 30px;
+            margin: 0 auto 30px;
 
-            max-width: 600px;
+            color: #888;
 
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
 
@@ -323,13 +424,13 @@
         ========================= */
 
         footer {
-            padding: 30px;
+            padding: 30px 20px;
 
             text-align: center;
 
-            border-top: 1px solid #222;
+            color: #555;
 
-            color: #666;
+            font-size: 14px;
         }
 
         footer span {
@@ -344,31 +445,35 @@
         @media (max-width: 700px) {
 
             header {
-                padding: 20px;
+                justify-content: center;
             }
 
             nav {
                 display: none;
             }
 
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
             .hero h1 {
-                font-size: 45px;
+                letter-spacing: 3px;
             }
 
             .hero p {
                 font-size: 16px;
             }
 
-            section {
-                padding: 80px 5%;
-            }
-
             .titulo h2 {
                 font-size: 32px;
             }
 
-            .imagem {
-                height: 500px;
+            .portfolio {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -393,13 +498,21 @@
 
         <nav>
 
-            <a href="#inicio">Início</a>
+            <a href="#inicio">
+                Início
+            </a>
 
-            <a href="#servicos">Serviços</a>
+            <a href="#servicos">
+                Serviços
+            </a>
 
-            <a href="#portfolio">Portfólio</a>
+            <a href="#portfolio">
+                Portfólio
+            </a>
 
-            <a href="#contato">Contato</a>
+            <a href="#contato">
+                Contato
+            </a>
 
         </nav>
 
@@ -414,13 +527,18 @@
 
         <div class="hero-content">
 
+            <div class="tag">
+                Design Premium
+            </div>
+
             <h1>
                 LOJA <span>TRALHA</span>
             </h1>
 
             <p>
-                Design exclusivo para quem quer destacar sua marca.
-                Criamos logos e flyers modernos, profissionais e únicos.
+                Criamos logos e flyers profissionais,
+                modernos e personalizados para destacar
+                sua marca e seu projeto.
             </p>
 
             <a href="#portfolio" class="botao">
@@ -445,7 +563,7 @@
             </h2>
 
             <p>
-                Design pensado para deixar sua marca inesquecível.
+                Design feito para destacar sua ideia.
             </p>
 
         </div>
@@ -465,8 +583,9 @@
                 </h3>
 
                 <p>
-                    Criamos logos modernas e profissionais
-                    para marcas, servidores e projetos.
+                    Criamos identidades visuais
+                    modernas e profissionais para
+                    marcas, servidores e projetos.
                 </p>
 
             </div>
@@ -483,8 +602,9 @@
                 </h3>
 
                 <p>
-                    Flyers personalizados para eventos,
-                    divulgações, servidores e redes sociais.
+                    Flyers personalizados para
+                    eventos, anúncios, servidores
+                    e redes sociais.
                 </p>
 
             </div>
@@ -500,7 +620,6 @@
     ========================= -->
 
     <section id="portfolio">
-
 
         <div class="titulo">
 
@@ -725,25 +844,19 @@
 
     <section class="contato" id="contato">
 
-
         <div class="titulo">
 
             <h2>
                 VAMOS <span>TRABALHAR?</span>
             </h2>
 
-            <p>
-                Gostou dos nossos trabalhos?
-            </p>
-
         </div>
 
-
-        <p>
-            Entre em contato conosco e solicite seu orçamento.
-            Vamos transformar sua ideia em um design profissional.
+        <p class="contato-texto">
+            Gostou dos nossos trabalhos?
+            Entre em contato conosco e solicite
+            seu orçamento.
         </p>
-
 
         <a
             href="https://discord.gg/QtNjjgXZ9"
@@ -752,7 +865,6 @@
         >
             ENTRAR EM CONTATO
         </a>
-
 
     </section>
 
@@ -778,3 +890,4 @@
 
 </html>
 ```
+
