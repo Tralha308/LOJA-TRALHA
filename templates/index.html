@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOJA TRALHA | Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+        }
+
+        /* MENU */
+        header {
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            border-bottom: 1px solid #25200f;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #a88722;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a88722;
+        }
+
+        /* INÍCIO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+
+            background:
+                radial-gradient(circle at center, #241d0c 0%, #080808 55%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #a88722;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 1px solid #a88722;
+            color: #a88722;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: #a88722;
+            color: #080808;
+            transform: translateY(-3px);
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 100px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .titulo h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .titulo span {
+            color: #a88722;
+        }
+
+        .titulo p {
+            color: #888;
+        }
+
+        /* SERVIÇOS */
+        .servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .servico {
+            background: #111;
+            border: 1px solid #252525;
+            padding: 35px;
+            text-align: center;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .servico:hover {
+            transform: translateY(-8px);
+            border-color: #a88722;
+        }
+
+        .servico h3 {
+            margin: 15px 0;
+            font-size: 24px;
+        }
+
+        .servico p {
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .icone {
+            font-size: 45px;
+            color: #a88722;
+        }
+
+        /* PORTFÓLIO */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .projeto {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .projeto:hover {
+            transform: translateY(-8px);
+            border-color: #a88722;
+        }
+
+        .imagem {
+            height: 260px;
+            background: #0c0c0c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .projeto-info {
+            padding: 20px;
+        }
+
+        .projeto-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .projeto-info p {
+            color: #777;
+        }
+
+        /* CONTATO */
+        .contato {
+            text-align: center;
+            background: #0d0d0d;
+        }
+
+        .contato p {
+            color: #999;
+            margin: 20px auto 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* RODAPÉ */
+        footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #666;
+        }
+
+        footer span {
+            color: #a88722;
+        }
+
+        /* CELULAR */
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+
+        <div class="logo">
+            LOJA <span>TRALHA</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+    </header>
+
+
+    <!-- INÍCIO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>
+                LOJA <span>TRALHA</span>
+            </h1>
+
+            <p>
+                Design exclusivo para quem quer destacar sua marca.
+                Criamos logos e flyers modernos, profissionais e únicos.
+            </p>
+
+            <a href="#portfolio" class="botao">
+                VER PORTFÓLIO
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+
+        <div class="titulo">
+
+            <h2>
+                NOSSOS <span>SERVIÇOS</span>
+            </h2>
+
+            <p>
+                Design pensado para deixar sua marca inesquecível.
+            </p>
+
+        </div>
+
+
+        <div class="servicos">
+
+            <div class="servico">
+
+                <div class="icone">✦</div>
+
+                <h3>LOGOS</h3>
+
+                <p>
+                    Criamos logos modernas e profissionais
+                    para marcas, servidores e projetos.
+                </p>
+
+            </div>
+
+
+            <div class="servico">
+
+                <div class="icone">◆</div>
+
+                <h3>FLYERS</h3>
+
+                <p>
+                    Flyers personalizados para eventos,
+                    divulgações, servidores e redes sociais.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio">
+
+        <div class="titulo">
+
+            <h2>
+                NOSSO <span>PORTFÓLIO</span>
+            </h2>
+
+            <p>
+                Alguns dos nossos trabalhos.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio">
+
+            <div class="projeto">
+
+                <div class="imagem">
+                    <img src="{{ url_for('static', filename='imagens/logo1.png') }}"
+                         alt="Logo Premium">
+                </div>
+
+                <div class="projeto-info">
+                    <h3>Logo Premium</h3>
+
+                    <p>
+                        Identidade visual personalizada.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="projeto">
+
+                <div class="imagem">
+                    <img src="{{ url_for('static', filename='imagens/flyer1.png') }}"
+                         alt="Flyer Premium">
+                </div>
+
+                <div class="projeto-info">
+                    <h3>Flyer Premium</h3>
+
+                    <p>
+                        Design para divulgação.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="projeto">
+
+                <div class="imagem">
+                    <img src="{{ url_for('static', filename='imagens/logo2.png') }}"
+                         alt="Logo Exclusiva">
+                </div>
+
+                <div class="projeto-info">
+                    <h3>Logo Exclusiva</h3>
+
+                    <p>
+                        Projeto desenvolvido sob medida.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="projeto">
+
+                <div class="imagem">
+                    <img src="{{ url_for('static', filename='imagens/flyer2.png') }}"
+                         alt="Flyer Exclusivo">
+                </div>
+
+                <div class="projeto-info">
+                    <h3>Flyer Exclusivo</h3>
+
+                    <p>
+                        Arte personalizada para divulgação.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+
+        <div class="titulo">
+
+            <h2>
+                VAMOS <span>TRABALHAR?</span>
+            </h2>
+
+            <p>
+                Gostou do nosso trabalho?
+            </p>
+
+        </div>
+
+        <p>
+            Entre em contato conosco e solicite seu orçamento.
+            Vamos transformar sua ideia em um design profissional.
+        </p>
+
+        <a
+            href="https://discord.gg/QtNjjgXZ9"
+            target="_blank"
+            class="botao">
+
+            ENTRAR EM CONTATO
+
+        </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        © 2026 <span>LOJA TRALHA</span> —
+        Todos os direitos reservados.
+
+    </footer>
+
+</body>
+
+</html>
