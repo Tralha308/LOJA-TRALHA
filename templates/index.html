@@ -4,729 +4,1051 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOJA TRALHA — Design Premium</title>
 
-    <title>LOJA TRALHA | Design Premium</title>
+<style>
 
-    <style>
+/* =========================================================
+   PALETA
+   =========================================================
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+   PRETO       #050505
+   PRETO 2     #0D0D0D
+   DOURADO     #C8A43A
+   DOURADO 2   #E6CC6A
+   BRANCO      #FFFFFF
+   CINZA       #9A9A9A
+   BORDA       #242424
 
-        html {
-            scroll-behavior: smooth;
-        }
+   ========================================================= */
 
-        body {
-            background: #050505;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
 
+/* RESET */
 
-        /* =========================
-           MENU
-        ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+html {
+    scroll-behavior: smooth;
+}
 
-            padding: 20px 7%;
+body {
+    background: #050505;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-            z-index: 1000;
 
-            background: rgba(5,5,5,.88);
+/* =========================================================
+   FUNDO
+   ========================================================= */
 
-            backdrop-filter: blur(15px);
+body::before {
 
-            border-bottom: 1px solid #222;
-        }
+    content: "";
 
-        .logo {
-            font-size: 23px;
-            font-weight: 900;
-            letter-spacing: 4px;
-        }
+    position: fixed;
 
-        .logo span {
-            color: #c8a43a;
-        }
+    width: 600px;
+    height: 600px;
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+    top: -250px;
+    right: -200px;
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 14px;
-            transition: .3s;
-        }
+    border-radius: 50%;
 
-        nav a:hover {
-            color: #c8a43a;
-        }
+    background: rgba(200,164,58,0.07);
 
+    filter: blur(100px);
 
-        /* =========================
-           HERO
-        ========================= */
+    pointer-events: none;
 
-        .hero {
-            min-height: 100vh;
+    z-index: -1;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            text-align: center;
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
-            padding: 120px 20px 80px;
+.navbar {
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(200,164,58,.15),
-                    transparent 35%
-                ),
-                #050505;
-        }
+    position: fixed;
 
-        .hero-content {
-            max-width: 900px;
-        }
+    top: 0;
+    left: 0;
 
-        .badge {
-            display: inline-block;
+    width: 100%;
 
-            padding: 9px 18px;
+    height: 80px;
 
-            border: 1px solid #c8a43a;
+    padding: 0 7%;
 
-            border-radius: 50px;
+    display: flex;
 
-            color: #c8a43a;
+    align-items: center;
 
-            font-size: 11px;
+    justify-content: space-between;
 
-            letter-spacing: 3px;
+    background: rgba(5,5,5,0.75);
 
-            margin-bottom: 25px;
-        }
+    backdrop-filter: blur(20px);
 
-        .hero h1 {
-            font-size: clamp(50px, 9vw, 95px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 
-            line-height: 1;
+    z-index: 999;
+}
 
-            letter-spacing: 6px;
 
-            margin-bottom: 25px;
-        }
+.logo {
 
-        .hero h1 span {
-            color: #c8a43a;
-        }
+    font-size: 21px;
 
-        .hero p {
-            max-width: 650px;
+    font-weight: 900;
 
-            margin: auto;
+    letter-spacing: 4px;
+}
 
-            color: #888;
 
-            font-size: 18px;
+.logo span {
+    color: #C8A43A;
+}
 
-            line-height: 1.8;
 
-            margin-bottom: 35px;
-        }
+.nav-links {
 
-        .btn {
-            display: inline-block;
+    display: flex;
 
-            padding: 15px 30px;
+    gap: 35px;
+}
 
-            background: linear-gradient(
-                135deg,
-                #9d7919,
-                #e2c457
-            );
 
-            color: #050505;
+.nav-links a {
 
-            text-decoration: none;
+    color: #888;
 
-            border-radius: 7px;
+    font-size: 13px;
 
-            font-weight: bold;
+    transition: 0.3s;
 
-            transition: .3s;
-        }
+    position: relative;
+}
 
-        .btn:hover {
-            transform: translateY(-4px);
-        }
 
+.nav-links a:hover {
 
-        /* =========================
-           SEÇÕES
-        ========================= */
+    color: #E6CC6A;
+}
 
-        section {
-            padding: 100px 7%;
-        }
 
-        .section-title {
-            text-align: center;
+.nav-links a::after {
 
-            margin-bottom: 55px;
-        }
+    content: "";
 
-        .section-title small {
-            color: #c8a43a;
+    position: absolute;
 
-            letter-spacing: 4px;
+    left: 0;
 
-            font-size: 11px;
-        }
+    bottom: -8px;
 
-        .section-title h2 {
-            font-size: 42px;
+    width: 0;
 
-            margin-top: 10px;
-        }
+    height: 1px;
 
-        .section-title h2 span {
-            color: #c8a43a;
-        }
+    background: #C8A43A;
 
-        .section-title p {
-            color: #666;
+    transition: 0.3s;
+}
 
-            margin-top: 12px;
-        }
 
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        /* =========================
-           SERVIÇOS
-        ========================= */
 
-        .services {
-            max-width: 1000px;
+/* =========================================================
+   HERO
+   ========================================================= */
 
-            margin: auto;
+.hero {
 
-            display: grid;
+    min-height: 100vh;
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(280px, 1fr)
-                );
+    padding:
+        150px 7%
+        100px;
 
-            gap: 25px;
-        }
+    display: flex;
 
-        .service {
-            padding: 35px 30px;
+    align-items: center;
 
-            background: #101010;
+    position: relative;
 
-            border: 1px solid #222;
+    overflow: hidden;
+}
 
-            border-radius: 16px;
 
-            text-align: center;
+.hero::after {
 
-            transition: .3s;
-        }
+    content: "";
 
-        .service:hover {
-            transform: translateY(-8px);
+    position: absolute;
 
-            border-color: #c8a43a;
-        }
+    width: 500px;
+    height: 500px;
 
-        .service-icon {
-            font-size: 40px;
+    left: -250px;
+    bottom: -250px;
 
-            color: #c8a43a;
+    border-radius: 50%;
 
-            margin-bottom: 18px;
-        }
+    border: 1px solid rgba(200,164,58,0.12);
 
-        .service h3 {
-            margin-bottom: 12px;
-        }
+    box-shadow:
+        0 0 0 80px rgba(200,164,58,0.02),
+        0 0 0 160px rgba(200,164,58,0.015);
 
-        .service p {
-            color: #777;
+    pointer-events: none;
+}
 
-            line-height: 1.7;
-        }
 
+.hero-content {
 
-        /* =========================
-           PORTFÓLIO
-        ========================= */
+    max-width: 1000px;
 
-        .portfolio {
-            max-width: 1300px;
+    position: relative;
 
-            margin: auto;
+    z-index: 2;
+}
 
-            display: grid;
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(280px, 1fr)
-                );
+.hero-label {
 
-            gap: 25px;
+    display: inline-flex;
 
-            align-items: start;
-        }
+    align-items: center;
 
-        .project {
-            background: #0d0d0d;
+    gap: 10px;
 
-            border: 1px solid #222;
+    color: #C8A43A;
 
-            border-radius: 15px;
+    font-size: 11px;
 
-            overflow: hidden;
+    letter-spacing: 4px;
 
-            transition: .3s;
-        }
+    text-transform: uppercase;
 
-        .project:hover {
-            transform: translateY(-8px);
+    margin-bottom: 30px;
+}
 
-            border-color: #c8a43a;
-        }
 
-        /* NÃO CORTA OS FLYERS */
+.hero-label::before {
 
-        .project-image {
-            width: 100%;
+    content: "";
 
-            padding: 8px;
+    width: 35px;
 
-            background: #050505;
+    height: 1px;
 
-            line-height: 0;
-        }
+    background: #C8A43A;
+}
 
-        .project-image img {
-            display: block;
 
-            width: 100%;
+.hero h1 {
 
-            height: auto;
+    font-size: clamp(
+        58px,
+        10vw,
+        130px
+    );
 
-            max-width: 100%;
+    line-height: 0.88;
 
-            object-fit: contain;
+    letter-spacing: -5px;
 
-            border-radius: 8px;
-        }
+    max-width: 1000px;
 
-        .project-info {
-            padding: 20px;
-        }
+    margin-bottom: 35px;
+}
 
-        .project-info h3 {
-            margin-bottom: 7px;
-        }
 
-        .project-info p {
-            color: #666;
+.hero h1 span {
 
-            font-size: 13px;
-        }
+    color: #C8A43A;
 
+    display: block;
+}
 
-        /* =========================
-           CONTATO
-        ========================= */
 
-        .contact {
-            text-align: center;
+.hero-description {
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(200,164,58,.1),
-                    transparent 45%
-                );
+    max-width: 600px;
 
-            border-top: 1px solid #1c1c1c;
+    color: #888;
 
-            border-bottom: 1px solid #1c1c1c;
-        }
+    font-size: 17px;
 
-        .contact-text {
-            max-width: 600px;
+    line-height: 1.8;
 
-            margin: 0 auto 30px;
+    margin-bottom: 40px;
+}
 
-            color: #777;
 
-            line-height: 1.8;
-        }
+.hero-buttons {
 
+    display: flex;
 
-        /* =========================
-           RODAPÉ
-        ========================= */
+    gap: 15px;
 
-        footer {
-            text-align: center;
+    flex-wrap: wrap;
+}
 
-            padding: 35px 20px;
 
-            color: #444;
-        }
+.btn-primary {
 
-        footer span {
-            color: #c8a43a;
-        }
+    padding: 16px 28px;
 
+    background: #C8A43A;
 
-        /* =====================================================
-           POPUP DE ATUALIZAÇÃO
-        ===================================================== */
+    color: #050505;
 
-        #updateOverlay {
+    font-size: 12px;
 
-            display: none;
+    font-weight: 900;
 
-            position: fixed;
+    letter-spacing: 1px;
 
-            top: 0;
-            left: 0;
+    border-radius: 4px;
 
-            width: 100%;
-            height: 100%;
+    transition: 0.3s;
+}
 
-            background: rgba(
-                0,
-                0,
-                0,
-                0.82
-            );
 
-            backdrop-filter: blur(8px);
+.btn-primary:hover {
 
-            z-index: 99999;
+    background: #E6CC6A;
 
-            align-items: center;
-            justify-content: center;
+    transform: translateY(-4px);
+}
 
-            padding: 20px;
-        }
 
+.btn-secondary {
 
-        #updateOverlay.show {
-            display: flex;
+    padding: 16px 28px;
 
-            animation: aparecer .35s ease;
-        }
+    border: 1px solid #333;
 
+    color: #aaa;
 
-        .update-popup {
+    font-size: 12px;
 
-            width: 100%;
+    font-weight: bold;
 
-            max-width: 470px;
+    letter-spacing: 1px;
 
-            padding: 45px 35px;
+    border-radius: 4px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #171717,
-                    #090909
-                );
+    transition: 0.3s;
+}
 
-            border: 1px solid
-                rgba(
-                    200,
-                    164,
-                    58,
-                    .65
-                );
 
-            border-radius: 22px;
+.btn-secondary:hover {
 
-            text-align: center;
+    border-color: #C8A43A;
 
-            box-shadow:
-                0 30px 100px
-                rgba(0,0,0,.8);
+    color: #E6CC6A;
 
-            animation:
-                popup .45s ease;
-        }
+    transform: translateY(-4px);
+}
 
 
-        .update-icon {
+/* =========================================================
+   NÚMEROS
+   ========================================================= */
 
-            width: 75px;
-            height: 75px;
+.stats {
 
-            margin: 0 auto 20px;
+    max-width: 1100px;
 
-            display: flex;
+    margin: 0 auto;
 
-            align-items: center;
-            justify-content: center;
+    padding: 0 7% 100px;
 
-            border-radius: 50%;
+    display: grid;
 
-            background:
-                rgba(
-                    200,
-                    164,
-                    58,
-                    .12
-                );
+    grid-template-columns:
+        repeat(3, 1fr);
 
-            border: 1px solid #c8a43a;
+    gap: 20px;
+}
 
-            font-size: 34px;
 
-            animation:
-                pulsar 1.8s infinite;
-        }
+.stat {
 
+    padding: 25px;
 
-        .update-popup h2 {
+    border-left: 1px solid #292929;
+}
 
-            font-size: 28px;
 
-            margin-bottom: 12px;
-        }
+.stat strong {
 
+    display: block;
 
-        .update-popup h2 span {
-            color: #c8a43a;
-        }
+    font-size: 35px;
 
+    color: #E6CC6A;
 
-        .update-popup p {
+    margin-bottom: 5px;
+}
 
-            color: #999;
 
-            line-height: 1.7;
+.stat span {
 
-            margin-bottom: 28px;
-        }
+    color: #666;
 
+    font-size: 12px;
 
-        .update-button {
+    text-transform: uppercase;
 
-            display: block;
+    letter-spacing: 2px;
+}
 
-            width: 100%;
 
-            padding: 17px;
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
 
-            border: none;
+.section {
 
-            border-radius: 9px;
+    padding: 120px 7%;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #a17b1d,
-                    #e1c254
-                );
 
-            color: #050505;
+.section-header {
 
-            font-weight: 900;
+    max-width: 1100px;
 
-            font-size: 15px;
+    margin: 0 auto 60px;
+}
 
-            cursor: pointer;
 
-            transition: .3s;
-        }
+.section-number {
 
+    color: #C8A43A;
 
-        .update-button:hover {
+    font-size: 11px;
 
-            transform: scale(1.03);
+    letter-spacing: 4px;
 
-            box-shadow:
-                0 10px 35px
-                rgba(
-                    200,
-                    164,
-                    58,
-                    .25
-                );
-        }
+    margin-bottom: 15px;
+}
 
 
-        .update-later {
+.section-header h2 {
 
-            display: block;
+    font-size: clamp(
+        40px,
+        6vw,
+        70px
+    );
 
-            margin-top: 16px;
+    letter-spacing: -2px;
+}
 
-            background: none;
 
-            border: none;
+.section-header h2 span {
 
-            color: #666;
+    color: #C8A43A;
+}
 
-            cursor: pointer;
 
-            width: 100%;
-        }
+.section-header p {
 
+    color: #777;
 
-        .update-later:hover {
-            color: #aaa;
-        }
+    max-width: 600px;
 
+    margin-top: 15px;
 
-        /* =========================
-           ANIMAÇÕES
-        ========================= */
+    line-height: 1.8;
+}
 
-        @keyframes aparecer {
 
-            from {
-                opacity: 0;
-            }
+/* =========================================================
+   SERVIÇOS
+   ========================================================= */
 
-            to {
-                opacity: 1;
-            }
+.services {
 
-        }
+    max-width: 1100px;
 
+    margin: auto;
 
-        @keyframes popup {
+    display: grid;
 
-            from {
-                opacity: 0;
+    grid-template-columns:
+        repeat(2, 1fr);
 
-                transform:
-                    scale(.85)
-                    translateY(30px);
-            }
+    gap: 20px;
+}
 
-            to {
-                opacity: 1;
 
-                transform:
-                    scale(1)
-                    translateY(0);
-            }
+.service {
 
-        }
+    padding: 45px;
 
+    min-height: 260px;
 
-        @keyframes pulsar {
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #090909
+        );
 
-            0% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(
-                        200,
-                        164,
-                        58,
-                        .35
-                    );
-            }
+    border: 1px solid #242424;
 
-            70% {
-                box-shadow:
-                    0 0 0 15px
-                    rgba(
-                        200,
-                        164,
-                        58,
-                        0
-                    );
-            }
+    position: relative;
 
-            100% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(
-                        200,
-                        164,
-                        58,
-                        0
-                    );
-            }
+    overflow: hidden;
 
-        }
+    transition: 0.4s;
+}
 
 
-        /* =========================
-           CELULAR
-        ========================= */
+.service::before {
 
-        @media (max-width: 700px) {
+    content: "";
 
-            header {
-                justify-content: center;
-            }
+    position: absolute;
 
-            nav {
-                display: none;
-            }
+    width: 100px;
+    height: 100px;
 
-            .hero h1 {
-                font-size: 48px;
+    right: -50px;
+    top: -50px;
 
-                letter-spacing: 3px;
-            }
+    border-radius: 50%;
 
-            .hero p {
-                font-size: 16px;
-            }
+    background: rgba(200,164,58,0.08);
 
-            .section-title h2 {
-                font-size: 32px;
-            }
+    transition: 0.4s;
+}
 
-            section {
-                padding: 75px 5%;
-            }
 
-            .portfolio {
-                grid-template-columns: 1fr;
-            }
+.service:hover {
 
-            .update-popup {
-                padding: 35px 25px;
-            }
+    transform: translateY(-8px);
 
-        }
+    border-color: #C8A43A;
+}
 
-    </style>
+
+.service:hover::before {
+
+    transform: scale(3);
+}
+
+
+.service-number {
+
+    color: #C8A43A;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 45px;
+}
+
+
+.service h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+.service p {
+
+    color: #777;
+
+    line-height: 1.8;
+
+    max-width: 450px;
+}
+
+
+/* =========================================================
+   PORTFÓLIO
+   ========================================================= */
+
+.portfolio {
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+.project {
+
+    background: #0D0D0D;
+
+    border: 1px solid #242424;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+
+.project:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #C8A43A;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.45);
+}
+
+
+.project-image {
+
+    width: 100%;
+
+    background: #050505;
+
+    padding: 10px;
+
+    line-height: 0;
+}
+
+
+.project-image img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+
+    transition: 0.5s;
+}
+
+
+.project:hover img {
+
+    transform: scale(1.015);
+}
+
+
+.project-info {
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.project-info h3 {
+
+    font-size: 17px;
+}
+
+
+.project-info span {
+
+    color: #C8A43A;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+
+    padding: 150px 7%;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-top: 1px solid #181818;
+
+    border-bottom: 1px solid #181818;
+}
+
+
+.cta::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background: rgba(200,164,58,0.06);
+
+    filter: blur(70px);
+}
+
+
+.cta-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.cta small {
+
+    color: #C8A43A;
+
+    letter-spacing: 4px;
+}
+
+
+.cta h2 {
+
+    font-size: clamp(
+        45px,
+        8vw,
+        90px
+    );
+
+    margin: 20px 0 25px;
+
+    letter-spacing: -4px;
+}
+
+
+.cta h2 span {
+
+    color: #C8A43A;
+}
+
+
+.cta p {
+
+    max-width: 600px;
+
+    margin: auto auto 35px;
+
+    color: #777;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    padding: 35px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+footer span {
+
+    color: #C8A43A;
+}
+
+
+/* =========================================================
+   POPUP DE ATUALIZAÇÃO
+   ========================================================= */
+
+#update-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.88);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 99999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+#update-overlay.active {
+
+    display: flex;
+}
+
+
+.update-box {
+
+    width: 100%;
+
+    max-width: 480px;
+
+    background: #101010;
+
+    border: 1px solid #C8A43A;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.8);
+
+    animation:
+        popup .4s ease;
+}
+
+
+.update-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+
+.update-box h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+.update-box h2 span {
+
+    color: #C8A43A;
+}
+
+
+.update-box p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+.update-btn {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #C8A43A;
+
+    color: #050505;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.update-btn:hover {
+
+    background: #E6CC6A;
+
+    transform: translateY(-3px);
+}
+
+
+.close-update {
+
+    margin-top: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+   ========================================================= */
+
+@keyframes popup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+
+        justify-content: center;
+    }
+
+    .nav-links {
+
+        display: none;
+    }
+
+    .hero {
+
+        padding-top: 140px;
+    }
+
+    .hero h1 {
+
+        font-size: 58px;
+
+        letter-spacing: -3px;
+    }
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .services {
+
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio {
+
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+
+        padding: 90px 5%;
+    }
+
+    .cta {
+
+        padding: 100px 5%;
+    }
+
+    .cta h2 {
+
+        letter-spacing: -2px;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -734,549 +1056,617 @@
 <body>
 
 
-    <!-- =========================
-         MENU
-    ========================= -->
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
 
-    <header>
+<header class="navbar">
 
-        <div class="logo">
-            LOJA <span>TRALHA</span>
+    <div class="logo">
+        LOJA <span>TRALHA</span>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="#inicio">
+            INÍCIO
+        </a>
+
+        <a href="#servicos">
+            SERVIÇOS
+        </a>
+
+        <a href="#portfolio">
+            PORTFÓLIO
+        </a>
+
+        <a href="#contato">
+            CONTATO
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            DESIGN & IDENTIDADE VISUAL
         </div>
 
-        <nav>
+        <h1>
+            SUA IDEIA.
+            <span>NOSSO DESIGN.</span>
+        </h1>
 
-            <a href="#inicio">
-                Início
-            </a>
+        <p class="hero-description">
 
-            <a href="#servicos">
-                Serviços
-            </a>
+            A Loja Tralha transforma ideias
+            em artes que chamam atenção.
+            Logos, flyers e identidades visuais
+            criadas para deixar sua marca
+            impossível de ignorar.
 
-            <a href="#portfolio">
-                Portfólio
-            </a>
+        </p>
 
-            <a href="#contato">
-                Contato
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================
-         INÍCIO
-    ========================= -->
-
-    <section
-        class="hero"
-        id="inicio"
-    >
-
-        <div class="hero-content">
-
-            <div class="badge">
-                DESIGN PREMIUM
-            </div>
-
-            <h1>
-                LOJA <span>TRALHA</span>
-            </h1>
-
-            <p>
-
-                Criamos logos e flyers
-                profissionais, modernos e
-                personalizados para transformar
-                suas ideias em uma identidade
-                visual marcante.
-
-            </p>
+        <div class="hero-buttons">
 
             <a
                 href="#portfolio"
-                class="btn"
+                class="btn-primary"
             >
-                VER PORTFÓLIO
+                EXPLORAR PORTFÓLIO
+            </a>
+
+            <a
+                href="#contato"
+                class="btn-secondary"
+            >
+                FALAR CONOSCO
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         SERVIÇOS
-    ========================= -->
+<!-- =========================================================
+     ESTATÍSTICAS
+     ========================================================= -->
 
-    <section id="servicos">
+<div class="stats">
 
-        <div class="section-title">
+    <div class="stat">
 
-            <small>
-                O QUE FAZEMOS
-            </small>
+        <strong>
+            07+
+        </strong>
 
-            <h2>
-                NOSSOS <span>SERVIÇOS</span>
-            </h2>
+        <span>
+            Projetos no portfólio
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong>
+            02
+        </strong>
+
+        <span>
+            Especialidades
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong>
+            100%
+        </strong>
+
+        <span>
+            Personalização
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SERVIÇOS
+     ========================================================= -->
+
+<section
+    class="section"
+    id="servicos"
+>
+
+    <div class="section-header">
+
+        <div class="section-number">
+            01 — SERVIÇOS
+        </div>
+
+        <h2>
+            DESIGN QUE
+            <span>MARCA.</span>
+        </h2>
+
+        <p>
+
+            Criamos peças visuais com
+            personalidade, acabamento
+            profissional e atenção aos detalhes.
+
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <div class="service">
+
+            <div class="service-number">
+                01 / LOGOS
+            </div>
+
+            <h3>
+                Identidade Visual
+            </h3>
 
             <p>
-                Design pensado nos mínimos detalhes.
+
+                Logos modernas e marcantes
+                para representar sua cidade,
+                servidor, empresa, marca ou projeto.
+
             </p>
 
         </div>
 
 
-        <div class="services">
+        <div class="service">
 
-
-            <div class="service">
-
-                <div class="service-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Logos
-                </h3>
-
-                <p>
-                    Logos modernas, profissionais
-                    e personalizadas para sua marca,
-                    cidade ou projeto.
-                </p>
-
+            <div class="service-number">
+                02 / FLYERS
             </div>
 
-
-            <div class="service">
-
-                <div class="service-icon">
-                    ◆
-                </div>
-
-                <h3>
-                    Flyers
-                </h3>
-
-                <p>
-                    Flyers personalizados para
-                    eventos, anúncios, servidores
-                    e redes sociais.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PORTFÓLIO
-    ========================= -->
-
-    <section id="portfolio">
-
-        <div class="section-title">
-
-            <small>
-                NOSSOS TRABALHOS
-            </small>
-
-            <h2>
-                NOSSO <span>PORTFÓLIO</span>
-            </h2>
+            <h3>
+                Flyers Premium
+            </h3>
 
             <p>
-                Confira alguns dos nossos trabalhos.
+
+                Artes para divulgação,
+                eventos, anúncios e redes sociais,
+                feitas para chamar atenção.
+
             </p>
 
         </div>
 
 
-        <div class="portfolio">
+    </div>
+
+</section>
 
 
-            <div class="project">
+<!-- =========================================================
+     PORTFÓLIO
+     ========================================================= -->
 
-                <div class="project-image">
+<section
+    class="section"
+    id="portfolio"
+>
 
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
-                        alt="Flyer 1"
-                    >
+    <div class="section-header">
 
-                </div>
+        <div class="section-number">
+            02 — PORTFÓLIO
+        </div>
 
-                <div class="project-info">
+        <h2>
+            TRABALHOS
+            <span>SELECIONADOS.</span>
+        </h2>
 
-                    <h3>
-                        Flyer Premium
-                    </h3>
+        <p>
 
-                    <p>
-                        Design personalizado.
-                    </p>
+            Confira alguns dos flyers
+            produzidos pela Loja Tralha.
 
-                </div>
+        </p>
 
-            </div>
+    </div>
 
 
-            <div class="project">
+    <div class="portfolio">
 
-                <div class="project-image">
 
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
-                        alt="Flyer 2"
-                    >
+        <!-- FLYER 01 -->
 
-                </div>
+        <div class="project">
 
-                <div class="project-info">
+            <div class="project-image">
 
-                    <h3>
-                        Flyer Premium
-                    </h3>
-
-                    <p>
-                        Arte para divulgação.
-                    </p>
-
-                </div>
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
+                    alt="Flyer Loja Tralha 01"
+                >
 
             </div>
 
+            <div class="project-info">
 
-            <div class="project">
+                <h3>
+                    Projeto 01
+                </h3>
 
-                <div class="project-image">
-
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
-                        alt="Flyer 3"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        Flyer Exclusivo
-                    </h3>
-
-                    <p>
-                        Design desenvolvido sob medida.
-                    </p>
-
-                </div>
+                <span>
+                    FLYER
+                </span>
 
             </div>
-
-
-            <div class="project">
-
-                <div class="project-image">
-
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
-                        alt="Flyer 4"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        Flyer Exclusivo
-                    </h3>
-
-                    <p>
-                        Arte personalizada.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project">
-
-                <div class="project-image">
-
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
-                        alt="Flyer 5"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        Flyer Premium
-                    </h3>
-
-                    <p>
-                        Trabalho realizado pela Loja Tralha.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project">
-
-                <div class="project-image">
-
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
-                        alt="Flyer 6"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        Flyer Especial
-                    </h3>
-
-                    <p>
-                        Arte personalizada.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="project">
-
-                <div class="project-image">
-
-                    <img
-                        src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
-                        alt="Flyer 7"
-                    >
-
-                </div>
-
-                <div class="project-info">
-
-                    <h3>
-                        Flyer Especial
-                    </h3>
-
-                    <p>
-                        Mais um trabalho da Loja Tralha.
-                    </p>
-
-                </div>
-
-            </div>
-
 
         </div>
 
-    </section>
 
+        <!-- FLYER 02 -->
 
-    <!-- =========================
-         CONTATO
-    ========================= -->
+        <div class="project">
 
-    <section
-        class="contact"
-        id="contato"
-    >
+            <div class="project-image">
 
-        <div class="section-title">
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
+                    alt="Flyer Loja Tralha 02"
+                >
 
-            <small>
-                FALE CONOSCO
-            </small>
+            </div>
 
-            <h2>
-                VAMOS <span>TRABALHAR?</span>
-            </h2>
+            <div class="project-info">
+
+                <h3>
+                    Projeto 02
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
 
         </div>
 
-        <p class="contact-text">
 
-            Gostou dos nossos trabalhos?
-            Entre em contato conosco e
-            solicite seu orçamento.
+        <!-- FLYER 03 -->
+
+        <div class="project">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
+                    alt="Flyer Loja Tralha 03"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>
+                    Projeto 03
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLYER 04 -->
+
+        <div class="project">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
+                    alt="Flyer Loja Tralha 04"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>
+                    Projeto 04
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLYER 05 -->
+
+        <div class="project">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
+                    alt="Flyer Loja Tralha 05"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>
+                    Projeto 05
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLYER 06 -->
+
+        <div class="project">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
+                    alt="Flyer Loja Tralha 06"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>
+                    Projeto 06
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLYER 07 -->
+
+        <div class="project">
+
+            <div class="project-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
+                    alt="Flyer Loja Tralha 07"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>
+                    Projeto 07
+                </h3>
+
+                <span>
+                    FLYER
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTATO
+     ========================================================= -->
+
+<section
+    class="cta"
+    id="contato"
+>
+
+    <div class="cta-content">
+
+        <small>
+            PRONTO PARA COMEÇAR?
+        </small>
+
+        <h2>
+            VAMOS CRIAR
+            <span>ALGO GRANDE.</span>
+        </h2>
+
+        <p>
+
+            Entre em contato com a Loja Tralha
+            e transforme sua ideia em uma
+            arte profissional.
 
         </p>
 
         <a
             href="https://discord.gg/QtNjjgXZ9"
             target="_blank"
-            class="btn"
+            class="btn-primary"
         >
             ENTRAR EM CONTATO
         </a>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =========================
-         RODAPÉ
-    ========================= -->
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
-    <footer>
+<footer>
 
+    <div>
         © 2026
         <span>LOJA TRALHA</span>
-        — Todos os direitos reservados.
+    </div>
 
-    </footer>
+    <div>
+        DESIGN PREMIUM
+    </div>
+
+</footer>
 
 
-    <!-- =====================================================
-         POPUP DE ATUALIZAÇÃO
-    ===================================================== -->
+<!-- =========================================================
+     POPUP DE ATUALIZAÇÃO
+     ========================================================= -->
 
-    <div id="updateOverlay">
+<div id="update-overlay">
 
-        <div class="update-popup">
+    <div class="update-box">
 
-            <div class="update-icon">
-                🚀
-            </div>
-
-            <h2>
-                SITE <span>ATUALIZADO!</span>
-            </h2>
-
-            <p>
-
-                A Loja Tralha recebeu uma
-                nova atualização.
-
-                <br><br>
-
-                Atualize agora para acessar
-                a versão mais recente do site.
-
-            </p>
-
-            <button
-                class="update-button"
-                onclick="atualizarSite()"
-            >
-                🚀 ATUALIZAR AGORA
-            </button>
-
-            <button
-                class="update-later"
-                onclick="fecharAtualizacao()"
-            >
-                Continuar no site
-            </button>
-
+        <div class="update-icon">
+            ✦
         </div>
+
+        <h2>
+            NOVA <span>ATUALIZAÇÃO</span>
+        </h2>
+
+        <p>
+
+            A Loja Tralha recebeu
+            uma nova versão.
+
+            <br>
+
+            Atualize a página para
+            continuar navegando.
+
+        </p>
+
+        <button
+            class="update-btn"
+            onclick="location.reload(true)"
+        >
+            ATUALIZAR AGORA
+        </button>
+
+        <button
+            class="close-update"
+            onclick="fecharAtualizacao()"
+        >
+            Continuar no site
+        </button>
 
     </div>
 
-
-    <script>
-
-
-        /* =====================================================
-           SISTEMA DE ATUALIZAÇÃO
-
-           QUANDO FIZER UMA NOVA ATUALIZAÇÃO,
-           MUDE O NÚMERO:
-
-           1 → 2 → 3 → 4 → 5...
-
-        ===================================================== */
-
-        const VERSAO_DO_SITE = "2";
+</div>
 
 
-        const versaoAnterior =
-            localStorage.getItem(
-                "loja_tralha_versao"
-            );
+<script>
+
+/* =========================================================
+   VERSÃO DO SITE
+
+   Quando fizer uma nova atualização,
+   altere:
+
+   "1"
+
+   para:
+
+   "2"
+
+   depois "3", "4", etc.
+   ========================================================= */
+
+const VERSAO_DO_SITE = "1";
 
 
-        /*
-           Se a pessoa já visitou o site
-           e encontrou uma versão diferente,
-           mostra o popup.
-        */
-
-        if (
-            versaoAnterior !== null &&
-            versaoAnterior !== VERSAO_DO_SITE
-        ) {
-
-            setTimeout(function() {
-
-                document
-                    .getElementById(
-                        "updateOverlay"
-                    )
-                    .classList.add("show");
-
-            }, 700);
-
-        }
+const versaoSalva =
+    localStorage.getItem(
+        "loja_tralha_versao"
+    );
 
 
-        /*
-           Salva a versão atual.
-        */
+if (
+    versaoSalva !== null &&
+    versaoSalva !== VERSAO_DO_SITE
+) {
 
-        localStorage.setItem(
-            "loja_tralha_versao",
-            VERSAO_DO_SITE
-        );
+    setTimeout(() => {
 
+        document
+            .getElementById("update-overlay")
+            .classList.add("active");
 
-        /* =====================================================
-           BOTÃO ATUALIZAR
-        ===================================================== */
+    }, 500);
 
-        function atualizarSite() {
-
-            /*
-               Força uma nova requisição
-               para carregar a página.
-            */
-
-            window.location.reload();
-
-        }
+}
 
 
-        /* =====================================================
-           FECHAR
-        ===================================================== */
+localStorage.setItem(
+    "loja_tralha_versao",
+    VERSAO_DO_SITE
+);
 
-        function fecharAtualizacao() {
 
-            document
-                .getElementById(
-                    "updateOverlay"
-                )
-                .classList.remove("show");
+function fecharAtualizacao() {
 
-        }
+    document
+        .getElementById("update-overlay")
+        .classList.remove("active");
 
-    </script>
+}
+
+</script>
 
 
 </body>
