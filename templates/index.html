@@ -7,12 +7,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Loja Tralha — Design & Criação</title>
+<title>TRALHA STUDIO — Design & Criação</title>
 
 <style>
 
 /* =====================================================
-   LOJA TRALHA
+   TRALHA STUDIO
    PALETA
    Preto: #050505
    Dourado: #C8A43A
@@ -48,9 +48,7 @@ img{
 }
 
 
-/* =====================================================
-   FUNDO
-   ===================================================== */
+/* FUNDO */
 
 body::before{
     content:"";
@@ -81,15 +79,12 @@ body::after{
 }
 
 
-/* =====================================================
-   MENU
-   ===================================================== */
+/* MENU */
 
 header{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:82px;
 
@@ -126,29 +121,21 @@ nav{
 
 nav a{
     position:relative;
-
     font-size:11px;
     font-weight:bold;
     letter-spacing:2px;
-
     color:#888;
-
     transition:.3s;
 }
 
 nav a::after{
     content:"";
-
     position:absolute;
-
     left:0;
     bottom:-9px;
-
     width:0;
     height:1px;
-
     background:#C8A43A;
-
     transition:.3s;
 }
 
@@ -161,9 +148,7 @@ nav a:hover::after{
 }
 
 
-/* =====================================================
-   HERO
-   ===================================================== */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -182,23 +167,16 @@ nav a:hover::after{
 
 .hero-tag{
     color:#C8A43A;
-
     font-size:11px;
-
     letter-spacing:6px;
-
     font-weight:bold;
-
     margin-bottom:32px;
 }
 
 .hero h1{
     font-size:clamp(65px,10vw,150px);
-
     line-height:.82;
-
     letter-spacing:-8px;
-
     margin-bottom:45px;
 }
 
@@ -209,13 +187,9 @@ nav a:hover::after{
 
 .hero p{
     max-width:680px;
-
     color:#888;
-
     font-size:18px;
-
     line-height:1.9;
-
     margin-bottom:42px;
 }
 
@@ -227,17 +201,11 @@ nav a:hover::after{
 
 .btn{
     display:inline-block;
-
     padding:18px 32px;
-
     border-radius:4px;
-
     font-size:11px;
-
     font-weight:bold;
-
     letter-spacing:2px;
-
     transition:.3s;
 }
 
@@ -263,34 +231,25 @@ nav a:hover::after{
 }
 
 
-/* =====================================================
-   MARQUEE
-   ===================================================== */
+/* MARQUEE */
 
 .marquee{
     overflow:hidden;
-
     border-bottom:1px solid #181818;
     border-top:1px solid #181818;
-
     padding:25px 0;
-
     white-space:nowrap;
 }
 
 .marquee-track{
     display:inline-block;
-
     animation:move 25s linear infinite;
 }
 
 .marquee span{
     font-size:13px;
-
     letter-spacing:5px;
-
     margin:0 35px;
-
     color:#555;
 }
 
@@ -299,7 +258,6 @@ nav a:hover::after{
 }
 
 @keyframes move{
-
     from{
         transform:translateX(0);
     }
@@ -307,29 +265,21 @@ nav a:hover::after{
     to{
         transform:translateX(-50%);
     }
-
 }
 
 
-/* =====================================================
-   FRASE
-   ===================================================== */
+/* FRASE */
 
 .big-phrase{
     padding:150px 7%;
-
     text-align:center;
 }
 
 .big-phrase h2{
     max-width:1100px;
-
     margin:auto;
-
     font-size:clamp(40px,6vw,82px);
-
     line-height:1;
-
     letter-spacing:-5px;
 }
 
@@ -338,9 +288,7 @@ nav a:hover::after{
 }
 
 
-/* =====================================================
-   SEÇÕES
-   ===================================================== */
+/* SEÇÕES */
 
 section{
     padding:130px 7%;
@@ -348,25 +296,19 @@ section{
 
 .section-head{
     max-width:1200px;
-
     margin:0 auto 75px;
 }
 
 .number{
     color:#C8A43A;
-
     font-size:11px;
-
     letter-spacing:5px;
-
     margin-bottom:22px;
 }
 
 .title{
     font-size:clamp(50px,7vw,90px);
-
     line-height:.9;
-
     letter-spacing:-5px;
 }
 
@@ -376,34 +318,24 @@ section{
 
 .description{
     max-width:650px;
-
     margin-top:28px;
-
     color:#777;
-
     line-height:1.9;
 }
 
 
-/* =====================================================
-   SERVIÇOS
-   ===================================================== */
+/* SERVIÇOS */
 
 .services{
     max-width:1200px;
-
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:20px;
 }
 
 .service{
     min-height:350px;
-
     padding:42px;
 
     background:linear-gradient(
@@ -413,88 +345,64 @@ section{
     );
 
     border:1px solid #242424;
-
     transition:.4s;
 }
 
 .service:hover{
     transform:translateY(-10px);
-
     border-color:#C8A43A;
 }
 
 .service-number{
     color:#C8A43A;
-
     font-size:11px;
-
     letter-spacing:4px;
 }
 
 .service h3{
     font-size:30px;
-
     margin:80px 0 20px;
 }
 
 .service p{
     color:#777;
-
     line-height:1.8;
 }
 
 
-/* =====================================================
-   FLYERS
-   ===================================================== */
+/* FLYERS */
 
 #flyers{
     background:#080808;
-
     border-top:1px solid #181818;
     border-bottom:1px solid #181818;
 }
 
 .flyers{
     max-width:1400px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:30px;
 }
 
 .flyer{
     background:#0D0D0D;
-
     padding:10px;
-
     border:1px solid #252525;
-
     transition:.4s;
 }
 
 .flyer:hover{
     transform:translateY(-8px);
-
     border-color:#C8A43A;
 }
 
 .flyer img{
     width:100%;
-
     height:auto;
-
     display:block;
-
-    /*
-       SEM ALTURA FIXA.
-       OS FLYERS NÃO SERÃO CORTADOS.
-    */
-
     object-fit:contain;
 }
 
@@ -504,30 +412,23 @@ section{
 
 .flyer-info h3{
     font-size:18px;
-
     margin-bottom:8px;
 }
 
 .flyer-info p{
     color:#666;
-
     font-size:12px;
 }
 
 
-/* =====================================================
-   LOGOS
-   ===================================================== */
+/* LOGOS */
 
 .logo-grid{
     max-width:1200px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:25px;
 }
 
@@ -544,9 +445,7 @@ section{
     border:1px solid #242424;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     transition:.4s;
@@ -554,7 +453,6 @@ section{
 
 .logo-box:hover{
     transform:translateY(-8px);
-
     border-color:#C8A43A;
 }
 
@@ -564,26 +462,19 @@ section{
 
 .logo-box strong{
     display:block;
-
     color:#C8A43A;
-
     font-size:34px;
-
     letter-spacing:5px;
-
     margin-bottom:10px;
 }
 
 .logo-box small{
     color:#555;
-
     letter-spacing:3px;
 }
 
 
-/* =====================================================
-   HISTÓRIA
-   ===================================================== */
+/* HISTÓRIA */
 
 #historia{
     background:#090909;
@@ -594,11 +485,9 @@ section{
 
 .history{
     max-width:1200px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:1fr 1.5fr;
 
     gap:90px;
@@ -610,37 +499,27 @@ section{
 
 .history-number{
     font-size:clamp(130px,18vw,230px);
-
     font-weight:900;
-
     color:rgba(200,164,58,.08);
-
     line-height:.7;
 }
 
 .history-left h3{
     font-size:45px;
-
     margin-left:20px;
 }
 
 .founder{
     margin-top:35px;
-
     margin-left:20px;
-
     color:#555;
-
     font-size:11px;
-
     letter-spacing:3px;
 }
 
 .history-text{
     color:#999;
-
     font-size:17px;
-
     line-height:2;
 }
 
@@ -653,29 +532,22 @@ section{
 }
 
 
-/* =====================================================
-   PROCESSO
-   ===================================================== */
+/* PROCESSO */
 
 .process{
     max-width:1200px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:20px;
 }
 
 .process-card{
     padding:35px;
-
     min-height:270px;
 
     border:1px solid #242424;
-
     background:#0D0D0D;
 
     transition:.3s;
@@ -683,44 +555,34 @@ section{
 
 .process-card:hover{
     border-color:#C8A43A;
-
     transform:translateY(-6px);
 }
 
 .process-card span{
     color:#C8A43A;
-
     letter-spacing:4px;
-
     font-size:11px;
 }
 
 .process-card h3{
     font-size:24px;
-
     margin:45px 0 15px;
 }
 
 .process-card p{
     color:#666;
-
     line-height:1.8;
 }
 
 
-/* =====================================================
-   DIFERENCIAIS
-   ===================================================== */
+/* DIFERENCIAIS */
 
 .differentials{
     max-width:1200px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
@@ -728,44 +590,35 @@ section{
     padding:45px;
 
     border:1px solid #242424;
-
     background:#0D0D0D;
 }
 
 .difference h3{
     color:#C8A43A;
-
     margin-bottom:15px;
-
     font-size:22px;
 }
 
 .difference p{
     color:#777;
-
     line-height:1.8;
 }
 
 
-/* =====================================================
-   STATUS
-   ===================================================== */
+/* STATUS */
 
 .status-section{
     padding:90px 7%;
-
     text-align:center;
 }
 
 .status{
     max-width:700px;
-
     margin:auto;
 
     padding:35px;
 
     background:#0D0D0D;
-
     border:1px solid #242424;
 }
 
@@ -773,7 +626,6 @@ section{
     display:inline-block;
 
     width:10px;
-
     height:10px;
 
     background:#49d66b;
@@ -791,38 +643,30 @@ section{
 
 .status p{
     color:#666;
-
     font-size:13px;
 }
 
 
-/* =====================================================
-   CONTATO
-   ===================================================== */
+/* CONTATO */
 
 #contato{
     text-align:center;
-
     padding:170px 7%;
 }
 
 .contact-small{
     color:#C8A43A;
-
     letter-spacing:5px;
-
     font-size:11px;
 }
 
 #contato h2{
     max-width:1000px;
-
     margin:25px auto;
 
     font-size:clamp(50px,9vw,110px);
 
     line-height:.9;
-
     letter-spacing:-6px;
 }
 
@@ -832,18 +676,14 @@ section{
 
 #contato p{
     max-width:600px;
-
     margin:0 auto 35px;
 
     color:#777;
-
     line-height:1.8;
 }
 
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
+/* FOOTER */
 
 footer{
     padding:45px 7%;
@@ -851,13 +691,10 @@ footer{
     border-top:1px solid #181818;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     color:#555;
-
     font-size:12px;
 }
 
@@ -866,9 +703,7 @@ footer span{
 }
 
 
-/* =====================================================
-   RESPONSIVO
-   ===================================================== */
+/* RESPONSIVO */
 
 @media(max-width:900px){
 
@@ -902,7 +737,6 @@ footer span{
 
     .history{
         grid-template-columns:1fr;
-
         gap:40px;
     }
 
@@ -920,7 +754,6 @@ footer span{
 
     header{
         height:auto;
-
         min-height:70px;
 
         padding:15px 5%;
@@ -943,14 +776,11 @@ footer span{
     }
 
     .hero{
-        padding:
-            160px 5%
-            90px;
+        padding:160px 5% 90px;
     }
 
     .hero h1{
         font-size:55px;
-
         letter-spacing:-4px;
     }
 
@@ -964,9 +794,7 @@ footer span{
 
     footer{
         flex-direction:column;
-
         gap:15px;
-
         text-align:center;
     }
 
@@ -988,8 +816,8 @@ footer span{
 
     <div class="logo">
 
-        LOJA
-        <span>TRALHA</span>
+        TRALHA
+        <span>STUDIO</span>
 
     </div>
 
@@ -1027,7 +855,7 @@ footer span{
 
         <div class="hero-tag">
 
-            LOJA TRALHA
+            TRALHA STUDIO
             •
             DESIGN
             •
@@ -1050,7 +878,7 @@ footer span{
         <p>
 
             Criatividade, dedicação e personalidade
-            em cada projeto. A Loja Tralha transforma
+            em cada projeto. A Tralha Studio transforma
             ideias em flyers e identidades visuais
             feitas para chamar atenção.
 
@@ -1094,7 +922,7 @@ footer span{
     <div class="marquee-track">
 
         <span>
-            LOJA <strong>TRALHA</strong>
+            TRALHA <strong>STUDIO</strong>
         </span>
 
         <span>
@@ -1118,7 +946,7 @@ footer span{
         </span>
 
         <span>
-            LOJA <strong>TRALHA</strong>
+            TRALHA <strong>STUDIO</strong>
         </span>
 
         <span>
@@ -1300,7 +1128,7 @@ footer span{
         <p class="description">
 
             Alguns dos trabalhos desenvolvidos
-            pela Loja Tralha.
+            pela Tralha Studio.
 
         </p>
 
@@ -1473,7 +1301,7 @@ footer span{
         <p class="description">
 
             Um espaço para apresentar as identidades
-            visuais criadas pela Loja Tralha.
+            visuais criadas pela Tralha Studio.
 
         </p>
 
@@ -1492,7 +1320,7 @@ footer span{
                 </strong>
 
                 <small>
-                    DESIGN
+                    STUDIO
                 </small>
 
             </div>
@@ -1563,7 +1391,7 @@ footer span{
 
         <p class="description">
 
-            Antes de existir uma loja,
+            Antes de existir uma marca,
             existia apenas a vontade de criar.
 
         </p>
@@ -1604,7 +1432,7 @@ footer span{
                 </strong>
 
                 Tenho 14 anos e, como muitas coisas
-                grandes, a história da Loja Tralha
+                grandes, a história da Tralha Studio
                 começou de uma forma simples:
                 com curiosidade.
 
@@ -1658,7 +1486,7 @@ footer span{
 
                 Foi então que nasceu a
                 <strong>
-                    Loja Tralha.
+                    Tralha Studio.
                 </strong>
 
                 Não nasceu pronta.
@@ -1709,7 +1537,7 @@ footer span{
 
             <p>
 
-                A Loja Tralha começou com uma ideia.
+                A Tralha Studio começou com uma ideia.
 
                 Hoje é um projeto.
 
@@ -1784,10 +1612,8 @@ footer span{
             </h3>
 
             <p>
-
                 Entendo o que você precisa
                 e o estilo que procura.
-
             </p>
 
         </div>
@@ -1804,10 +1630,8 @@ footer span{
             </h3>
 
             <p>
-
                 Desenvolvo a composição
                 e os elementos da arte.
-
             </p>
 
         </div>
@@ -1824,10 +1648,8 @@ footer span{
             </h3>
 
             <p>
-
                 Faço os ajustes necessários
                 para chegar ao resultado.
-
             </p>
 
         </div>
@@ -1844,10 +1666,8 @@ footer span{
             </h3>
 
             <p>
-
                 Finalizo o projeto e preparo
                 o arquivo para utilização.
-
             </p>
 
         </div>
@@ -1893,11 +1713,9 @@ footer span{
             </h3>
 
             <p>
-
                 Busco testar ideias diferentes
                 e encontrar uma composição
                 que combine com cada projeto.
-
             </p>
 
         </div>
@@ -1910,11 +1728,9 @@ footer span{
             </h3>
 
             <p>
-
                 Cada trabalho é uma oportunidade
                 de aprender e melhorar meu
                 processo de criação.
-
             </p>
 
         </div>
@@ -1927,11 +1743,9 @@ footer span{
             </h3>
 
             <p>
-
                 A proposta é criar algo que
                 tenha identidade e não pareça
                 apenas mais uma arte comum.
-
             </p>
 
         </div>
@@ -1944,11 +1758,9 @@ footer span{
             </h3>
 
             <p>
-
                 Estou sempre buscando aprender
                 novas técnicas e melhorar
                 meus trabalhos.
-
             </p>
 
         </div>
@@ -1971,14 +1783,14 @@ footer span{
 
             <span class="status-dot"></span>
 
-            LOJA TRALHA ONLINE
+            TRALHA STUDIO ONLINE
 
         </h3>
 
         <p>
 
             O site está funcionando normalmente.
-            Seja bem-vindo à Loja Tralha.
+            Seja bem-vindo à Tralha Studio.
 
         </p>
 
@@ -1994,9 +1806,7 @@ footer span{
 <section id="contato">
 
     <div class="contact-small">
-
         VAMOS CRIAR?
-
     </div>
 
 
@@ -2044,7 +1854,7 @@ footer span{
         © 2026
 
         <span>
-            LOJA TRALHA
+            TRALHA STUDIO
         </span>
 
     </div>
