@@ -3,7 +3,6 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,6 +17,10 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #080808;
             color: white;
@@ -29,7 +32,6 @@
         ========================= */
 
         header {
-
             width: 100%;
             padding: 25px 8%;
 
@@ -39,120 +41,80 @@
 
             position: fixed;
             top: 0;
+            left: 0;
             z-index: 1000;
 
-            background: rgba(8, 8, 8, 0.92);
-
+            background: rgba(8, 8, 8, 0.94);
             backdrop-filter: blur(10px);
 
             border-bottom: 1px solid #222;
         }
 
-
         .logo {
-
             font-size: 25px;
             font-weight: bold;
-
             letter-spacing: 3px;
         }
 
-
         .logo span {
-
             color: #b8941f;
         }
 
-
         nav a {
-
             color: #ddd;
-
             text-decoration: none;
-
             margin-left: 30px;
-
             transition: 0.3s;
         }
 
-
         nav a:hover {
-
             color: #b8941f;
         }
 
 
-
         /* =========================
-           INÍCIO / BANNER
+           INÍCIO
         ========================= */
 
         .hero {
-
             min-height: 100vh;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
 
             padding: 120px 20px 60px;
 
-
-            background-image:
-
-                linear-gradient(
-                    rgba(0,0,0,0.65),
-                    rgba(0,0,0,0.65)
-                ),
-
-                url("/static/imagens/banner.png");
-
-
-            background-size: cover;
-
-            background-position: center;
-
-            background-repeat: no-repeat;
+            background:
+                radial-gradient(
+                    circle at center,
+                    #211b0d 0%,
+                    #080808 55%
+                );
         }
 
-
         .hero-content {
-
             max-width: 850px;
         }
 
-
         .hero h1 {
-
             font-size: 70px;
-
             letter-spacing: 6px;
-
             margin-bottom: 20px;
         }
 
-
         .hero h1 span {
-
             color: #b8941f;
         }
 
-
         .hero p {
-
             color: #ccc;
-
             font-size: 19px;
-
             line-height: 1.7;
-
             margin-bottom: 35px;
         }
-
 
 
         /* =========================
@@ -160,7 +122,6 @@
         ========================= */
 
         .botao {
-
             display: inline-block;
 
             padding: 15px 35px;
@@ -176,16 +137,11 @@
             transition: 0.3s;
         }
 
-
         .botao:hover {
-
             background: #b8941f;
-
             color: #080808;
-
             transform: translateY(-3px);
         }
-
 
 
         /* =========================
@@ -193,38 +149,26 @@
         ========================= */
 
         section {
-
             padding: 100px 8%;
         }
 
-
         .titulo {
-
             text-align: center;
-
             margin-bottom: 55px;
         }
 
-
         .titulo h2 {
-
             font-size: 40px;
-
             margin-bottom: 12px;
         }
 
-
         .titulo span {
-
             color: #b8941f;
         }
 
-
         .titulo p {
-
             color: #888;
         }
-
 
 
         /* =========================
@@ -232,7 +176,6 @@
         ========================= */
 
         .servicos {
-
             display: grid;
 
             grid-template-columns:
@@ -241,9 +184,7 @@
             gap: 25px;
         }
 
-
         .servico {
-
             background: #111;
 
             border: 1px solid #222;
@@ -257,38 +198,25 @@
             transition: 0.3s;
         }
 
-
         .servico:hover {
-
             transform: translateY(-8px);
-
             border-color: #b8941f;
         }
 
-
         .servico h3 {
-
             margin: 15px 0;
-
             font-size: 24px;
         }
 
-
         .servico p {
-
             color: #888;
-
             line-height: 1.6;
         }
 
-
         .icone {
-
             font-size: 45px;
-
             color: #b8941f;
         }
-
 
 
         /* =========================
@@ -296,18 +224,17 @@
         ========================= */
 
         .portfolio {
-
             display: grid;
 
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
 
-            gap: 25px;
+            gap: 30px;
+
+            align-items: start;
         }
 
-
         .projeto {
-
             background: #111;
 
             border: 1px solid #222;
@@ -319,20 +246,20 @@
             transition: 0.3s;
         }
 
-
         .projeto:hover {
-
             transform: translateY(-8px);
-
             border-color: #b8941f;
         }
 
 
+        /* ÁREA DOS FLYERS */
+
         .imagem {
+            width: 100%;
 
-            height: 260px;
+            height: 430px;
 
-            background: #111;
+            background: #090909;
 
             display: flex;
 
@@ -341,38 +268,34 @@
             justify-content: center;
 
             overflow: hidden;
+
+            padding: 12px;
         }
 
 
+        /* MOSTRA O FLYER INTEIRO */
+
         .imagem img {
-
             width: 100%;
-
             height: 100%;
 
-            object-fit: cover;
+            object-fit: contain;
 
             display: block;
         }
 
 
         .projeto-info {
-
             padding: 20px;
         }
 
-
         .projeto-info h3 {
-
             margin-bottom: 8px;
         }
 
-
         .projeto-info p {
-
             color: #777;
         }
-
 
 
         /* =========================
@@ -380,15 +303,11 @@
         ========================= */
 
         .contato {
-
             text-align: center;
-
             background: #0d0d0d;
         }
 
-
         .contato p {
-
             color: #999;
 
             margin: 20px auto 30px;
@@ -399,13 +318,11 @@
         }
 
 
-
         /* =========================
            RODAPÉ
         ========================= */
 
         footer {
-
             padding: 30px;
 
             text-align: center;
@@ -415,12 +332,9 @@
             color: #666;
         }
 
-
         footer span {
-
             color: #b8941f;
         }
-
 
 
         /* =========================
@@ -430,26 +344,31 @@
         @media (max-width: 700px) {
 
             header {
-
                 padding: 20px;
             }
 
-
             nav {
-
                 display: none;
             }
 
-
             .hero h1 {
-
                 font-size: 45px;
             }
 
-
             .hero p {
-
                 font-size: 16px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .titulo h2 {
+                font-size: 32px;
+            }
+
+            .imagem {
+                height: 500px;
             }
 
         }
@@ -469,11 +388,8 @@
     <header>
 
         <div class="logo">
-
             LOJA <span>TRALHA</span>
-
         </div>
-
 
         <nav>
 
@@ -490,7 +406,6 @@
     </header>
 
 
-
     <!-- =========================
          INÍCIO
     ========================= -->
@@ -500,30 +415,21 @@
         <div class="hero-content">
 
             <h1>
-
                 LOJA <span>TRALHA</span>
-
             </h1>
 
-
             <p>
-
                 Design exclusivo para quem quer destacar sua marca.
                 Criamos logos e flyers modernos, profissionais e únicos.
-
             </p>
 
-
             <a href="#portfolio" class="botao">
-
                 VER PORTFÓLIO
-
             </a>
 
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -535,20 +441,14 @@
         <div class="titulo">
 
             <h2>
-
                 NOSSOS <span>SERVIÇOS</span>
-
             </h2>
 
-
             <p>
-
                 Design pensado para deixar sua marca inesquecível.
-
             </p>
 
         </div>
-
 
 
         <div class="servicos">
@@ -557,51 +457,34 @@
             <div class="servico">
 
                 <div class="icone">
-
                     ✦
-
                 </div>
 
-
                 <h3>
-
                     LOGOS
-
                 </h3>
 
-
                 <p>
-
                     Criamos logos modernas e profissionais
                     para marcas, servidores e projetos.
-
                 </p>
 
             </div>
 
 
-
             <div class="servico">
 
                 <div class="icone">
-
                     ◆
-
                 </div>
 
-
                 <h3>
-
                     FLYERS
-
                 </h3>
 
-
                 <p>
-
                     Flyers personalizados para eventos,
                     divulgações, servidores e redes sociais.
-
                 </p>
 
             </div>
@@ -610,7 +493,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -623,27 +505,20 @@
         <div class="titulo">
 
             <h2>
-
                 NOSSO <span>PORTFÓLIO</span>
-
             </h2>
 
-
             <p>
-
-                Alguns dos nossos trabalhos.
-
+                Confira alguns dos nossos trabalhos.
             </p>
 
         </div>
 
 
-
         <div class="portfolio">
 
 
-
-            <!-- FOTO 1 -->
+            <!-- FLYER 1 -->
 
             <div class="projeto">
 
@@ -651,25 +526,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
-                        alt="Trabalho 1"
+                        alt="Flyer 1"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
-                        Logo Premium
-
+                        Flyer Premium
                     </h3>
 
-
                     <p>
-
-                        Design exclusivo da Loja Tralha.
-
+                        Design personalizado da Loja Tralha.
                     </p>
 
                 </div>
@@ -677,8 +546,7 @@
             </div>
 
 
-
-            <!-- FOTO 2 -->
+            <!-- FLYER 2 -->
 
             <div class="projeto">
 
@@ -686,25 +554,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
-                        alt="Trabalho 2"
+                        alt="Flyer 2"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
                         Flyer Premium
-
                     </h3>
 
-
                     <p>
-
-                        Arte personalizada para divulgação.
-
+                        Arte criada para divulgação.
                     </p>
 
                 </div>
@@ -712,8 +574,7 @@
             </div>
 
 
-
-            <!-- FOTO 3 -->
+            <!-- FLYER 3 -->
 
             <div class="projeto">
 
@@ -721,25 +582,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
-                        alt="Trabalho 3"
+                        alt="Flyer 3"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
-                        Logo Exclusiva
-
+                        Flyer Exclusivo
                     </h3>
 
-
                     <p>
-
-                        Projeto desenvolvido sob medida.
-
+                        Design desenvolvido sob medida.
                     </p>
 
                 </div>
@@ -747,8 +602,7 @@
             </div>
 
 
-
-            <!-- FOTO 4 -->
+            <!-- FLYER 4 -->
 
             <div class="projeto">
 
@@ -756,25 +610,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
-                        alt="Trabalho 4"
+                        alt="Flyer 4"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
                         Flyer Exclusivo
-
                     </h3>
 
-
                     <p>
-
-                        Arte personalizada da Loja Tralha.
-
+                        Arte personalizada.
                     </p>
 
                 </div>
@@ -782,8 +630,7 @@
             </div>
 
 
-
-            <!-- FOTO 5 -->
+            <!-- FLYER 5 -->
 
             <div class="projeto">
 
@@ -791,25 +638,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
-                        alt="Trabalho 5"
+                        alt="Flyer 5"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
-                        Design Premium
-
+                        Flyer Premium
                     </h3>
 
-
                     <p>
-
                         Trabalho realizado pela Loja Tralha.
-
                     </p>
 
                 </div>
@@ -817,8 +658,7 @@
             </div>
 
 
-
-            <!-- FOTO 6 -->
+            <!-- FLYER 6 -->
 
             <div class="projeto">
 
@@ -826,25 +666,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
-                        alt="Trabalho 6"
+                        alt="Flyer 6"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
-                        Design Exclusivo
-
+                        Flyer Especial
                     </h3>
 
-
                     <p>
-
                         Arte personalizada.
-
                     </p>
 
                 </div>
@@ -852,8 +686,7 @@
             </div>
 
 
-
-            <!-- FOTO 7 -->
+            <!-- FLYER 7 -->
 
             <div class="projeto">
 
@@ -861,25 +694,19 @@
 
                     <img
                         src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
-                        alt="Trabalho 7"
+                        alt="Flyer 7"
                     >
 
                 </div>
 
-
                 <div class="projeto-info">
 
                     <h3>
-
-                        Projeto Especial
-
+                        Flyer Especial
                     </h3>
 
-
                     <p>
-
                         Mais um trabalho da Loja Tralha.
-
                     </p>
 
                 </div>
@@ -890,7 +717,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -903,26 +729,19 @@
         <div class="titulo">
 
             <h2>
-
                 VAMOS <span>TRABALHAR?</span>
-
             </h2>
 
-
             <p>
-
-                Gostou do nosso trabalho?
-
+                Gostou dos nossos trabalhos?
             </p>
 
         </div>
 
 
         <p>
-
             Entre em contato conosco e solicite seu orçamento.
             Vamos transformar sua ideia em um design profissional.
-
         </p>
 
 
@@ -931,14 +750,11 @@
             target="_blank"
             class="botao"
         >
-
             ENTRAR EM CONTATO
-
         </a>
 
 
     </section>
-
 
 
     <!-- =========================
@@ -950,14 +766,10 @@
         © 2026
 
         <span>
-
             LOJA TRALHA
-
         </span>
 
-        —
-
-        Todos os direitos reservados.
+        — Todos os direitos reservados.
 
     </footer>
 
