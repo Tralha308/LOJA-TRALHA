@@ -4,49 +4,60 @@ import os
 
 app = Flask(__name__)
 
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY")
-)
+# Pega a chave que está nas Environment Variables do Render
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/perguntar", methods=["POST"])
-def perguntar():
-    dados = request.get_json()
-    pergunta = dados.get("pergunta", "")
 
-    if not pergunta:
-        return jsonify({"resposta": "Digite uma pergunta."})
-
+@app.route("/chat", methods=["POST"])
+def chat():
     try:
+        data = request.get_json()
+        mensagem = data.get("message", "").strip()
+
+        if not mensagem:
+            return jsonify({
+                "error": "Digite uma mensagem."
+            }), 400
+
         resposta = client.responses.create(
             model="gpt-5-mini",
             instructions="""
-Você é o assistente virtual da Tralha Studio.
+Você é o assistente oficial da TRALHA STUDIO.
 
-A Tralha Studio trabalha com criação de:
+A Tralha Studio trabalha com:
 - Flyers
 - Logos
+- Design
 - Identidade visual
 
-Responda de maneira simples, curta e educada.
-Se perguntarem algo sobre a Tralha Studio, ajude o cliente.
-Se não souber uma informação específica, diga que o cliente pode entrar em contato com o responsável.
+Responda em português do Brasil.
+Seja educado, direto e profissional.
+Ajude os visitantes com dúvidas sobre os serviços da Tralha Studio.
+
+Se perguntarem preço, diga que o valor depende do projeto
+e que devem entrar em contato para receber um orçamento.
+
+Não invente preços, prazos ou informações que não foram fornecidas.
 """,
-            input=pergunta
+            input=mensagem
         )
 
         return jsonify({
-            "resposta": resposta.output_text
+            "response": resposta.output_text
         })
 
-    except Exception as erro:
-        print(erro)
+    except Exception as e:
+        print("ERRO:", e)
+
         return jsonify({
-            "resposta": "Desculpe, aconteceu um erro. Tente novamente."
-        })
+            "error": "Não consegui responder agora. Tente novamente."
+        }), 500
+
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
