@@ -102,10 +102,8 @@ header{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:80px;
-
     padding:0 7%;
 
     display:flex;
@@ -255,12 +253,8 @@ nav a:hover{
 }
 
 @keyframes move{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
 }
 
 /* FRASE */
@@ -466,9 +460,7 @@ section{
 .logo-box img{
     width:100%;
     height:100%;
-
     object-fit:contain;
-
     display:block;
 }
 
@@ -633,146 +625,6 @@ section{
     line-height:1.8;
 }
 
-/* =========================
-   ASSISTENTE IA
-========================= */
-
-#assistente{
-    background:#080808;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
-}
-
-.ai-container{
-    max-width:1000px;
-    margin:auto;
-}
-
-.ai-box{
-    background:linear-gradient(145deg,#111,#070707);
-    border:1px solid #292929;
-    border-radius:15px;
-    padding:35px;
-    box-shadow:0 25px 80px rgba(0,0,0,.4);
-}
-
-.ai-header{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.ai-icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#C8A43A;
-    color:#050505;
-
-    font-size:25px;
-}
-
-.ai-header h3{
-    font-size:25px;
-}
-
-.ai-header p{
-    color:#666;
-    font-size:12px;
-    margin-top:5px;
-}
-
-.ai-chat{
-    height:350px;
-    overflow-y:auto;
-
-    background:#050505;
-    border:1px solid #1f1f1f;
-    border-radius:12px;
-
-    padding:20px;
-
-    margin-bottom:18px;
-}
-
-.ai-message{
-    max-width:80%;
-    padding:13px 17px;
-    border-radius:12px;
-    margin-bottom:13px;
-
-    line-height:1.6;
-    font-size:14px;
-}
-
-.ai-bot{
-    background:#151515;
-    border-left:3px solid #C8A43A;
-    color:#ddd;
-}
-
-.ai-user{
-    background:#C8A43A;
-    color:#050505;
-    margin-left:auto;
-}
-
-.ai-form{
-    display:flex;
-    gap:10px;
-}
-
-.ai-input{
-    flex:1;
-
-    background:#050505;
-    border:1px solid #292929;
-    border-radius:8px;
-
-    padding:16px;
-
-    color:white;
-    outline:none;
-
-    font-size:14px;
-}
-
-.ai-input:focus{
-    border-color:#C8A43A;
-}
-
-.ai-button{
-    border:none;
-    background:#C8A43A;
-    color:#050505;
-
-    padding:0 28px;
-
-    border-radius:8px;
-
-    font-weight:bold;
-    letter-spacing:1px;
-
-    cursor:pointer;
-    transition:.3s;
-}
-
-.ai-button:hover{
-    background:#E6CC6A;
-    transform:translateY(-2px);
-}
-
-.ai-loading{
-    color:#777;
-    font-style:italic;
-}
-
 /* FOOTER */
 
 footer{
@@ -790,6 +642,171 @@ footer{
 
 footer span{
     color:#C8A43A;
+}
+
+/* =========================
+   TRALHA IA
+========================= */
+
+#ai-button{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    z-index:99999;
+
+    background:#C8A43A;
+    color:#050505;
+
+    border:0;
+    border-radius:30px;
+
+    padding:15px 20px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 30px rgba(0,0,0,.6);
+
+    transition:.3s;
+}
+
+#ai-button:hover{
+    background:#E6CC6A;
+    transform:translateY(-3px);
+}
+
+#ai-chat{
+    display:none;
+
+    position:fixed;
+
+    right:25px;
+    bottom:85px;
+
+    width:360px;
+    height:480px;
+
+    background:#0b0b0b;
+
+    border:1px solid #C8A43A;
+    border-radius:12px;
+
+    z-index:99998;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 50px rgba(0,0,0,.7);
+}
+
+#ai-top{
+    padding:18px;
+
+    background:#111;
+
+    color:#C8A43A;
+
+    font-weight:bold;
+
+    display:flex;
+    justify-content:space-between;
+
+    border-bottom:1px solid #222;
+}
+
+#ai-close{
+    cursor:pointer;
+    color:#777;
+}
+
+#ai-messages{
+    flex:1;
+
+    padding:15px;
+
+    overflow-y:auto;
+}
+
+.ai-msg{
+    padding:11px 13px;
+
+    margin-bottom:10px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    word-wrap:break-word;
+}
+
+.ai-bot{
+    background:#191919;
+    color:#fff;
+}
+
+.ai-user{
+    background:#C8A43A;
+    color:#050505;
+
+    text-align:right;
+}
+
+#ai-area{
+    display:flex;
+
+    padding:10px;
+
+    gap:8px;
+
+    border-top:1px solid #222;
+}
+
+#ai-input{
+    flex:1;
+
+    min-width:0;
+
+    padding:12px;
+
+    background:#151515;
+
+    color:white;
+
+    border:1px solid #333;
+
+    border-radius:6px;
+
+    outline:none;
+}
+
+#ai-input:focus{
+    border-color:#C8A43A;
+}
+
+#ai-send{
+    background:#C8A43A;
+
+    color:#050505;
+
+    border:0;
+
+    padding:0 15px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#ai-send:hover{
+    background:#E6CC6A;
 }
 
 /* CELULAR */
@@ -883,26 +900,25 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    .ai-box{
-        padding:18px;
-    }
-
-    .ai-chat{
-        height:320px;
-    }
-
-    .ai-form{
-        flex-direction:column;
-    }
-
-    .ai-button{
-        height:50px;
-    }
-
     footer{
         flex-direction:column;
         gap:15px;
         text-align:center;
+    }
+
+    #ai-chat{
+        width:calc(100% - 30px);
+
+        right:15px;
+
+        bottom:80px;
+
+        height:450px;
+    }
+
+    #ai-button{
+        right:15px;
+        bottom:15px;
     }
 }
 </style>
@@ -910,26 +926,14 @@ footer span{
 
 <body>
 
-<!-- =========================
-     PESSOAS ONLINE
-     ALTERE O 17 AQUI
-========================= -->
-
+<!-- PESSOAS ONLINE -->
 <div class="online-counter">
-
     <span class="online-dot"></span>
-
     <strong>17</strong>
-
     <span>pessoas online agora</span>
-
 </div>
 
-
-<!-- =========================
-     MENU
-========================= -->
-
+<!-- MENU -->
 <header>
 
     <div class="logo">
@@ -937,22 +941,15 @@ footer span{
     </div>
 
     <nav>
-
         <a href="#historia">HISTÓRIA</a>
         <a href="#flyers">FLYERS</a>
         <a href="#logos">LOGOS</a>
         <a href="#contato">CONTATO</a>
-        <a href="#assistente">IA</a>
-
     </nav>
 
 </header>
 
-
-<!-- =========================
-     INÍCIO
-========================= -->
-
+<!-- INÍCIO -->
 <section class="hero">
 
     <div class="hero-content">
@@ -989,9 +986,7 @@ footer span{
 
 </section>
 
-
-<!-- MARQUEE -->
-
+<!-- MARCA -->
 <div class="marquee">
 
     <div class="marquee-track">
@@ -1012,9 +1007,7 @@ footer span{
 
 </div>
 
-
 <!-- FRASE -->
-
 <div class="big-phrase">
 
     <h2>
@@ -1026,9 +1019,7 @@ footer span{
 
 </div>
 
-
 <!-- SERVIÇOS -->
-
 <section>
 
     <div class="section-head">
@@ -1101,9 +1092,7 @@ footer span{
 
 </section>
 
-
 <!-- FLYERS -->
-
 <section id="flyers">
 
     <div class="section-head">
@@ -1185,9 +1174,7 @@ footer span{
 
 </section>
 
-
 <!-- LOGOS -->
-
 <section id="logos">
 
     <div class="section-head">
@@ -1222,9 +1209,7 @@ footer span{
 
 </section>
 
-
 <!-- HISTÓRIA -->
-
 <section id="historia">
 
     <div class="section-head">
@@ -1351,9 +1336,7 @@ footer span{
 
 </section>
 
-
 <!-- PROCESSO -->
-
 <section>
 
     <div class="section-head">
@@ -1410,9 +1393,7 @@ footer span{
 
 </section>
 
-
 <!-- DIFERENCIAIS -->
-
 <section>
 
     <div class="section-head">
@@ -1469,9 +1450,7 @@ footer span{
 
 </section>
 
-
 <!-- CONTATO -->
-
 <section id="contato">
 
     <div class="contact-small">
@@ -1499,98 +1478,7 @@ footer span{
 
 </section>
 
-
-<!-- =========================
-     ASSISTENTE IA
-========================= -->
-
-<section id="assistente">
-
-    <div class="section-head">
-
-        <div class="number">
-            07 — ASSISTENTE
-        </div>
-
-        <h2 class="title">
-            FALE COM A <span>IA.</span>
-        </h2>
-
-        <p class="description">
-            Ficou com alguma dúvida sobre a Tralha Studio?
-            Pergunte para nosso assistente.
-        </p>
-
-    </div>
-
-
-    <div class="ai-container">
-
-        <div class="ai-box">
-
-            <div class="ai-header">
-
-                <div class="ai-icon">
-                    ✦
-                </div>
-
-                <div>
-                    <h3>Assistente Tralha Studio</h3>
-
-                    <p>
-                        Atendimento inteligente da Tralha Studio
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="ai-chat" id="aiChat">
-
-                <div class="ai-message ai-bot">
-
-                    Olá! Sou o assistente da
-                    <strong>Tralha Studio</strong>.
-
-                    <br><br>
-
-                    Posso tirar dúvidas sobre flyers,
-                    logos, criação de artes e nossos serviços.
-
-                </div>
-
-            </div>
-
-
-            <form class="ai-form" id="aiForm">
-
-                <input
-                    type="text"
-                    id="aiInput"
-                    class="ai-input"
-                    placeholder="Digite sua dúvida..."
-                    autocomplete="off"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="ai-button"
-                >
-                    ENVIAR
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 <!-- RODAPÉ -->
-
 <footer>
 
     <div>
@@ -1604,65 +1492,133 @@ footer span{
 </footer>
 
 
-<!-- =========================
-     SCRIPT DA IA
-========================= -->
+<!-- ==================================================
+     TRALHA IA
+================================================== -->
+
+<button id="ai-button" onclick="abrirIA()">
+    🤖 DÚVIDAS? FALAR COM IA
+</button>
+
+<div id="ai-chat">
+
+    <div id="ai-top">
+
+        <span>TRALHA IA</span>
+
+        <span id="ai-close" onclick="fecharIA()">
+            ✕
+        </span>
+
+    </div>
+
+    <div id="ai-messages">
+
+        <div class="ai-msg ai-bot">
+            Olá! Sou a IA da Tralha Studio. 👋<br><br>
+            Pode perguntar sobre flyers, logos,
+            serviços ou qualquer dúvida sobre a loja.
+        </div>
+
+    </div>
+
+    <div id="ai-area">
+
+        <input
+            id="ai-input"
+            type="text"
+            placeholder="Digite sua dúvida..."
+            autocomplete="off"
+        >
+
+        <button id="ai-send" onclick="enviarIA()">
+            ENVIAR
+        </button>
+
+    </div>
+
+</div>
+
 
 <script>
 
-const aiForm = document.getElementById("aiForm");
-const aiInput = document.getElementById("aiInput");
-const aiChat = document.getElementById("aiChat");
+/* =========================
+   ABRIR E FECHAR IA
+========================= */
 
+function abrirIA(){
 
-function adicionarMensagem(texto, classe){
+    document.getElementById("ai-chat").style.display = "flex";
 
-    const mensagem = document.createElement("div");
+    setTimeout(function(){
 
-    mensagem.className = "ai-message " + classe;
+        document.getElementById("ai-input").focus();
 
-    mensagem.innerHTML = texto
-        .replace(/\n/g, "<br>");
+    },100);
 
-    aiChat.appendChild(mensagem);
+}
 
-    aiChat.scrollTop = aiChat.scrollHeight;
+function fecharIA(){
 
-    return mensagem;
+    document.getElementById("ai-chat").style.display = "none";
+
 }
 
 
-aiForm.addEventListener("submit", async function(event){
+/* =========================
+   ENVIAR PERGUNTA
+========================= */
 
-    event.preventDefault();
+async function enviarIA(){
 
-    const pergunta = aiInput.value.trim();
+    const input = document.getElementById("ai-input");
 
-    if(!pergunta){
+    const mensagens = document.getElementById("ai-messages");
+
+    const botao = document.getElementById("ai-send");
+
+    const texto = input.value.trim();
+
+    if(!texto){
         return;
     }
 
 
-    adicionarMensagem(
-        pergunta,
-        "ai-user"
-    );
+    /* mensagem do usuário */
+
+    const usuario = document.createElement("div");
+
+    usuario.className = "ai-msg ai-user";
+
+    usuario.innerText = texto;
+
+    mensagens.appendChild(usuario);
 
 
-    aiInput.value = "";
+    input.value = "";
 
-    aiInput.disabled = true;
+    botao.disabled = true;
+
+    botao.innerText = "...";
 
 
-    const carregando = adicionarMensagem(
-        "Pensando...",
-        "ai-bot ai-loading"
-    );
+    /* mensagem carregando */
+
+    const carregando = document.createElement("div");
+
+    carregando.className = "ai-msg ai-bot";
+
+    carregando.innerText = "Pensando...";
+
+    mensagens.appendChild(carregando);
+
+
+    mensagens.scrollTop = mensagens.scrollHeight;
 
 
     try{
 
-        const resposta = await fetch("/perguntar", {
+        const resposta = await fetch("/chat",{
 
             method:"POST",
 
@@ -1671,7 +1627,9 @@ aiForm.addEventListener("submit", async function(event){
             },
 
             body:JSON.stringify({
-                pergunta:pergunta
+
+                message:texto
+
             })
 
         });
@@ -1683,43 +1641,67 @@ aiForm.addEventListener("submit", async function(event){
         carregando.remove();
 
 
-        if(dados.resposta){
+        const bot = document.createElement("div");
 
-            adicionarMensagem(
-                dados.resposta,
-                "ai-bot"
-            );
+        bot.className = "ai-msg ai-bot";
+
+
+        if(dados.response){
+
+            bot.innerText = dados.response;
+
+        }else if(dados.error){
+
+            bot.innerText = "Erro: " + dados.error;
 
         }else{
 
-            adicionarMensagem(
-                "Não consegui responder agora. Tente novamente.",
-                "ai-bot"
-            );
+            bot.innerText =
+                "Não consegui receber uma resposta.";
 
         }
 
 
+        mensagens.appendChild(bot);
+
+        mensagens.scrollTop = mensagens.scrollHeight;
+
+
     }catch(erro){
 
-        carregando.remove();
-
-        adicionarMensagem(
-            "Não consegui conectar com o assistente. Tente novamente.",
-            "ai-bot"
-        );
+        carregando.innerText =
+            "Não consegui conectar com a IA. Tente novamente.";
 
     }
 
 
-    aiInput.disabled = false;
+    botao.disabled = false;
 
-    aiInput.focus();
+    botao.innerText = "ENVIAR";
 
-});
+}
+
+
+/* =========================
+   ENTER PARA ENVIAR
+========================= */
+
+document.getElementById("ai-input").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            enviarIA();
+
+        }
+
+    }
+);
 
 </script>
-
 
 </body>
 </html>
