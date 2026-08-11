@@ -18,7 +18,7 @@
    Dourado: #C8A43A
    Dourado claro: #E6CC6A
    Branco: #FFFFFF
-   Cinza: #888888
+   Cinza: #777777
    ===================================================== */
 
 *{
@@ -79,12 +79,78 @@ body::after{
 }
 
 
-/* MENU */
+/* =====================================================
+   CONTADOR ONLINE
+   ===================================================== */
+
+.online-counter{
+
+    position:fixed;
+
+    top:95px;
+    right:30px;
+
+    z-index:999;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 19px;
+
+    background:rgba(13,13,13,.95);
+
+    border:1px solid #292929;
+
+    border-radius:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    color:#777;
+
+    backdrop-filter:blur(15px);
+
+}
+
+.online-counter strong{
+
+    color:#C8A43A;
+
+    font-size:16px;
+
+}
+
+.online-dot{
+
+    width:8px;
+    height:8px;
+
+    display:inline-block;
+
+    border-radius:50%;
+
+    background:#49d66b;
+
+    box-shadow:0 0 12px #49d66b;
+
+}
+
+
+/* =====================================================
+   MENU
+   ===================================================== */
 
 header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:82px;
 
@@ -95,169 +161,271 @@ header{
     padding:0 7%;
 
     background:rgba(5,5,5,.88);
+
     backdrop-filter:blur(20px);
 
     border-bottom:1px solid #1b1b1b;
 
-    z-index:999;
+    z-index:998;
+
 }
 
 .logo{
+
     font-size:21px;
+
     font-weight:900;
+
     letter-spacing:4px;
+
     white-space:nowrap;
+
 }
 
 .logo span{
+
     color:#C8A43A;
+
 }
 
 nav{
+
     display:flex;
+
     align-items:center;
+
     gap:34px;
+
 }
 
 nav a{
+
     position:relative;
+
     font-size:11px;
+
     font-weight:bold;
+
     letter-spacing:2px;
+
     color:#888;
+
     transition:.3s;
+
 }
 
 nav a::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
     bottom:-9px;
+
     width:0;
     height:1px;
+
     background:#C8A43A;
+
     transition:.3s;
+
 }
 
 nav a:hover{
+
     color:#E6CC6A;
+
 }
 
 nav a:hover::after{
+
     width:100%;
+
 }
 
 
-/* HERO */
+/* =====================================================
+   HERO
+   ===================================================== */
 
 .hero{
+
     min-height:100vh;
 
     padding:180px 7% 110px;
 
     display:flex;
+
     align-items:center;
 
     border-bottom:1px solid #181818;
+
 }
 
 .hero-content{
+
     max-width:1150px;
+
 }
 
 .hero-tag{
+
     color:#C8A43A;
+
     font-size:11px;
+
     letter-spacing:6px;
+
     font-weight:bold;
+
     margin-bottom:32px;
+
 }
 
 .hero h1{
+
     font-size:clamp(65px,10vw,150px);
+
     line-height:.82;
+
     letter-spacing:-8px;
+
     margin-bottom:45px;
+
 }
 
 .hero h1 span{
+
     color:#C8A43A;
+
     display:block;
+
 }
 
 .hero p{
+
     max-width:680px;
+
     color:#888;
+
     font-size:18px;
+
     line-height:1.9;
+
     margin-bottom:42px;
+
 }
 
 .buttons{
+
     display:flex;
+
     gap:15px;
+
     flex-wrap:wrap;
+
 }
 
 .btn{
+
     display:inline-block;
+
     padding:18px 32px;
+
     border-radius:4px;
+
     font-size:11px;
+
     font-weight:bold;
+
     letter-spacing:2px;
+
     transition:.3s;
+
 }
 
 .gold{
+
     background:#C8A43A;
+
     color:#050505;
+
 }
 
 .gold:hover{
+
     background:#E6CC6A;
+
     transform:translateY(-5px);
+
 }
 
 .outline{
+
     border:1px solid #333;
+
     color:#aaa;
+
 }
 
 .outline:hover{
+
     border-color:#C8A43A;
+
     color:#E6CC6A;
+
     transform:translateY(-5px);
+
 }
 
 
-/* MARQUEE */
+/* =====================================================
+   MARQUEE
+   ===================================================== */
 
 .marquee{
+
     overflow:hidden;
+
     border-bottom:1px solid #181818;
+
     border-top:1px solid #181818;
+
     padding:25px 0;
+
     white-space:nowrap;
+
 }
 
 .marquee-track{
+
     display:inline-block;
+
     animation:move 25s linear infinite;
+
 }
 
 .marquee span{
+
     font-size:13px;
+
     letter-spacing:5px;
+
     margin:0 35px;
+
     color:#555;
+
 }
 
 .marquee strong{
+
     color:#C8A43A;
+
 }
 
 @keyframes move{
+
     from{
         transform:translateX(0);
     }
@@ -265,77 +433,124 @@ nav a:hover::after{
     to{
         transform:translateX(-50%);
     }
+
 }
 
 
-/* FRASE */
+/* =====================================================
+   FRASE
+   ===================================================== */
 
 .big-phrase{
+
     padding:150px 7%;
+
     text-align:center;
+
 }
 
 .big-phrase h2{
+
     max-width:1100px;
+
     margin:auto;
+
     font-size:clamp(40px,6vw,82px);
+
     line-height:1;
+
     letter-spacing:-5px;
+
 }
 
 .big-phrase span{
+
     color:#C8A43A;
+
 }
 
 
-/* SEÇÕES */
+/* =====================================================
+   SEÇÕES
+   ===================================================== */
 
 section{
+
     padding:130px 7%;
+
 }
 
 .section-head{
+
     max-width:1200px;
+
     margin:0 auto 75px;
+
 }
 
 .number{
+
     color:#C8A43A;
+
     font-size:11px;
+
     letter-spacing:5px;
+
     margin-bottom:22px;
+
 }
 
 .title{
+
     font-size:clamp(50px,7vw,90px);
+
     line-height:.9;
+
     letter-spacing:-5px;
+
 }
 
 .title span{
+
     color:#C8A43A;
+
 }
 
 .description{
+
     max-width:650px;
+
     margin-top:28px;
+
     color:#777;
+
     line-height:1.9;
+
 }
 
 
-/* SERVIÇOS */
+/* =====================================================
+   SERVIÇOS
+   ===================================================== */
 
 .services{
+
     max-width:1200px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
+
 }
 
 .service{
+
     min-height:350px;
+
     padding:42px;
 
     background:linear-gradient(
@@ -345,94 +560,149 @@ section{
     );
 
     border:1px solid #242424;
+
     transition:.4s;
+
 }
 
 .service:hover{
+
     transform:translateY(-10px);
+
     border-color:#C8A43A;
+
 }
 
 .service-number{
+
     color:#C8A43A;
+
     font-size:11px;
+
     letter-spacing:4px;
+
 }
 
 .service h3{
+
     font-size:30px;
+
     margin:80px 0 20px;
+
 }
 
 .service p{
+
     color:#777;
+
     line-height:1.8;
+
 }
 
 
-/* FLYERS */
+/* =====================================================
+   FLYERS
+   ===================================================== */
 
 #flyers{
+
     background:#080808;
+
     border-top:1px solid #181818;
+
     border-bottom:1px solid #181818;
+
 }
 
 .flyers{
+
     max-width:1400px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:30px;
+
 }
 
 .flyer{
+
     background:#0D0D0D;
+
     padding:10px;
+
     border:1px solid #252525;
+
     transition:.4s;
+
 }
 
 .flyer:hover{
+
     transform:translateY(-8px);
+
     border-color:#C8A43A;
+
 }
 
 .flyer img{
+
     width:100%;
+
     height:auto;
+
     display:block;
+
     object-fit:contain;
+
 }
 
 .flyer-info{
+
     padding:25px 15px 18px;
+
 }
 
 .flyer-info h3{
+
     font-size:18px;
+
     margin-bottom:8px;
+
 }
 
 .flyer-info p{
+
     color:#666;
+
     font-size:12px;
+
 }
 
 
-/* LOGOS */
+/* =====================================================
+   LOGOS
+   ===================================================== */
 
 .logo-grid{
+
     max-width:1200px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:25px;
+
 }
 
 .logo-box{
+
     min-height:300px;
 
     background:
@@ -445,315 +715,418 @@ section{
     border:1px solid #242424;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     transition:.4s;
+
 }
 
 .logo-box:hover{
+
     transform:translateY(-8px);
+
     border-color:#C8A43A;
+
 }
 
 .logo-box div{
+
     text-align:center;
+
 }
 
 .logo-box strong{
+
     display:block;
+
     color:#C8A43A;
+
     font-size:34px;
+
     letter-spacing:5px;
+
     margin-bottom:10px;
+
 }
 
 .logo-box small{
+
     color:#555;
+
     letter-spacing:3px;
+
 }
 
 
-/* HISTÓRIA */
+/* =====================================================
+   HISTÓRIA
+   ===================================================== */
 
 #historia{
+
     background:#090909;
 
     border-top:1px solid #181818;
+
     border-bottom:1px solid #181818;
+
 }
 
 .history{
+
     max-width:1200px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:1fr 1.5fr;
 
     gap:90px;
+
 }
 
 .history-left{
+
     position:relative;
+
 }
 
 .history-number{
+
     font-size:clamp(130px,18vw,230px);
+
     font-weight:900;
+
     color:rgba(200,164,58,.08);
+
     line-height:.7;
+
 }
 
 .history-left h3{
+
     font-size:45px;
+
     margin-left:20px;
+
 }
 
 .founder{
+
     margin-top:35px;
+
     margin-left:20px;
+
     color:#555;
+
     font-size:11px;
+
     letter-spacing:3px;
+
 }
 
 .history-text{
+
     color:#999;
+
     font-size:17px;
+
     line-height:2;
+
 }
 
 .history-text p{
+
     margin-bottom:25px;
+
 }
 
 .history-text strong{
+
     color:#E6CC6A;
+
 }
 
 
-/* PROCESSO */
+/* =====================================================
+   PROCESSO
+   ===================================================== */
 
 .process{
+
     max-width:1200px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
+
 }
 
 .process-card{
+
     padding:35px;
+
     min-height:270px;
 
     border:1px solid #242424;
+
     background:#0D0D0D;
 
     transition:.3s;
+
 }
 
 .process-card:hover{
+
     border-color:#C8A43A;
+
     transform:translateY(-6px);
+
 }
 
 .process-card span{
+
     color:#C8A43A;
+
     letter-spacing:4px;
+
     font-size:11px;
+
 }
 
 .process-card h3{
+
     font-size:24px;
+
     margin:45px 0 15px;
+
 }
 
 .process-card p{
+
     color:#666;
+
     line-height:1.8;
+
 }
 
 
-/* DIFERENCIAIS */
+/* =====================================================
+   DIFERENCIAIS
+   ===================================================== */
 
 .differentials{
+
     max-width:1200px;
+
     margin:auto;
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:20px;
+
 }
 
 .difference{
+
     padding:45px;
 
     border:1px solid #242424;
+
     background:#0D0D0D;
+
 }
 
 .difference h3{
+
     color:#C8A43A;
+
     margin-bottom:15px;
+
     font-size:22px;
+
 }
 
 .difference p{
+
     color:#777;
+
     line-height:1.8;
+
 }
 
 
-/* STATUS */
-
-.status-section{
-    padding:90px 7%;
-    text-align:center;
-}
-
-.status{
-    max-width:700px;
-    margin:auto;
-
-    padding:35px;
-
-    background:#0D0D0D;
-    border:1px solid #242424;
-}
-
-.status-dot{
-    display:inline-block;
-
-    width:10px;
-    height:10px;
-
-    background:#49d66b;
-
-    border-radius:50%;
-
-    margin-right:8px;
-
-    box-shadow:0 0 15px #49d66b;
-}
-
-.status h3{
-    margin-bottom:12px;
-}
-
-.status p{
-    color:#666;
-    font-size:13px;
-}
-
-
-/* CONTATO */
+/* =====================================================
+   CONTATO
+   ===================================================== */
 
 #contato{
+
     text-align:center;
+
     padding:170px 7%;
+
 }
 
 .contact-small{
+
     color:#C8A43A;
+
     letter-spacing:5px;
+
     font-size:11px;
+
 }
 
 #contato h2{
+
     max-width:1000px;
+
     margin:25px auto;
 
     font-size:clamp(50px,9vw,110px);
 
     line-height:.9;
+
     letter-spacing:-6px;
+
 }
 
 #contato h2 span{
+
     color:#C8A43A;
+
 }
 
 #contato p{
+
     max-width:600px;
+
     margin:0 auto 35px;
 
     color:#777;
+
     line-height:1.8;
+
 }
 
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+   ===================================================== */
 
 footer{
+
     padding:45px 7%;
 
     border-top:1px solid #181818;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     color:#555;
+
     font-size:12px;
+
 }
 
 footer span{
+
     color:#C8A43A;
+
 }
 
 
-/* RESPONSIVO */
+/* =====================================================
+   RESPONSIVO
+   ===================================================== */
 
 @media(max-width:900px){
 
     header{
+
         padding:0 5%;
+
     }
 
     nav{
+
         gap:15px;
+
     }
 
     nav a{
+
         font-size:9px;
+
     }
 
     .hero h1{
+
         font-size:65px;
+
     }
 
     .services{
+
         grid-template-columns:1fr;
+
     }
 
     .flyers{
+
         grid-template-columns:1fr;
+
     }
 
     .logo-grid{
+
         grid-template-columns:1fr;
+
     }
 
     .history{
+
         grid-template-columns:1fr;
+
         gap:40px;
+
     }
 
     .process{
+
         grid-template-columns:1fr 1fr;
+
     }
 
     .differentials{
+
         grid-template-columns:1fr;
+
     }
 
 }
 
+
 @media(max-width:600px){
 
     header{
+
         height:auto;
+
         min-height:70px;
 
         padding:15px 5%;
@@ -761,41 +1134,69 @@ footer span{
         flex-direction:column;
 
         gap:15px;
+
     }
 
     nav{
+
         gap:14px;
 
         flex-wrap:wrap;
 
         justify-content:center;
+
     }
 
     nav a{
+
         font-size:8px;
+
+    }
+
+    .online-counter{
+
+        top:130px;
+
+        right:15px;
+
+        padding:9px 14px;
+
     }
 
     .hero{
-        padding:160px 5% 90px;
+
+        padding:190px 5% 90px;
+
     }
 
     .hero h1{
+
         font-size:55px;
+
         letter-spacing:-4px;
+
     }
 
     section{
+
         padding:90px 5%;
+
     }
 
     .process{
+
         grid-template-columns:1fr;
+
     }
 
     footer{
+
         flex-direction:column;
+
         gap:15px;
+
         text-align:center;
+
     }
 
 }
@@ -806,6 +1207,24 @@ footer span{
 
 
 <body>
+
+
+<!-- =====================================================
+     CONTADOR DE PESSOAS ONLINE
+
+     PARA ALTERAR A QUANTIDADE:
+     MUDE SOMENTE O NÚMERO 17 ABAIXO.
+     ===================================================== -->
+
+<div class="online-counter">
+
+    <span class="online-dot"></span>
+
+    <strong>17</strong>
+
+    <span>pessoas online agora</span>
+
+</div>
 
 
 <!-- =====================================================
@@ -1511,6 +1930,11 @@ footer span{
                 detalhe que eu aprendo representa
                 mais um passo nessa caminhada.
 
+            </p>
+
+
+            <p>
+
                 Eu sei que ainda estou no começo.
                 Sei que existem muitas coisas que
                 ainda preciso aprender e melhorar.
@@ -1769,34 +2193,6 @@ footer span{
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     STATUS
-     ===================================================== -->
-
-<div class="status-section">
-
-    <div class="status">
-
-        <h3>
-
-            <span class="status-dot"></span>
-
-            TRALHA STUDIO ONLINE
-
-        </h3>
-
-        <p>
-
-            O site está funcionando normalmente.
-            Seja bem-vindo à Tralha Studio.
-
-        </p>
-
-    </div>
-
-</div>
 
 
 <!-- =====================================================
