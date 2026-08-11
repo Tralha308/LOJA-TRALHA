@@ -30,10 +30,6 @@ a{
     color:inherit;
 }
 
-/* =========================
-   FUNDO
-========================= */
-
 body::before{
     content:"";
     position:fixed;
@@ -62,9 +58,7 @@ body::after{
     z-index:-1;
 }
 
-/* =========================
-   ONLINE
-========================= */
+/* ONLINE */
 
 .online-counter{
     position:fixed;
@@ -102,9 +96,7 @@ body::after{
     box-shadow:0 0 12px #48d66b;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     position:fixed;
@@ -155,9 +147,7 @@ nav a:hover{
     color:#E6CC6A;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -238,9 +228,7 @@ nav a:hover{
     transform:translateY(-5px);
 }
 
-/* =========================
-   MARQUEE
-========================= */
+/* MARQUEE */
 
 .marquee{
     overflow:hidden;
@@ -275,9 +263,7 @@ nav a:hover{
     }
 }
 
-/* =========================
-   FRASE
-========================= */
+/* FRASE */
 
 .big-phrase{
     padding:130px 7%;
@@ -297,9 +283,7 @@ nav a:hover{
     color:#C8A43A;
 }
 
-/* =========================
-   SEÇÕES
-========================= */
+/* SEÇÕES */
 
 section{
     padding:110px 7%;
@@ -334,9 +318,7 @@ section{
     line-height:1.9;
 }
 
-/* =========================
-   SERVIÇOS
-========================= */
+/* SERVIÇOS */
 
 .services{
     max-width:1200px;
@@ -379,9 +361,7 @@ section{
     line-height:1.8;
 }
 
-/* =========================
-   FLYERS
-========================= */
+/* FLYERS */
 
 #flyers{
     background:#080808;
@@ -439,9 +419,7 @@ section{
     font-size:10px;
 }
 
-/* =========================
-   LOGOS
-========================= */
+/* LOGOS */
 
 #logos{
     background:#050505;
@@ -494,9 +472,7 @@ section{
     display:block;
 }
 
-/* =========================
-   HISTÓRIA
-========================= */
+/* HISTÓRIA */
 
 #historia{
     background:#090909;
@@ -551,9 +527,7 @@ section{
     color:#E6CC6A;
 }
 
-/* =========================
-   PROCESSO
-========================= */
+/* PROCESSO */
 
 .process{
     max-width:1200px;
@@ -595,9 +569,7 @@ section{
     line-height:1.8;
 }
 
-/* =========================
-   DIFERENCIAIS
-========================= */
+/* DIFERENCIAIS */
 
 .differentials{
     max-width:1200px;
@@ -626,9 +598,7 @@ section{
     line-height:1.8;
 }
 
-/* =========================
-   CONTATO
-========================= */
+/* CONTATO */
 
 #contato{
     text-align:center;
@@ -664,8 +634,146 @@ section{
 }
 
 /* =========================
-   FOOTER
+   ASSISTENTE IA
 ========================= */
+
+#assistente{
+    background:#080808;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
+}
+
+.ai-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.ai-box{
+    background:linear-gradient(145deg,#111,#070707);
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 25px 80px rgba(0,0,0,.4);
+}
+
+.ai-header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.ai-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#C8A43A;
+    color:#050505;
+
+    font-size:25px;
+}
+
+.ai-header h3{
+    font-size:25px;
+}
+
+.ai-header p{
+    color:#666;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.ai-chat{
+    height:350px;
+    overflow-y:auto;
+
+    background:#050505;
+    border:1px solid #1f1f1f;
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+}
+
+.ai-message{
+    max-width:80%;
+    padding:13px 17px;
+    border-radius:12px;
+    margin-bottom:13px;
+
+    line-height:1.6;
+    font-size:14px;
+}
+
+.ai-bot{
+    background:#151515;
+    border-left:3px solid #C8A43A;
+    color:#ddd;
+}
+
+.ai-user{
+    background:#C8A43A;
+    color:#050505;
+    margin-left:auto;
+}
+
+.ai-form{
+    display:flex;
+    gap:10px;
+}
+
+.ai-input{
+    flex:1;
+
+    background:#050505;
+    border:1px solid #292929;
+    border-radius:8px;
+
+    padding:16px;
+
+    color:white;
+    outline:none;
+
+    font-size:14px;
+}
+
+.ai-input:focus{
+    border-color:#C8A43A;
+}
+
+.ai-button{
+    border:none;
+    background:#C8A43A;
+    color:#050505;
+
+    padding:0 28px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+    letter-spacing:1px;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ai-button:hover{
+    background:#E6CC6A;
+    transform:translateY(-2px);
+}
+
+.ai-loading{
+    color:#777;
+    font-style:italic;
+}
+
+/* FOOTER */
 
 footer{
     padding:45px 7%;
@@ -684,9 +792,7 @@ footer span{
     color:#C8A43A;
 }
 
-/* =========================
-   CELULAR
-========================= */
+/* CELULAR */
 
 @media(max-width:1000px){
 
@@ -777,19 +883,32 @@ footer span{
         grid-template-columns:1fr;
     }
 
+    .ai-box{
+        padding:18px;
+    }
+
+    .ai-chat{
+        height:320px;
+    }
+
+    .ai-form{
+        flex-direction:column;
+    }
+
+    .ai-button{
+        height:50px;
+    }
+
     footer{
         flex-direction:column;
         gap:15px;
         text-align:center;
     }
 }
-
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      PESSOAS ONLINE
@@ -820,12 +939,10 @@ footer span{
     <nav>
 
         <a href="#historia">HISTÓRIA</a>
-
         <a href="#flyers">FLYERS</a>
-
         <a href="#logos">LOGOS</a>
-
         <a href="#contato">CONTATO</a>
+        <a href="#assistente">IA</a>
 
     </nav>
 
@@ -873,9 +990,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     MARCA
-========================= -->
+<!-- MARQUEE -->
 
 <div class="marquee">
 
@@ -898,9 +1013,7 @@ footer span{
 </div>
 
 
-<!-- =========================
-     FRASE
-========================= -->
+<!-- FRASE -->
 
 <div class="big-phrase">
 
@@ -914,9 +1027,7 @@ footer span{
 </div>
 
 
-<!-- =========================
-     SERVIÇOS
-========================= -->
+<!-- SERVIÇOS -->
 
 <section>
 
@@ -938,7 +1049,6 @@ footer span{
 
     </div>
 
-
     <div class="services">
 
         <div class="service">
@@ -957,7 +1067,6 @@ footer span{
 
         </div>
 
-
         <div class="service">
 
             <div class="service-number">
@@ -972,7 +1081,6 @@ footer span{
             </p>
 
         </div>
-
 
         <div class="service">
 
@@ -994,9 +1102,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     FLYERS
-========================= -->
+<!-- FLYERS -->
 
 <section id="flyers">
 
@@ -1017,102 +1123,70 @@ footer span{
 
     </div>
 
-
     <div class="flyers">
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 01</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 02</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 03</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 04</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 05</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 06</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-
             <div class="flyer-info">
                 <h3>Flyer 07</h3>
                 <p>Projeto de design</p>
             </div>
-
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     LOGOS
-========================= -->
+<!-- LOGOS -->
 
 <section id="logos">
 
@@ -1133,10 +1207,7 @@ footer span{
 
     </div>
 
-
     <div class="logo-grid">
-
-        <!-- SUA LOGO -->
 
         <div class="logo-box">
 
@@ -1152,9 +1223,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     HISTÓRIA
-========================= -->
+<!-- HISTÓRIA -->
 
 <section id="historia">
 
@@ -1170,7 +1239,6 @@ footer span{
         </h2>
 
     </div>
-
 
     <div class="history">
 
@@ -1189,7 +1257,6 @@ footer span{
             </div>
 
         </div>
-
 
         <div class="history-text">
 
@@ -1285,9 +1352,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     PROCESSO
-========================= -->
+<!-- PROCESSO -->
 
 <section>
 
@@ -1303,62 +1368,42 @@ footer span{
 
     </div>
 
-
     <div class="process">
 
         <div class="process-card">
-
             <span>01</span>
-
             <h3>Ideia</h3>
-
             <p>
                 Entendo o que você precisa
                 e o estilo que procura.
             </p>
-
         </div>
 
-
         <div class="process-card">
-
             <span>02</span>
-
             <h3>Criação</h3>
-
             <p>
                 Desenvolvo a composição
                 e os elementos da arte.
             </p>
-
         </div>
 
-
         <div class="process-card">
-
             <span>03</span>
-
             <h3>Ajustes</h3>
-
             <p>
                 Faço os ajustes necessários
                 para chegar ao resultado.
             </p>
-
         </div>
 
-
         <div class="process-card">
-
             <span>04</span>
-
             <h3>Entrega</h3>
-
             <p>
                 Finalizo o projeto e preparo
                 o arquivo para utilização.
             </p>
-
         </div>
 
     </div>
@@ -1366,9 +1411,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     DIFERENCIAIS
-========================= -->
+<!-- DIFERENCIAIS -->
 
 <section>
 
@@ -1384,58 +1427,42 @@ footer span{
 
     </div>
 
-
     <div class="differentials">
 
         <div class="difference">
-
             <h3>Criatividade</h3>
-
             <p>
                 Busco testar ideias diferentes
                 e encontrar uma composição
                 que combine com cada projeto.
             </p>
-
         </div>
 
-
         <div class="difference">
-
             <h3>Dedicação</h3>
-
             <p>
                 Cada trabalho é uma oportunidade
                 de aprender e melhorar meu
                 processo de criação.
             </p>
-
         </div>
 
-
         <div class="difference">
-
             <h3>Personalidade</h3>
-
             <p>
                 A proposta é criar algo que
                 tenha identidade e não pareça
                 apenas mais uma arte comum.
             </p>
-
         </div>
 
-
         <div class="difference">
-
             <h3>Evolução</h3>
-
             <p>
                 Estou sempre buscando aprender
                 novas técnicas e melhorar
                 meus trabalhos.
             </p>
-
         </div>
 
     </div>
@@ -1443,9 +1470,7 @@ footer span{
 </section>
 
 
-<!-- =========================
-     CONTATO
-========================= -->
+<!-- CONTATO -->
 
 <section id="contato">
 
@@ -1476,8 +1501,95 @@ footer span{
 
 
 <!-- =========================
-     RODAPÉ
+     ASSISTENTE IA
 ========================= -->
+
+<section id="assistente">
+
+    <div class="section-head">
+
+        <div class="number">
+            07 — ASSISTENTE
+        </div>
+
+        <h2 class="title">
+            FALE COM A <span>IA.</span>
+        </h2>
+
+        <p class="description">
+            Ficou com alguma dúvida sobre a Tralha Studio?
+            Pergunte para nosso assistente.
+        </p>
+
+    </div>
+
+
+    <div class="ai-container">
+
+        <div class="ai-box">
+
+            <div class="ai-header">
+
+                <div class="ai-icon">
+                    ✦
+                </div>
+
+                <div>
+                    <h3>Assistente Tralha Studio</h3>
+
+                    <p>
+                        Atendimento inteligente da Tralha Studio
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="ai-chat" id="aiChat">
+
+                <div class="ai-message ai-bot">
+
+                    Olá! Sou o assistente da
+                    <strong>Tralha Studio</strong>.
+
+                    <br><br>
+
+                    Posso tirar dúvidas sobre flyers,
+                    logos, criação de artes e nossos serviços.
+
+                </div>
+
+            </div>
+
+
+            <form class="ai-form" id="aiForm">
+
+                <input
+                    type="text"
+                    id="aiInput"
+                    class="ai-input"
+                    placeholder="Digite sua dúvida..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="ai-button"
+                >
+                    ENVIAR
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RODAPÉ -->
 
 <footer>
 
@@ -1490,6 +1602,123 @@ footer span{
     </div>
 
 </footer>
+
+
+<!-- =========================
+     SCRIPT DA IA
+========================= -->
+
+<script>
+
+const aiForm = document.getElementById("aiForm");
+const aiInput = document.getElementById("aiInput");
+const aiChat = document.getElementById("aiChat");
+
+
+function adicionarMensagem(texto, classe){
+
+    const mensagem = document.createElement("div");
+
+    mensagem.className = "ai-message " + classe;
+
+    mensagem.innerHTML = texto
+        .replace(/\n/g, "<br>");
+
+    aiChat.appendChild(mensagem);
+
+    aiChat.scrollTop = aiChat.scrollHeight;
+
+    return mensagem;
+}
+
+
+aiForm.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    const pergunta = aiInput.value.trim();
+
+    if(!pergunta){
+        return;
+    }
+
+
+    adicionarMensagem(
+        pergunta,
+        "ai-user"
+    );
+
+
+    aiInput.value = "";
+
+    aiInput.disabled = true;
+
+
+    const carregando = adicionarMensagem(
+        "Pensando...",
+        "ai-bot ai-loading"
+    );
+
+
+    try{
+
+        const resposta = await fetch("/perguntar", {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                pergunta:pergunta
+            })
+
+        });
+
+
+        const dados = await resposta.json();
+
+
+        carregando.remove();
+
+
+        if(dados.resposta){
+
+            adicionarMensagem(
+                dados.resposta,
+                "ai-bot"
+            );
+
+        }else{
+
+            adicionarMensagem(
+                "Não consegui responder agora. Tente novamente.",
+                "ai-bot"
+            );
+
+        }
+
+
+    }catch(erro){
+
+        carregando.remove();
+
+        adicionarMensagem(
+            "Não consegui conectar com o assistente. Tente novamente.",
+            "ai-bot"
+        );
+
+    }
+
+
+    aiInput.disabled = false;
+
+    aiInput.focus();
+
+});
+
+</script>
 
 
 </body>
