@@ -1,111 +1,655 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRALHA STUDIO</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+        }
+
+        header {
+            background: #111;
+            border-bottom: 1px solid #292929;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d6a800;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #d6a800;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(
+                circle at center,
+                #292000 0%,
+                #0b0b0b 55%
+            );
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            color: #d6a800;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ccc;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: #d6a800;
+            color: #111;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #f0c000;
+        }
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #d6a800;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .categoria {
+            color: white;
+            font-size: 28px;
+            margin: 50px 0 25px;
+            border-left: 4px solid #d6a800;
+            padding-left: 15px;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #121212;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #d6a800;
+            box-shadow: 0 10px 30px rgba(214,168,0,.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            background: #080808;
+            display: block;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card-content h3 {
+            color: #d6a800;
+            margin-bottom: 8px;
+        }
+
+        .card-content p {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .historia {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #bbb;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .precos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .preco {
+            background: #121212;
+            border: 1px solid #292929;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .preco h3 {
+            color: #d6a800;
+            margin-bottom: 10px;
+        }
+
+        .valor {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #080808;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        /* CHAT */
+
+        #chat-button {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: #d6a800;
+            color: #111;
+            font-size: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0,0,0,.5);
+            z-index: 2000;
+        }
+
+        #chat-box {
+            display: none;
+            position: fixed;
+            right: 25px;
+            bottom: 95px;
+            width: 350px;
+            max-width: calc(100% - 40px);
+            height: 500px;
+            background: #101010;
+            border: 1px solid #333;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,.7);
+            z-index: 1999;
+        }
+
+        .chat-header {
+            background: #d6a800;
+            color: #111;
+            padding: 17px;
+            font-weight: bold;
+        }
+
+        .chat-header small {
+            display: block;
+            margin-top: 4px;
+            opacity: .7;
+            font-weight: normal;
+        }
+
+        #chat-messages {
+            height: 390px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            padding: 10px 13px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 85%;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .bot {
+            background: #202020;
+            color: #ddd;
+        }
+
+        .user {
+            background: #d6a800;
+            color: #111;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #333;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            outline: none;
+            background: #151515;
+            color: white;
+        }
+
+        .chat-input button {
+            width: 60px;
+            border: none;
+            background: #d6a800;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            #chat-box {
+                right: 15px;
+                bottom: 85px;
+                width: calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TRALHA STUDIO</div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#precos">Preços</a>
+        <a href="#historia">História</a>
+    </nav>
+</header>
+
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+    <div>
+        <h1>TRALHA STUDIO</h1>
+
+        <p>
+            Design profissional para quem quer destacar sua marca.
+            Criamos logos, flyers e banners personalizados.
+        </p>
+
+        <a href="#portfolio" class="btn">Ver Portfólio</a>
+    </div>
+</section>
+
+
+<!-- PORTFÓLIO -->
+
 <section id="portfolio">
 
-```
-<!-- ========================= -->
-<!--          FLYERS           -->
-<!-- ========================= -->
+    <h2 class="titulo">Nosso Portfólio</h2>
 
-<h2 class="titulo">FLYERS</h2>
 
-<div class="portfolio">
+    <!-- FLYERS -->
 
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-        <div class="card-content">
-            <h3>Flyer</h3>
-            <p>Flyer profissional da TRALHA STUDIO.</p>
+    <h3 class="categoria">FLYERS</h3>
+
+    <div class="portfolio">
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer1.png') }}">
+            <div class="card-content">
+                <h3>Flyer 01</h3>
+                <p>Flyer profissional desenvolvido pela TRALHA STUDIO.</p>
+            </div>
         </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer2.png') }}">
+            <div class="card-content">
+                <h3>Flyer 02</h3>
+                <p>Arte personalizada para divulgação.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer3.png') }}">
+            <div class="card-content">
+                <h3>Flyer 03</h3>
+                <p>Design exclusivo para divulgação.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer4.png') }}">
+            <div class="card-content">
+                <h3>Flyer 04</h3>
+                <p>Flyer personalizado.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer5.png') }}">
+            <div class="card-content">
+                <h3>Flyer 05</h3>
+                <p>Arte profissional para sua marca.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/flyer6.png') }}">
+            <div class="card-content">
+                <h3>Flyer 06</h3>
+                <p>Criação personalizada TRALHA STUDIO.</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-        <div class="card-content">
-            <h3>Flyer</h3>
-            <p>Flyer profissional da TRALHA STUDIO.</p>
+
+    <!-- LOGOS -->
+
+    <h3 class="categoria">LOGOS</h3>
+
+    <div class="portfolio">
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/logo1.png') }}">
+            <div class="card-content">
+                <h3>Logo 01</h3>
+                <p>Identidade visual personalizada.</p>
+            </div>
         </div>
+
     </div>
 
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-        <div class="card-content">
-            <h3>Flyer</h3>
-            <p>Flyer profissional da TRALHA STUDIO.</p>
+
+    <!-- BANNERS -->
+
+    <h3 class="categoria">BANNERS</h3>
+
+    <div class="portfolio">
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/banner1.png') }}">
+            <div class="card-content">
+                <h3>Banner 01</h3>
+                <p>Banner profissional personalizado.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-        <div class="card-content">
-            <h3>Flyer</h3>
-            <p>Flyer profissional da TRALHA STUDIO.</p>
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/banner2.png') }}">
+            <div class="card-content">
+                <h3>Banner 02</h3>
+                <p>Arte personalizada para divulgação.</p>
+            </div>
         </div>
+
     </div>
-
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}">
-        <div class="card-content">
-            <h3>Flyer</h3>
-            <p>Flyer profissional da TRALHA STUDIO.</p>
-        </div>
-    </div>
-
-</div>
-
-
-<!-- ========================= -->
-<!--           LOGOS            -->
-<!-- ========================= -->
-
-<h2 class="titulo" style="margin-top: 80px;">LOGOS</h2>
-
-<div class="portfolio">
-
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-        <div class="card-content">
-            <h3>Logo</h3>
-            <p>Logo profissional da TRALHA STUDIO.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-        <div class="card-content">
-            <h3>Logo</h3>
-            <p>Identidade visual personalizada.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-        <div class="card-content">
-            <h3>Logo</h3>
-            <p>Identidade visual personalizada.</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="{{ url_for('static', filename='imagens/image.png') }}">
-        <div class="card-content">
-            <h3>Logo</h3>
-            <p>Identidade visual personalizada.</p>
-        </div>
-    </div>
-
-</div>
-
-
-<!-- ========================= -->
-<!--          BANNERS           -->
-<!-- ========================= -->
-
-<h2 class="titulo" style="margin-top: 80px;">BANNERS</h2>
-
-<div class="portfolio">
-
-    <!-- ADICIONE OS BANNERS AQUI -->
-
-</div>
-```
 
 </section>
+
+
+<!-- PREÇOS -->
+
+<section id="precos">
+
+    <h2 class="titulo">Nossos Preços</h2>
+
+    <div class="precos">
+
+        <div class="preco">
+            <h3>LOGO</h3>
+            <div class="valor">R$ 40</div>
+            <p>Logo personalizada.</p>
+        </div>
+
+        <div class="preco">
+            <h3>FLYER</h3>
+            <div class="valor">R$ 30</div>
+            <p>Flyer profissional.</p>
+        </div>
+
+        <div class="preco">
+            <h3>BANNER</h3>
+            <div class="valor">R$ 25</div>
+            <p>Banner personalizado.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HISTÓRIA -->
+
+<section id="historia">
+
+    <h2 class="titulo">Nossa História</h2>
+
+    <div class="historia">
+
+        <p>
+            A TRALHA STUDIO nasceu com o objetivo de transformar ideias
+            em artes profissionais e ajudar pessoas e projetos a terem
+            uma identidade visual marcante.
+        </p>
+
+        <br>
+
+        <p>
+            Cada trabalho é desenvolvido com dedicação, criatividade
+            e atenção aos detalhes.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 TRALHA STUDIO — Todos os direitos reservados.
+</footer>
+
+
+<!-- BOTÃO DO CHAT -->
+
+<button id="chat-button" onclick="abrirChat()">💬</button>
+
+
+<!-- CHAT -->
+
+<div id="chat-box">
+
+    <div class="chat-header">
+        TRALHA STUDIO
+        <small>Atendimento</small>
+    </div>
+
+    <div id="chat-messages">
+
+        <div class="message bot">
+            Olá! 👋 Bem-vindo à TRALHA STUDIO! Como posso ajudar?
+        </div>
+
+    </div>
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Digite sua mensagem..."
+            onkeydown="if(event.key === 'Enter') enviarMensagem()"
+        >
+
+        <button onclick="enviarMensagem()">➤</button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function abrirChat() {
+
+    const chat = document.getElementById("chat-box");
+
+    if (chat.style.display === "block") {
+        chat.style.display = "none";
+    } else {
+        chat.style.display = "block";
+        document.getElementById("chat-input").focus();
+    }
+
+}
+
+
+async function enviarMensagem() {
+
+    const input = document.getElementById("chat-input");
+    const mensagem = input.value.trim();
+
+    if (!mensagem) return;
+
+    const area = document.getElementById("chat-messages");
+
+
+    const usuario = document.createElement("div");
+
+    usuario.className = "message user";
+
+    usuario.textContent = mensagem;
+
+    area.appendChild(usuario);
+
+    input.value = "";
+
+    area.scrollTop = area.scrollHeight;
+
+
+    try {
+
+        const resposta = await fetch("/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: mensagem
+            })
+
+        });
+
+
+        const dados = await resposta.json();
+
+
+        const bot = document.createElement("div");
+
+        bot.className = "message bot";
+
+        bot.textContent =
+            dados.reply ||
+            "Não consegui responder agora.";
+
+
+        area.appendChild(bot);
+
+        area.scrollTop = area.scrollHeight;
+
+
+    } catch (erro) {
+
+        const bot = document.createElement("div");
+
+        bot.className = "message bot";
+
+        bot.textContent =
+            "Não foi possível conectar ao atendimento.";
+
+
+        area.appendChild(bot);
+
+        area.scrollTop = area.scrollHeight;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
