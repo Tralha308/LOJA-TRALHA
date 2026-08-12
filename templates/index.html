@@ -2,1085 +2,370 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TRALHA STUDIO — Design & Criação</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050505;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* FUNDO */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    right:-300px;
-    top:-300px;
-    background:rgba(200,164,58,.08);
-    border-radius:50%;
-    filter:blur(120px);
-    pointer-events:none;
-    z-index:-1;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    left:-300px;
-    bottom:-300px;
-    background:rgba(200,164,58,.05);
-    border-radius:50%;
-    filter:blur(120px);
-    pointer-events:none;
-    z-index:-1;
-}
-
-/* ONLINE */
-
-.online-counter{
-    position:fixed;
-    top:100px;
-    right:30px;
-    z-index:999;
-
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    padding:10px 17px;
-
-    background:rgba(12,12,12,.95);
-    border:1px solid #282828;
-    border-radius:30px;
-
-    font-size:11px;
-    letter-spacing:1px;
-    color:#777;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-.online-counter strong{
-    color:#C8A43A;
-    font-size:16px;
-}
-
-.online-dot{
-    width:8px;
-    height:8px;
-    background:#48d66b;
-    border-radius:50%;
-    box-shadow:0 0 12px #48d66b;
-}
-
-/* HEADER */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:80px;
-
-    padding:0 7%;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:rgba(5,5,5,.9);
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid #1c1c1c;
-
-    z-index:998;
-}
-
-.logo{
-    font-size:21px;
-    font-weight:900;
-    letter-spacing:4px;
-}
-
-.logo span{
-    color:#C8A43A;
-}
-
-nav{
-    display:flex;
-    gap:32px;
-}
-
-nav a{
-    color:#777;
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#E6CC6A;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    padding:180px 7% 110px;
-
-    display:flex;
-    align-items:center;
-
-    border-bottom:1px solid #181818;
-}
-
-.hero-content{
-    max-width:1150px;
-}
-
-.hero-tag{
-    color:#C8A43A;
-    font-size:11px;
-    letter-spacing:6px;
-    font-weight:bold;
-    margin-bottom:30px;
-}
-
-.hero h1{
-    font-size:clamp(65px,10vw,150px);
-    line-height:.82;
-    letter-spacing:-8px;
-    margin-bottom:45px;
-}
-
-.hero h1 span{
-    color:#C8A43A;
-    display:block;
-}
-
-.hero p{
-    max-width:680px;
-    color:#888;
-    font-size:18px;
-    line-height:1.9;
-    margin-bottom:40px;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-    padding:17px 30px;
-    border-radius:4px;
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:2px;
-    transition:.3s;
-    cursor:pointer;
-}
-
-.gold{
-    background:#C8A43A;
-    color:#050505;
-}
-
-.gold:hover{
-    background:#E6CC6A;
-    transform:translateY(-5px);
-}
-
-.outline{
-    border:1px solid #333;
-    color:#aaa;
-}
-
-.outline:hover{
-    border-color:#C8A43A;
-    color:#E6CC6A;
-    transform:translateY(-5px);
-}
-
-/* MARQUEE */
-
-.marquee{
-    overflow:hidden;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
-    padding:24px 0;
-    white-space:nowrap;
-}
-
-.marquee-track{
-    display:inline-block;
-    animation:move 25s linear infinite;
-}
-
-.marquee span{
-    font-size:12px;
-    letter-spacing:5px;
-    margin:0 35px;
-    color:#555;
-}
-
-.marquee strong{
-    color:#C8A43A;
-}
-
-@keyframes move{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-}
-
-/* FRASE */
-
-.big-phrase{
-    padding:130px 7%;
-    text-align:center;
-}
-
-.big-phrase h2{
-    max-width:1100px;
-    margin:auto;
-
-    font-size:clamp(40px,6vw,82px);
-    line-height:1;
-    letter-spacing:-5px;
-}
-
-.big-phrase span{
-    color:#C8A43A;
-}
-
-/* SEÇÕES */
-
-section{
-    padding:110px 7%;
-}
-
-.section-head{
-    max-width:1200px;
-    margin:0 auto 60px;
-}
-
-.number{
-    color:#C8A43A;
-    font-size:11px;
-    letter-spacing:5px;
-    margin-bottom:22px;
-}
-
-.title{
-    font-size:clamp(50px,7vw,90px);
-    line-height:.9;
-    letter-spacing:-5px;
-}
-
-.title span{
-    color:#C8A43A;
-}
-
-.description{
-    max-width:650px;
-    margin-top:28px;
-    color:#777;
-    line-height:1.9;
-}
-
-/* SERVIÇOS */
-
-.services{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.service{
-    min-height:300px;
-    padding:38px;
-
-    background:linear-gradient(145deg,#121212,#080808);
-
-    border:1px solid #242424;
-
-    transition:.4s;
-}
-
-.service:hover{
-    transform:translateY(-8px);
-    border-color:#C8A43A;
-}
-
-.service-number{
-    color:#C8A43A;
-    font-size:11px;
-    letter-spacing:4px;
-}
-
-.service h3{
-    font-size:30px;
-    margin:70px 0 20px;
-}
-
-.service p{
-    color:#777;
-    line-height:1.8;
-}
-
-/* FLYERS */
-
-#flyers{
-    background:#080808;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
-}
-
-.flyers{
-    max-width:1100px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.flyer{
-    background:#0D0D0D;
-    padding:7px;
-
-    border:1px solid #252525;
-    border-radius:5px;
-
-    overflow:hidden;
-    transition:.4s;
-}
-
-.flyer:hover{
-    transform:translateY(-7px);
-    border-color:#C8A43A;
-}
-
-.flyer img{
-    width:100%;
-    height:330px;
-
-    display:block;
-
-    object-fit:contain;
-
-    background:#080808;
-}
-
-.flyer-info{
-    padding:16px 10px 12px;
-}
-
-.flyer-info h3{
-    font-size:15px;
-    margin-bottom:5px;
-}
-
-.flyer-info p{
-    color:#666;
-    font-size:10px;
-}
-
-/* LOGOS */
-
-#logos{
-    background:#050505;
-}
-
-.logo-grid{
-    max-width:1100px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.logo-box{
-    height:260px;
-
-    padding:12px;
-
-    background:radial-gradient(circle at center,#191919,#080808);
-
-    border:1px solid #242424;
-    border-radius:5px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    transition:.4s;
-}
-
-.logo-box:hover{
-    transform:translateY(-7px);
-    border-color:#C8A43A;
-}
-
-.logo-box img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
-}
-
-/* HISTÓRIA */
-
-#historia{
-    background:#090909;
-
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
-}
-
-.history{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1fr 1.5fr;
-    gap:90px;
-}
-
-.history-number{
-    font-size:clamp(130px,18vw,230px);
-    font-weight:900;
-
-    color:rgba(200,164,58,.08);
-
-    line-height:.7;
-}
-
-.history-left{
-    font-size:45px;
-    margin-left:20px;
-}
-
-.founder{
-    margin-top:35px;
-    margin-left:20px;
-
-    color:#555;
-    font-size:11px;
-    letter-spacing:3px;
-}
-
-.history-text{
-    color:#999;
-    font-size:17px;
-    line-height:2;
-}
-
-.history-text p{
-    margin-bottom:25px;
-}
-
-.history-text strong{
-    color:#E6CC6A;
-}
-
-/* PROCESSO */
-
-.process{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.process-card{
-    padding:35px;
-    min-height:250px;
-
-    border:1px solid #242424;
-    background:#0D0D0D;
-
-    transition:.3s;
-}
-
-.process-card:hover{
-    border-color:#C8A43A;
-    transform:translateY(-6px);
-}
-
-.process-card span{
-    color:#C8A43A;
-    letter-spacing:4px;
-    font-size:11px;
-}
-
-.process-card h3{
-    font-size:24px;
-    margin:45px 0 15px;
-}
-
-.process-card p{
-    color:#666;
-    line-height:1.8;
-}
-
-/* DIFERENCIAIS */
-
-.differentials{
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.difference{
-    padding:45px;
-
-    border:1px solid #242424;
-    background:#0D0D0D;
-}
-
-.difference h3{
-    color:#C8A43A;
-    margin-bottom:15px;
-    font-size:22px;
-}
-
-.difference p{
-    color:#777;
-    line-height:1.8;
-}
-
-/* =========================
-   FALE COMIGO
-========================= */
-
-#fale-comigo{
-    background:#080808;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
-}
-
-.chat-box{
-    max-width:850px;
-    margin:auto;
-
-    background:#0D0D0D;
-    border:1px solid #292929;
-    border-radius:10px;
-
-    padding:30px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.4);
-}
-
-.chat-title{
-    color:#C8A43A;
-    font-size:12px;
-    letter-spacing:4px;
-    margin-bottom:12px;
-}
-
-.chat-box h3{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.chat-box > p{
-    color:#777;
-    line-height:1.7;
-    margin-bottom:25px;
-}
-
-.chat-form{
-    display:grid;
-    gap:15px;
-}
-
-.chat-form input,
-.chat-form textarea{
-    width:100%;
-
-    background:#080808;
-    border:1px solid #292929;
-
-    color:white;
-
-    padding:16px;
-
-    border-radius:5px;
-
-    outline:none;
-
-    font-family:Arial;
-}
-
-.chat-form input:focus,
-.chat-form textarea:focus{
-    border-color:#C8A43A;
-}
-
-.chat-form textarea{
-    min-height:130px;
-    resize:vertical;
-}
-
-.chat-send{
-    border:0;
-    width:100%;
-}
-
-/* CONTATO */
-
-#contato{
-    text-align:center;
-    padding:150px 7%;
-}
-
-.contact-small{
-    color:#C8A43A;
-    letter-spacing:5px;
-    font-size:11px;
-}
-
-#contato h2{
-    max-width:1000px;
-    margin:25px auto;
-
-    font-size:clamp(50px,9vw,110px);
-
-    line-height:.9;
-    letter-spacing:-6px;
-}
-
-#contato h2 span{
-    color:#C8A43A;
-}
-
-#contato p{
-    max-width:600px;
-    margin:0 auto 35px;
-
-    color:#777;
-    line-height:1.8;
-}
-
-/* FOOTER */
-
-footer{
-    padding:45px 7%;
-
-    border-top:1px solid #181818;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    color:#555;
-    font-size:12px;
-}
-
-footer span{
-    color:#C8A43A;
-}
-
-/* CELULAR */
-
-@media(max-width:1000px){
-
-    .flyers{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .logo-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .services{
-        grid-template-columns:1fr;
-    }
-
-    .history{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-
-    .process{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-
-    header{
-        height:auto;
-        min-height:70px;
-
-        padding:15px 5%;
-
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav{
-        gap:13px;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    nav a{
-        font-size:8px;
-    }
-
-    .online-counter{
-        top:135px;
-        right:15px;
-    }
-
-    .hero{
-        padding:200px 5% 90px;
-    }
-
-    .hero h1{
-        font-size:55px;
-        letter-spacing:-4px;
-    }
-
-    section{
-        padding:85px 5%;
-    }
-
-    .flyers{
-        grid-template-columns:1fr;
-    }
-
-    .flyer img{
-        height:auto;
-        max-height:520px;
-    }
-
-    .logo-grid{
-        grid-template-columns:1fr;
-    }
-
-    .logo-box{
-        height:280px;
-    }
-
-    .process{
-        grid-template-columns:1fr;
-    }
-
-    .differentials{
-        grid-template-columns:1fr;
-    }
-
-    .chat-box{
-        padding:22px;
-    }
-
-    .chat-box h3{
-        font-size:28px;
-    }
-
-    footer{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRALHA STUDIO</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+        }
+
+        header {
+            background: #111;
+            border-bottom: 1px solid #292929;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d6a800;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #d6a800;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at center, #292000 0%, #0b0b0b 55%);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            color: #d6a800;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ccc;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: #d6a800;
+            color: #111;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #f0c000;
+        }
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #d6a800;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #121212;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #d6a800;
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: contain;
+            background: #080808;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card-content h3 {
+            color: #d6a800;
+            margin-bottom: 8px;
+        }
+
+        .card-content p {
+            color: #aaa;
+        }
+
+        .historia {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #bbb;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .precos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .preco {
+            background: #121212;
+            border: 1px solid #292929;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .preco h3 {
+            color: #d6a800;
+            margin-bottom: 10px;
+        }
+
+        .valor {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #080808;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        /* CHAT */
+
+        #chat-button {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: #d6a800;
+            color: #111;
+            font-size: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0,0,0,.5);
+            z-index: 2000;
+        }
+
+        #chat-box {
+            display: none;
+            position: fixed;
+            right: 25px;
+            bottom: 95px;
+            width: 350px;
+            max-width: calc(100% - 40px);
+            height: 500px;
+            background: #101010;
+            border: 1px solid #333;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,.7);
+            z-index: 1999;
+        }
+
+        .chat-header {
+            background: #d6a800;
+            color: #111;
+            padding: 17px;
+            font-weight: bold;
+        }
+
+        .chat-header small {
+            display: block;
+            margin-top: 4px;
+            opacity: .7;
+            font-weight: normal;
+        }
+
+        #chat-messages {
+            height: 390px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            padding: 10px 13px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 85%;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .bot {
+            background: #202020;
+            color: #ddd;
+        }
+
+        .user {
+            background: #d6a800;
+            color: #111;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #333;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            outline: none;
+            background: #151515;
+            color: white;
+        }
+
+        .chat-input button {
+            width: 60px;
+            border: none;
+            background: #d6a800;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            #chat-box {
+                right: 15px;
+                bottom: 85px;
+                width: calc(100% - 30px);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- ONLINE -->
-
-<div class="online-counter">
-    <span class="online-dot"></span>
-    <strong>17</strong>
-    <span>pessoas online agora</span>
-</div>
-
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">
-        TRALHA <span>STUDIO</span>
-    </div>
+    <div class="logo">TRALHA STUDIO</div>
 
     <nav>
-        <a href="#historia">HISTÓRIA</a>
-        <a href="#flyers">FLYERS</a>
-        <a href="#logos">LOGOS</a>
-        <a href="#fale-comigo">FALAR COMIGO</a>
-        <a href="#contato">CONTATO</a>
+        <a href="#inicio">Início</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#precos">Preços</a>
+        <a href="#historia">História</a>
     </nav>
-
 </header>
 
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-tag">
-            TRALHA STUDIO • DESIGN • CRIAÇÃO
-        </div>
-
-        <h1>
-            DESIGN
-            <span>QUE MARCA.</span>
-        </h1>
+<section class="hero" id="inicio">
+    <div>
+        <h1>TRALHA STUDIO</h1>
 
         <p>
-            Criatividade, dedicação e personalidade
-            em cada projeto. A Tralha Studio transforma
-            ideias em flyers e identidades visuais
-            feitas para chamar atenção.
+            Design profissional para quem quer destacar sua marca.
+            Criamos logos, flyers e banners personalizados.
         </p>
 
-        <div class="buttons">
-
-            <a href="#flyers" class="btn gold">
-                VER PORTFÓLIO
-            </a>
-
-            <a href="#fale-comigo" class="btn outline">
-                FALAR COMIGO
-            </a>
-
-        </div>
-
+        <a href="#portfolio" class="btn">Ver Portfólio</a>
     </div>
-
 </section>
 
-<!-- MARQUEE -->
+<section id="portfolio">
 
-<div class="marquee">
+    <h2 class="titulo">Nosso Portfólio</h2>
 
-    <div class="marquee-track">
+    <div class="portfolio">
 
-        <span>TRALHA <strong>STUDIO</strong></span>
-        <span>FLYERS</span>
-        <span>LOGOS</span>
-        <span>DESIGN</span>
-        <span>CRIATIVIDADE</span>
-
-        <span>TRALHA <strong>STUDIO</strong></span>
-        <span>FLYERS</span>
-        <span>LOGOS</span>
-        <span>DESIGN</span>
-        <span>CRIATIVIDADE</span>
-
-    </div>
-
-</div>
-
-<!-- FRASE -->
-
-<div class="big-phrase">
-
-    <h2>
-        UMA BOA ARTE NÃO PRECISA
-        <span>GRITAR.</span>
-        ELA PRECISA
-        <span>SER LEMBRADA.</span>
-    </h2>
-
-</div>
-
-<!-- SERVIÇOS -->
-
-<section>
-
-    <div class="section-head">
-
-        <div class="number">
-            01 — SERVIÇOS
-        </div>
-
-        <h2 class="title">
-            O QUE EU <span>FAÇO.</span>
-        </h2>
-
-        <p class="description">
-            Trabalho principalmente com criação
-            de flyers e logos, buscando adaptar
-            cada arte ao estilo e objetivo do projeto.
-        </p>
-
-    </div>
-
-    <div class="services">
-
-        <div class="service">
-
-            <div class="service-number">
-                01 / FLYERS
-            </div>
-
-            <h3>Flyers</h3>
-
-            <p>
-                Artes para divulgação, eventos,
-                anúncios, servidores, cidades
-                e redes sociais.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="service-number">
-                02 / LOGOS
-            </div>
-
-            <h3>Logos</h3>
-
-            <p>
-                Identidades visuais para marcas,
-                projetos, comunidades e servidores.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="service-number">
-                03 / PERSONALIZAÇÃO
-            </div>
-
-            <h3>Seu estilo</h3>
-
-            <p>
-                Cada criação é adaptada para
-                combinar com a proposta do projeto.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FLYERS -->
-
-<section id="flyers">
-
-    <div class="section-head">
-
-        <div class="number">
-            02 — PORTFÓLIO
-        </div>
-
-        <h2 class="title">
-            MEUS <span>FLYERS.</span>
-        </h2>
-
-        <p class="description">
-            Alguns dos trabalhos desenvolvidos
-            pela Tralha Studio.
-        </p>
-
-    </div>
-
-    <div class="flyers">
-
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 01</h3>
-                <p>Projeto de design</p>
-            </div>
-        </div>
-
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 02</h3>
-                <p>Projeto de design</p>
-            </div>
-        </div>
-
-        <div class="flyer">
+        <div class="card">
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 03</h3>
-                <p>Projeto de design</p>
+            <div class="card-content">
+                <h3>Design</h3>
+                <p>Trabalho personalizado desenvolvido pela TRALHA STUDIO.</p>
             </div>
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 04</h3>
-                <p>Projeto de design</p>
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
+            <div class="card-content">
+                <h3>Flyer</h3>
+                <p>Flyers profissionais para divulgação.</p>
             </div>
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 05</h3>
-                <p>Projeto de design</p>
-            </div>
-        </div>
-
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 06</h3>
-                <p>Projeto de design</p>
-            </div>
-        </div>
-
-        <div class="flyer">
+        <div class="card">
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 07</h3>
-                <p>Projeto de design</p>
+            <div class="card-content">
+                <h3>Logo</h3>
+                <p>Identidade visual personalizada.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='imagens/image.png') }}">
+            <div class="card-content">
+                <h3>Arte</h3>
+                <p>Artes criativas para sua divulgação.</p>
             </div>
         </div>
 
@@ -1088,397 +373,170 @@ footer span{
 
 </section>
 
-<!-- LOGOS -->
+<section id="precos">
 
-<section id="logos">
+    <h2 class="titulo">Nossos Preços</h2>
 
-    <div class="section-head">
+    <div class="precos">
 
-        <div class="number">
-            03 — IDENTIDADE VISUAL
+        <div class="preco">
+            <h3>LOGO</h3>
+            <div class="valor">R$ 40</div>
+            <p>Logo personalizada.</p>
         </div>
 
-        <h2 class="title">
-            MEUS <span>LOGOS.</span>
-        </h2>
+        <div class="preco">
+            <h3>FLYER</h3>
+            <div class="valor">R$ 30</div>
+            <p>Flyer profissional.</p>
+        </div>
 
-        <p class="description">
-            Algumas das identidades visuais
-            criadas pela Tralha Studio.
-        </p>
-
-    </div>
-
-    <div class="logo-grid">
-
-        <div class="logo-box">
-
-            <img
-                src="{{ url_for('static', filename='imagens/image.png') }}"
-                alt="Logo Tralha Studio"
-            >
-
+        <div class="preco">
+            <h3>BANNER</h3>
+            <div class="valor">R$ 25</div>
+            <p>Banner personalizado.</p>
         </div>
 
     </div>
 
 </section>
-
-<!-- HISTÓRIA -->
 
 <section id="historia">
 
-    <div class="section-head">
+    <h2 class="titulo">Nossa História</h2>
 
-        <div class="number">
-            04 — A HISTÓRIA POR TRÁS DA MARCA
-        </div>
-
-        <h2 class="title">
-            TUDO COMEÇOU
-            <span>COM UMA IDEIA.</span>
-        </h2>
-
-    </div>
-
-    <div class="history">
-
-        <div>
-
-            <div class="history-number">
-                14
-            </div>
-
-            <h3 class="history-left">
-                ANOS
-            </h3>
-
-            <div class="founder">
-                DAVID • FUNDADOR
-            </div>
-
-        </div>
-
-        <div class="history-text">
-
-            <p>
-                <strong>Meu nome é David.</strong>
-                Tenho 14 anos e, como muitas coisas
-                grandes, a história da Tralha Studio
-                começou de uma forma simples:
-                com curiosidade.
-            </p>
-
-            <p>
-                No começo, eu não tinha uma grande
-                estrutura, uma equipe ou anos de
-                experiência. Eu tinha apenas vontade
-                de aprender e descobrir até onde
-                conseguiria chegar.
-            </p>
-
-            <p>
-                Comecei experimentando. Testava
-                fontes, cores, efeitos, posições
-                e diferentes estilos. Algumas artes
-                ficavam boas. Outras não ficavam
-                nem perto do que eu imaginava.
-            </p>
-
-            <p>
-                Cada erro fazia parte do aprendizado.
-                Com o passar do tempo, percebi que
-                aquilo já não era apenas uma brincadeira.
-                Eu realmente gostava de criar.
-            </p>
-
-            <p>
-                Foi então que nasceu a
-                <strong>Tralha Studio.</strong>
-                Não nasceu pronta. Não nasceu perfeita.
-                Nasceu pequena, com muito para aprender,
-                mas com uma coisa que continua sendo
-                a mesma desde o primeiro dia:
-                <strong>vontade de crescer.</strong>
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROCESSO -->
-
-<section>
-
-    <div class="section-head">
-
-        <div class="number">
-            05 — PROCESSO
-        </div>
-
-        <h2 class="title">
-            COMO EU <span>TRABALHO.</span>
-        </h2>
-
-    </div>
-
-    <div class="process">
-
-        <div class="process-card">
-            <span>01</span>
-            <h3>Ideia</h3>
-            <p>Entendo o que você precisa e o estilo que procura.</p>
-        </div>
-
-        <div class="process-card">
-            <span>02</span>
-            <h3>Criação</h3>
-            <p>Desenvolvo a composição e os elementos da arte.</p>
-        </div>
-
-        <div class="process-card">
-            <span>03</span>
-            <h3>Ajustes</h3>
-            <p>Faço os ajustes necessários para chegar ao resultado.</p>
-        </div>
-
-        <div class="process-card">
-            <span>04</span>
-            <h3>Entrega</h3>
-            <p>Finalizo o projeto e preparo o arquivo para utilização.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- DIFERENCIAIS -->
-
-<section>
-
-    <div class="section-head">
-
-        <div class="number">
-            06 — DIFERENCIAIS
-        </div>
-
-        <h2 class="title">
-            POR QUE A <span>TRALHA?</span>
-        </h2>
-
-    </div>
-
-    <div class="differentials">
-
-        <div class="difference">
-            <h3>Criatividade</h3>
-            <p>Busco testar ideias diferentes e encontrar uma composição que combine com cada projeto.</p>
-        </div>
-
-        <div class="difference">
-            <h3>Dedicação</h3>
-            <p>Cada trabalho é uma oportunidade de aprender e melhorar meu processo de criação.</p>
-        </div>
-
-        <div class="difference">
-            <h3>Personalidade</h3>
-            <p>A proposta é criar algo que tenha identidade e não pareça apenas mais uma arte comum.</p>
-        </div>
-
-        <div class="difference">
-            <h3>Evolução</h3>
-            <p>Estou sempre buscando aprender novas técnicas e melhorar meus trabalhos.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     FALE COMIGO
-========================= -->
-
-<section id="fale-comigo">
-
-    <div class="section-head">
-
-        <div class="number">
-            07 — FALE COMIGO
-        </div>
-
-        <h2 class="title">
-            VAMOS <span>CONVERSAR?</span>
-        </h2>
-
-        <p class="description">
-            Quer tirar uma dúvida, pedir um orçamento
-            ou conversar sobre uma arte? Me mande uma mensagem.
+    <div class="historia">
+        <p>
+            A TRALHA STUDIO nasceu com o objetivo de transformar ideias
+            em artes profissionais e ajudar pessoas e projetos a terem
+            uma identidade visual marcante.
         </p>
 
-    </div>
-
-    <div class="chat-box">
-
-        <div class="chat-title">
-            TRALHA STUDIO • CONTATO DIRETO
-        </div>
-
-        <h3>Fale diretamente comigo.</h3>
+        <br>
 
         <p>
-            Preencha seu nome e escreva sua mensagem.
-            Ao enviar, o Discord será aberto com a mensagem pronta.
+            Cada trabalho é desenvolvido com dedicação, criatividade
+            e atenção aos detalhes.
         </p>
+    </div>
 
-        <div class="chat-form">
+</section>
 
-            <input
-                type="text"
-                id="nome"
-                placeholder="Seu nome"
-            >
+<footer>
+    © 2026 TRALHA STUDIO — Todos os direitos reservados.
+</footer>
 
-            <textarea
-                id="mensagem"
-                placeholder="Digite sua dúvida ou mensagem..."
-            ></textarea>
 
-            <button
-                class="btn gold chat-send"
-                onclick="enviarMensagem()"
-            >
-                ENVIAR MENSAGEM
-            </button>
+<!-- BOTÃO DO CHAT -->
 
+<button id="chat-button" onclick="abrirChat()">💬</button>
+
+
+<!-- CHAT -->
+
+<div id="chat-box">
+
+    <div class="chat-header">
+        TRALHA STUDIO
+        <small>Atendimento automático</small>
+    </div>
+
+    <div id="chat-messages">
+
+        <div class="message bot">
+            Olá! 👋 Bem-vindo à TRALHA STUDIO! Como posso ajudar?
         </div>
 
     </div>
 
-</section>
+    <div class="chat-input">
 
-<!-- CONTATO -->
+        <input
+            type="text"
+            id="chat-input"
+            placeholder="Digite sua mensagem..."
+            onkeydown="if(event.key === 'Enter') enviarMensagem()"
+        >
 
-<section id="contato">
+        <button onclick="enviarMensagem()">➤</button>
 
-    <div class="contact-small">
-        VAMOS CRIAR?
     </div>
 
-    <h2>
-        SUA IDEIA
-        <span>MERECE DESIGN.</span>
-    </h2>
+</div>
 
-    <p>
-        Precisa de um flyer, uma logo
-        ou quer conversar sobre um projeto?
-        Entre em contato comigo.
-    </p>
-
-    <a
-        href="https://discord.gg/QtNjjgXZ9"
-        target="_blank"
-        class="btn gold"
-    >
-        ENTRAR NO DISCORD
-    </a>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div>
-        © 2026 <span>TRALHA STUDIO</span>
-    </div>
-
-    <div>
-        DESIGN • FLYERS • LOGOS
-    </div>
-
-</footer>
 
 <script>
 
-/*
-=========================================
-FALE COMIGO
+function abrirChat() {
 
-Aqui não usamos OpenAI.
-Não precisa de API.
-Não precisa de dinheiro.
-Não mexe no app.py.
+    const chat = document.getElementById("chat-box");
 
-A mensagem é enviada para o Discord.
-=========================================
-*/
-
-function enviarMensagem(){
-
-    const nome = document.getElementById("nome").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
-
-    if(!nome){
-
-        alert("Digite seu nome primeiro!");
-
-        return;
+    if (chat.style.display === "block") {
+        chat.style.display = "none";
+    } else {
+        chat.style.display = "block";
+        document.getElementById("chat-input").focus();
     }
 
-    if(!mensagem){
+}
 
-        alert("Digite sua mensagem primeiro!");
 
-        return;
+async function enviarMensagem() {
+
+    const input = document.getElementById("chat-input");
+    const mensagem = input.value.trim();
+
+    if (!mensagem) return;
+
+    const area = document.getElementById("chat-messages");
+
+    // mensagem do visitante
+    const usuario = document.createElement("div");
+    usuario.className = "message user";
+    usuario.textContent = mensagem;
+
+    area.appendChild(usuario);
+
+    input.value = "";
+
+    area.scrollTop = area.scrollHeight;
+
+    try {
+
+        const resposta = await fetch("/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: mensagem
+            })
+
+        });
+
+        const dados = await resposta.json();
+
+        const bot = document.createElement("div");
+        bot.className = "message bot";
+        bot.textContent = dados.reply || "Não consegui responder agora.";
+
+        area.appendChild(bot);
+
+        area.scrollTop = area.scrollHeight;
+
+    } catch (erro) {
+
+        const bot = document.createElement("div");
+        bot.className = "message bot";
+        bot.textContent = "Não foi possível conectar ao atendimento.";
+
+        area.appendChild(bot);
+
+        area.scrollTop = area.scrollHeight;
     }
-
-    const texto =
-        "Olá David! Meu nome é " +
-        nome +
-        ".%0A%0A" +
-        "Minha mensagem:%0A" +
-        mensagem;
-
-    /*
-    =====================================
-    LINK DO SEU DISCORD
-    =====================================
-
-    O seu servidor atual:
-    https://discord.gg/QtNjjgXZ9
-    */
-
-    const discord =
-        "https://discord.com/channels/@me";
-
-    /*
-    Abre o Discord.
-
-    A mensagem fica copiada automaticamente
-    para o usuário colar na conversa.
-    */
-
-    navigator.clipboard.writeText(
-        "Olá David! Meu nome é " +
-        nome +
-        ".\n\n" +
-        mensagem
-    ).then(function(){
-
-        alert(
-            "Mensagem copiada! Agora é só abrir o Discord e enviar para o David."
-        );
-
-        window.open(discord, "_blank");
-
-    }).catch(function(){
-
-        window.open(discord, "_blank");
-
-    });
 
 }
 
