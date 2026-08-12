@@ -1,362 +1,111 @@
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRALHA STUDIO</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #0b0b0b;
-            color: white;
-        }
-
-        header {
-            background: #111;
-            border-bottom: 1px solid #292929;
-            padding: 20px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #d6a800;
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: #d6a800;
-        }
-
-        .hero {
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background:
-                radial-gradient(circle at center, #292000 0%, #0b0b0b 55%);
-        }
-
-        .hero h1 {
-            font-size: 55px;
-            color: #d6a800;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: #ccc;
-            font-size: 18px;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 28px;
-            background: #d6a800;
-            color: #111;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            background: #f0c000;
-        }
-
-        section {
-            padding: 70px 7%;
-        }
-
-        .titulo {
-            text-align: center;
-            color: #d6a800;
-            font-size: 35px;
-            margin-bottom: 40px;
-        }
-
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: #121212;
-            border: 1px solid #292929;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            border-color: #d6a800;
-        }
-
-        .card img {
-            width: 100%;
-            height: 260px;
-            object-fit: contain;
-            background: #080808;
-            display: block;
-        }
-
-        .card-content {
-            padding: 18px;
-        }
-
-        .card-content h3 {
-            color: #d6a800;
-            margin-bottom: 8px;
-        }
-
-        .card-content p {
-            color: #aaa;
-        }
-
-        .historia {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            color: #bbb;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-        .precos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .preco {
-            background: #121212;
-            border: 1px solid #292929;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .preco h3 {
-            color: #d6a800;
-            margin-bottom: 10px;
-        }
-
-        .valor {
-            font-size: 30px;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #080808;
-            color: #777;
-            border-top: 1px solid #222;
-        }
-
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 7px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="logo">TRALHA STUDIO</div>
-
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#precos">Preços</a>
-        <a href="#historia">História</a>
-    </nav>
-</header>
-
-<section class="hero" id="inicio">
-    <div>
-        <h1>TRALHA STUDIO</h1>
-
-        <p>
-            Design profissional para quem quer destacar sua marca.
-            Criamos logos, flyers e banners personalizados.
-        </p>
-
-        <a href="#portfolio" class="btn">Ver Portfólio</a>
-    </div>
-</section>
-
 <section id="portfolio">
 
-    <h2 class="titulo">Nosso Portfólio</h2>
-
-    <div class="portfolio">
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-            <div class="card-content">
-                <h3>Design</h3>
-                <p>Trabalho personalizado desenvolvido pela TRALHA STUDIO.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-            <div class="card-content">
-                <h3>Flyer</h3>
-                <p>Flyers profissionais para divulgação.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-            <div class="card-content">
-                <h3>Logo</h3>
-                <p>Identidade visual personalizada.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/image.png') }}">
-            <div class="card-content">
-                <h3>Arte</h3>
-                <p>Artes criativas para sua divulgação.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-            <div class="card-content">
-                <h3>Flyer</h3>
-                <p>Flyer profissional desenvolvido pela TRALHA STUDIO.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-            <div class="card-content">
-                <h3>Logo</h3>
-                <p>Identidade visual personalizada.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-            <div class="card-content">
-                <h3>Flyer</h3>
-                <p>Arte profissional para divulgação.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-            <div class="card-content">
-                <h3>Logo</h3>
-                <p>Design exclusivo desenvolvido pela TRALHA STUDIO.</p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="precos">
-
-    <h2 class="titulo">Nossos Preços</h2>
-
-    <div class="precos">
-
-        <div class="preco">
-            <h3>LOGO</h3>
-            <div class="valor">R$ 40</div>
-            <p>Logo personalizada.</p>
-        </div>
-
-        <div class="preco">
-            <h3>FLYER</h3>
-            <div class="valor">R$ 30</div>
-            <p>Flyer profissional.</p>
-        </div>
-
-        <div class="preco">
-            <h3>BANNER</h3>
-            <div class="valor">R$ 25</div>
-            <p>Banner personalizado.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="historia">
-
-    <h2 class="titulo">Nossa História</h2>
-
-    <div class="historia">
-
-        <p>
-            A TRALHA STUDIO nasceu com o objetivo de transformar ideias
-            em artes profissionais e ajudar pessoas e projetos a terem
-            uma identidade visual marcante.
-        </p>
-
-        <br>
-
-        <p>
-            Cada trabalho é desenvolvido com dedicação, criatividade
-            e atenção aos detalhes.
-        </p>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 TRALHA STUDIO — Todos os direitos reservados.
-</footer>
-
-</body>
-</html>
 ```
+<!-- ========================= -->
+<!--          FLYERS           -->
+<!-- ========================= -->
+
+<h2 class="titulo">FLYERS</h2>
+
+<div class="portfolio">
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
+        <div class="card-content">
+            <h3>Flyer</h3>
+            <p>Flyer profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
+        <div class="card-content">
+            <h3>Flyer</h3>
+            <p>Flyer profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
+        <div class="card-content">
+            <h3>Flyer</h3>
+            <p>Flyer profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
+        <div class="card-content">
+            <h3>Flyer</h3>
+            <p>Flyer profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}">
+        <div class="card-content">
+            <h3>Flyer</h3>
+            <p>Flyer profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!--           LOGOS            -->
+<!-- ========================= -->
+
+<h2 class="titulo" style="margin-top: 80px;">LOGOS</h2>
+
+<div class="portfolio">
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
+        <div class="card-content">
+            <h3>Logo</h3>
+            <p>Logo profissional da TRALHA STUDIO.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
+        <div class="card-content">
+            <h3>Logo</h3>
+            <p>Identidade visual personalizada.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
+        <div class="card-content">
+            <h3>Logo</h3>
+            <p>Identidade visual personalizada.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="{{ url_for('static', filename='imagens/image.png') }}">
+        <div class="card-content">
+            <h3>Logo</h3>
+            <p>Identidade visual personalizada.</p>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!--          BANNERS           -->
+<!-- ========================= -->
+
+<h2 class="titulo" style="margin-top: 80px;">BANNERS</h2>
+
+<div class="portfolio">
+
+    <!-- ADICIONE OS BANNERS AQUI -->
+
+</div>
+```
+
+</section>
