@@ -8,6 +8,7 @@
 <title>TRALHA STUDIO — Design & Criação</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -29,6 +30,17 @@ a{
     text-decoration:none;
     color:inherit;
 }
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+/* =========================
+   FUNDO
+========================= */
 
 body::before{
     content:"";
@@ -58,7 +70,9 @@ body::after{
     z-index:-1;
 }
 
-/* ONLINE */
+/* =========================
+   ONLINE
+========================= */
 
 .online-counter{
     position:fixed;
@@ -79,8 +93,6 @@ body::after{
     font-size:11px;
     letter-spacing:1px;
     color:#777;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .online-counter strong{
@@ -96,7 +108,9 @@ body::after{
     box-shadow:0 0 12px #48d66b;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:fixed;
@@ -104,6 +118,7 @@ header{
     left:0;
     width:100%;
     height:80px;
+
     padding:0 7%;
 
     display:flex;
@@ -130,12 +145,14 @@ header{
 
 nav{
     display:flex;
-    gap:32px;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
 nav a{
     color:#777;
-    font-size:11px;
+    font-size:10px;
     font-weight:bold;
     letter-spacing:2px;
     transition:.3s;
@@ -145,7 +162,9 @@ nav a:hover{
     color:#E6CC6A;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
@@ -203,6 +222,8 @@ nav a:hover{
     font-weight:bold;
     letter-spacing:2px;
     transition:.3s;
+    border:0;
+    cursor:pointer;
 }
 
 .gold{
@@ -218,6 +239,7 @@ nav a:hover{
 .outline{
     border:1px solid #333;
     color:#aaa;
+    background:transparent;
 }
 
 .outline:hover{
@@ -226,7 +248,9 @@ nav a:hover{
     transform:translateY(-5px);
 }
 
-/* MARQUEE */
+/* =========================
+   MARQUEE
+========================= */
 
 .marquee{
     overflow:hidden;
@@ -257,7 +281,9 @@ nav a:hover{
     to{transform:translateX(-50%);}
 }
 
-/* FRASE */
+/* =========================
+   FRASE
+========================= */
 
 .big-phrase{
     padding:130px 7%;
@@ -277,7 +303,9 @@ nav a:hover{
     color:#C8A43A;
 }
 
-/* SEÇÕES */
+/* =========================
+   SEÇÕES
+========================= */
 
 section{
     padding:110px 7%;
@@ -312,7 +340,9 @@ section{
     line-height:1.9;
 }
 
-/* SERVIÇOS */
+/* =========================
+   SERVIÇOS
+========================= */
 
 .services{
     max-width:1200px;
@@ -347,7 +377,7 @@ section{
 
 .service h3{
     font-size:30px;
-    margin:70px 0 20px;
+    margin:50px 0 20px;
 }
 
 .service p{
@@ -355,12 +385,172 @@ section{
     line-height:1.8;
 }
 
-/* FLYERS */
+.service-price{
+    margin-top:25px;
+    color:#E6CC6A;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* =========================
+   PREÇOS
+========================= */
+
+#precos{
+    background:#090909;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
+}
+
+.prices{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    padding:40px;
+
+    background:#0D0D0D;
+    border:1px solid #292929;
+
+    transition:.3s;
+}
+
+.price-card:hover{
+    transform:translateY(-7px);
+    border-color:#C8A43A;
+}
+
+.price-card h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.price{
+    color:#C8A43A;
+    font-size:35px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.price-card p{
+    color:#777;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+/* =========================
+   PEDIDO
+========================= */
+
+.order-box{
+    max-width:900px;
+    margin:auto;
+
+    padding:45px;
+
+    background:#0D0D0D;
+    border:1px solid #292929;
+}
+
+.order-box h3{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.order-box > p{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#888;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+
+    padding:15px;
+
+    background:#080808;
+    color:#fff;
+
+    border:1px solid #292929;
+    outline:none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#C8A43A;
+}
+
+.field textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* =========================
+   PORTFÓLIO
+========================= */
 
 #flyers{
     background:#080808;
     border-top:1px solid #181818;
     border-bottom:1px solid #181818;
+}
+
+.filters{
+    max-width:1100px;
+    margin:0 auto 30px;
+
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    padding:11px 18px;
+
+    background:#101010;
+    color:#777;
+
+    border:1px solid #292929;
+    cursor:pointer;
+
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#C8A43A;
+    color:#050505;
+    border-color:#C8A43A;
 }
 
 .flyers{
@@ -390,13 +580,15 @@ section{
 
 .flyer img{
     width:100%;
-    height:330px;
+    height:300px;
 
     display:block;
 
     object-fit:contain;
 
     background:#080808;
+
+    cursor:pointer;
 }
 
 .flyer-info{
@@ -413,7 +605,9 @@ section{
     font-size:10px;
 }
 
-/* LOGOS */
+/* =========================
+   LOGOS
+========================= */
 
 #logos{
     background:#050505;
@@ -433,12 +627,7 @@ section{
 
     padding:12px;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #191919,
-            #080808
-        );
+    background:radial-gradient(circle at center,#191919,#080808);
 
     border:1px solid #242424;
     border-radius:5px;
@@ -461,10 +650,11 @@ section{
     width:100%;
     height:100%;
     object-fit:contain;
-    display:block;
 }
 
-/* HISTÓRIA */
+/* =========================
+   HISTÓRIA
+========================= */
 
 #historia{
     background:#090909;
@@ -519,78 +709,135 @@ section{
     color:#E6CC6A;
 }
 
-/* PROCESSO */
+/* =========================
+   AVALIAÇÕES
+========================= */
 
-.process{
-    max-width:1200px;
+#avaliacoes{
+    background:#080808;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
+}
+
+.reviews{
+    max-width:1100px;
     margin:auto;
 
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.process-card{
+.review{
     padding:35px;
-    min-height:250px;
 
-    border:1px solid #242424;
     background:#0D0D0D;
-
-    transition:.3s;
+    border:1px solid #242424;
 }
 
-.process-card:hover{
-    border-color:#C8A43A;
-    transform:translateY(-6px);
-}
-
-.process-card span{
+.stars{
     color:#C8A43A;
     letter-spacing:4px;
-    font-size:11px;
+    margin-bottom:20px;
 }
 
-.process-card h3{
-    font-size:24px;
-    margin:45px 0 15px;
-}
-
-.process-card p{
-    color:#666;
+.review p{
+    color:#888;
     line-height:1.8;
 }
 
-/* DIFERENCIAIS */
+.review strong{
+    display:block;
+    margin-top:20px;
+    color:#fff;
+}
 
-.differentials{
-    max-width:1200px;
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    max-width:900px;
     margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
 }
 
-.difference{
-    padding:45px;
-
-    border:1px solid #242424;
-    background:#0D0D0D;
+.faq-item{
+    border-bottom:1px solid #292929;
 }
 
-.difference h3{
+.faq-question{
+    width:100%;
+
+    padding:23px 0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:none;
+    border:0;
+
+    color:#fff;
+    text-align:left;
+
+    font-size:15px;
+    cursor:pointer;
+}
+
+.faq-question span{
     color:#C8A43A;
-    margin-bottom:15px;
-    font-size:22px;
+    font-size:20px;
 }
 
-.difference p{
+.faq-answer{
+    display:none;
+
+    padding:0 0 25px;
+
     color:#777;
     line-height:1.8;
 }
 
-/* CONTATO */
+.faq-item.open .faq-answer{
+    display:block;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status-box{
+    max-width:600px;
+    margin:0 auto 50px;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:#0D0D0D;
+    border:1px solid #242424;
+}
+
+.status-dot{
+    display:inline-block;
+
+    width:9px;
+    height:9px;
+
+    margin-right:8px;
+
+    border-radius:50%;
+    background:#48d66b;
+    box-shadow:0 0 10px #48d66b;
+}
+
+.status-box strong{
+    color:#48d66b;
+}
+
+/* =========================
+   CONTATO
+========================= */
 
 #contato{
     text-align:center;
@@ -625,7 +872,205 @@ section{
     line-height:1.8;
 }
 
-/* FOOTER */
+/* =========================
+   CHAT
+========================= */
+
+.chat-button{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    z-index:2000;
+
+    width:60px;
+    height:60px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#C8A43A;
+    color:#050505;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.5);
+}
+
+.chat-button:hover{
+    background:#E6CC6A;
+    transform:scale(1.05);
+}
+
+.chat-window{
+    position:fixed;
+
+    right:25px;
+    bottom:95px;
+
+    width:350px;
+    max-width:calc(100vw - 30px);
+
+    height:480px;
+
+    background:#0C0C0C;
+
+    border:1px solid #303030;
+    border-radius:12px;
+
+    overflow:hidden;
+
+    z-index:1999;
+
+    display:none;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+.chat-window.active{
+    display:flex;
+    flex-direction:column;
+}
+
+.chat-header{
+    padding:18px;
+
+    background:#111;
+
+    border-bottom:1px solid #292929;
+}
+
+.chat-header strong{
+    color:#C8A43A;
+}
+
+.chat-header small{
+    display:block;
+    margin-top:5px;
+    color:#666;
+}
+
+.chat-messages{
+    flex:1;
+
+    padding:18px;
+
+    overflow-y:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.chat-message{
+    max-width:85%;
+
+    padding:12px 14px;
+
+    border-radius:10px;
+
+    font-size:13px;
+    line-height:1.5;
+}
+
+.chat-message.bot{
+    background:#181818;
+    color:#bbb;
+    align-self:flex-start;
+}
+
+.chat-message.user{
+    background:#C8A43A;
+    color:#050505;
+    align-self:flex-end;
+}
+
+.chat-input{
+    display:flex;
+
+    padding:12px;
+
+    border-top:1px solid #292929;
+
+    gap:8px;
+}
+
+.chat-input input{
+    flex:1;
+
+    padding:12px;
+
+    background:#080808;
+    color:#fff;
+
+    border:1px solid #292929;
+    outline:none;
+}
+
+.chat-input button{
+    padding:0 15px;
+
+    background:#C8A43A;
+    color:#050505;
+
+    border:0;
+
+    cursor:pointer;
+}
+
+/* =========================
+   MODAL IMAGEM
+========================= */
+
+.image-modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+}
+
+.image-modal.active{
+    display:flex;
+}
+
+.image-modal img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+}
+
+.close-modal{
+    position:absolute;
+
+    top:20px;
+    right:25px;
+
+    background:none;
+    border:0;
+
+    color:#fff;
+
+    font-size:35px;
+
+    cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     padding:45px 7%;
@@ -645,171 +1090,8 @@ footer span{
 }
 
 /* =========================
-   TRALHA IA
+   CELULAR
 ========================= */
-
-#ai-button{
-    position:fixed;
-    right:25px;
-    bottom:25px;
-
-    z-index:99999;
-
-    background:#C8A43A;
-    color:#050505;
-
-    border:0;
-    border-radius:30px;
-
-    padding:15px 20px;
-
-    font-size:12px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:0 5px 30px rgba(0,0,0,.6);
-
-    transition:.3s;
-}
-
-#ai-button:hover{
-    background:#E6CC6A;
-    transform:translateY(-3px);
-}
-
-#ai-chat{
-    display:none;
-
-    position:fixed;
-
-    right:25px;
-    bottom:85px;
-
-    width:360px;
-    height:480px;
-
-    background:#0b0b0b;
-
-    border:1px solid #C8A43A;
-    border-radius:12px;
-
-    z-index:99998;
-
-    flex-direction:column;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 50px rgba(0,0,0,.7);
-}
-
-#ai-top{
-    padding:18px;
-
-    background:#111;
-
-    color:#C8A43A;
-
-    font-weight:bold;
-
-    display:flex;
-    justify-content:space-between;
-
-    border-bottom:1px solid #222;
-}
-
-#ai-close{
-    cursor:pointer;
-    color:#777;
-}
-
-#ai-messages{
-    flex:1;
-
-    padding:15px;
-
-    overflow-y:auto;
-}
-
-.ai-msg{
-    padding:11px 13px;
-
-    margin-bottom:10px;
-
-    border-radius:8px;
-
-    font-size:13px;
-
-    line-height:1.5;
-
-    word-wrap:break-word;
-}
-
-.ai-bot{
-    background:#191919;
-    color:#fff;
-}
-
-.ai-user{
-    background:#C8A43A;
-    color:#050505;
-
-    text-align:right;
-}
-
-#ai-area{
-    display:flex;
-
-    padding:10px;
-
-    gap:8px;
-
-    border-top:1px solid #222;
-}
-
-#ai-input{
-    flex:1;
-
-    min-width:0;
-
-    padding:12px;
-
-    background:#151515;
-
-    color:white;
-
-    border:1px solid #333;
-
-    border-radius:6px;
-
-    outline:none;
-}
-
-#ai-input:focus{
-    border-color:#C8A43A;
-}
-
-#ai-send{
-    background:#C8A43A;
-
-    color:#050505;
-
-    border:0;
-
-    padding:0 15px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-#ai-send:hover{
-    background:#E6CC6A;
-}
-
-/* CELULAR */
 
 @media(max-width:1000px){
 
@@ -821,17 +1103,15 @@ footer span{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .services{
+    .services,
+    .prices,
+    .reviews{
         grid-template-columns:1fr;
     }
 
     .history{
         grid-template-columns:1fr;
         gap:40px;
-    }
-
-    .process{
-        grid-template-columns:repeat(2,1fr);
     }
 }
 
@@ -848,9 +1128,7 @@ footer span{
     }
 
     nav{
-        gap:13px;
-        flex-wrap:wrap;
-        justify-content:center;
+        gap:12px;
     }
 
     nav a{
@@ -875,7 +1153,8 @@ footer span{
         padding:85px 5%;
     }
 
-    .flyers{
+    .flyers,
+    .logo-grid{
         grid-template-columns:1fr;
     }
 
@@ -884,20 +1163,25 @@ footer span{
         max-height:520px;
     }
 
-    .logo-grid{
-        grid-template-columns:1fr;
-    }
-
     .logo-box{
         height:280px;
     }
 
-    .process{
+    .form-grid{
         grid-template-columns:1fr;
     }
 
-    .differentials{
-        grid-template-columns:1fr;
+    .field.full{
+        grid-column:auto;
+    }
+
+    .order-box{
+        padding:25px;
+    }
+
+    .chat-window{
+        right:15px;
+        bottom:90px;
     }
 
     footer{
@@ -905,35 +1189,33 @@ footer span{
         gap:15px;
         text-align:center;
     }
-
-    #ai-chat{
-        width:calc(100% - 30px);
-
-        right:15px;
-
-        bottom:80px;
-
-        height:450px;
-    }
-
-    #ai-button{
-        right:15px;
-        bottom:15px;
-    }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- PESSOAS ONLINE -->
+<!-- =========================
+     ONLINE
+     MUDE O 17 AQUI
+========================= -->
+
 <div class="online-counter">
+
     <span class="online-dot"></span>
+
     <strong>17</strong>
+
     <span>pessoas online agora</span>
+
 </div>
 
-<!-- MENU -->
+
+<!-- =========================
+     MENU
+========================= -->
+
 <header>
 
     <div class="logo">
@@ -941,15 +1223,22 @@ footer span{
     </div>
 
     <nav>
-        <a href="#historia">HISTÓRIA</a>
+
+        <a href="#precos">PREÇOS</a>
         <a href="#flyers">FLYERS</a>
         <a href="#logos">LOGOS</a>
+        <a href="#avaliacoes">AVALIAÇÕES</a>
         <a href="#contato">CONTATO</a>
+
     </nav>
 
 </header>
 
-<!-- INÍCIO -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
     <div class="hero-content">
@@ -966,18 +1255,18 @@ footer span{
         <p>
             Criatividade, dedicação e personalidade
             em cada projeto. A Tralha Studio transforma
-            ideias em flyers e identidades visuais
+            ideias em flyers, logos e identidades visuais
             feitas para chamar atenção.
         </p>
 
         <div class="buttons">
 
-            <a href="#flyers" class="btn gold">
-                VER PORTFÓLIO
+            <a href="#precos" class="btn gold">
+                VER PREÇOS
             </a>
 
-            <a href="#contato" class="btn outline">
-                FALE COMIGO
+            <a href="#pedido" class="btn outline">
+                FAZER PEDIDO
             </a>
 
         </div>
@@ -986,7 +1275,11 @@ footer span{
 
 </section>
 
-<!-- MARCA -->
+
+<!-- =========================
+     MARQUEE
+========================= -->
+
 <div class="marquee">
 
     <div class="marquee-track">
@@ -994,12 +1287,14 @@ footer span{
         <span>TRALHA <strong>STUDIO</strong></span>
         <span>FLYERS</span>
         <span>LOGOS</span>
+        <span>BANNERS</span>
         <span>DESIGN</span>
         <span>CRIATIVIDADE</span>
 
         <span>TRALHA <strong>STUDIO</strong></span>
         <span>FLYERS</span>
         <span>LOGOS</span>
+        <span>BANNERS</span>
         <span>DESIGN</span>
         <span>CRIATIVIDADE</span>
 
@@ -1007,7 +1302,11 @@ footer span{
 
 </div>
 
-<!-- FRASE -->
+
+<!-- =========================
+     FRASE
+========================= -->
+
 <div class="big-phrase">
 
     <h2>
@@ -1019,7 +1318,11 @@ footer span{
 
 </div>
 
-<!-- SERVIÇOS -->
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
 <section>
 
     <div class="section-head">
@@ -1033,12 +1336,12 @@ footer span{
         </h2>
 
         <p class="description">
-            Trabalho principalmente com criação
-            de flyers e logos, buscando adaptar
-            cada arte ao estilo e objetivo do projeto.
+            Criação de artes personalizadas para
+            projetos, servidores, marcas e redes sociais.
         </p>
 
     </div>
+
 
     <div class="services">
 
@@ -1052,11 +1355,15 @@ footer span{
 
             <p>
                 Artes para divulgação, eventos,
-                anúncios, servidores, cidades
-                e redes sociais.
+                anúncios, servidores e redes sociais.
             </p>
 
+            <div class="service-price">
+                R$ 30
+            </div>
+
         </div>
+
 
         <div class="service">
 
@@ -1071,20 +1378,29 @@ footer span{
                 projetos, comunidades e servidores.
             </p>
 
+            <div class="service-price">
+                R$ 40
+            </div>
+
         </div>
+
 
         <div class="service">
 
             <div class="service-number">
-                03 / PERSONALIZAÇÃO
+                03 / BANNERS
             </div>
 
-            <h3>Seu estilo</h3>
+            <h3>Banners</h3>
 
             <p>
-                Cada criação é adaptada para
-                combinar com a proposta do projeto.
+                Banners personalizados para
+                divulgação e redes sociais.
             </p>
+
+            <div class="service-price">
+                R$ 25
+            </div>
 
         </div>
 
@@ -1092,13 +1408,203 @@ footer span{
 
 </section>
 
-<!-- FLYERS -->
+
+<!-- =========================
+     PREÇOS
+========================= -->
+
+<section id="precos">
+
+    <div class="section-head">
+
+        <div class="number">
+            02 — TABELA DE PREÇOS
+        </div>
+
+        <h2 class="title">
+            ESCOLHA SUA <span>ARTE.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="prices">
+
+        <div class="price-card">
+
+            <h3>Flyer</h3>
+
+            <div class="price">
+                R$ 30
+            </div>
+
+            <p>
+                Flyer personalizado de acordo
+                com sua ideia e estilo.
+            </p>
+
+            <a href="#pedido" class="btn gold">
+                PEDIR FLYER
+            </a>
+
+        </div>
+
+
+        <div class="price-card">
+
+            <h3>Logo</h3>
+
+            <div class="price">
+                R$ 40
+            </div>
+
+            <p>
+                Logo personalizada para sua
+                marca, projeto ou servidor.
+            </p>
+
+            <a href="#pedido" class="btn gold">
+                PEDIR LOGO
+            </a>
+
+        </div>
+
+
+        <div class="price-card">
+
+            <h3>Banner</h3>
+
+            <div class="price">
+                R$ 25
+            </div>
+
+            <p>
+                Banner personalizado para
+                divulgação e redes sociais.
+            </p>
+
+            <a href="#pedido" class="btn gold">
+                PEDIR BANNER
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PEDIDO
+========================= -->
+
+<section id="pedido">
+
+    <div class="section-head">
+
+        <div class="number">
+            03 — FAÇA SEU PEDIDO
+        </div>
+
+        <h2 class="title">
+            VAMOS <span>CRIAR.</span>
+        </h2>
+
+        <p class="description">
+            Preencha as informações abaixo para
+            explicar o que você precisa.
+        </p>
+
+    </div>
+
+
+    <div class="order-box">
+
+        <h3>Solicitar orçamento</h3>
+
+        <p>
+            Depois de preencher, você poderá enviar
+            seu pedido pelo Discord.
+        </p>
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>SEU NOME</label>
+
+                <input
+                    type="text"
+                    id="pedidoNome"
+                    placeholder="Digite seu nome"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>TIPO DE ARTE</label>
+
+                <select id="pedidoTipo">
+
+                    <option value="Flyer">
+                        Flyer — R$ 30
+                    </option>
+
+                    <option value="Logo">
+                        Logo — R$ 40
+                    </option>
+
+                    <option value="Banner">
+                        Banner — R$ 25
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>CONTE SUA IDEIA</label>
+
+                <textarea
+                    id="pedidoDescricao"
+                    placeholder="Explique como você quer sua arte..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+                <button
+                    class="btn gold"
+                    onclick="enviarPedido()"
+                >
+                    ENVIAR PEDIDO
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FLYERS
+========================= -->
+
 <section id="flyers">
 
     <div class="section-head">
 
         <div class="number">
-            02 — PORTFÓLIO
+            04 — PORTFÓLIO
         </div>
 
         <h2 class="title">
@@ -1112,95 +1618,181 @@ footer span{
 
     </div>
 
+
+    <div class="filters">
+
+        <button
+            class="filter-btn active"
+            onclick="filtrar('todos', this)"
+        >
+            TODOS
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filtrar('flyer', this)"
+        >
+            FLYERS
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filtrar('logo', this)"
+        >
+            LOGOS
+        </button>
+
+        <button
+            class="filter-btn"
+            onclick="filtrar('banner', this)"
+        >
+            BANNERS
+        </button>
+
+    </div>
+
+
     <div class="flyers">
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 01</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 02</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 03</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 04</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 05</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 06</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
+
+        <div class="flyer portfolio-item" data-category="flyer">
+
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
+                onclick="abrirImagem(this.src)"
+            >
+
             <div class="flyer-info">
                 <h3>Flyer 07</h3>
                 <p>Projeto de design</p>
             </div>
+
         </div>
 
     </div>
 
 </section>
 
-<!-- LOGOS -->
+
+<!-- =========================
+     LOGOS
+========================= -->
+
 <section id="logos">
 
     <div class="section-head">
 
         <div class="number">
-            03 — IDENTIDADE VISUAL
+            05 — IDENTIDADE VISUAL
         </div>
 
         <h2 class="title">
             MEUS <span>LOGOS.</span>
         </h2>
 
-        <p class="description">
-            Algumas das identidades visuais
-            criadas pela Tralha Studio.
-        </p>
-
     </div>
+
 
     <div class="logo-grid">
 
-        <div class="logo-box">
+        <div
+            class="logo-box portfolio-item"
+            data-category="logo"
+        >
 
             <img
                 src="{{ url_for('static', filename='imagens/image.png') }}"
                 alt="Logo Tralha Studio"
+                onclick="abrirImagem(this.src)"
             >
 
         </div>
@@ -1209,13 +1801,17 @@ footer span{
 
 </section>
 
-<!-- HISTÓRIA -->
+
+<!-- =========================
+     HISTÓRIA
+========================= -->
+
 <section id="historia">
 
     <div class="section-head">
 
         <div class="number">
-            04 — A HISTÓRIA POR TRÁS DA MARCA
+            06 — HISTÓRIA
         </div>
 
         <h2 class="title">
@@ -1224,6 +1820,7 @@ footer span{
         </h2>
 
     </div>
+
 
     <div class="history">
 
@@ -1243,92 +1840,126 @@ footer span{
 
         </div>
 
+
         <div class="history-text">
 
             <p>
                 <strong>Meu nome é David.</strong>
-                Tenho 14 anos e, como muitas coisas
-                grandes, a história da Tralha Studio
-                começou de uma forma simples:
-                com curiosidade.
+                Tenho 14 anos e a Tralha Studio
+                começou com curiosidade e vontade
+                de aprender.
             </p>
 
             <p>
-                No começo, eu não tinha uma grande
-                estrutura, uma equipe ou anos de
-                experiência. Eu tinha apenas vontade
-                de aprender e descobrir até onde
-                conseguiria chegar.
+                Comecei experimentando fontes,
+                cores, efeitos e diferentes estilos.
+                Cada erro acabou fazendo parte
+                do aprendizado.
             </p>
 
             <p>
-                Comecei experimentando. Testava
-                fontes, cores, efeitos, posições
-                e diferentes estilos. Algumas artes
-                ficavam boas. Outras não ficavam
-                nem perto do que eu imaginava.
-                <strong>E tudo bem.</strong>
-            </p>
-
-            <p>
-                Cada erro fazia parte do aprendizado.
-                Com o passar do tempo, percebi que
-                aquilo já não era apenas uma brincadeira.
-                Eu realmente gostava de criar.
+                Com o tempo percebi que realmente
+                gostava de criar e transformar ideias
+                em artes.
             </p>
 
             <p>
                 Foi então que nasceu a
                 <strong>Tralha Studio.</strong>
-                Não nasceu pronta. Não nasceu perfeita.
-                Nasceu pequena, com muito para aprender,
-                mas com uma coisa que continua sendo
-                a mesma desde o primeiro dia:
-                <strong>vontade de crescer.</strong>
             </p>
 
             <p>
-                Hoje, cada flyer que eu crio,
-                cada logo que desenvolvo e cada
-                detalhe que eu aprendo representa
-                mais um passo nessa caminhada.
+                Ainda estou no começo, mas quero
+                continuar aprendendo, evoluindo e
+                construindo uma marca reconhecida
+                pelo trabalho e pela dedicação.
             </p>
 
             <p>
-                Eu sei que ainda estou no começo.
-                Sei que existem muitas coisas que
-                ainda preciso aprender e melhorar.
-            </p>
-
-            <p>
-                Mas talvez essa seja justamente
-                a parte mais importante dessa história.
                 <strong>
-                    Eu não quero apenas criar artes.
-                    Quero construir algo que, daqui
-                    a alguns anos, eu possa olhar para
-                    trás e lembrar de onde tudo começou.
+                    Você não precisa começar grande
+                    para sonhar grande.
                 </strong>
             </p>
 
-            <p>
-                A Tralha Studio começou com uma ideia.
-                Hoje é um projeto.
-                Amanhã, eu quero que seja uma marca
-                reconhecida pelo trabalho, pela
-                criatividade e pela dedicação colocada
-                em cada criação.
-            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AVALIAÇÕES
+========================= -->
+
+<section id="avaliacoes">
+
+    <div class="section-head">
+
+        <div class="number">
+            07 — CLIENTES
+        </div>
+
+        <h2 class="title">
+            O QUE ELES <span>DIZEM.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="reviews">
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
 
             <p>
-                E se existe uma coisa que eu aprendi
-                até aqui, é que você não precisa
-                começar grande para sonhar grande.
+                "A arte ficou muito boa e exatamente
+                do jeito que eu tinha imaginado."
             </p>
 
+            <strong>
+                Cliente Tralha Studio
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
             <p>
-                <strong>Você só precisa começar.</strong>
+                "Gostei bastante do resultado.
+                Ficou muito profissional."
             </p>
+
+            <strong>
+                Cliente Tralha Studio
+            </strong>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Atendimento tranquilo e arte
+                muito bem feita."
+            </p>
+
+            <strong>
+                Cliente Tralha Studio
+            </strong>
 
         </div>
 
@@ -1336,122 +1967,122 @@ footer span{
 
 </section>
 
-<!-- PROCESSO -->
+
+<!-- =========================
+     FAQ
+========================= -->
+
 <section>
 
     <div class="section-head">
 
         <div class="number">
-            05 — PROCESSO
+            08 — DÚVIDAS
         </div>
 
         <h2 class="title">
-            COMO EU <span>TRABALHO.</span>
+            PERGUNTAS <span>FREQUENTES.</span>
         </h2>
 
     </div>
 
-    <div class="process">
 
-        <div class="process-card">
-            <span>01</span>
-            <h3>Ideia</h3>
-            <p>
-                Entendo o que você precisa
-                e o estilo que procura.
-            </p>
+    <div class="faq">
+
+        <div class="faq-item">
+
+            <button
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+            >
+                Quanto custa uma arte?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Atualmente os valores são: Flyer R$ 30,
+                Logo R$ 40 e Banner R$ 25.
+            </div>
+
         </div>
 
-        <div class="process-card">
-            <span>02</span>
-            <h3>Criação</h3>
-            <p>
-                Desenvolvo a composição
-                e os elementos da arte.
-            </p>
+
+        <div class="faq-item">
+
+            <button
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+            >
+                Como faço um pedido?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Você pode preencher o formulário de pedido
+                ou entrar em contato diretamente.
+            </div>
+
         </div>
 
-        <div class="process-card">
-            <span>03</span>
-            <h3>Ajustes</h3>
-            <p>
-                Faço os ajustes necessários
-                para chegar ao resultado.
-            </p>
+
+        <div class="faq-item">
+
+            <button
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+            >
+                Posso pedir alterações?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                Sim. Durante o processo você pode explicar
+                os ajustes necessários.
+            </div>
+
         </div>
 
-        <div class="process-card">
-            <span>04</span>
-            <h3>Entrega</h3>
-            <p>
-                Finalizo o projeto e preparo
-                o arquivo para utilização.
-            </p>
+
+        <div class="faq-item">
+
+            <button
+                class="faq-question"
+                onclick="toggleFAQ(this)"
+            >
+                Como recebo minha arte?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                A entrega é feita digitalmente após
+                a finalização do projeto.
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
-<!-- DIFERENCIAIS -->
-<section>
 
-    <div class="section-head">
+<!-- =========================
+     STATUS + CONTATO
+========================= -->
 
-        <div class="number">
-            06 — DIFERENCIAIS
-        </div>
-
-        <h2 class="title">
-            POR QUE A <span>TRALHA?</span>
-        </h2>
-
-    </div>
-
-    <div class="differentials">
-
-        <div class="difference">
-            <h3>Criatividade</h3>
-            <p>
-                Busco testar ideias diferentes
-                e encontrar uma composição
-                que combine com cada projeto.
-            </p>
-        </div>
-
-        <div class="difference">
-            <h3>Dedicação</h3>
-            <p>
-                Cada trabalho é uma oportunidade
-                de aprender e melhorar meu
-                processo de criação.
-            </p>
-        </div>
-
-        <div class="difference">
-            <h3>Personalidade</h3>
-            <p>
-                A proposta é criar algo que
-                tenha identidade e não pareça
-                apenas mais uma arte comum.
-            </p>
-        </div>
-
-        <div class="difference">
-            <h3>Evolução</h3>
-            <p>
-                Estou sempre buscando aprender
-                novas técnicas e melhorar
-                meus trabalhos.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTATO -->
 <section id="contato">
+
+    <div class="status-box">
+
+        <span class="status-dot"></span>
+
+        <strong>PEDIDOS ABERTOS</strong>
+
+        <p style="color:#666;margin-top:8px;">
+            Estou aceitando novos projetos.
+        </p>
+
+    </div>
+
 
     <div class="contact-small">
         VAMOS CRIAR?
@@ -1463,9 +2094,9 @@ footer span{
     </h2>
 
     <p>
-        Precisa de um flyer, uma logo
-        ou quer conversar sobre um projeto?
-        Entre em contato comigo.
+        Precisa de um flyer, uma logo,
+        um banner ou quer conversar sobre
+        um projeto?
     </p>
 
     <a
@@ -1478,61 +2109,69 @@ footer span{
 
 </section>
 
-<!-- RODAPÉ -->
-<footer>
 
-    <div>
-        © 2026 <span>TRALHA STUDIO</span>
-    </div>
+<!-- =========================
+     CHAT
+========================= -->
 
-    <div>
-        DESIGN • FLYERS • LOGOS
-    </div>
-
-</footer>
-
-
-<!-- ==================================================
-     TRALHA IA
-================================================== -->
-
-<button id="ai-button" onclick="abrirIA()">
-    🤖 DÚVIDAS? FALAR COM IA
+<button
+    class="chat-button"
+    onclick="abrirChat()"
+>
+    💬
 </button>
 
-<div id="ai-chat">
 
-    <div id="ai-top">
+<div
+    class="chat-window"
+    id="chatWindow"
+>
 
-        <span>TRALHA IA</span>
+    <div class="chat-header">
 
-        <span id="ai-close" onclick="fecharIA()">
-            ✕
-        </span>
+        <strong>
+            TRALHA STUDIO
+        </strong>
+
+        <small>
+            Atendimento
+        </small>
 
     </div>
 
-    <div id="ai-messages">
 
-        <div class="ai-msg ai-bot">
-            Olá! Sou a IA da Tralha Studio. 👋<br><br>
-            Pode perguntar sobre flyers, logos,
-            serviços ou qualquer dúvida sobre a loja.
+    <div
+        class="chat-messages"
+        id="chatMessages"
+    >
+
+        <div class="chat-message bot">
+
+            Olá! Sou o atendimento da
+            <strong>Tralha Studio</strong>.
+
+            <br><br>
+
+            Posso ajudar com preços,
+            pedidos e informações sobre
+            nossos serviços.
+
         </div>
 
     </div>
 
-    <div id="ai-area">
+
+    <div class="chat-input">
 
         <input
-            id="ai-input"
             type="text"
-            placeholder="Digite sua dúvida..."
-            autocomplete="off"
+            id="chatInput"
+            placeholder="Digite sua mensagem..."
+            onkeydown="if(event.key==='Enter') enviarChat()"
         >
 
-        <button id="ai-send" onclick="enviarIA()">
-            ENVIAR
+        <button onclick="enviarChat()">
+            ➤
         </button>
 
     </div>
@@ -1540,161 +2179,272 @@ footer span{
 </div>
 
 
+<!-- =========================
+     MODAL IMAGEM
+========================= -->
+
+<div
+    class="image-modal"
+    id="imageModal"
+    onclick="fecharImagem()"
+>
+
+    <button
+        class="close-modal"
+        onclick="fecharImagem()"
+    >
+        ×
+    </button>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Imagem ampliada"
+    >
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        © 2026 <span>TRALHA STUDIO</span>
+    </div>
+
+    <div>
+        DESIGN • FLYERS • LOGOS • BANNERS
+    </div>
+
+</footer>
+
+
 <script>
 
 /* =========================
-   ABRIR E FECHAR IA
+   CHAT
 ========================= */
 
-function abrirIA(){
+function abrirChat(){
 
-    document.getElementById("ai-chat").style.display = "flex";
-
-    setTimeout(function(){
-
-        document.getElementById("ai-input").focus();
-
-    },100);
-
-}
-
-function fecharIA(){
-
-    document.getElementById("ai-chat").style.display = "none";
+    document
+        .getElementById("chatWindow")
+        .classList.toggle("active");
 
 }
 
 
-/* =========================
-   ENVIAR PERGUNTA
-========================= */
+function enviarChat(){
 
-async function enviarIA(){
+    const input =
+        document.getElementById("chatInput");
 
-    const input = document.getElementById("ai-input");
+    const mensagem =
+        input.value.trim();
 
-    const mensagens = document.getElementById("ai-messages");
-
-    const botao = document.getElementById("ai-send");
-
-    const texto = input.value.trim();
-
-    if(!texto){
+    if(!mensagem){
         return;
     }
 
+    const area =
+        document.getElementById("chatMessages");
 
-    /* mensagem do usuário */
 
-    const usuario = document.createElement("div");
+    const userMessage =
+        document.createElement("div");
 
-    usuario.className = "ai-msg ai-user";
+    userMessage.className =
+        "chat-message user";
 
-    usuario.innerText = texto;
+    userMessage.textContent =
+        mensagem;
 
-    mensagens.appendChild(usuario);
-
+    area.appendChild(userMessage);
 
     input.value = "";
 
-    botao.disabled = true;
-
-    botao.innerText = "...";
-
-
-    /* mensagem carregando */
-
-    const carregando = document.createElement("div");
-
-    carregando.className = "ai-msg ai-bot";
-
-    carregando.innerText = "Pensando...";
-
-    mensagens.appendChild(carregando);
+    area.scrollTop =
+        area.scrollHeight;
 
 
-    mensagens.scrollTop = mensagens.scrollHeight;
+    /*
+       ESTE CHAT É VISUAL.
 
+       Para transformar em chat real
+       com você respondendo pelo site,
+       será necessário conectar um
+       backend depois.
+    */
 
-    try{
+    setTimeout(function(){
 
-        const resposta = await fetch("/chat",{
+        const botMessage =
+            document.createElement("div");
 
-            method:"POST",
+        botMessage.className =
+            "chat-message bot";
 
-            headers:{
-                "Content-Type":"application/json"
-            },
+        botMessage.innerHTML =
+            "Obrigado pela mensagem! " +
+            "Para falar diretamente comigo, " +
+            "<a href='https://discord.gg/QtNjjgXZ9' " +
+            "target='_blank' style='color:#C8A43A'>" +
+            "clique aqui e entre no Discord.</a>";
 
-            body:JSON.stringify({
+        area.appendChild(botMessage);
 
-                message:texto
+        area.scrollTop =
+            area.scrollHeight;
 
-            })
-
-        });
-
-
-        const dados = await resposta.json();
-
-
-        carregando.remove();
-
-
-        const bot = document.createElement("div");
-
-        bot.className = "ai-msg ai-bot";
-
-
-        if(dados.response){
-
-            bot.innerText = dados.response;
-
-        }else if(dados.error){
-
-            bot.innerText = "Erro: " + dados.error;
-
-        }else{
-
-            bot.innerText =
-                "Não consegui receber uma resposta.";
-
-        }
-
-
-        mensagens.appendChild(bot);
-
-        mensagens.scrollTop = mensagens.scrollHeight;
-
-
-    }catch(erro){
-
-        carregando.innerText =
-            "Não consegui conectar com a IA. Tente novamente.";
-
-    }
-
-
-    botao.disabled = false;
-
-    botao.innerText = "ENVIAR";
+    },600);
 
 }
 
 
 /* =========================
-   ENTER PARA ENVIAR
+   FAQ
 ========================= */
 
-document.getElementById("ai-input").addEventListener(
+function toggleFAQ(button){
+
+    const item =
+        button.parentElement;
+
+    item.classList.toggle("open");
+
+    const symbol =
+        button.querySelector("span");
+
+    if(item.classList.contains("open")){
+        symbol.textContent = "−";
+    }else{
+        symbol.textContent = "+";
+    }
+
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
+function filtrar(categoria, botao){
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+    botao.classList.add("active");
+
+
+    document
+        .querySelectorAll(".portfolio-item")
+        .forEach(function(item){
+
+            if(
+                categoria === "todos" ||
+                item.dataset.category === categoria
+            ){
+
+                item.style.display = "";
+
+            }else{
+
+                item.style.display = "none";
+
+            }
+
+        });
+
+}
+
+
+/* =========================
+   IMAGEM GRANDE
+========================= */
+
+function abrirImagem(src){
+
+    document
+        .getElementById("modalImage")
+        .src = src;
+
+    document
+        .getElementById("imageModal")
+        .classList.add("active");
+
+}
+
+
+function fecharImagem(){
+
+    document
+        .getElementById("imageModal")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   PEDIDO
+========================= */
+
+function enviarPedido(){
+
+    const nome =
+        document.getElementById("pedidoNome").value.trim();
+
+    const tipo =
+        document.getElementById("pedidoTipo").value;
+
+    const descricao =
+        document.getElementById("pedidoDescricao").value.trim();
+
+
+    if(!nome || !descricao){
+
+        alert(
+            "Preencha seu nome e explique sua ideia."
+        );
+
+        return;
+
+    }
+
+
+    const mensagem =
+        "Olá! Quero fazer um pedido na Tralha Studio.%0A%0A" +
+        "Nome: " + encodeURIComponent(nome) +
+        "%0ATipo: " + encodeURIComponent(tipo) +
+        "%0AProjeto: " + encodeURIComponent(descricao);
+
+
+    window.open(
+        "https://discord.gg/QtNjjgXZ9",
+        "_blank"
+    );
+
+}
+
+
+/* =========================
+   ESC FECHA MODAL
+========================= */
+
+document.addEventListener(
     "keydown",
     function(event){
 
-        if(event.key === "Enter"){
+        if(event.key === "Escape"){
 
-            event.preventDefault();
-
-            enviarIA();
+            fecharImagem();
 
         }
 
