@@ -8,12 +8,6 @@
 
 <style>
 
-/* =========================================================
-   TRALHA STUDIO
-   INTERFACE FULLSCREEN
-   SEM SCROLL NA PÁGINA PRINCIPAL
-   ========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -49,7 +43,7 @@ a{
 }
 
 /* =========================================================
-   FUNDO
+   FUNDO DA PÁGINA INICIAL
    ========================================================= */
 
 body::before{
@@ -66,13 +60,12 @@ body::before{
             rgba(3,3,3,.35) 70%,
             rgba(3,3,3,.70) 100%
         ),
-        url("https://catatau.xyz/papers/p1004.png");
+        url("https://cdn.discordapp.com/attachments/1534374186602987542/1537826780369387530/videoframe_2774.png?ex=6a80744b&is=6a7f22cb&hm=27f1b2aee4121f5bea5545ac321dc351663a69650b728970ea4862230eade669");
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 
-    filter:none;
     transform:scale(1.02);
 }
 
@@ -93,7 +86,7 @@ body::after{
             rgba(200,164,58,.08),
             transparent 28%
         );
-    
+
     pointer-events:none;
 }
 
@@ -269,7 +262,7 @@ nav{
 }
 
 /* =========================================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO
    ========================================================= */
 
 .main{
@@ -280,7 +273,7 @@ nav{
 }
 
 /* =========================================================
-   TODAS AS PÁGINAS
+   PÁGINAS
    ========================================================= */
 
 .page{
@@ -319,7 +312,7 @@ nav{
 }
 
 /* =========================================================
-   PÁGINA INICIAL
+   INÍCIO
    ========================================================= */
 
 .home{
@@ -531,7 +524,7 @@ nav{
 }
 
 /* =========================================================
-   TITULOS
+   TÍTULOS
    ========================================================= */
 
 .page-header{
@@ -575,7 +568,7 @@ nav{
 }
 
 /* =========================================================
-   PORTFÓLIO
+   PORTFÓLIO / FLYERS
    ========================================================= */
 
 .portfolio-page{
@@ -1188,7 +1181,7 @@ nav{
 }
 
 /* =========================================================
-   ANIMAÇÕES
+   ANIMAÇÃO
    ========================================================= */
 
 @keyframes pulseGold{
@@ -1214,23 +1207,6 @@ nav{
     animation:pulseGold 3s infinite;
 }
 
-/* =========================================================
-   EFEITO DE VIDRO
-   ========================================================= */
-
-.glass{
-    background:rgba(10,10,10,.55);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-}
-
-/* =========================================================
-   SELEÇÃO
-   ========================================================= */
-
 ::selection{
     background:#C8A43A;
     color:#050505;
@@ -1242,10 +1218,6 @@ nav{
 <body>
 
 <div class="app">
-
-<!-- =====================================================
-     HEADER
-     ===================================================== -->
 
 <header>
 
@@ -1306,10 +1278,6 @@ nav{
     </nav>
 
 </header>
-
-<!-- =====================================================
-     ONLINE
-     ===================================================== -->
 
 <div class="online-counter">
 
@@ -1456,17 +1424,6 @@ nav{
             >
 
         </div>
-
-        <!--
-        PARA ADICIONAR MAIS LOGOS:
-
-        <div class="logo-item">
-            <img
-                src="{{ url_for('static', filename='imagens/NOME-DA-IMAGEM.png') }}"
-                alt="Logo"
-            >
-        </div>
-        -->
 
     </div>
 
@@ -1667,22 +1624,6 @@ nav{
     </div>
 
     <div class="banner-grid">
-
-        <!--
-        QUANDO TIVER BANNER,
-        COLOQUE A IMAGEM AQUI.
-
-        EXEMPLO:
-
-        <div class="banner-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/banner1.png') }}"
-                alt="Banner 01"
-            >
-
-        </div>
-        -->
 
         <div
             class="banner-item"
@@ -1956,10 +1897,6 @@ nav{
 
 </div>
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
-
 <script>
 
 function abrirPagina(id, botao){
@@ -1967,31 +1904,23 @@ function abrirPagina(id, botao){
     const paginas = document.querySelectorAll(".page");
 
     paginas.forEach(function(pagina){
-
         pagina.classList.remove("active");
-
     });
 
     const pagina = document.getElementById(id);
 
     if(pagina){
-
         pagina.classList.add("active");
-
     }
 
     const botoes = document.querySelectorAll(".nav-btn");
 
     botoes.forEach(function(btn){
-
         btn.classList.remove("active");
-
     });
 
     if(botao){
-
         botao.classList.add("active");
-
     }
 
 }
@@ -2007,9 +1936,7 @@ function abrirPaginaPorId(id){
     const paginas = document.querySelectorAll(".page");
 
     paginas.forEach(function(item){
-
         item.classList.remove("active");
-
     });
 
     pagina.classList.add("active");
@@ -2017,9 +1944,7 @@ function abrirPaginaPorId(id){
     const botoes = document.querySelectorAll(".nav-btn");
 
     botoes.forEach(function(btn){
-
         btn.classList.remove("active");
-
     });
 
     const botao = document.querySelector(
@@ -2027,9 +1952,7 @@ function abrirPaginaPorId(id){
     );
 
     if(botao){
-
         botao.classList.add("active");
-
     }
 
 }
