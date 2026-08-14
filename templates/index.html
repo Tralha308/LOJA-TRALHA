@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TRALHA STUDIO — Design & Programação</title>
+<title>TRALHA STUDIO — Design & Criação</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -19,89 +18,74 @@ html{
 }
 
 body{
-    background:#030303;
+    background:#050505;
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
-
-/* =====================================================
-   BASE
-===================================================== */
 
 a{
     text-decoration:none;
     color:inherit;
 }
 
-button{
-    font-family:inherit;
-}
-
 body::before{
     content:"";
     position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(200,164,58,.10),transparent 30%),
-        radial-gradient(circle at 85% 70%,rgba(200,164,58,.07),transparent 30%);
+    width:700px;
+    height:700px;
+    top:-350px;
+    right:-300px;
+    background:rgba(200,164,58,.10);
+    filter:blur(130px);
+    border-radius:50%;
     pointer-events:none;
-    z-index:-3;
+    z-index:-1;
 }
 
 body::after{
     content:"";
     position:fixed;
-    inset:0;
-    background-image:
-        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-    background-size:70px 70px;
-    mask-image:linear-gradient(to bottom,black,transparent 80%);
+    width:700px;
+    height:700px;
+    bottom:-400px;
+    left:-350px;
+    background:rgba(200,164,58,.07);
+    filter:blur(130px);
+    border-radius:50%;
     pointer-events:none;
-    z-index:-2;
+    z-index:-1;
 }
 
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
 header{
     position:fixed;
-    top:18px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-    max-width:1450px;
-    height:76px;
-    padding:0 28px;
-
+    top:0;
+    left:0;
+    width:100%;
+    height:82px;
+    padding:0 6%;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    background:rgba(7,7,7,.72);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
-
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-
-    box-shadow:
-        0 20px 80px rgba(0,0,0,.45),
-        inset 0 1px rgba(255,255,255,.05);
-
-    z-index:999;
+    background:rgba(5,5,5,.72);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:9999;
 }
 
 .logo{
-    font-size:20px;
+    font-size:21px;
     font-weight:900;
     letter-spacing:4px;
 }
 
 .logo span{
-    color:#d4af37;
+    color:#C8A43A;
 }
 
 nav{
@@ -111,927 +95,687 @@ nav{
 }
 
 nav a{
-    color:#858585;
-    font-size:11px;
+    position:relative;
+    color:#aaa;
+    font-size:10px;
     font-weight:bold;
     letter-spacing:2px;
     transition:.3s;
 }
 
-nav a:hover{
-    color:#d4af37;
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-9px;
+    width:0;
+    height:1px;
+    background:#C8A43A;
+    transition:.3s;
 }
 
-/* =====================================================
+nav a:hover{
+    color:#fff;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* =========================
    ONLINE
-===================================================== */
+========================= */
 
 .online-counter{
     position:fixed;
+    top:105px;
     right:30px;
-    bottom:30px;
-
+    z-index:5000;
     display:flex;
     align-items:center;
-    gap:10px;
-
-    padding:12px 18px;
-
-    background:rgba(8,8,8,.88);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:50px;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:0 15px 50px rgba(0,0,0,.5);
-
-    z-index:990;
-
-    color:#777;
-    font-size:11px;
+    gap:8px;
+    padding:10px 17px;
+    background:rgba(10,10,10,.82);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:30px;
+    font-size:10px;
     letter-spacing:1px;
+    color:#777;
+    backdrop-filter:blur(15px);
 }
 
 .online-counter strong{
-    color:#d4af37;
+    color:#C8A43A;
     font-size:15px;
 }
 
 .online-dot{
-    width:8px;
-    height:8px;
-    background:#4ade80;
+    width:7px;
+    height:7px;
+    background:#48d66b;
     border-radius:50%;
-    box-shadow:0 0 15px #4ade80;
+    box-shadow:0 0 12px #48d66b;
 }
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
-    min-height:100vh;
-    min-height:900px;
-
     position:relative;
-    overflow:hidden;
-
+    min-height:100vh;
+    height:100vh;
     display:flex;
-    align-items:center;
-
-    padding:190px 7% 120px;
-
-    border-bottom:1px solid rgba(255,255,255,.07);
+    align-items:flex-end;
+    padding:0 7% 100px;
+    overflow:hidden;
+    border-bottom:1px solid #181818;
 }
-
-/* FUNDO DO HERO
-   Troque a URL abaixo por seu GIF real */
 
 .hero-bg{
     position:absolute;
     inset:0;
-
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(3,3,3,.98) 0%,
-            rgba(3,3,3,.88) 35%,
-            rgba(3,3,3,.55) 70%,
-            rgba(3,3,3,.82) 100%
-        ),
-        url("https://cdn.discordapp.com/attachments/1534374186602987542/1537826780369387530/videoframe_2774.png");
-
-    background-size:cover;
-    background-position:center;
-
-    filter:saturate(.8);
-
-    transform:scale(1.04);
-
     z-index:0;
+    overflow:hidden;
+}
+
+.hero-bg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    filter:brightness(.48) contrast(1.08) saturate(.9);
+    transform:scale(1.03);
 }
 
 .hero-bg::after{
     content:"";
     position:absolute;
     inset:0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.68) 0%,
+            rgba(0,0,0,.15) 40%,
+            rgba(5,5,5,.95) 100%
+        );
+}
 
+.hero-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
     background:
         radial-gradient(
-            circle at 70% 45%,
-            rgba(212,175,55,.14),
+            circle at 75% 35%,
+            rgba(200,164,58,.13),
             transparent 35%
         );
-
-    pointer-events:none;
+    z-index:2;
 }
 
 .hero-content{
     position:relative;
-    z-index:2;
-
-    max-width:1200px;
+    z-index:5;
+    max-width:1100px;
 }
 
-.hero-mini{
-    display:flex;
+.hero-tag{
+    display:inline-flex;
     align-items:center;
-    gap:15px;
-
-    margin-bottom:30px;
-
-    color:#d4af37;
-
-    font-size:11px;
+    gap:10px;
+    color:#E6CC6A;
+    font-size:10px;
     font-weight:bold;
     letter-spacing:5px;
+    margin-bottom:25px;
 }
 
-.hero-mini::before{
+.hero-tag::before{
     content:"";
-    width:55px;
+    width:35px;
     height:1px;
-    background:#d4af37;
+    background:#C8A43A;
 }
 
 .hero h1{
-    font-size:clamp(80px,12vw,190px);
-
-    line-height:.78;
-
-    letter-spacing:-10px;
-
+    font-size:clamp(65px,9vw,145px);
+    line-height:.82;
+    letter-spacing:-8px;
     font-weight:900;
-
-    margin-bottom:50px;
-
-    max-width:1200px;
+    text-transform:uppercase;
+    text-shadow:0 20px 50px rgba(0,0,0,.5);
 }
 
 .hero h1 span{
+    color:#C8A43A;
     display:block;
-    color:#d4af37;
-
-    text-shadow:
-        0 0 80px rgba(212,175,55,.12);
 }
 
 .hero-description{
-    max-width:650px;
-
+    max-width:620px;
+    margin-top:32px;
     color:#aaa;
-
-    font-size:18px;
-    line-height:1.9;
-
-    margin-bottom:42px;
+    font-size:16px;
+    line-height:1.8;
 }
 
-.buttons{
+.hero-actions{
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+    gap:13px;
+    margin-top:30px;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-
-    min-height:55px;
-
-    padding:0 30px;
-
-    border-radius:7px;
-
-    font-size:11px;
+    min-width:165px;
+    padding:16px 26px;
+    border-radius:4px;
+    font-size:10px;
     font-weight:bold;
     letter-spacing:2px;
-
-    transition:.35s;
+    transition:.3s;
 }
 
 .gold{
-    background:#d4af37;
+    background:#C8A43A;
     color:#050505;
-
-    box-shadow:
-        0 10px 40px rgba(212,175,55,.15);
 }
 
 .gold:hover{
-    background:#f0d36a;
-    transform:translateY(-5px);
-    box-shadow:
-        0 20px 60px rgba(212,175,55,.25);
+    background:#E6CC6A;
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(200,164,58,.2);
 }
 
 .outline{
-    border:1px solid rgba(255,255,255,.16);
-    color:#aaa;
-    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(0,0,0,.2);
+    color:#ddd;
     backdrop-filter:blur(10px);
 }
 
 .outline:hover{
-    border-color:#d4af37;
-    color:#d4af37;
-    transform:translateY(-5px);
+    border-color:#C8A43A;
+    color:#E6CC6A;
+    transform:translateY(-4px);
 }
 
-.hero-bottom{
+/* =========================
+   MINI MENU
+========================= */
+
+.quick-menu{
     position:absolute;
-    bottom:40px;
-    left:7%;
     right:7%;
-
+    bottom:45px;
+    z-index:10;
     display:flex;
-    justify-content:space-between;
-
-    color:#555;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    z-index:2;
+    gap:8px;
 }
 
-/* =====================================================
+.quick-menu a{
+    padding:10px 14px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(12px);
+    color:#999;
+    font-size:9px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.quick-menu a:hover{
+    color:#fff;
+    border-color:#C8A43A;
+}
+
+/* =========================
    MARQUEE
-===================================================== */
+========================= */
 
 .marquee{
     overflow:hidden;
-
-    border-top:1px solid rgba(255,255,255,.06);
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-    padding:28px 0;
-
+    border-bottom:1px solid #181818;
+    padding:22px 0;
     white-space:nowrap;
-
-    background:#050505;
+    background:#070707;
 }
 
 .marquee-track{
     display:inline-block;
-    animation:move 25s linear infinite;
+    animation:move 28s linear infinite;
 }
 
 .marquee span{
-    margin:0 45px;
-
+    font-size:10px;
+    letter-spacing:5px;
+    margin:0 35px;
     color:#555;
-
-    font-size:12px;
-    letter-spacing:6px;
 }
 
 .marquee strong{
-    color:#d4af37;
+    color:#C8A43A;
 }
 
 @keyframes move{
-
     from{
         transform:translateX(0);
     }
-
     to{
         transform:translateX(-50%);
     }
-
 }
 
-/* =====================================================
-   BIG PHRASE
-===================================================== */
-
-.big-phrase{
-    padding:190px 7%;
-    text-align:center;
-}
-
-.big-phrase p{
-    color:#d4af37;
-
-    font-size:10px;
-    font-weight:bold;
-
-    letter-spacing:6px;
-
-    margin-bottom:30px;
-}
-
-.big-phrase h2{
-    max-width:1250px;
-    margin:auto;
-
-    font-size:clamp(48px,7vw,105px);
-
-    line-height:.94;
-
-    letter-spacing:-6px;
-}
-
-.big-phrase span{
-    color:#d4af37;
-}
-
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
+/* =========================
+   GENERAL
+========================= */
 
 section{
-    padding:150px 7%;
+    padding:130px 7%;
 }
 
 .section-head{
-    max-width:1350px;
-    margin:0 auto 75px;
+    max-width:1200px;
+    margin:0 auto 65px;
 }
 
 .number{
-    color:#d4af37;
-
+    color:#C8A43A;
     font-size:10px;
-    font-weight:bold;
-
     letter-spacing:5px;
-
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .title{
-    font-size:clamp(55px,8vw,110px);
-
+    font-size:clamp(50px,7vw,95px);
     line-height:.88;
-
     letter-spacing:-6px;
+    font-weight:900;
 }
 
 .title span{
-    color:#d4af37;
+    color:#C8A43A;
 }
 
 .description{
-    max-width:700px;
-
-    margin-top:30px;
-
+    max-width:650px;
+    margin-top:25px;
     color:#777;
-
-    font-size:16px;
-    line-height:2;
+    line-height:1.9;
 }
 
-/* =====================================================
-   SERVICES
-===================================================== */
+/* =========================
+   SERVIÇOS
+========================= */
 
 .services{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
     grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
+    gap:18px;
 }
 
 .service{
     position:relative;
+    min-height:320px;
+    padding:38px;
     overflow:hidden;
-
-    min-height:380px;
-
-    padding:42px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015)
-        );
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
-    transition:.45s;
-}
-
-.service::before{
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    right:-80px;
-    bottom:-80px;
-
-    background:#d4af37;
-
-    filter:blur(100px);
-
-    opacity:.08;
-
+    background:linear-gradient(145deg,#151515,#080808);
+    border:1px solid #252525;
     transition:.4s;
 }
 
-.service:hover{
-    transform:translateY(-12px);
-
-    border-color:rgba(212,175,55,.5);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.4);
+.service::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-70px;
+    bottom:-70px;
+    border-radius:50%;
+    background:rgba(200,164,58,.08);
+    filter:blur(30px);
 }
 
-.service:hover::before{
-    opacity:.2;
+.service:hover{
+    transform:translateY(-8px);
+    border-color:#C8A43A;
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .service-number{
-    color:#d4af37;
-
+    color:#C8A43A;
     font-size:10px;
     letter-spacing:4px;
 }
 
 .service h3{
-    font-size:38px;
-
-    margin:100px 0 20px;
+    font-size:32px;
+    margin:85px 0 18px;
 }
 
 .service p{
     color:#777;
-
-    line-height:1.9;
-
-    max-width:330px;
+    line-height:1.8;
 }
 
-/* =====================================================
+/* =========================
    FLYERS
-===================================================== */
+========================= */
 
 #flyers{
-    background:
-        linear-gradient(
-            180deg,
-            #070707,
-            #040404
-        );
-
-    border-top:1px solid rgba(255,255,255,.06);
-    border-bottom:1px solid rgba(255,255,255,.06);
+    background:#080808;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
 }
 
 .flyers{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
+    gap:20px;
 }
 
 .flyer{
-    background:#090909;
-
-    padding:8px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:14px;
-
+    background:#0d0d0d;
+    padding:7px;
+    border:1px solid #242424;
+    border-radius:6px;
     overflow:hidden;
-
-    transition:.45s;
+    transition:.4s;
 }
 
 .flyer:hover{
-    transform:translateY(-10px) scale(1.01);
-
-    border-color:#d4af37;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5);
+    transform:translateY(-8px);
+    border-color:#C8A43A;
+    box-shadow:0 25px 60px rgba(0,0,0,.4);
 }
 
 .flyer img{
     width:100%;
-    height:440px;
-
+    height:360px;
     display:block;
-
     object-fit:contain;
+    background:#080808;
+    transition:.5s;
+}
 
-    background:#050505;
-
-    border-radius:9px;
+.flyer:hover img{
+    transform:scale(1.025);
 }
 
 .flyer-info{
-    padding:20px 15px 15px;
+    padding:17px 10px 13px;
 }
 
 .flyer-info h3{
-    font-size:16px;
-
-    margin-bottom:7px;
+    font-size:14px;
+    margin-bottom:5px;
 }
 
 .flyer-info p{
-    color:#555;
-
-    font-size:10px;
-
+    color:#666;
+    font-size:9px;
     letter-spacing:1px;
 }
 
-/* =====================================================
+/* =========================
    LOGOS
-===================================================== */
+========================= */
 
 #logos{
-    background:#030303;
+    background:#050505;
 }
 
 .logo-grid{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
+    gap:20px;
 }
 
 .logo-box{
-    min-height:350px;
-
-    padding:25px;
-
+    height:300px;
+    padding:15px;
     background:
         radial-gradient(
             circle at center,
-            #191919,
-            #060606 70%
+            #1c1c1c,
+            #080808 70%
         );
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
+    border:1px solid #242424;
+    border-radius:6px;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     overflow:hidden;
-
-    transition:.45s;
+    transition:.4s;
 }
 
 .logo-box:hover{
-    transform:translateY(-10px);
-
-    border-color:#d4af37;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.45);
+    transform:translateY(-8px);
+    border-color:#C8A43A;
+    box-shadow:0 25px 60px rgba(0,0,0,.4);
 }
 
 .logo-box img{
     width:100%;
     height:100%;
-
-    max-height:300px;
-
     object-fit:contain;
-
-    display:block;
-
-    transition:.5s;
 }
 
-.logo-box:hover img{
-    transform:scale(1.06);
-}
-
-/* =====================================================
+/* =========================
    HISTÓRIA
-===================================================== */
+========================= */
 
 #historia{
-    background:
-        radial-gradient(
-            circle at 10% 50%,
-            rgba(212,175,55,.06),
-            transparent 35%
-        ),
-        #070707;
-
-    border-top:1px solid rgba(255,255,255,.06);
-    border-bottom:1px solid rgba(255,255,255,.06);
+    background:#090909;
+    border-top:1px solid #181818;
+    border-bottom:1px solid #181818;
 }
 
 .history{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:.85fr 1.5fr;
-
+    grid-template-columns:.8fr 1.5fr;
     gap:100px;
 }
 
-.history-left{
-    position:sticky;
-    top:130px;
-
-    height:max-content;
-}
-
 .history-number{
-    font-size:clamp(160px,22vw,330px);
-
-    line-height:.7;
-
+    font-size:clamp(150px,20vw,260px);
     font-weight:900;
-
-    color:rgba(212,175,55,.07);
-
-    letter-spacing:-15px;
+    color:rgba(200,164,58,.08);
+    line-height:.65;
 }
 
-.history-left h3{
-    font-size:55px;
-
-    margin:30px 0 0 25px;
+.history-left{
+    font-size:45px;
+    margin-left:20px;
 }
 
 .founder{
-    margin:30px 0 0 27px;
-
+    margin-top:30px;
+    margin-left:20px;
     color:#555;
-
     font-size:10px;
-
-    letter-spacing:4px;
+    letter-spacing:3px;
 }
 
 .history-text{
     color:#999;
-
-    font-size:18px;
-
-    line-height:2.05;
+    font-size:16px;
+    line-height:2;
 }
 
 .history-text p{
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 .history-text strong{
-    color:#e6cc6a;
+    color:#E6CC6A;
 }
 
-/* =====================================================
-   PROCESS
-===================================================== */
+/* =========================
+   PROCESSO
+========================= */
 
 .process{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
+    gap:18px;
 }
 
 .process-card{
-    min-height:290px;
-
-    padding:40px;
-
-    background:#090909;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:15px;
-
-    transition:.4s;
+    padding:35px;
+    min-height:270px;
+    border:1px solid #242424;
+    background:#0d0d0d;
+    transition:.3s;
 }
 
 .process-card:hover{
-    transform:translateY(-8px);
-
-    border-color:#d4af37;
+    border-color:#C8A43A;
+    transform:translateY(-7px);
 }
 
 .process-card span{
-    color:#d4af37;
-
-    font-size:11px;
-
+    color:#C8A43A;
     letter-spacing:4px;
+    font-size:10px;
 }
 
 .process-card h3{
-    font-size:28px;
-
-    margin:70px 0 15px;
+    font-size:24px;
+    margin:55px 0 15px;
 }
 
 .process-card p{
     color:#666;
-
     line-height:1.8;
 }
 
-/* =====================================================
+/* =========================
    DIFERENCIAIS
-===================================================== */
+========================= */
 
 .differentials{
-    max-width:1350px;
+    max-width:1200px;
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
-    gap:20px;
+    gap:18px;
 }
 
 .difference{
-    position:relative;
-
-    padding:50px;
-
-    min-height:230px;
-
-    background:#080808;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:15px;
-
-    transition:.4s;
+    padding:45px;
+    border:1px solid #242424;
+    background:#0d0d0d;
+    transition:.3s;
 }
 
 .difference:hover{
-    transform:translateY(-7px);
-
-    border-color:#d4af37;
+    border-color:#C8A43A;
+    transform:translateY(-5px);
 }
 
 .difference h3{
-    color:#d4af37;
-
-    font-size:25px;
-
-    margin-bottom:20px;
+    color:#C8A43A;
+    margin-bottom:15px;
+    font-size:22px;
 }
 
 .difference p{
-    max-width:600px;
-
     color:#777;
-
-    line-height:1.9;
+    line-height:1.8;
 }
 
-/* =====================================================
+/* =========================
    CONTATO
-===================================================== */
+========================= */
 
 #contato{
     position:relative;
-
     text-align:center;
-
-    padding:220px 7%;
-
+    padding:180px 7%;
     overflow:hidden;
-
-    border-top:1px solid rgba(255,255,255,.06);
 }
 
 #contato::before{
     content:"";
-
     position:absolute;
-
-    width:700px;
-    height:700px;
-
+    width:500px;
+    height:500px;
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
-    background:rgba(212,175,55,.08);
-
-    filter:blur(150px);
-
+    background:rgba(200,164,58,.06);
+    filter:blur(100px);
+    border-radius:50%;
     pointer-events:none;
 }
 
-.contact-small{
+.contact-content{
     position:relative;
+    z-index:2;
+}
 
-    color:#d4af37;
-
-    letter-spacing:6px;
-
+.contact-small{
+    color:#C8A43A;
+    letter-spacing:5px;
     font-size:10px;
 }
 
 #contato h2{
-    position:relative;
-
-    max-width:1200px;
-
-    margin:30px auto;
-
-    font-size:clamp(60px,10vw,145px);
-
-    line-height:.85;
-
-    letter-spacing:-8px;
+    max-width:1100px;
+    margin:25px auto;
+    font-size:clamp(55px,9vw,120px);
+    line-height:.88;
+    letter-spacing:-7px;
 }
 
 #contato h2 span{
-    display:block;
-
-    color:#d4af37;
+    color:#C8A43A;
 }
 
 #contato p{
-    position:relative;
-
-    max-width:650px;
-
-    margin:0 auto 40px;
-
+    max-width:600px;
+    margin:0 auto 35px;
     color:#777;
-
-    line-height:1.9;
-
-    font-size:16px;
+    line-height:1.8;
 }
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
-    max-width:1450px;
-
-    margin:auto;
-
-    padding:55px 7%;
-
-    border-top:1px solid rgba(255,255,255,.07);
-
+    padding:45px 7%;
+    border-top:1px solid #181818;
     display:flex;
-
     justify-content:space-between;
     align-items:center;
-
-    color:#444;
-
+    color:#555;
     font-size:11px;
-
-    letter-spacing:2px;
 }
 
 footer span{
-    color:#d4af37;
+    color:#C8A43A;
 }
 
-/* =====================================================
+/* =========================
    RESPONSIVO
-===================================================== */
+========================= */
 
-@media(max-width:1100px){
-
-    .services{
-        grid-template-columns:1fr;
-    }
+@media(max-width:1000px){
 
     .flyers{
         grid-template-columns:repeat(2,1fr);
@@ -1041,46 +785,33 @@ footer span{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .history{
+    .services{
         grid-template-columns:1fr;
     }
 
-    .history-left{
-        position:relative;
-        top:auto;
+    .history{
+        grid-template-columns:1fr;
+        gap:50px;
     }
 
     .process{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
-@media(max-width:700px){
+@media(max-width:650px){
 
     header{
-        top:10px;
-
-        width:94%;
-
         height:auto;
-
         min-height:70px;
-
-        padding:16px 18px;
-
+        padding:15px 5%;
         flex-direction:column;
-
         gap:15px;
-
-        border-radius:18px;
     }
 
     nav{
         gap:14px;
-
         flex-wrap:wrap;
-
         justify-content:center;
     }
 
@@ -1089,42 +820,53 @@ footer span{
     }
 
     .online-counter{
+        top:140px;
         right:15px;
-        bottom:15px;
+        transform:scale(.9);
+        transform-origin:right;
     }
 
     .hero{
-        min-height:850px;
+        min-height:100svh;
+        height:100svh;
+        padding:0 5% 80px;
+        align-items:flex-end;
+    }
 
-        padding:220px 6% 100px;
+    .hero-bg img{
+        object-position:center;
+        filter:brightness(.42) contrast(1.08);
     }
 
     .hero h1{
-        font-size:62px;
-
-        letter-spacing:-5px;
+        font-size:56px;
+        letter-spacing:-4px;
     }
 
     .hero-description{
-        font-size:15px;
+        font-size:14px;
+        line-height:1.7;
     }
 
-    .hero-bottom{
-        left:6%;
-        right:6%;
+    .hero-actions{
+        flex-direction:column;
+        max-width:220px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .quick-menu{
+        display:none;
     }
 
     section{
-        padding:100px 6%;
+        padding:90px 5%;
     }
 
-    .big-phrase{
-        padding:120px 6%;
-    }
-
-    .big-phrase h2{
-        font-size:45px;
-        letter-spacing:-3px;
+    .title{
+        letter-spacing:-4px;
     }
 
     .flyers{
@@ -1133,8 +875,7 @@ footer span{
 
     .flyer img{
         height:auto;
-        min-height:350px;
-        max-height:600px;
+        max-height:520px;
     }
 
     .logo-grid{
@@ -1142,23 +883,7 @@ footer span{
     }
 
     .logo-box{
-        min-height:320px;
-    }
-
-    .history{
-        gap:60px;
-    }
-
-    .history-number{
-        font-size:170px;
-    }
-
-    .history-left h3{
-        font-size:40px;
-    }
-
-    .history-text{
-        font-size:16px;
+        height:280px;
     }
 
     .process{
@@ -1169,48 +894,38 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    #contato{
-        padding:150px 6%;
+    .history-number{
+        font-size:150px;
     }
 
-    #contato h2{
-        font-size:60px;
-        letter-spacing:-4px;
+    .history-left{
+        font-size:35px;
     }
 
     footer{
         flex-direction:column;
-
-        gap:20px;
-
+        gap:15px;
         text-align:center;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
+<!-- =========================
      CONTADOR
-===================================================== -->
+========================= -->
 
 <div class="online-counter">
-
     <span class="online-dot"></span>
-
     <strong>17</strong>
-
     <span>pessoas online agora</span>
-
 </div>
 
-
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================= -->
 
 <header>
 
@@ -1219,31 +934,38 @@ footer span{
     </div>
 
     <nav>
-
-        <a href="#historia">HISTÓRIA</a>
-
         <a href="#flyers">FLYERS</a>
-
         <a href="#logos">LOGOS</a>
-
+        <a href="#historia">HISTÓRIA</a>
         <a href="#contato">CONTATO</a>
-
     </nav>
 
 </header>
 
+<!-- =========================
+     TELA INICIAL
+========================= -->
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<section class="hero" id="inicio">
 
-<section class="hero">
+    <div class="hero-bg">
 
-    <div class="hero-bg"></div>
+        <!--
+        TROQUE O LINK ABAIXO PELO SEU GIF/IMAGEM.
+        Se o arquivo estiver no static/imagens:
+        {{ url_for('static', filename='imagens/seu-gif.gif') }}
+        -->
+
+        <img
+            src="https://catatau.xyz/papers/p1004.png"
+            alt="Fundo Tralha Studio"
+        >
+
+    </div>
 
     <div class="hero-content">
 
-        <div class="hero-mini">
+        <div class="hero-tag">
             TRALHA STUDIO • DESIGN • PROGRAMAÇÃO
         </div>
 
@@ -1253,17 +975,15 @@ footer span{
         </h1>
 
         <p class="hero-description">
-
-            Criatividade, design e programação
-            transformando ideias em projetos
-            com personalidade, presença e qualidade.
-
+            Flyers, logos, identidade visual e projetos
+            digitais criados com criatividade, personalidade
+            e vontade de fazer algo diferente.
         </p>
 
-        <div class="buttons">
+        <div class="hero-actions">
 
             <a href="#flyers" class="btn gold">
-                VER PORTFÓLIO
+                VER FLYERS
             </a>
 
             <a href="#contato" class="btn outline">
@@ -1274,78 +994,46 @@ footer span{
 
     </div>
 
-    <div class="hero-bottom">
+    <div class="quick-menu">
 
-        <span>TRALHA STUDIO © 2026</span>
-
-        <span>SCROLL ↓</span>
+        <a href="#flyers">FLYERS</a>
+        <a href="#logos">LOGOS</a>
+        <a href="#historia">HISTÓRIA</a>
+        <a href="#contato">CONTATO</a>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      MARQUEE
-===================================================== -->
+========================= -->
 
 <div class="marquee">
 
     <div class="marquee-track">
 
         <span>TRALHA <strong>STUDIO</strong></span>
-
-        <span>DESIGN</span>
-
         <span>FLYERS</span>
-
         <span>LOGOS</span>
-
+        <span>DESIGN</span>
         <span>PROGRAMAÇÃO</span>
-
         <span>CRIATIVIDADE</span>
 
         <span>TRALHA <strong>STUDIO</strong></span>
-
-        <span>DESIGN</span>
-
         <span>FLYERS</span>
-
         <span>LOGOS</span>
-
+        <span>DESIGN</span>
         <span>PROGRAMAÇÃO</span>
-
         <span>CRIATIVIDADE</span>
 
     </div>
 
 </div>
 
-
-<!-- =====================================================
-     FRASE
-===================================================== -->
-
-<div class="big-phrase">
-
-    <p>DESIGN • CRIAÇÃO • IDENTIDADE</p>
-
-    <h2>
-
-        UMA BOA ARTE NÃO PRECISA
-        <span>GRITAR.</span>
-
-        ELA PRECISA
-        <span>SER LEMBRADA.</span>
-
-    </h2>
-
-</div>
-
-
-<!-- =====================================================
+<!-- =========================
      SERVIÇOS
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -1360,15 +1048,12 @@ footer span{
         </h2>
 
         <p class="description">
-
-            Criação de artes, identidades visuais
-            e projetos digitais pensados para
-            destacar sua ideia.
-
+            Criação visual e projetos digitais pensados
+            para destacar sua ideia e transformar conceitos
+            em algo visualmente marcante.
         </p>
 
     </div>
-
 
     <div class="services">
 
@@ -1381,15 +1066,12 @@ footer span{
             <h3>Flyers</h3>
 
             <p>
-
                 Artes para divulgação, eventos,
-                anúncios, servidores, cidades,
-                redes sociais e projetos.
-
+                anúncios, servidores, cidades
+                e redes sociais.
             </p>
 
         </div>
-
 
         <div class="service">
 
@@ -1400,30 +1082,24 @@ footer span{
             <h3>Logos</h3>
 
             <p>
-
                 Identidades visuais para marcas,
-                comunidades, servidores,
-                projetos e empresas.
-
+                projetos, comunidades e servidores.
             </p>
 
         </div>
 
-
         <div class="service">
 
             <div class="service-number">
-                03 / PROGRAMAÇÃO
+                03 / DIGITAL
             </div>
 
-            <h3>Web</h3>
+            <h3>Programação</h3>
 
             <p>
-
-                Desenvolvimento de sites,
-                páginas e experiências digitais
-                personalizadas.
-
+                Desenvolvimento de sites e projetos
+                digitais para transformar ideias em
+                experiências reais.
             </p>
 
         </div>
@@ -1432,10 +1108,9 @@ footer span{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      FLYERS
-===================================================== -->
+========================= -->
 
 <section id="flyers">
 
@@ -1450,146 +1125,85 @@ footer span{
         </h2>
 
         <p class="description">
-
             Alguns dos trabalhos desenvolvidos
             pela Tralha Studio.
-
         </p>
 
     </div>
 
-
     <div class="flyers">
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 01</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 02</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 03</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 04</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 05</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 06</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
 
-
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 07</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
-
 
         <div class="flyer">
-
             <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}">
-
             <div class="flyer-info">
-
                 <h3>Flyer 08</h3>
-
                 <p>Projeto de design</p>
-
             </div>
-
         </div>
-
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      LOGOS
-===================================================== -->
+========================= -->
 
 <section id="logos">
 
@@ -1604,17 +1218,13 @@ footer span{
         </h2>
 
         <p class="description">
-
             Algumas das identidades visuais
             criadas pela Tralha Studio.
-
         </p>
 
     </div>
 
-
     <div class="logo-grid">
-
 
         <div class="logo-box">
 
@@ -1625,15 +1235,13 @@ footer span{
 
         </div>
 
-
     </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      HISTÓRIA
-===================================================== -->
+========================= -->
 
 <section id="historia">
 
@@ -1644,25 +1252,21 @@ footer span{
         </div>
 
         <h2 class="title">
-
             TUDO COMEÇOU
             <span>COM UMA IDEIA.</span>
-
         </h2>
 
     </div>
 
-
     <div class="history">
 
-
-        <div class="history-left">
+        <div>
 
             <div class="history-number">
                 14
             </div>
 
-            <h3>
+            <h3 class="history-left">
                 ANOS
             </h3>
 
@@ -1672,163 +1276,117 @@ footer span{
 
         </div>
 
-
         <div class="history-text">
 
             <p>
-
                 <strong>Meu nome é David.</strong>
                 Tenho 14 anos e gosto muito de
                 <strong>design e programação.</strong>
                 A história da Tralha Studio começou
                 de uma forma simples: com curiosidade
                 e vontade de aprender.
-
             </p>
 
-
             <p>
-
-                Desde cedo comecei a me interessar
-                pelo mundo da tecnologia e da criação.
-                Sempre tive curiosidade para entender
-                como as coisas funcionavam e como eu
-                poderia criar algo com minhas próprias ideias.
-
+                Desde cedo comecei a me interessar pelo
+                mundo da tecnologia e da criação. Sempre
+                tive curiosidade para entender como as
+                coisas funcionavam e como eu poderia criar
+                algo com minhas próprias ideias.
             </p>
 
-
             <p>
-
                 No começo, eu não tinha uma grande
                 estrutura, uma equipe ou anos de
                 experiência. Eu tinha apenas vontade
                 de aprender e descobrir até onde
                 conseguiria chegar.
-
             </p>
 
-
             <p>
-
-                Comecei experimentando. Testava
-                fontes, cores, efeitos, posições
-                e diferentes estilos. Algumas artes
-                ficavam boas. Outras não ficavam
-                nem perto do que eu imaginava.
-                <strong>E tudo bem.</strong>
-
+                Comecei experimentando. Testava fontes,
+                cores, efeitos, posições e diferentes
+                estilos. Algumas artes ficavam boas.
+                Outras não ficavam nem perto do que
+                eu imaginava. <strong>E tudo bem.</strong>
             </p>
 
-
             <p>
-
                 Cada erro fazia parte do aprendizado.
                 Com o passar do tempo, percebi que
                 aquilo já não era apenas uma brincadeira.
                 Eu realmente gostava de criar e,
                 principalmente, de ver uma ideia sair
                 da minha cabeça e virar algo real.
-
             </p>
 
-
             <p>
-
                 Foi então que nasceu a
                 <strong>Tralha Studio.</strong>
                 Não nasceu pronta. Não nasceu perfeita.
                 Nasceu pequena, com muito para aprender,
-                mas com uma coisa que continua sendo
-                a mesma desde o primeiro dia:
+                mas com uma coisa que continua sendo a
+                mesma desde o primeiro dia:
                 <strong>vontade de crescer.</strong>
-
             </p>
 
-
             <p>
-
                 Com o tempo, comecei a juntar minhas
                 duas grandes áreas de interesse:
                 <strong>design e programação.</strong>
                 Uma me permite criar visualmente,
                 enquanto a outra me permite transformar
                 ideias em projetos e experiências.
-
             </p>
 
-
             <p>
-
-                Hoje, cada flyer que eu crio,
-                cada logo que desenvolvo e cada
-                projeto que programo representa
-                mais um passo nessa caminhada.
-
+                Hoje, cada flyer que eu crio, cada logo
+                que desenvolvo e cada projeto que programo
+                representa mais um passo nessa caminhada.
             </p>
 
-
             <p>
-
                 Eu sei que ainda estou no começo.
-                Sei que existem muitas coisas que
-                ainda preciso aprender, melhorar
-                e descobrir.
-
+                Sei que existem muitas coisas que ainda
+                preciso aprender, melhorar e descobrir.
             </p>
 
-
             <p>
-
-                Mas talvez essa seja justamente
-                a parte mais importante dessa história.
+                Mas talvez essa seja justamente a parte
+                mais importante dessa história.
                 <strong>
-                    Eu não quero apenas criar artes
-                    ou programar por programar.
-                    Quero construir algo que,
-                    daqui a alguns anos, eu possa
-                    olhar para trás e lembrar de
-                    onde tudo começou.
+                    Eu não quero apenas criar artes ou
+                    programar por programar. Quero construir
+                    algo que, daqui a alguns anos, eu possa
+                    olhar para trás e lembrar de onde tudo
+                    começou.
                 </strong>
-
             </p>
 
-
             <p>
-
                 A Tralha Studio começou com uma ideia.
-                Hoje é um projeto.
-                Amanhã, eu quero que seja uma marca
-                reconhecida pelo trabalho, pela
-                criatividade e pela dedicação colocada
+                Hoje é um projeto. Amanhã, eu quero que
+                seja uma marca reconhecida pelo trabalho,
+                pela criatividade e pela dedicação colocada
                 em cada criação.
-
             </p>
 
-
             <p>
-
                 Sei que ainda tenho muito para aprender,
                 mas também sei que cada novo projeto,
-                cada erro e cada experiência fazem
-                parte da minha evolução.
-
+                cada erro e cada experiência fazem parte
+                da minha evolução.
             </p>
-
 
             <p>
-
                 E se existe uma coisa que eu aprendi
-                até aqui, é que você não precisa
-                começar grande para sonhar grande.
-
+                até aqui, é que você não precisa começar
+                grande para sonhar grande.
             </p>
-
 
             <p>
                 <strong>Você só precisa começar.</strong>
             </p>
-
 
         </div>
 
@@ -1836,10 +1394,9 @@ footer span{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      PROCESSO
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -1855,9 +1412,7 @@ footer span{
 
     </div>
 
-
     <div class="process">
-
 
         <div class="process-card">
 
@@ -1866,14 +1421,11 @@ footer span{
             <h3>Ideia</h3>
 
             <p>
-
                 Entendo o que você precisa
                 e o estilo que procura.
-
             </p>
 
         </div>
-
 
         <div class="process-card">
 
@@ -1882,15 +1434,11 @@ footer span{
             <h3>Criação</h3>
 
             <p>
-
-                Desenvolvo a composição,
-                os elementos e a identidade
-                do projeto.
-
+                Desenvolvo a composição
+                e os elementos da arte.
             </p>
 
         </div>
-
 
         <div class="process-card">
 
@@ -1899,14 +1447,11 @@ footer span{
             <h3>Ajustes</h3>
 
             <p>
-
                 Faço os ajustes necessários
                 para chegar ao resultado.
-
             </p>
 
         </div>
-
 
         <div class="process-card">
 
@@ -1915,23 +1460,19 @@ footer span{
             <h3>Entrega</h3>
 
             <p>
-
                 Finalizo o projeto e preparo
                 o arquivo para utilização.
-
             </p>
 
         </div>
-
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      DIFERENCIAIS
-===================================================== -->
+========================= -->
 
 <section>
 
@@ -1947,120 +1488,99 @@ footer span{
 
     </div>
 
-
     <div class="differentials">
-
 
         <div class="difference">
 
             <h3>Criatividade</h3>
 
             <p>
-
                 Busco testar ideias diferentes
                 e encontrar uma composição
                 que combine com cada projeto.
-
             </p>
 
         </div>
-
 
         <div class="difference">
 
             <h3>Dedicação</h3>
 
             <p>
-
                 Cada trabalho é uma oportunidade
                 de aprender e melhorar meu
                 processo de criação.
-
             </p>
 
         </div>
-
 
         <div class="difference">
 
             <h3>Personalidade</h3>
 
             <p>
-
-                A proposta é criar algo que
-                tenha identidade e não pareça
-                apenas mais uma arte comum.
-
+                A proposta é criar algo que tenha
+                identidade e não pareça apenas
+                mais uma arte comum.
             </p>
 
         </div>
-
 
         <div class="difference">
 
             <h3>Evolução</h3>
 
             <p>
-
                 Estou sempre buscando aprender
                 novas técnicas e melhorar
                 meus trabalhos.
-
             </p>
 
         </div>
 
-
     </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      CONTATO
-===================================================== -->
+========================= -->
 
 <section id="contato">
 
-    <div class="contact-small">
-        VAMOS CRIAR?
+    <div class="contact-content">
+
+        <div class="contact-small">
+            VAMOS CRIAR?
+        </div>
+
+        <h2>
+            SUA IDEIA
+            <span>MERECE DESIGN.</span>
+        </h2>
+
+        <p>
+            Precisa de um flyer, uma logo ou quer
+            conversar sobre um projeto?
+            Entre em contato comigo.
+        </p>
+
+        <a
+            href="https://discord.gg/QtNjjgXZ9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn gold"
+        >
+            ENTRAR EM CONTATO
+        </a>
+
     </div>
-
-
-    <h2>
-
-        SUA IDEIA
-
-        <span>MERECE DESIGN.</span>
-
-    </h2>
-
-
-    <p>
-
-        Precisa de um flyer, uma logo,
-        um site ou quer conversar sobre
-        um projeto?
-
-        Entre em contato comigo.
-
-    </p>
-
-
-    <a
-        href="https://discord.gg/QtNjjgXZ9"
-        target="_blank"
-        class="btn gold"
-    >
-        ENTRAR EM CONTATO
-    </a>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -2069,7 +1589,7 @@ footer span{
     </div>
 
     <div>
-        DESIGN • FLYERS • LOGOS • WEB
+        DESIGN • FLYERS • LOGOS • PROGRAMAÇÃO
     </div>
 
 </footer>
