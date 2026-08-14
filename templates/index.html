@@ -7,7 +7,7 @@
 <title>TRALHA STUDIO — Design & Criação</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 *{
     margin:0;
@@ -26,37 +26,14 @@ body{
     overflow-x:hidden;
 }
 
-body::selection{
-    background:#C8A43A;
-    color:#000;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-:root{
-    --gold:#C8A43A;
-    --gold-light:#F1D979;
-    --dark:#050505;
-    --card:#0c0c0c;
-    --border:rgba(255,255,255,.09);
-    --muted:#858585;
-}
-
-/* =========================
-   FUNDO
-========================= */
-
 body::before{
     content:"";
     position:fixed;
     width:700px;
     height:700px;
     top:-350px;
-    right:-250px;
-    background:rgba(200,164,58,.10);
+    right:-300px;
+    background:rgba(201,164,58,.10);
     filter:blur(130px);
     border-radius:50%;
     pointer-events:none;
@@ -66,36 +43,25 @@ body::before{
 body::after{
     content:"";
     position:fixed;
-    width:650px;
-    height:650px;
-    left:-350px;
-    bottom:-300px;
-    background:rgba(200,164,58,.07);
-    filter:blur(140px);
+    width:600px;
+    height:600px;
+    bottom:-350px;
+    left:-250px;
+    background:rgba(201,164,58,.07);
+    filter:blur(130px);
     border-radius:50%;
     pointer-events:none;
     z-index:-2;
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-    width:7px;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-::-webkit-scrollbar-track{
-    background:#050505;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#292929;
-    border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:var(--gold);
+::selection{
+    background:#C8A43A;
+    color:#050505;
 }
 
 /* =========================
@@ -107,31 +73,30 @@ header{
     top:18px;
     left:50%;
     transform:translateX(-50%);
-    width:92%;
-    max-width:1250px;
-    height:70px;
+    width:min(1250px,92%);
+    height:72px;
     padding:0 25px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background:rgba(10,10,10,.72);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
+    background:rgba(8,8,8,.78);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
     border:1px solid rgba(255,255,255,.09);
     border-radius:18px;
-    z-index:9999;
+    z-index:1000;
     box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .logo{
-    font-size:18px;
-    font-weight:900;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:20px;
+    font-weight:800;
     letter-spacing:3px;
-    white-space:nowrap;
 }
 
 .logo span{
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 nav{
@@ -141,13 +106,13 @@ nav{
 }
 
 nav a{
-    padding:11px 15px;
-    color:#999;
+    padding:12px 16px;
+    border-radius:10px;
+    color:#888;
     font-size:10px;
     font-weight:700;
-    letter-spacing:1.5px;
-    border-radius:10px;
-    transition:.3s ease;
+    letter-spacing:1.8px;
+    transition:.3s;
 }
 
 nav a:hover{
@@ -161,34 +126,34 @@ nav a:hover{
 
 .online-counter{
     position:fixed;
-    top:105px;
-    right:4%;
+    right:25px;
+    bottom:25px;
     z-index:999;
     display:flex;
     align-items:center;
     gap:9px;
-    padding:10px 15px;
-    background:rgba(8,8,8,.82);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
-    font-size:10px;
+    padding:12px 17px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:50px;
     color:#777;
-    letter-spacing:.5px;
+    font-size:10px;
+    letter-spacing:1px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
 .online-counter strong{
-    color:var(--gold-light);
+    color:#C8A43A;
     font-size:15px;
 }
 
 .online-dot{
-    width:7px;
-    height:7px;
+    width:8px;
+    height:8px;
     border-radius:50%;
-    background:#52df76;
-    box-shadow:0 0 15px #52df76;
+    background:#49df72;
+    box-shadow:0 0 15px #49df72;
 }
 
 /* =========================
@@ -198,69 +163,68 @@ nav a:hover{
 .hero{
     position:relative;
     min-height:100vh;
-    padding:190px 7% 120px;
+    padding:170px 7% 100px;
     display:flex;
     align-items:center;
     overflow:hidden;
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #171717;
 }
 
-/* área para seu GIF/fundo */
-
-.hero-background{
+/* GIF / IMAGEM DE FUNDO
+   TROQUE A URL ABAIXO SE QUISER */
+.hero-bg{
     position:absolute;
     inset:0;
-    z-index:0;
-    overflow:hidden;
-}
-
-.hero-background img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:.20;
-    filter:brightness(.55) contrast(1.15);
+    background-image:
+        linear-gradient(90deg,
+            rgba(5,5,5,.97) 0%,
+            rgba(5,5,5,.78) 38%,
+            rgba(5,5,5,.40) 70%,
+            rgba(5,5,5,.72) 100%
+        ),
+        linear-gradient(180deg,
+            rgba(5,5,5,.55),
+            rgba(5,5,5,.85)
+        ),
+        url("https://catatau.xyz/papers/p1004.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:saturate(.85);
     transform:scale(1.03);
+    z-index:0;
 }
 
-.hero-background::after{
+.hero::after{
     content:"";
     position:absolute;
     inset:0;
     background:
-        linear-gradient(90deg,#050505 0%,rgba(5,5,5,.90) 35%,rgba(5,5,5,.50) 70%,#050505 100%),
-        linear-gradient(0deg,#050505 0%,transparent 35%,rgba(5,5,5,.4) 100%);
-}
-
-.hero-grid{
-    position:absolute;
-    inset:0;
-    opacity:.13;
-    background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
-    background-size:80px 80px;
-    mask-image:linear-gradient(to bottom,black,transparent);
+        radial-gradient(circle at 75% 45%,rgba(200,164,58,.13),transparent 28%),
+        linear-gradient(90deg,transparent,rgba(0,0,0,.25));
+    z-index:1;
+    pointer-events:none;
 }
 
 .hero-content{
     position:relative;
-    z-index:2;
-    max-width:1000px;
+    z-index:3;
+    width:100%;
+    max-width:1200px;
 }
 
 .hero-tag{
     display:inline-flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     margin-bottom:30px;
-    padding:9px 14px;
-    border:1px solid rgba(200,164,58,.25);
+    padding:10px 15px;
+    border:1px solid rgba(200,164,58,.28);
+    border-radius:50px;
     background:rgba(200,164,58,.06);
-    border-radius:100px;
-    color:var(--gold-light);
-    font-size:9px;
-    font-weight:800;
+    color:#D7B957;
+    font-size:10px;
+    font-weight:700;
     letter-spacing:3px;
 }
 
@@ -268,43 +232,39 @@ nav a:hover{
     content:"";
     width:6px;
     height:6px;
-    background:var(--gold);
     border-radius:50%;
-    box-shadow:0 0 12px var(--gold);
+    background:#C8A43A;
+    box-shadow:0 0 12px #C8A43A;
 }
 
 .hero h1{
     max-width:1000px;
-    font-size:clamp(70px,11vw,155px);
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(70px,10vw,155px);
     line-height:.82;
-    letter-spacing:-9px;
+    letter-spacing:-8px;
     font-weight:900;
-    margin-bottom:38px;
+    margin-bottom:40px;
 }
 
 .hero h1 span{
     display:block;
-    color:transparent;
-    -webkit-text-stroke:1px rgba(255,255,255,.65);
-}
-
-.hero h1 .gold-text{
-    color:var(--gold);
-    -webkit-text-stroke:0;
+    color:#C8A43A;
+    text-shadow:0 0 60px rgba(200,164,58,.12);
 }
 
 .hero p{
-    max-width:680px;
-    color:#9b9b9b;
-    font-size:16px;
+    max-width:650px;
+    color:#aaa;
+    font-size:17px;
     line-height:1.9;
     margin-bottom:35px;
 }
 
 .buttons{
     display:flex;
-    gap:12px;
     flex-wrap:wrap;
+    gap:12px;
 }
 
 .btn{
@@ -312,64 +272,86 @@ nav a:hover{
     align-items:center;
     justify-content:center;
     min-height:52px;
-    padding:0 25px;
+    padding:0 24px;
     border-radius:12px;
     font-size:10px;
     font-weight:800;
-    letter-spacing:1.8px;
-    transition:.35s ease;
+    letter-spacing:2px;
+    transition:.35s;
 }
 
 .gold{
-    background:var(--gold);
+    background:#C8A43A;
     color:#080808;
-    box-shadow:0 12px 35px rgba(200,164,58,.18);
+    box-shadow:0 12px 35px rgba(200,164,58,.17);
 }
 
 .gold:hover{
-    background:var(--gold-light);
+    background:#E7CF70;
     transform:translateY(-4px);
-    box-shadow:0 18px 45px rgba(200,164,58,.28);
+    box-shadow:0 18px 45px rgba(200,164,58,.25);
 }
 
 .outline{
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.03);
-    color:#aaa;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.035);
+    color:#ddd;
+    backdrop-filter:blur(10px);
 }
 
 .outline:hover{
-    border-color:rgba(200,164,58,.5);
-    color:#fff;
-    background:rgba(200,164,58,.07);
+    border-color:#C8A43A;
+    color:#E7CF70;
     transform:translateY(-4px);
 }
 
-.hero-bottom{
+/* =========================
+   HERO SIDE CARD
+========================= */
+
+.hero-card{
     position:absolute;
-    bottom:35px;
-    left:7%;
+    z-index:4;
     right:7%;
+    bottom:70px;
+    width:260px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+    background:rgba(10,10,10,.55);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.hero-card-top{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    color:#555;
+    margin-bottom:20px;
+}
+
+.hero-card-label{
+    color:#777;
     font-size:9px;
-    letter-spacing:3px;
-    z-index:2;
+    letter-spacing:2px;
 }
 
-.scroll-line{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.hero-card-number{
+    color:#C8A43A;
+    font-size:10px;
 }
 
-.scroll-line::before{
-    content:"";
-    width:45px;
-    height:1px;
-    background:var(--gold);
+.hero-card h3{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.hero-card p{
+    color:#777;
+    font-size:11px;
+    line-height:1.7;
+    margin:0;
 }
 
 /* =========================
@@ -378,8 +360,8 @@ nav a:hover{
 
 .marquee{
     overflow:hidden;
-    border-bottom:1px solid var(--border);
-    background:#080808;
+    border-bottom:1px solid #191919;
+    background:#070707;
     padding:22px 0;
     white-space:nowrap;
 }
@@ -390,7 +372,8 @@ nav a:hover{
 }
 
 .marquee span{
-    margin:0 38px;
+    display:inline-block;
+    margin:0 35px;
     color:#555;
     font-size:10px;
     font-weight:700;
@@ -398,7 +381,7 @@ nav a:hover{
 }
 
 .marquee strong{
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 @keyframes move{
@@ -407,34 +390,34 @@ nav a:hover{
 }
 
 /* =========================
-   INTRO
+   BIG PHRASE
 ========================= */
 
 .big-phrase{
-    max-width:1250px;
-    margin:auto;
-    padding:150px 7%;
+    padding:160px 7%;
+    text-align:center;
 }
 
 .big-phrase small{
     display:block;
-    margin-bottom:30px;
-    color:var(--gold);
+    color:#C8A43A;
     font-size:10px;
-    font-weight:800;
-    letter-spacing:4px;
+    font-weight:700;
+    letter-spacing:5px;
+    margin-bottom:30px;
 }
 
 .big-phrase h2{
-    max-width:1150px;
-    font-size:clamp(42px,6vw,86px);
-    line-height:1;
+    max-width:1100px;
+    margin:auto;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(42px,6vw,82px);
+    line-height:.98;
     letter-spacing:-5px;
-    font-weight:800;
 }
 
 .big-phrase span{
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 /* =========================
@@ -442,7 +425,7 @@ nav a:hover{
 ========================= */
 
 section{
-    padding:125px 7%;
+    padding:130px 7%;
 }
 
 .section-head{
@@ -451,31 +434,41 @@ section{
 }
 
 .number{
-    display:inline-block;
-    color:var(--gold);
-    font-size:9px;
-    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#C8A43A;
+    font-size:10px;
+    font-weight:700;
     letter-spacing:4px;
-    margin-bottom:20px;
+    margin-bottom:22px;
+}
+
+.number::before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:#C8A43A;
 }
 
 .title{
-    font-size:clamp(50px,7vw,92px);
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(55px,7vw,95px);
     line-height:.88;
     letter-spacing:-6px;
-    font-weight:900;
+    font-weight:800;
 }
 
 .title span{
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 .description{
     max-width:650px;
     margin-top:28px;
-    color:#707070;
-    font-size:14px;
+    color:#777;
     line-height:1.9;
+    font-size:14px;
 }
 
 /* =========================
@@ -487,54 +480,55 @@ section{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
+    gap:18px;
 }
 
 .service{
     position:relative;
-    min-height:350px;
+    min-height:330px;
     padding:35px;
     overflow:hidden;
-    border:1px solid var(--border);
-    border-radius:18px;
     background:
-        radial-gradient(circle at 100% 0,rgba(200,164,58,.08),transparent 40%),
-        linear-gradient(145deg,#111,#080808);
-    transition:.45s ease;
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    border:1px solid #242424;
+    border-radius:20px;
+    transition:.45s;
 }
 
 .service::after{
     content:"";
     position:absolute;
-    width:140px;
-    height:140px;
+    width:160px;
+    height:160px;
     right:-80px;
     bottom:-80px;
-    border:1px solid rgba(200,164,58,.12);
     border-radius:50%;
+    background:rgba(200,164,58,.08);
+    filter:blur(30px);
 }
 
 .service:hover{
     transform:translateY(-10px);
-    border-color:rgba(200,164,58,.45);
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+    border-color:rgba(200,164,58,.55);
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
 }
 
 .service-number{
-    color:var(--gold);
+    color:#C8A43A;
     font-size:9px;
-    font-weight:800;
     letter-spacing:3px;
+    font-weight:700;
 }
 
 .service h3{
-    font-size:36px;
-    margin:100px 0 18px;
-    letter-spacing:-1px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:34px;
+    margin:80px 0 18px;
 }
 
 .service p{
-    color:#707070;
+    max-width:300px;
+    color:#777;
     line-height:1.8;
     font-size:13px;
 }
@@ -544,11 +538,9 @@ section{
 ========================= */
 
 #flyers{
-    background:
-        radial-gradient(circle at 50% 0,rgba(200,164,58,.05),transparent 35%),
-        #080808;
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+    background:#080808;
+    border-top:1px solid #171717;
+    border-bottom:1px solid #171717;
 }
 
 .flyers{
@@ -556,33 +548,33 @@ section{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    gap:20px;
 }
 
 .flyer{
     position:relative;
-    background:#0b0b0b;
-    padding:7px;
-    border:1px solid rgba(255,255,255,.08);
+    background:#0D0D0D;
+    padding:8px;
+    border:1px solid #242424;
     border-radius:16px;
     overflow:hidden;
-    transition:.45s ease;
+    transition:.45s;
 }
 
 .flyer:hover{
-    transform:translateY(-9px);
-    border-color:rgba(200,164,58,.5);
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    transform:translateY(-10px);
+    border-color:#C8A43A;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
 }
 
 .flyer img{
     width:100%;
-    height:370px;
+    height:350px;
     display:block;
     object-fit:contain;
-    background:#060606;
-    border-radius:11px;
-    transition:.5s ease;
+    background:#080808;
+    border-radius:10px;
+    transition:.5s;
 }
 
 .flyer:hover img{
@@ -590,16 +582,17 @@ section{
 }
 
 .flyer-info{
-    padding:17px 11px 12px;
+    padding:18px 10px 13px;
 }
 
 .flyer-info h3{
-    font-size:14px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:15px;
     margin-bottom:5px;
 }
 
 .flyer-info p{
-    color:#555;
+    color:#666;
     font-size:9px;
     letter-spacing:1px;
 }
@@ -617,28 +610,28 @@ section{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    gap:20px;
 }
 
 .logo-box{
-    position:relative;
-    height:330px;
-    padding:20px;
+    height:300px;
+    padding:18px;
     background:
-        radial-gradient(circle at center,rgba(200,164,58,.07),transparent 50%),
-        #090909;
-    border:1px solid var(--border);
+        radial-gradient(circle at center,rgba(200,164,58,.07),transparent 45%),
+        linear-gradient(145deg,#151515,#080808);
+    border:1px solid #242424;
     border-radius:18px;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    transition:.45s ease;
+    transition:.45s;
 }
 
 .logo-box:hover{
-    transform:translateY(-8px);
-    border-color:rgba(200,164,58,.45);
+    transform:translateY(-9px);
+    border-color:#C8A43A;
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
 }
 
 .logo-box img{
@@ -646,71 +639,65 @@ section{
     height:100%;
     object-fit:contain;
     display:block;
-    transition:.5s ease;
-}
-
-.logo-box:hover img{
-    transform:scale(1.06);
 }
 
 /* =========================
-   HISTÓRIA
+   HISTORIA
 ========================= */
 
 #historia{
     background:
-        linear-gradient(120deg,rgba(200,164,58,.035),transparent 40%),
-        #080808;
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+        linear-gradient(180deg,#090909,#070707);
+    border-top:1px solid #171717;
+    border-bottom:1px solid #171717;
 }
 
 .history{
     max-width:1200px;
     margin:auto;
     display:grid;
-    grid-template-columns:.8fr 1.5fr;
-    gap:90px;
+    grid-template-columns:.85fr 1.5fr;
+    gap:100px;
 }
 
 .history-number{
-    font-size:clamp(150px,20vw,270px);
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(150px,20vw,260px);
     font-weight:900;
     color:rgba(200,164,58,.07);
-    line-height:.65;
-    letter-spacing:-15px;
+    line-height:.7;
 }
 
 .history-left{
-    font-size:45px;
-    margin:35px 0 0 15px;
-    letter-spacing:-2px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:48px;
+    margin:20px 0 0 20px;
 }
 
 .founder{
-    margin:25px 0 0 18px;
+    margin:28px 0 0 20px;
     color:#555;
     font-size:9px;
-    font-weight:800;
+    font-weight:700;
     letter-spacing:3px;
 }
 
 .history-text{
-    color:#8a8a8a;
+    color:#999;
     font-size:15px;
     line-height:2;
 }
 
 .history-text p{
-    margin-bottom:27px;
+    margin-bottom:24px;
 }
 
 .history-text strong{
-    color:#e5cd72;
+    color:#E7CF70;
 }
 
 /* =========================
-   PROCESSO
+   PROCESS
 ========================= */
 
 .process{
@@ -718,43 +705,45 @@ section{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:16px;
 }
 
 .process-card{
-    min-height:280px;
-    padding:30px;
-    border:1px solid var(--border);
-    border-radius:16px;
-    background:#0b0b0b;
-    transition:.4s ease;
+    position:relative;
+    min-height:270px;
+    padding:32px;
+    border:1px solid #242424;
+    border-radius:18px;
+    background:#0D0D0D;
+    transition:.4s;
 }
 
 .process-card:hover{
+    border-color:#C8A43A;
     transform:translateY(-8px);
-    border-color:rgba(200,164,58,.4);
 }
 
 .process-card span{
-    color:var(--gold);
+    color:#C8A43A;
     font-size:10px;
-    font-weight:800;
-    letter-spacing:3px;
+    font-weight:700;
+    letter-spacing:4px;
 }
 
 .process-card h3{
+    font-family:"Space Grotesk",sans-serif;
     font-size:25px;
-    margin:75px 0 14px;
+    margin:65px 0 15px;
 }
 
 .process-card p{
     color:#666;
-    font-size:12px;
     line-height:1.8;
+    font-size:12px;
 }
 
 /* =========================
-   DIFERENCIAIS
+   DIFFERENTIALS
 ========================= */
 
 .differentials{
@@ -762,32 +751,33 @@ section{
     margin:auto;
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    gap:18px;
 }
 
 .difference{
-    position:relative;
-    padding:40px;
-    border:1px solid var(--border);
-    border-radius:17px;
-    background:linear-gradient(145deg,#0f0f0f,#080808);
-    transition:.4s ease;
+    padding:42px;
+    border:1px solid #242424;
+    border-radius:18px;
+    background:
+        linear-gradient(145deg,#111,#090909);
+    transition:.4s;
 }
 
 .difference:hover{
-    transform:translateY(-6px);
-    border-color:rgba(200,164,58,.35);
+    transform:translateY(-7px);
+    border-color:#C8A43A;
 }
 
 .difference h3{
-    color:var(--gold);
-    margin-bottom:15px;
-    font-size:21px;
+    color:#C8A43A;
+    margin-bottom:14px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:23px;
 }
 
 .difference p{
     max-width:600px;
-    color:#6d6d6d;
+    color:#777;
     line-height:1.8;
     font-size:13px;
 }
@@ -798,58 +788,38 @@ section{
 
 #contato{
     position:relative;
-    overflow:hidden;
     text-align:center;
     padding:180px 7%;
+    overflow:hidden;
     background:
-        radial-gradient(circle at center,rgba(200,164,58,.10),transparent 45%),
-        #060606;
-    border-top:1px solid var(--border);
-}
-
-#contato::before{
-    content:"TRALHA";
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    font-size:22vw;
-    font-weight:900;
-    color:rgba(255,255,255,.018);
-    white-space:nowrap;
-    pointer-events:none;
-}
-
-.contact-content{
-    position:relative;
-    z-index:2;
+        radial-gradient(circle at center,rgba(200,164,58,.08),transparent 35%);
 }
 
 .contact-small{
-    color:var(--gold);
-    font-size:9px;
-    font-weight:800;
+    color:#C8A43A;
     letter-spacing:5px;
+    font-size:10px;
+    font-weight:700;
 }
 
 #contato h2{
-    max-width:1100px;
-    margin:30px auto;
+    max-width:1000px;
+    margin:28px auto;
+    font-family:"Space Grotesk",sans-serif;
     font-size:clamp(55px,9vw,120px);
-    line-height:.86;
+    line-height:.87;
     letter-spacing:-7px;
-    font-weight:900;
 }
 
 #contato h2 span{
     display:block;
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 #contato p{
     max-width:600px;
     margin:0 auto 35px;
-    color:#707070;
+    color:#777;
     line-height:1.8;
     font-size:14px;
 }
@@ -859,48 +829,28 @@ section{
 ========================= */
 
 footer{
-    max-width:1250px;
-    margin:auto;
-    padding:45px 7%;
+    padding:35px 7%;
+    border-top:1px solid #181818;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    color:#444;
-    font-size:9px;
-    letter-spacing:1.5px;
+    color:#555;
+    font-size:10px;
+    letter-spacing:1px;
 }
 
 footer span{
-    color:var(--gold);
+    color:#C8A43A;
 }
 
 /* =========================
-   ANIMAÇÕES
+   RESPONSIVO
 ========================= */
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
+@media(max-width:1050px){
 
-.hero-content{
-    animation:fadeUp 1s ease both;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media(max-width:1000px){
-
-    header{
-        width:94%;
+    .hero-card{
+        display:none;
     }
 
     .services{
@@ -917,7 +867,7 @@ footer span{
 
     .history{
         grid-template-columns:1fr;
-        gap:45px;
+        gap:55px;
     }
 
     .process{
@@ -925,17 +875,13 @@ footer span{
     }
 }
 
-/* =========================
-   CELULAR
-========================= */
-
-@media(max-width:650px){
+@media(max-width:700px){
 
     header{
         top:10px;
         width:94%;
-        min-height:64px;
         height:auto;
+        min-height:62px;
         padding:12px 15px;
         flex-direction:column;
         gap:8px;
@@ -943,51 +889,57 @@ footer span{
     }
 
     .logo{
-        font-size:15px;
+        font-size:16px;
     }
 
     nav{
-        gap:2px;
-        flex-wrap:wrap;
+        width:100%;
         justify-content:center;
+        gap:2px;
     }
 
     nav a{
-        padding:7px 8px;
+        padding:8px 7px;
         font-size:7px;
         letter-spacing:1px;
     }
 
     .online-counter{
-        top:115px;
-        right:15px;
+        right:12px;
+        bottom:12px;
+        padding:10px 13px;
     }
 
     .hero{
-        min-height:100svh;
-        padding:190px 6% 100px;
+        min-height:100vh;
+        padding:190px 5% 90px;
+    }
+
+    .hero-bg{
+        background-position:center;
     }
 
     .hero h1{
-        font-size:57px;
-        letter-spacing:-5px;
+        font-size:58px;
+        letter-spacing:-4px;
     }
 
     .hero p{
-        font-size:13px;
+        font-size:14px;
+        line-height:1.8;
     }
 
-    .hero-bottom{
-        bottom:20px;
-        font-size:7px;
+    .hero-tag{
+        font-size:8px;
+        letter-spacing:2px;
     }
 
     section{
-        padding:90px 6%;
+        padding:90px 5%;
     }
 
     .big-phrase{
-        padding:100px 6%;
+        padding:100px 5%;
     }
 
     .big-phrase h2{
@@ -1000,21 +952,13 @@ footer span{
         letter-spacing:-4px;
     }
 
-    .services{
-        grid-template-columns:1fr;
-    }
-
-    .service{
-        min-height:300px;
-    }
-
     .flyers{
         grid-template-columns:1fr;
     }
 
     .flyer img{
         height:auto;
-        max-height:560px;
+        max-height:540px;
     }
 
     .logo-grid{
@@ -1025,6 +969,18 @@ footer span{
         height:300px;
     }
 
+    .history-number{
+        font-size:150px;
+    }
+
+    .history-left{
+        font-size:40px;
+    }
+
+    .history-text{
+        font-size:14px;
+    }
+
     .process{
         grid-template-columns:1fr;
     }
@@ -1033,20 +989,8 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    .history-number{
-        font-size:150px;
-    }
-
-    .history-left{
-        font-size:38px;
-    }
-
-    .history-text{
-        font-size:14px;
-    }
-
     #contato{
-        padding:120px 6%;
+        padding:120px 5%;
     }
 
     #contato h2{
@@ -1065,33 +1009,9 @@ footer span{
 
 <body>
 
-<!--
-====================================================
-  FUNDO DO HERO / GIF
-
-  Para colocar seu GIF:
-  1. Coloque o arquivo dentro de:
-     static/imagens/
-
-  2. Troque "SEU-GIF.gif" abaixo pelo nome dele.
-
-  Exemplo:
-  filename='imagens/carro.gif'
-====================================================
--->
-
-<div class="hero-background">
-
-    <img
-        src="{{ url_for('static', filename='imagens/SEU-GIF.gif') }}"
-        alt=""
-    >
-
-</div>
-
-<div class="hero-grid"></div>
-
-<!-- CONTADOR -->
+<!-- =========================
+     CONTADOR
+========================= -->
 
 <div class="online-counter">
     <span class="online-dot"></span>
@@ -1099,7 +1019,9 @@ footer span{
     <span>pessoas online agora</span>
 </div>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -1116,9 +1038,13 @@ footer span{
 
 </header>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
+
+    <div class="hero-bg"></div>
 
     <div class="hero-content">
 
@@ -1128,15 +1054,13 @@ footer span{
 
         <h1>
             DESIGN
-            <span>QUE</span>
-            <span class="gold-text">MARCA.</span>
+            <span>QUE MARCA.</span>
         </h1>
 
         <p>
             Criatividade, design e programação em um só lugar.
-            Transformo ideias em projetos visuais modernos,
-            flyers, logos e experiências digitais feitas para
-            chamar atenção.
+            Transformo ideias em projetos visuais e experiências
+            digitais feitas para chamar atenção.
         </p>
 
         <div class="buttons">
@@ -1153,21 +1077,34 @@ footer span{
 
     </div>
 
-    <div class="hero-bottom">
+    <div class="hero-card">
 
-        <div class="scroll-line">
-            SCROLL PARA EXPLORAR
+        <div class="hero-card-top">
+
+            <span class="hero-card-label">
+                TRALHA STUDIO
+            </span>
+
+            <span class="hero-card-number">
+                2026
+            </span>
+
         </div>
 
-        <div>
-            © 2026 TRALHA STUDIO
-        </div>
+        <h3>Ideias reais.</h3>
+
+        <p>
+            Design, identidade visual e programação
+            desenvolvidos com dedicação.
+        </p>
 
     </div>
 
 </section>
 
-<!-- MARQUEE -->
+<!-- =========================
+     MARQUEE
+========================= -->
 
 <div class="marquee">
 
@@ -1191,11 +1128,13 @@ footer span{
 
 </div>
 
-<!-- FRASE -->
+<!-- =========================
+     FRASE
+========================= -->
 
 <div class="big-phrase">
 
-    <small>UMA IDENTIDADE NÃO É APENAS UMA IMAGEM</small>
+    <small>UMA VISÃO • UMA MARCA • UM PROJETO</small>
 
     <h2>
         UMA BOA ARTE NÃO PRECISA
@@ -1206,7 +1145,9 @@ footer span{
 
 </div>
 
-<!-- SERVIÇOS -->
+<!-- =========================
+     SERVIÇOS
+========================= -->
 
 <section>
 
@@ -1222,8 +1163,8 @@ footer span{
 
         <p class="description">
             Trabalho com criação visual e programação,
-            buscando transformar cada ideia em algo
-            moderno, profissional e com personalidade.
+            buscando transformar ideias em projetos
+            com identidade, qualidade e personalidade.
         </p>
 
     </div>
@@ -1240,8 +1181,8 @@ footer span{
 
             <p>
                 Artes para divulgação, eventos,
-                anúncios, servidores, cidades,
-                comunidades e redes sociais.
+                anúncios, servidores, cidades
+                e redes sociais.
             </p>
 
         </div>
@@ -1256,8 +1197,7 @@ footer span{
 
             <p>
                 Identidades visuais para marcas,
-                projetos, comunidades, servidores
-                e novos negócios.
+                projetos, comunidades e servidores.
             </p>
 
         </div>
@@ -1265,15 +1205,14 @@ footer span{
         <div class="service">
 
             <div class="service-number">
-                03 / DIGITAL
+                03 / PROGRAMAÇÃO
             </div>
 
-            <h3>Programação</h3>
+            <h3>Projetos</h3>
 
             <p>
-                Criação de sites e projetos digitais
-                para transformar ideias em experiências
-                reais na internet.
+                Desenvolvimento de sites e projetos
+                digitais, unindo criatividade e tecnologia.
             </p>
 
         </div>
@@ -1282,7 +1221,9 @@ footer span{
 
 </section>
 
-<!-- FLYERS -->
+<!-- =========================
+     FLYERS
+========================= -->
 
 <section id="flyers">
 
@@ -1373,7 +1314,9 @@ footer span{
 
 </section>
 
-<!-- LOGOS -->
+<!-- =========================
+     LOGOS
+========================= -->
 
 <section id="logos">
 
@@ -1409,7 +1352,9 @@ footer span{
 
 </section>
 
-<!-- HISTÓRIA -->
+<!-- =========================
+     HISTÓRIA
+========================= -->
 
 <section id="historia">
 
@@ -1465,23 +1410,24 @@ footer span{
 
             <p>
                 No começo, eu não tinha uma grande
-                estrutura, uma equipe ou anos de experiência.
-                Eu tinha apenas vontade de aprender e
-                descobrir até onde conseguiria chegar.
+                estrutura, uma equipe ou anos de
+                experiência. Eu tinha apenas vontade
+                de aprender e descobrir até onde
+                conseguiria chegar.
             </p>
 
             <p>
                 Comecei experimentando. Testava fontes,
-                cores, efeitos, posições e diferentes estilos.
-                Algumas artes ficavam boas. Outras não ficavam
-                nem perto do que eu imaginava.
-                <strong>E tudo bem.</strong>
+                cores, efeitos, posições e diferentes
+                estilos. Algumas artes ficavam boas.
+                Outras não ficavam nem perto do que
+                eu imaginava. <strong>E tudo bem.</strong>
             </p>
 
             <p>
                 Cada erro fazia parte do aprendizado.
-                Com o passar do tempo, percebi que aquilo
-                já não era apenas uma brincadeira.
+                Com o passar do tempo, percebi que
+                aquilo já não era apenas uma brincadeira.
                 Eu realmente gostava de criar e,
                 principalmente, de ver uma ideia sair
                 da minha cabeça e virar algo real.
@@ -1492,8 +1438,8 @@ footer span{
                 <strong>Tralha Studio.</strong>
                 Não nasceu pronta. Não nasceu perfeita.
                 Nasceu pequena, com muito para aprender,
-                mas com uma coisa que continua sendo a
-                mesma desde o primeiro dia:
+                mas com uma coisa que continua sendo
+                a mesma desde o primeiro dia:
                 <strong>vontade de crescer.</strong>
             </p>
 
@@ -1523,26 +1469,27 @@ footer span{
                 Mas talvez essa seja justamente a parte
                 mais importante dessa história.
                 <strong>
-                    Eu não quero apenas criar artes ou
-                    programar por programar. Quero construir
-                    algo que, daqui a alguns anos, eu possa
-                    olhar para trás e lembrar de onde tudo começou.
+                    Eu não quero apenas criar artes
+                    ou programar por programar.
+                    Quero construir algo que, daqui
+                    a alguns anos, eu possa olhar para
+                    trás e lembrar de onde tudo começou.
                 </strong>
             </p>
 
             <p>
                 A Tralha Studio começou com uma ideia.
-                Hoje é um projeto. Amanhã, eu quero que
-                seja uma marca reconhecida pelo trabalho,
-                pela criatividade e pela dedicação colocada
-                em cada criação.
+                Hoje é um projeto. Amanhã, eu quero
+                que seja uma marca reconhecida pelo
+                trabalho, pela criatividade e pela
+                dedicação colocada em cada criação.
             </p>
 
             <p>
                 Sei que ainda tenho muito para aprender,
                 mas também sei que cada novo projeto,
-                cada erro e cada experiência fazem parte
-                da minha evolução.
+                cada erro e cada experiência fazem
+                parte da minha evolução.
             </p>
 
             <p>
@@ -1561,7 +1508,9 @@ footer span{
 
 </section>
 
-<!-- PROCESSO -->
+<!-- =========================
+     PROCESSO
+========================= -->
 
 <section>
 
@@ -1576,9 +1525,8 @@ footer span{
         </h2>
 
         <p class="description">
-            Um processo simples, direto e focado
-            em transformar sua ideia em um resultado
-            que realmente tenha personalidade.
+            Do primeiro contato até a entrega,
+            cada projeto passa por algumas etapas.
         </p>
 
     </div>
@@ -1592,8 +1540,8 @@ footer span{
             <h3>Ideia</h3>
 
             <p>
-                Entendo o que você precisa,
-                sua proposta e o estilo que procura.
+                Entendo o que você precisa
+                e o estilo que procura.
             </p>
 
         </div>
@@ -1605,8 +1553,8 @@ footer span{
             <h3>Criação</h3>
 
             <p>
-                Desenvolvo a composição,
-                os elementos e a identidade da arte.
+                Desenvolvo a composição
+                e os elementos da arte.
             </p>
 
         </div>
@@ -1619,7 +1567,7 @@ footer span{
 
             <p>
                 Faço os ajustes necessários
-                para chegar ao resultado desejado.
+                para chegar ao resultado.
             </p>
 
         </div>
@@ -1641,7 +1589,9 @@ footer span{
 
 </section>
 
-<!-- DIFERENCIAIS -->
+<!-- =========================
+     DIFERENCIAIS
+========================= -->
 
 <section>
 
@@ -1677,8 +1627,8 @@ footer span{
 
             <p>
                 Cada trabalho é uma oportunidade
-                de aprender e melhorar meu processo
-                de criação.
+                de aprender e melhorar meu
+                processo de criação.
             </p>
 
         </div>
@@ -1688,9 +1638,9 @@ footer span{
             <h3>Personalidade</h3>
 
             <p>
-                A proposta é criar algo que tenha
-                identidade e não pareça apenas
-                mais uma arte comum.
+                A proposta é criar algo que
+                tenha identidade e não pareça
+                apenas mais uma arte comum.
             </p>
 
         </div>
@@ -1701,8 +1651,8 @@ footer span{
 
             <p>
                 Estou sempre buscando aprender
-                novas técnicas e melhorar meus
-                trabalhos.
+                novas técnicas e melhorar
+                meus trabalhos.
             </p>
 
         </div>
@@ -1711,40 +1661,40 @@ footer span{
 
 </section>
 
-<!-- CONTATO -->
+<!-- =========================
+     CONTATO
+========================= -->
 
 <section id="contato">
 
-    <div class="contact-content">
-
-        <div class="contact-small">
-            VAMOS CRIAR?
-        </div>
-
-        <h2>
-            SUA IDEIA
-            <span>MERECE DESIGN.</span>
-        </h2>
-
-        <p>
-            Precisa de um flyer, uma logo,
-            um site ou quer conversar sobre
-            um projeto? Entre em contato comigo.
-        </p>
-
-        <a
-            href="https://discord.gg/QtNjjgXZ9"
-            target="_blank"
-            class="btn gold"
-        >
-            ENTRAR EM CONTATO
-        </a>
-
+    <div class="contact-small">
+        VAMOS CRIAR?
     </div>
+
+    <h2>
+        SUA IDEIA
+        <span>MERECE DESIGN.</span>
+    </h2>
+
+    <p>
+        Precisa de um flyer, uma logo,
+        um projeto ou quer conversar sobre
+        uma ideia? Entre em contato comigo.
+    </p>
+
+    <a
+        href="https://discord.gg/QtNjjgXZ9"
+        target="_blank"
+        class="btn gold"
+    >
+        ENTRAR EM CONTATO
+    </a>
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1753,7 +1703,7 @@ footer span{
     </div>
 
     <div>
-        DESIGN • FLYERS • LOGOS • PROGRAMAÇÃO
+        DESIGN • PROGRAMAÇÃO • CRIATIVIDADE
     </div>
 
 </footer>
