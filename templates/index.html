@@ -4,9 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TRALHA STUDIO — Design & Criação</title>
+<title>TRALHA STUDIO — Design & Programação</title>
 
 <style>
+:root{
+    --bg:#050505;
+    --bg2:#080808;
+    --card:#0d0d0d;
+    --card2:#111111;
+    --gold:#c8a43a;
+    --gold2:#e6cc6a;
+    --text:#f5f5f5;
+    --muted:#777;
+    --line:rgba(255,255,255,.09);
+}
+
 *{
     margin:0;
     padding:0;
@@ -18,16 +30,50 @@ html{
 }
 
 body{
-    background:#050505;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+body::-webkit-scrollbar{
+    width:8px;
 }
+
+body::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+body::-webkit-scrollbar-thumb{
+    background:#272727;
+    border-radius:20px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background:var(--gold);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+::selection{
+    background:var(--gold);
+    color:#000;
+}
+
+/* =========================
+   FUNDO
+========================= */
 
 body::before{
     content:"";
@@ -35,12 +81,12 @@ body::before{
     width:700px;
     height:700px;
     top:-350px;
-    right:-300px;
-    background:rgba(200,164,58,.10);
-    filter:blur(130px);
+    right:-250px;
+    background:rgba(200,164,58,.08);
+    filter:blur(120px);
     border-radius:50%;
     pointer-events:none;
-    z-index:-1;
+    z-index:-5;
 }
 
 body::after{
@@ -49,12 +95,21 @@ body::after{
     width:700px;
     height:700px;
     bottom:-400px;
-    left:-350px;
-    background:rgba(200,164,58,.07);
-    filter:blur(130px);
+    left:-300px;
+    background:rgba(200,164,58,.055);
+    filter:blur(120px);
     border-radius:50%;
     pointer-events:none;
-    z-index:-1;
+    z-index:-5;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
 }
 
 /* =========================
@@ -66,95 +121,81 @@ header{
     top:0;
     left:0;
     width:100%;
-    height:82px;
+    height:86px;
     padding:0 6%;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    z-index:1000;
     background:rgba(5,5,5,.72);
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    z-index:9999;
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .logo{
-    font-size:21px;
+    font-size:22px;
     font-weight:900;
-    letter-spacing:4px;
+    letter-spacing:5px;
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#C8A43A;
+    color:var(--gold);
 }
 
-nav{
-    display:flex;
-    align-items:center;
-    gap:34px;
-}
-
-nav a{
-    position:relative;
-    color:#aaa;
-    font-size:10px;
-    font-weight:bold;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-9px;
-    width:0;
-    height:1px;
-    background:#C8A43A;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-/* =========================
-   ONLINE
-========================= */
-
-.online-counter{
-    position:fixed;
-    top:105px;
-    right:30px;
-    z-index:5000;
+.nav{
     display:flex;
     align-items:center;
     gap:8px;
-    padding:10px 17px;
-    background:rgba(10,10,10,.82);
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:30px;
+}
+
+.nav a{
+    position:relative;
+    padding:13px 18px;
+    color:#8b8b8b;
     font-size:10px;
-    letter-spacing:1px;
-    color:#777;
-    backdrop-filter:blur(15px);
+    font-weight:800;
+    letter-spacing:2px;
+    border-radius:5px;
+    transition:.3s;
 }
 
-.online-counter strong{
-    color:#C8A43A;
-    font-size:15px;
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:7px;
+    height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transition:.3s;
 }
 
-.online-dot{
-    width:7px;
-    height:7px;
-    background:#48d66b;
-    border-radius:50%;
-    box-shadow:0 0 12px #48d66b;
+.nav a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.035);
+}
+
+.nav a:hover::after{
+    transform:scaleX(1);
+}
+
+.header-contact{
+    padding:13px 20px;
+    border:1px solid rgba(200,164,58,.45);
+    color:var(--gold2);
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:2px;
+    border-radius:4px;
+    transition:.3s;
+}
+
+.header-contact:hover{
+    background:var(--gold);
+    color:#050505;
 }
 
 /* =========================
@@ -162,174 +203,211 @@ nav a:hover::after{
 ========================= */
 
 .hero{
-    position:relative;
     min-height:100vh;
-    height:100vh;
+    position:relative;
     display:flex;
-    align-items:flex-end;
-    padding:0 7% 100px;
+    align-items:center;
     overflow:hidden;
-    border-bottom:1px solid #181818;
+    border-bottom:1px solid var(--line);
 }
 
-.hero-bg{
+.hero-background{
     position:absolute;
     inset:0;
-    z-index:0;
+    z-index:-4;
     overflow:hidden;
+    background:
+        radial-gradient(circle at 75% 50%,rgba(200,164,58,.12),transparent 30%),
+        linear-gradient(90deg,#050505 0%,rgba(5,5,5,.92) 30%,rgba(5,5,5,.48) 65%,rgba(5,5,5,.8) 100%);
 }
 
-.hero-bg img{
+/*
+    SUA IMAGEM DA TELA INICIAL.
+    Se o arquivo estiver na pasta static/imagens,
+    coloque o nome correto abaixo.
+*/
+.hero-background img{
+    position:absolute;
     width:100%;
     height:100%;
     object-fit:cover;
     object-position:center;
-    filter:brightness(.48) contrast(1.08) saturate(.9);
+    opacity:.52;
+    filter:brightness(.72) contrast(1.12) saturate(.8);
     transform:scale(1.03);
 }
 
-.hero-bg::after{
-    content:"";
+.hero-overlay{
     position:absolute;
     inset:0;
     background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.68) 0%,
-            rgba(0,0,0,.15) 40%,
-            rgba(5,5,5,.95) 100%
+        linear-gradient(90deg,
+            #050505 0%,
+            rgba(5,5,5,.95) 20%,
+            rgba(5,5,5,.66) 50%,
+            rgba(5,5,5,.3) 100%
+        ),
+        linear-gradient(0deg,
+            #050505 0%,
+            transparent 35%,
+            rgba(0,0,0,.25) 100%
         );
 }
 
-.hero-bg::before{
-    content:"";
+.hero-grid{
     position:absolute;
     inset:0;
-    background:
-        radial-gradient(
-            circle at 75% 35%,
-            rgba(200,164,58,.13),
-            transparent 35%
-        );
-    z-index:2;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:90px 90px;
+    mask-image:linear-gradient(to right,transparent,#000 25%,#000 75%,transparent);
+    opacity:.35;
 }
 
 .hero-content{
+    width:min(1250px,88%);
+    margin:auto;
+    padding-top:90px;
     position:relative;
-    z-index:5;
-    max-width:1100px;
+    z-index:2;
 }
 
-.hero-tag{
-    display:inline-flex;
+.hero-mini{
+    display:flex;
     align-items:center;
-    gap:10px;
-    color:#E6CC6A;
+    gap:14px;
+    margin-bottom:30px;
+    color:var(--gold);
     font-size:10px;
     font-weight:bold;
     letter-spacing:5px;
-    margin-bottom:25px;
 }
 
-.hero-tag::before{
+.hero-mini::before{
     content:"";
-    width:35px;
+    width:45px;
     height:1px;
-    background:#C8A43A;
+    background:var(--gold);
 }
 
 .hero h1{
-    font-size:clamp(65px,9vw,145px);
+    max-width:1050px;
+    font-size:clamp(68px,9vw,145px);
     line-height:.82;
     letter-spacing:-8px;
     font-weight:900;
-    text-transform:uppercase;
-    text-shadow:0 20px 50px rgba(0,0,0,.5);
+    margin-bottom:35px;
 }
 
 .hero h1 span{
-    color:#C8A43A;
     display:block;
+    color:var(--gold);
+    text-shadow:0 0 40px rgba(200,164,58,.12);
 }
 
 .hero-description{
-    max-width:620px;
-    margin-top:32px;
-    color:#aaa;
-    font-size:16px;
-    line-height:1.8;
+    max-width:650px;
+    color:#a0a0a0;
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:36px;
 }
 
-.hero-actions{
+.hero-buttons{
     display:flex;
     gap:13px;
-    margin-top:30px;
+    flex-wrap:wrap;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    min-width:165px;
-    padding:16px 26px;
+    min-height:52px;
+    padding:0 27px;
     border-radius:4px;
     font-size:10px;
-    font-weight:bold;
+    font-weight:900;
     letter-spacing:2px;
-    transition:.3s;
+    transition:.35s;
 }
 
-.gold{
-    background:#C8A43A;
+.btn-gold{
+    background:var(--gold);
     color:#050505;
+    box-shadow:0 15px 40px rgba(200,164,58,.12);
 }
 
-.gold:hover{
-    background:#E6CC6A;
+.btn-gold:hover{
+    background:var(--gold2);
     transform:translateY(-4px);
-    box-shadow:0 15px 35px rgba(200,164,58,.2);
+    box-shadow:0 20px 50px rgba(200,164,58,.2);
 }
 
-.outline{
-    border:1px solid rgba(255,255,255,.25);
+.btn-dark{
+    border:1px solid rgba(255,255,255,.13);
+    color:#aaa;
     background:rgba(0,0,0,.2);
-    color:#ddd;
-    backdrop-filter:blur(10px);
 }
 
-.outline:hover{
-    border-color:#C8A43A;
-    color:#E6CC6A;
+.btn-dark:hover{
+    border-color:var(--gold);
+    color:#fff;
     transform:translateY(-4px);
+}
+
+.hero-stat{
+    margin-top:70px;
+    display:flex;
+    gap:45px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    padding-left:16px;
+    border-left:1px solid var(--gold);
+}
+
+.stat strong{
+    display:block;
+    font-size:22px;
+    color:#fff;
+    margin-bottom:6px;
+}
+
+.stat span{
+    color:#666;
+    font-size:9px;
+    letter-spacing:2px;
 }
 
 /* =========================
-   MINI MENU
+   DECOR
 ========================= */
 
-.quick-menu{
+.hero-side{
     position:absolute;
-    right:7%;
-    bottom:45px;
-    z-index:10;
+    right:6%;
+    bottom:50px;
+    z-index:3;
     display:flex;
-    gap:8px;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
 }
 
-.quick-menu a{
-    padding:10px 14px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(12px);
-    color:#999;
+.hero-side span{
+    color:#555;
     font-size:9px;
-    letter-spacing:2px;
-    transition:.3s;
+    letter-spacing:4px;
+    writing-mode:vertical-rl;
 }
 
-.quick-menu a:hover{
-    color:#fff;
-    border-color:#C8A43A;
+.hero-side-line{
+    width:1px;
+    height:70px;
+    background:linear-gradient(var(--gold),transparent);
 }
 
 /* =========================
@@ -338,29 +416,31 @@ nav a:hover::after{
 
 .marquee{
     overflow:hidden;
-    border-bottom:1px solid #181818;
-    padding:22px 0;
-    white-space:nowrap;
+    padding:25px 0;
+    border-bottom:1px solid var(--line);
     background:#070707;
+    white-space:nowrap;
 }
 
 .marquee-track{
-    display:inline-block;
-    animation:move 28s linear infinite;
+    width:max-content;
+    display:flex;
+    animation:marquee 28s linear infinite;
 }
 
-.marquee span{
-    font-size:10px;
-    letter-spacing:5px;
+.marquee-item{
     margin:0 35px;
     color:#555;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:5px;
 }
 
-.marquee strong{
-    color:#C8A43A;
+.marquee-item b{
+    color:var(--gold);
 }
 
-@keyframes move{
+@keyframes marquee{
     from{
         transform:translateX(0);
     }
@@ -370,49 +450,96 @@ nav a:hover::after{
 }
 
 /* =========================
-   GENERAL
+   INTRO
+========================= */
+
+.intro{
+    width:min(1250px,88%);
+    margin:auto;
+    padding:145px 0;
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    gap:100px;
+    align-items:center;
+}
+
+.intro-label{
+    color:var(--gold);
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:5px;
+    margin-bottom:25px;
+}
+
+.intro h2{
+    font-size:clamp(45px,6vw,82px);
+    line-height:.9;
+    letter-spacing:-5px;
+}
+
+.intro h2 span{
+    color:var(--gold);
+}
+
+.intro-right{
+    color:#777;
+    font-size:18px;
+    line-height:2;
+}
+
+.intro-right strong{
+    color:#ddd;
+}
+
+/* =========================
+   SEÇÕES
 ========================= */
 
 section{
-    padding:130px 7%;
+    padding:130px 6%;
+}
+
+.section{
+    border-top:1px solid var(--line);
 }
 
 .section-head{
-    max-width:1200px;
+    width:min(1250px,100%);
     margin:0 auto 65px;
 }
 
-.number{
-    color:#C8A43A;
+.section-number{
+    color:var(--gold);
     font-size:10px;
+    font-weight:bold;
     letter-spacing:5px;
     margin-bottom:20px;
 }
 
-.title{
-    font-size:clamp(50px,7vw,95px);
-    line-height:.88;
+.section-title{
+    font-size:clamp(55px,7vw,100px);
+    line-height:.85;
     letter-spacing:-6px;
-    font-weight:900;
 }
 
-.title span{
-    color:#C8A43A;
+.section-title span{
+    color:var(--gold);
 }
 
-.description{
+.section-description{
     max-width:650px;
-    margin-top:25px;
-    color:#777;
+    color:#666;
     line-height:1.9;
+    margin-top:25px;
+    font-size:15px;
 }
 
 /* =========================
    SERVIÇOS
 ========================= */
 
-.services{
-    max-width:1200px;
+.services-grid{
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -420,46 +547,65 @@ section{
 }
 
 .service{
+    min-height:360px;
     position:relative;
-    min-height:320px;
     padding:38px;
     overflow:hidden;
-    background:linear-gradient(145deg,#151515,#080808);
-    border:1px solid #252525;
+    border:1px solid var(--line);
+    background:
+        radial-gradient(circle at 100% 0%,rgba(200,164,58,.07),transparent 35%),
+        linear-gradient(145deg,#111,#080808);
     transition:.4s;
 }
 
-.service::after{
+.service::before{
     content:"";
     position:absolute;
-    width:150px;
-    height:150px;
-    right:-70px;
-    bottom:-70px;
-    border-radius:50%;
-    background:rgba(200,164,58,.08);
-    filter:blur(30px);
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.4s;
 }
 
 .service:hover{
     transform:translateY(-8px);
-    border-color:#C8A43A;
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+    border-color:rgba(200,164,58,.45);
+}
+
+.service:hover::before{
+    transform:scaleX(1);
 }
 
 .service-number{
-    color:#C8A43A;
+    color:var(--gold);
     font-size:10px;
+    font-weight:bold;
     letter-spacing:4px;
 }
 
+.service-icon{
+    width:55px;
+    height:55px;
+    margin-top:65px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(200,164,58,.3);
+    color:var(--gold);
+    font-size:20px;
+}
+
 .service h3{
-    font-size:32px;
-    margin:85px 0 18px;
+    margin:22px 0 15px;
+    font-size:30px;
 }
 
 .service p{
-    color:#777;
+    color:#666;
     line-height:1.8;
 }
 
@@ -468,60 +614,92 @@ section{
 ========================= */
 
 #flyers{
-    background:#080808;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(200,164,58,.04),transparent 35%),
+        #080808;
 }
 
-.flyers{
-    max-width:1200px;
+.portfolio-grid{
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.flyer{
-    background:#0d0d0d;
-    padding:7px;
-    border:1px solid #242424;
-    border-radius:6px;
+.portfolio-card{
+    position:relative;
+    background:#0b0b0b;
+    border:1px solid var(--line);
     overflow:hidden;
     transition:.4s;
 }
 
-.flyer:hover{
-    transform:translateY(-8px);
-    border-color:#C8A43A;
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+.portfolio-card:hover{
+    transform:translateY(-9px);
+    border-color:rgba(200,164,58,.5);
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
 }
 
-.flyer img{
+.portfolio-image{
+    position:relative;
+    height:390px;
+    overflow:hidden;
+    background:#050505;
+}
+
+.portfolio-image::after{
+    content:"VER PROJETO";
+    position:absolute;
+    inset:auto 15px 15px auto;
+    padding:9px 12px;
+    background:rgba(5,5,5,.8);
+    border:1px solid rgba(255,255,255,.12);
+    color:#ddd;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:2px;
+    opacity:0;
+    transform:translateY(10px);
+    transition:.3s;
+}
+
+.portfolio-card:hover .portfolio-image::after{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.portfolio-image img{
     width:100%;
-    height:360px;
-    display:block;
+    height:100%;
     object-fit:contain;
-    background:#080808;
     transition:.5s;
 }
 
-.flyer:hover img{
-    transform:scale(1.025);
+.portfolio-card:hover img{
+    transform:scale(1.04);
 }
 
-.flyer-info{
-    padding:17px 10px 13px;
+.portfolio-info{
+    padding:20px;
+    border-top:1px solid var(--line);
 }
 
-.flyer-info h3{
-    font-size:14px;
-    margin-bottom:5px;
+.portfolio-info small{
+    color:var(--gold);
+    font-size:8px;
+    letter-spacing:3px;
 }
 
-.flyer-info p{
-    color:#666;
-    font-size:9px;
-    letter-spacing:1px;
+.portfolio-info h3{
+    font-size:17px;
+    margin-top:9px;
+}
+
+.portfolio-info p{
+    color:#555;
+    font-size:11px;
+    margin-top:6px;
 }
 
 /* =========================
@@ -533,41 +711,42 @@ section{
 }
 
 .logo-grid{
-    max-width:1200px;
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.logo-box{
-    height:300px;
+.logo-card{
+    height:320px;
+    position:relative;
     padding:15px;
     background:
-        radial-gradient(
-            circle at center,
-            #1c1c1c,
-            #080808 70%
-        );
-    border:1px solid #242424;
-    border-radius:6px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+        radial-gradient(circle at center,#191919,#080808);
+    border:1px solid var(--line);
     overflow:hidden;
     transition:.4s;
 }
 
-.logo-box:hover{
+.logo-card:hover{
     transform:translateY(-8px);
-    border-color:#C8A43A;
-    box-shadow:0 25px 60px rgba(0,0,0,.4);
+    border-color:rgba(200,164,58,.45);
 }
 
-.logo-box img{
+.logo-card img{
     width:100%;
     height:100%;
     object-fit:contain;
+}
+
+.logo-card-label{
+    position:absolute;
+    left:20px;
+    bottom:18px;
+    color:#666;
+    font-size:9px;
+    letter-spacing:3px;
 }
 
 /* =========================
@@ -575,92 +754,106 @@ section{
 ========================= */
 
 #historia{
-    background:#090909;
-    border-top:1px solid #181818;
-    border-bottom:1px solid #181818;
+    background:
+        radial-gradient(circle at 10% 50%,rgba(200,164,58,.06),transparent 30%),
+        #090909;
 }
 
 .history{
-    max-width:1200px;
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
-    grid-template-columns:.8fr 1.5fr;
+    grid-template-columns:.8fr 1.6fr;
     gap:100px;
 }
 
-.history-number{
-    font-size:clamp(150px,20vw,260px);
-    font-weight:900;
-    color:rgba(200,164,58,.08);
-    line-height:.65;
+.history-side{
+    position:sticky;
+    top:130px;
+    height:max-content;
 }
 
-.history-left{
-    font-size:45px;
-    margin-left:20px;
+.history-number{
+    font-size:clamp(150px,20vw,280px);
+    font-weight:900;
+    line-height:.7;
+    letter-spacing:-15px;
+    color:rgba(200,164,58,.08);
+}
+
+.history-side h3{
+    margin-top:35px;
+    margin-left:12px;
+    font-size:44px;
+    letter-spacing:-2px;
 }
 
 .founder{
-    margin-top:30px;
-    margin-left:20px;
+    margin:18px 0 0 14px;
     color:#555;
-    font-size:10px;
-    letter-spacing:3px;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:4px;
 }
 
 .history-text{
-    color:#999;
+    color:#898989;
     font-size:16px;
     line-height:2;
 }
 
 .history-text p{
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .history-text strong{
-    color:#E6CC6A;
+    color:#e4e4e4;
+}
+
+.history-text .highlight{
+    color:var(--gold2);
 }
 
 /* =========================
    PROCESSO
 ========================= */
 
-.process{
-    max-width:1200px;
+.process-grid{
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:15px;
 }
 
-.process-card{
+.process{
+    min-height:280px;
     padding:35px;
-    min-height:270px;
-    border:1px solid #242424;
-    background:#0d0d0d;
-    transition:.3s;
+    border:1px solid var(--line);
+    background:#0b0b0b;
+    transition:.35s;
 }
 
-.process-card:hover{
-    border-color:#C8A43A;
+.process:hover{
     transform:translateY(-7px);
+    border-color:rgba(200,164,58,.4);
 }
 
-.process-card span{
-    color:#C8A43A;
+.process-number{
+    color:var(--gold);
+    font-size:11px;
     letter-spacing:4px;
-    font-size:10px;
 }
 
-.process-card h3{
-    font-size:24px;
-    margin:55px 0 15px;
+.process h3{
+    font-size:25px;
+    margin:70px 0 15px;
 }
 
-.process-card p{
-    color:#666;
+.process p{
+    color:#606060;
     line-height:1.8;
+    font-size:13px;
 }
 
 /* =========================
@@ -668,7 +861,7 @@ section{
 ========================= */
 
 .differentials{
-    max-width:1200px;
+    width:min(1250px,100%);
     margin:auto;
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -676,25 +869,32 @@ section{
 }
 
 .difference{
-    padding:45px;
-    border:1px solid #242424;
-    background:#0d0d0d;
-    transition:.3s;
+    padding:42px;
+    min-height:210px;
+    border:1px solid var(--line);
+    background:linear-gradient(135deg,#101010,#080808);
+    transition:.35s;
 }
 
 .difference:hover{
-    border-color:#C8A43A;
+    border-color:rgba(200,164,58,.4);
     transform:translateY(-5px);
 }
 
+.difference-number{
+    color:#444;
+    font-size:10px;
+    letter-spacing:3px;
+}
+
 .difference h3{
-    color:#C8A43A;
-    margin-bottom:15px;
-    font-size:22px;
+    color:var(--gold);
+    font-size:24px;
+    margin:30px 0 12px;
 }
 
 .difference p{
-    color:#777;
+    color:#666;
     line-height:1.8;
 }
 
@@ -703,23 +903,23 @@ section{
 ========================= */
 
 #contato{
-    position:relative;
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:180px 7%;
+    position:relative;
     overflow:hidden;
+    border-top:1px solid var(--line);
 }
 
-#contato::before{
-    content:"";
+.contact-bg{
     position:absolute;
-    width:500px;
-    height:500px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    background:rgba(200,164,58,.06);
-    filter:blur(100px);
+    width:600px;
+    height:600px;
     border-radius:50%;
+    background:rgba(200,164,58,.07);
+    filter:blur(100px);
     pointer-events:none;
 }
 
@@ -729,28 +929,29 @@ section{
 }
 
 .contact-small{
-    color:#C8A43A;
-    letter-spacing:5px;
+    color:var(--gold);
     font-size:10px;
+    font-weight:bold;
+    letter-spacing:6px;
 }
 
 #contato h2{
-    max-width:1100px;
+    max-width:1000px;
     margin:25px auto;
-    font-size:clamp(55px,9vw,120px);
-    line-height:.88;
-    letter-spacing:-7px;
+    font-size:clamp(55px,9vw,125px);
+    line-height:.82;
+    letter-spacing:-8px;
 }
 
 #contato h2 span{
-    color:#C8A43A;
+    color:var(--gold);
 }
 
 #contato p{
     max-width:600px;
     margin:0 auto 35px;
-    color:#777;
-    line-height:1.8;
+    color:#666;
+    line-height:1.9;
 }
 
 /* =========================
@@ -758,26 +959,72 @@ section{
 ========================= */
 
 footer{
-    padding:45px 7%;
-    border-top:1px solid #181818;
+    padding:45px 6%;
+    border-top:1px solid var(--line);
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    color:#555;
-    font-size:11px;
+    gap:20px;
+    color:#4d4d4d;
+    font-size:10px;
+    letter-spacing:1px;
 }
 
 footer span{
-    color:#C8A43A;
+    color:var(--gold);
+}
+
+/* =========================
+   BOTÃO TOPO
+========================= */
+
+.top{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#101010;
+    border:1px solid rgba(255,255,255,.12);
+    color:var(--gold);
+    z-index:900;
+    transition:.3s;
+}
+
+.top:hover{
+    background:var(--gold);
+    color:#000;
 }
 
 /* =========================
    RESPONSIVO
 ========================= */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
-    .flyers{
+    .nav{
+        gap:0;
+    }
+
+    .nav a{
+        padding:12px 10px;
+    }
+
+    .header-contact{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:clamp(60px,10vw,110px);
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .portfolio-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -785,8 +1032,8 @@ footer span{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .services{
-        grid-template-columns:1fr;
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .history{
@@ -794,70 +1041,67 @@ footer span{
         gap:50px;
     }
 
-    .process{
-        grid-template-columns:repeat(2,1fr);
+    .history-side{
+        position:relative;
+        top:auto;
     }
 }
 
-@media(max-width:650px){
+@media(max-width:750px){
 
     header{
         height:auto;
-        min-height:70px;
-        padding:15px 5%;
+        min-height:72px;
+        padding:14px 5%;
         flex-direction:column;
-        gap:15px;
+        gap:10px;
     }
 
-    nav{
-        gap:14px;
-        flex-wrap:wrap;
+    .logo{
+        font-size:17px;
+        letter-spacing:3px;
+    }
+
+    .nav{
+        width:100%;
         justify-content:center;
+        flex-wrap:wrap;
     }
 
-    nav a{
+    .nav a{
+        padding:8px 8px;
         font-size:8px;
     }
 
-    .online-counter{
-        top:140px;
-        right:15px;
-        transform:scale(.9);
-        transform-origin:right;
+    .nav a::after{
+        left:8px;
+        right:8px;
     }
 
     .hero{
         min-height:100svh;
-        height:100svh;
-        padding:0 5% 80px;
-        align-items:flex-end;
     }
 
-    .hero-bg img{
-        object-position:center;
-        filter:brightness(.42) contrast(1.08);
+    .hero-content{
+        width:90%;
+        padding-top:150px;
     }
 
     .hero h1{
-        font-size:56px;
-        letter-spacing:-4px;
+        font-size:58px;
+        letter-spacing:-5px;
     }
 
     .hero-description{
         font-size:14px;
-        line-height:1.7;
     }
 
-    .hero-actions{
-        flex-direction:column;
-        max-width:220px;
+    .hero-stat{
+        margin-top:45px;
+        gap:25px;
     }
 
-    .btn{
-        width:100%;
-    }
-
-    .quick-menu{
+    .hero-side{
         display:none;
     }
 
@@ -865,28 +1109,39 @@ footer span{
         padding:90px 5%;
     }
 
-    .title{
+    .intro{
+        width:90%;
+        grid-template-columns:1fr;
+        gap:40px;
+        padding:100px 0;
+    }
+
+    .intro h2{
+        font-size:50px;
+    }
+
+    .section-title{
+        font-size:54px;
         letter-spacing:-4px;
     }
 
-    .flyers{
+    .portfolio-grid{
         grid-template-columns:1fr;
     }
 
-    .flyer img{
-        height:auto;
-        max-height:520px;
+    .portfolio-image{
+        height:430px;
     }
 
     .logo-grid{
         grid-template-columns:1fr;
     }
 
-    .logo-box{
-        height:280px;
+    .logo-card{
+        height:300px;
     }
 
-    .process{
+    .process-grid{
         grid-template-columns:1fr;
     }
 
@@ -895,17 +1150,58 @@ footer span{
     }
 
     .history-number{
-        font-size:150px;
+        font-size:160px;
     }
 
-    .history-left{
-        font-size:35px;
+    .history-side h3{
+        font-size:36px;
+    }
+
+    #contato h2{
+        font-size:57px;
+        letter-spacing:-5px;
     }
 
     footer{
         flex-direction:column;
-        gap:15px;
         text-align:center;
+        align-items:center;
+    }
+}
+
+@media(max-width:450px){
+
+    .hero h1{
+        font-size:49px;
+    }
+
+    .hero-mini{
+        font-size:8px;
+        letter-spacing:3px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-buttons{
+        width:100%;
+    }
+
+    .hero-stat{
+        flex-direction:column;
+    }
+
+    .portfolio-image{
+        height:380px;
+    }
+
+    .section-title{
+        font-size:45px;
+    }
+
+    #contato h2{
+        font-size:48px;
     }
 }
 </style>
@@ -913,193 +1209,337 @@ footer span{
 
 <body>
 
-<!-- =========================
-     CONTADOR
-========================= -->
+<div class="noise"></div>
 
-<div class="online-counter">
-    <span class="online-dot"></span>
-    <strong>17</strong>
-    <span>pessoas online agora</span>
-</div>
-
-<!-- =========================
+<!-- =========================================================
      HEADER
-========================= -->
+========================================================= -->
 
 <header>
 
-    <div class="logo">
+    <a href="#" class="logo">
         TRALHA <span>STUDIO</span>
-    </div>
+    </a>
 
-    <nav>
-        <a href="#flyers">FLYERS</a>
-        <a href="#logos">LOGOS</a>
-        <a href="#historia">HISTÓRIA</a>
-        <a href="#contato">CONTATO</a>
+    <nav class="nav">
+
+        <a href="#flyers">
+            FLYERS
+        </a>
+
+        <a href="#logos">
+            LOGOS
+        </a>
+
+        <a href="#historia">
+            HISTÓRIA
+        </a>
+
+        <a href="#contato">
+            CONTATO
+        </a>
+
     </nav>
+
+    <a
+        href="https://discord.gg/QtNjjgXZ9"
+        target="_blank"
+        class="header-contact"
+    >
+        ENTRAR EM CONTATO
+    </a>
 
 </header>
 
-<!-- =========================
-     TELA INICIAL
-========================= -->
+
+<!-- =========================================================
+     HERO / TELA INICIAL
+========================================================= -->
 
 <section class="hero" id="inicio">
 
-    <div class="hero-bg">
+    <div class="hero-background">
 
         <!--
-        TROQUE O LINK ABAIXO PELO SEU GIF/IMAGEM.
-        Se o arquivo estiver no static/imagens:
-        {{ url_for('static', filename='imagens/seu-gif.gif') }}
+            COLOQUE A SUA IMAGEM/GIF AQUI.
+
+            Exemplo:
+            static/imagens/fundo.gif
+
+            Se sua imagem tiver outro nome,
+            troque somente o "fundo.gif".
         -->
 
         <img
-            src="https://catatau.xyz/papers/p1004.png"
+            src="{{ url_for('static', filename='imagens/fundo.gif') }}"
             alt="Fundo Tralha Studio"
         >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-grid"></div>
 
     </div>
 
     <div class="hero-content">
 
-        <div class="hero-tag">
+        <div class="hero-mini">
             TRALHA STUDIO • DESIGN • PROGRAMAÇÃO
         </div>
 
         <h1>
-            DESIGN
-            <span>QUE MARCA.</span>
+            IDEIAS
+            <span>QUE MARCAM.</span>
         </h1>
 
         <p class="hero-description">
-            Flyers, logos, identidade visual e projetos
-            digitais criados com criatividade, personalidade
-            e vontade de fazer algo diferente.
+            Design, identidade visual e programação
+            transformados em projetos com personalidade,
+            presença e atenção aos detalhes.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
-            <a href="#flyers" class="btn gold">
-                VER FLYERS
+            <a
+                href="#flyers"
+                class="btn btn-gold"
+            >
+                VER PORTFÓLIO
             </a>
 
-            <a href="#contato" class="btn outline">
+            <a
+                href="#contato"
+                class="btn btn-dark"
+            >
                 FALE COMIGO
             </a>
 
         </div>
 
+        <div class="hero-stat">
+
+            <div class="stat">
+                <strong>DESIGN</strong>
+                <span>FLYERS & LOGOS</span>
+            </div>
+
+            <div class="stat">
+                <strong>CODE</strong>
+                <span>WEB & PROJETOS</span>
+            </div>
+
+            <div class="stat">
+                <strong>2026</strong>
+                <span>TRALHA STUDIO</span>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="quick-menu">
+    <div class="hero-side">
 
-        <a href="#flyers">FLYERS</a>
-        <a href="#logos">LOGOS</a>
-        <a href="#historia">HISTÓRIA</a>
-        <a href="#contato">CONTATO</a>
+        <span>SCROLL TO EXPLORE</span>
+
+        <div class="hero-side-line"></div>
 
     </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      MARQUEE
-========================= -->
+========================================================= -->
 
 <div class="marquee">
 
     <div class="marquee-track">
 
-        <span>TRALHA <strong>STUDIO</strong></span>
-        <span>FLYERS</span>
-        <span>LOGOS</span>
-        <span>DESIGN</span>
-        <span>PROGRAMAÇÃO</span>
-        <span>CRIATIVIDADE</span>
+        <div class="marquee-item">
+            TRALHA <b>STUDIO</b>
+        </div>
 
-        <span>TRALHA <strong>STUDIO</strong></span>
-        <span>FLYERS</span>
-        <span>LOGOS</span>
-        <span>DESIGN</span>
-        <span>PROGRAMAÇÃO</span>
-        <span>CRIATIVIDADE</span>
+        <div class="marquee-item">
+            DESIGN
+        </div>
+
+        <div class="marquee-item">
+            FLYERS
+        </div>
+
+        <div class="marquee-item">
+            LOGOS
+        </div>
+
+        <div class="marquee-item">
+            PROGRAMAÇÃO
+        </div>
+
+        <div class="marquee-item">
+            CRIATIVIDADE
+        </div>
+
+        <div class="marquee-item">
+            TRALHA <b>STUDIO</b>
+        </div>
+
+        <div class="marquee-item">
+            DESIGN
+        </div>
+
+        <div class="marquee-item">
+            FLYERS
+        </div>
+
+        <div class="marquee-item">
+            LOGOS
+        </div>
+
+        <div class="marquee-item">
+            PROGRAMAÇÃO
+        </div>
+
+        <div class="marquee-item">
+            CRIATIVIDADE
+        </div>
 
     </div>
 
 </div>
 
-<!-- =========================
-     SERVIÇOS
-========================= -->
 
-<section>
+<!-- =========================================================
+     INTRO
+========================================================= -->
 
-    <div class="section-head">
+<div class="intro">
 
-        <div class="number">
-            01 — SERVIÇOS
+    <div>
+
+        <div class="intro-label">
+            01 — VISÃO
         </div>
 
-        <h2 class="title">
-            O QUE EU <span>FAÇO.</span>
+        <h2>
+            NÃO É SÓ
+            <span>CRIAR.</span>
         </h2>
 
-        <p class="description">
-            Criação visual e projetos digitais pensados
-            para destacar sua ideia e transformar conceitos
-            em algo visualmente marcante.
+    </div>
+
+    <div class="intro-right">
+
+        <p>
+            É transformar uma ideia em algo que
+            tenha <strong>presença</strong>.
+        </p>
+
+        <br>
+
+        <p>
+            A Tralha Studio une design e programação
+            para criar projetos modernos, marcantes
+            e feitos para chamar atenção.
         </p>
 
     </div>
 
-    <div class="services">
+</div>
+
+
+<!-- =========================================================
+     SERVIÇOS
+========================================================= -->
+
+<section class="section" id="servicos">
+
+    <div class="section-head">
+
+        <div class="section-number">
+            02 — SERVIÇOS
+        </div>
+
+        <h2 class="section-title">
+            O QUE EU
+            <span>FAÇO.</span>
+        </h2>
+
+        <p class="section-description">
+            Criações pensadas para cada projeto,
+            desde uma arte para divulgação até
+            uma experiência completa na web.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
 
         <div class="service">
 
             <div class="service-number">
-                01 / FLYERS
+                01 / DESIGN
             </div>
 
-            <h3>Flyers</h3>
+            <div class="service-icon">
+                ◆
+            </div>
+
+            <h3>
+                Flyers
+            </h3>
 
             <p>
-                Artes para divulgação, eventos,
-                anúncios, servidores, cidades
-                e redes sociais.
+                Artes para eventos, anúncios,
+                servidores, cidades, redes sociais
+                e projetos personalizados.
             </p>
 
         </div>
 
+
         <div class="service">
 
             <div class="service-number">
-                02 / LOGOS
+                02 / IDENTIDADE
             </div>
 
-            <h3>Logos</h3>
+            <div class="service-icon">
+                ◈
+            </div>
+
+            <h3>
+                Logos
+            </h3>
 
             <p>
-                Identidades visuais para marcas,
-                projetos, comunidades e servidores.
+                Identidades visuais criadas para
+                representar marcas, comunidades,
+                projetos e servidores.
             </p>
 
         </div>
 
+
         <div class="service">
 
             <div class="service-number">
-                03 / DIGITAL
+                03 / DEVELOPMENT
             </div>
 
-            <h3>Programação</h3>
+            <div class="service-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                Programação
+            </h3>
 
             <p>
-                Desenvolvimento de sites e projetos
-                digitais para transformar ideias em
-                experiências reais.
+                Sites e projetos digitais desenvolvidos
+                com foco em visual, funcionalidade
+                e experiência.
             </p>
 
         </div>
@@ -1108,165 +1548,354 @@ footer span{
 
 </section>
 
-<!-- =========================
-     FLYERS
-========================= -->
 
-<section id="flyers">
+<!-- =========================================================
+     FLYERS
+========================================================= -->
+
+<section class="section" id="flyers">
 
     <div class="section-head">
 
-        <div class="number">
-            02 — PORTFÓLIO
+        <div class="section-number">
+            03 — PORTFÓLIO
         </div>
 
-        <h2 class="title">
-            MEUS <span>FLYERS.</span>
+        <h2 class="section-title">
+            MEUS
+            <span>FLYERS.</span>
         </h2>
 
-        <p class="description">
-            Alguns dos trabalhos desenvolvidos
+        <p class="section-description">
+            Uma seleção de trabalhos desenvolvidos
             pela Tralha Studio.
         </p>
 
     </div>
 
-    <div class="flyers">
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 01</h3>
-                <p>Projeto de design</p>
+    <div class="portfolio-grid">
+
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
+                    alt="Flyer 01"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    01 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 02</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
+                    alt="Flyer 02"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    02 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 03</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
+                    alt="Flyer 03"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    03 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 04</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
+                    alt="Flyer 04"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    04 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 05</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
+                    alt="Flyer 05"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    05 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 06</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
+                    alt="Flyer 06"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    06 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 07</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
+                    alt="Flyer 07"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    07 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="flyer">
-            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}">
-            <div class="flyer-info">
-                <h3>Flyer 08</h3>
-                <p>Projeto de design</p>
+
+        <div class="portfolio-card">
+
+            <div class="portfolio-image">
+
+                <img
+                    src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}"
+                    alt="Flyer 08"
+                >
+
             </div>
+
+            <div class="portfolio-info">
+
+                <small>
+                    08 / FLYER
+                </small>
+
+                <h3>
+                    Projeto de Design
+                </h3>
+
+                <p>
+                    Tralha Studio
+                </p>
+
+            </div>
+
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     LOGOS
-========================= -->
 
-<section id="logos">
+<!-- =========================================================
+     LOGOS
+========================================================= -->
+
+<section class="section" id="logos">
 
     <div class="section-head">
 
-        <div class="number">
-            03 — IDENTIDADE VISUAL
+        <div class="section-number">
+            04 — IDENTIDADE VISUAL
         </div>
 
-        <h2 class="title">
-            MEUS <span>LOGOS.</span>
+        <h2 class="section-title">
+            MEUS
+            <span>LOGOS.</span>
         </h2>
 
-        <p class="description">
-            Algumas das identidades visuais
-            criadas pela Tralha Studio.
+        <p class="section-description">
+            Identidades visuais desenvolvidas
+            para projetos e marcas.
         </p>
 
     </div>
 
+
     <div class="logo-grid">
 
-        <div class="logo-box">
+        <div class="logo-card">
 
             <img
                 src="{{ url_for('static', filename='imagens/image.png') }}"
                 alt="Logo Tralha Studio"
             >
 
+            <div class="logo-card-label">
+                TRALHA STUDIO
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
-<!-- =========================
-     HISTÓRIA
-========================= -->
 
-<section id="historia">
+<!-- =========================================================
+     HISTÓRIA
+========================================================= -->
+
+<section class="section" id="historia">
 
     <div class="section-head">
 
-        <div class="number">
-            04 — A HISTÓRIA POR TRÁS DA MARCA
+        <div class="section-number">
+            05 — A HISTÓRIA
         </div>
 
-        <h2 class="title">
+        <h2 class="section-title">
             TUDO COMEÇOU
             <span>COM UMA IDEIA.</span>
         </h2>
 
     </div>
 
+
     <div class="history">
 
-        <div>
+        <div class="history-side">
 
             <div class="history-number">
                 14
             </div>
 
-            <h3 class="history-left">
+            <h3>
                 ANOS
             </h3>
 
@@ -1276,12 +1905,13 @@ footer span{
 
         </div>
 
+
         <div class="history-text">
 
             <p>
                 <strong>Meu nome é David.</strong>
                 Tenho 14 anos e gosto muito de
-                <strong>design e programação.</strong>
+                <span class="highlight">design e programação.</span>
                 A história da Tralha Studio começou
                 de uma forma simples: com curiosidade
                 e vontade de aprender.
@@ -1291,8 +1921,8 @@ footer span{
                 Desde cedo comecei a me interessar pelo
                 mundo da tecnologia e da criação. Sempre
                 tive curiosidade para entender como as
-                coisas funcionavam e como eu poderia criar
-                algo com minhas próprias ideias.
+                coisas funcionavam e como eu poderia
+                criar algo com minhas próprias ideias.
             </p>
 
             <p>
@@ -1308,7 +1938,8 @@ footer span{
                 cores, efeitos, posições e diferentes
                 estilos. Algumas artes ficavam boas.
                 Outras não ficavam nem perto do que
-                eu imaginava. <strong>E tudo bem.</strong>
+                eu imaginava.
+                <strong>E tudo bem.</strong>
             </p>
 
             <p>
@@ -1322,7 +1953,7 @@ footer span{
 
             <p>
                 Foi então que nasceu a
-                <strong>Tralha Studio.</strong>
+                <strong class="highlight">Tralha Studio.</strong>
                 Não nasceu pronta. Não nasceu perfeita.
                 Nasceu pequena, com muito para aprender,
                 mas com uma coisa que continua sendo a
@@ -1355,20 +1986,20 @@ footer span{
                 Mas talvez essa seja justamente a parte
                 mais importante dessa história.
                 <strong>
-                    Eu não quero apenas criar artes ou
-                    programar por programar. Quero construir
-                    algo que, daqui a alguns anos, eu possa
-                    olhar para trás e lembrar de onde tudo
-                    começou.
+                    Eu não quero apenas criar artes
+                    ou programar por programar.
+                    Quero construir algo que, daqui
+                    a alguns anos, eu possa olhar para
+                    trás e lembrar de onde tudo começou.
                 </strong>
             </p>
 
             <p>
                 A Tralha Studio começou com uma ideia.
-                Hoje é um projeto. Amanhã, eu quero que
-                seja uma marca reconhecida pelo trabalho,
-                pela criatividade e pela dedicação colocada
-                em cada criação.
+                Hoje é um projeto. Amanhã, eu quero
+                que seja uma marca reconhecida pelo
+                trabalho, pela criatividade e pela
+                dedicação colocada em cada criação.
             </p>
 
             <p>
@@ -1385,7 +2016,9 @@ footer span{
             </p>
 
             <p>
-                <strong>Você só precisa começar.</strong>
+                <strong class="highlight">
+                    Você só precisa começar.
+                </strong>
             </p>
 
         </div>
@@ -1394,74 +2027,101 @@ footer span{
 
 </section>
 
-<!-- =========================
-     PROCESSO
-========================= -->
 
-<section>
+<!-- =========================================================
+     PROCESSO
+========================================================= -->
+
+<section class="section" id="processo">
 
     <div class="section-head">
 
-        <div class="number">
-            05 — PROCESSO
+        <div class="section-number">
+            06 — PROCESSO
         </div>
 
-        <h2 class="title">
-            COMO EU <span>TRABALHO.</span>
+        <h2 class="section-title">
+            COMO EU
+            <span>TRABALHO.</span>
         </h2>
+
+        <p class="section-description">
+            Uma criação bem feita começa muito
+            antes do resultado final.
+        </p>
 
     </div>
 
-    <div class="process">
 
-        <div class="process-card">
+    <div class="process-grid">
 
-            <span>01</span>
+        <div class="process">
 
-            <h3>Ideia</h3>
+            <div class="process-number">
+                01
+            </div>
+
+            <h3>
+                Ideia
+            </h3>
 
             <p>
-                Entendo o que você precisa
-                e o estilo que procura.
+                Entendo a proposta, o objetivo
+                e o estilo desejado para o projeto.
             </p>
 
         </div>
 
-        <div class="process-card">
 
-            <span>02</span>
+        <div class="process">
 
-            <h3>Criação</h3>
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>
+                Criação
+            </h3>
 
             <p>
-                Desenvolvo a composição
-                e os elementos da arte.
+                Desenvolvo a composição, conceito,
+                elementos e identidade visual.
             </p>
 
         </div>
 
-        <div class="process-card">
 
-            <span>03</span>
+        <div class="process">
 
-            <h3>Ajustes</h3>
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>
+                Ajustes
+            </h3>
 
             <p>
-                Faço os ajustes necessários
-                para chegar ao resultado.
+                Analiso o resultado e realizo
+                os ajustes necessários.
             </p>
 
         </div>
 
-        <div class="process-card">
 
-            <span>04</span>
+        <div class="process">
 
-            <h3>Entrega</h3>
+            <div class="process-number">
+                04
+            </div>
+
+            <h3>
+                Entrega
+            </h3>
 
             <p>
                 Finalizo o projeto e preparo
-                o arquivo para utilização.
+                o material para utilização.
             </p>
 
         </div>
@@ -1470,65 +2130,95 @@ footer span{
 
 </section>
 
-<!-- =========================
-     DIFERENCIAIS
-========================= -->
 
-<section>
+<!-- =========================================================
+     DIFERENCIAIS
+========================================================= -->
+
+<section class="section">
 
     <div class="section-head">
 
-        <div class="number">
-            06 — DIFERENCIAIS
+        <div class="section-number">
+            07 — DIFERENCIAIS
         </div>
 
-        <h2 class="title">
-            POR QUE A <span>TRALHA?</span>
+        <h2 class="section-title">
+            POR QUE A
+            <span>TRALHA?</span>
         </h2>
 
     </div>
+
 
     <div class="differentials">
 
         <div class="difference">
 
-            <h3>Criatividade</h3>
+            <div class="difference-number">
+                01 / CRIATIVIDADE
+            </div>
+
+            <h3>
+                Criatividade
+            </h3>
 
             <p>
                 Busco testar ideias diferentes
-                e encontrar uma composição
-                que combine com cada projeto.
+                e encontrar uma composição que
+                combine com cada projeto.
             </p>
 
         </div>
 
+
         <div class="difference">
 
-            <h3>Dedicação</h3>
+            <div class="difference-number">
+                02 / DEDICAÇÃO
+            </div>
+
+            <h3>
+                Dedicação
+            </h3>
 
             <p>
-                Cada trabalho é uma oportunidade
-                de aprender e melhorar meu
-                processo de criação.
+                Cada trabalho representa uma
+                oportunidade de aprender,
+                melhorar e evoluir.
             </p>
 
         </div>
 
+
         <div class="difference">
 
-            <h3>Personalidade</h3>
+            <div class="difference-number">
+                03 / PERSONALIDADE
+            </div>
+
+            <h3>
+                Personalidade
+            </h3>
 
             <p>
-                A proposta é criar algo que tenha
-                identidade e não pareça apenas
-                mais uma arte comum.
+                A proposta é criar algo com
+                identidade, presença e estilo
+                próprio.
             </p>
 
         </div>
 
+
         <div class="difference">
 
-            <h3>Evolução</h3>
+            <div class="difference-number">
+                04 / EVOLUÇÃO
+            </div>
+
+            <h3>
+                Evolução
+            </h3>
 
             <p>
                 Estou sempre buscando aprender
@@ -1542,11 +2232,14 @@ footer span{
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      CONTATO
-========================= -->
+========================================================= -->
 
 <section id="contato">
+
+    <div class="contact-bg"></div>
 
     <div class="contact-content">
 
@@ -1560,16 +2253,15 @@ footer span{
         </h2>
 
         <p>
-            Precisa de um flyer, uma logo ou quer
-            conversar sobre um projeto?
-            Entre em contato comigo.
+            Tem um projeto, precisa de um flyer,
+            uma logo ou quer conversar sobre
+            programação?
         </p>
 
         <a
             href="https://discord.gg/QtNjjgXZ9"
             target="_blank"
-            rel="noopener noreferrer"
-            class="btn gold"
+            class="btn btn-gold"
         >
             ENTRAR EM CONTATO
         </a>
@@ -1578,14 +2270,16 @@ footer span{
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
     <div>
-        © 2026 <span>TRALHA STUDIO</span>
+        © 2026
+        <span>TRALHA STUDIO</span>
     </div>
 
     <div>
@@ -1593,6 +2287,15 @@ footer span{
     </div>
 
 </footer>
+
+
+<!-- =========================================================
+     VOLTAR AO TOPO
+========================================================= -->
+
+<a href="#inicio" class="top">
+    ↑
+</a>
 
 </body>
 </html>
