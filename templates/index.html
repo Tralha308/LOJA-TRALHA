@@ -4,15 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TRALHA STUDIO — Creative Studio</title>
+<title>TRALHA® — STUDIO</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 *{
     margin:0;
@@ -25,1482 +20,1211 @@ html{
 }
 
 body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-
-    background:#070707;
-    color:#f5f5f5;
-
+    background:#050505;
+    color:#fff;
     font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 button{
     font-family:inherit;
-    border:0;
-    cursor:pointer;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
+/* =========================
+   CURSOR
+========================= */
 
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root{
-    --gold:#c8a43a;
-    --gold-light:#ead275;
-
-    --black:#070707;
-    --white:#f5f5f5;
-
-    --gray:#777;
-    --dark-gray:#151515;
-
-    --line:rgba(255,255,255,.1);
-}
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-body::before{
-    content:"";
-
+.cursor{
     position:fixed;
+    width:14px;
+    height:14px;
+    border:1px solid #d4af37;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:99999;
+    transform:translate(-50%,-50%);
+    transition:
+        width .25s,
+        height .25s,
+        background .25s;
+}
 
+.cursor.big{
+    width:55px;
+    height:55px;
+    background:rgba(212,175,55,.08);
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+    position:fixed;
     inset:0;
-
-    z-index:-10;
-
+    z-index:-5;
+    overflow:hidden;
     background:
         radial-gradient(
-            circle at 80% 20%,
-            rgba(200,164,58,.13),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 20% 90%,
-            rgba(255,255,255,.035),
+            circle at 75% 20%,
+            rgba(212,175,55,.10),
             transparent 25%
-        );
-}
-
-body::after{
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-9;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.015) 1px,
-            transparent 1px
         ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.015) 1px,
-            transparent 1px
-        );
-
-    background-size:70px 70px;
-
-    mask-image:linear-gradient(
-        to bottom,
-        transparent,
-        black 20%,
-        black 80%,
-        transparent
-    );
-
-    pointer-events:none;
+        #050505;
 }
 
-/* =========================================================
-   MAIN
-========================================================= */
-
-.app{
-    width:100vw;
-    height:100vh;
+.bg::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:rgba(212,175,55,.05);
+    filter:blur(130px);
+    top:-250px;
+    right:-200px;
 }
 
-/* =========================================================
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:80px 80px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 header{
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
-
-    height:76px;
-
-    padding:0 5vw;
-
+    height:90px;
+    padding:0 5%;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    z-index:9999;
-
-    background:rgba(7,7,7,.78);
-
-    border-bottom:1px solid var(--line);
-
+    z-index:5000;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:rgba(5,5,5,.55);
     backdrop-filter:blur(25px);
 }
 
-.logo{
+.brand{
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
-    font-size:13px;
-
+    font-size:14px;
     font-weight:900;
-
-    letter-spacing:3px;
+    letter-spacing:4px;
 }
 
-.logo-mark{
-    width:34px;
-    height:34px;
-
+.brand-box{
+    width:38px;
+    height:38px;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    border:1px solid var(--gold);
-
-    color:var(--gold);
-
-    font-size:13px;
-
-    font-weight:900;
+    border:1px solid rgba(212,175,55,.7);
+    color:#d4af37;
+    font-size:14px;
 }
 
-.logo span{
-    color:var(--gold);
+.brand span{
+    color:#d4af37;
 }
 
 nav{
     display:flex;
-
-    align-items:center;
-
-    gap:5px;
-}
-
-.nav-btn{
-    padding:10px 12px;
-
-    background:transparent;
-
-    color:#666;
-
-    font-size:8px;
-
-    font-weight:700;
-
-    letter-spacing:1.5px;
-
-    transition:.3s;
-
-    position:relative;
-}
-
-.nav-btn::after{
-    content:"";
-
-    position:absolute;
-
-    bottom:2px;
-
-    left:12px;
-    right:12px;
-
-    height:1px;
-
-    background:var(--gold);
-
-    transform:scaleX(0);
-
-    transition:.3s;
-}
-
-.nav-btn:hover,
-.nav-btn.active{
-    color:white;
-}
-
-.nav-btn.active::after,
-.nav-btn:hover::after{
-    transform:scaleX(1);
-}
-
-/* =========================================================
-   ONLINE
-========================================================= */
-
-.online-counter{
-    position:fixed;
-
-    top:100px;
-
-    right:5vw;
-
-    z-index:100;
-
-    display:flex;
-
-    align-items:center;
-
     gap:8px;
-
-    color:#555;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-    letter-spacing:1px;
 }
 
-.online-counter strong{
-    color:var(--gold);
-
-    font-size:12px;
-}
-
-.online-dot{
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#52db72;
-
-    box-shadow:0 0 12px #52db72;
-}
-
-/* =========================================================
-   PAGES
-========================================================= */
-
-.main{
-    width:100%;
-    height:100%;
-
-    position:relative;
-}
-
-.page{
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    padding:120px 7vw 40px;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-    transform:translateY(35px);
-
-    transition:
-        opacity .5s ease,
-        transform .5s cubic-bezier(.2,.8,.2,1);
-
-    overflow:hidden;
-}
-
-.page.active{
-    opacity:1;
-
-    visibility:visible;
-
-    pointer-events:auto;
-
-    transform:translateY(0);
-}
-
-/* =========================================================
-   HOME
-========================================================= */
-
-.home{
-    display:flex;
-
-    align-items:center;
-}
-
-.home::before{
-    content:"01";
-
-    position:absolute;
-
-    right:6vw;
-
-    bottom:-35px;
-
-    font-size:30vw;
-
-    font-weight:900;
-
-    line-height:1;
-
-    color:rgba(255,255,255,.018);
-
-    letter-spacing:-30px;
-
-    pointer-events:none;
-}
-
-.home-content{
-    position:relative;
-
-    z-index:5;
-
-    max-width:1100px;
-}
-
-.eyebrow{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:28px;
-
-    color:var(--gold);
-
-    font-family:"DM Mono",monospace;
-
+nav a{
+    color:#777;
+    padding:11px 14px;
     font-size:9px;
-
-    letter-spacing:3px;
+    letter-spacing:2px;
+    font-weight:700;
+    transition:.3s;
 }
 
-.eyebrow::before{
+nav a:hover{
+    color:#d4af37;
+}
+
+.header-contact{
+    padding:12px 18px;
+    border:1px solid rgba(212,175,55,.45);
+    color:#d4af37;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   SIDE NUMBER
+========================= */
+
+.side{
+    position:fixed;
+    left:30px;
+    top:50%;
+    transform:translateY(-50%);
+    writing-mode:vertical-rl;
+    color:#555;
+    font-size:8px;
+    letter-spacing:4px;
+    z-index:100;
+}
+
+.side span{
+    color:#d4af37;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 8% 70px;
+    display:flex;
+    align-items:center;
+    position:relative;
+}
+
+.hero-content{
+    max-width:1150px;
+}
+
+.overline{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#d4af37;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:5px;
+    margin-bottom:35px;
+}
+
+.overline::before{
     content:"";
-
-    width:45px;
-
+    width:50px;
     height:1px;
-
-    background:var(--gold);
+    background:#d4af37;
 }
 
-.home h1{
-    font-size:clamp(80px,11vw,175px);
-
-    line-height:.78;
-
-    letter-spacing:-12px;
-
+.hero h1{
+    font-size:clamp(80px,13vw,190px);
+    line-height:.76;
+    letter-spacing:-11px;
     font-weight:900;
-
-    max-width:1100px;
 }
 
-.home h1 span{
-    color:var(--gold);
-
-    display:block;
+.hero h1 div:last-child{
+    color:#d4af37;
+    margin-left:11%;
 }
 
-.home-sub{
-    max-width:540px;
+.hero-bottom{
+    margin-top:65px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:40px;
+}
 
-    margin-top:42px;
-
-    color:#707070;
-
-    font-size:13px;
-
+.hero-description{
+    max-width:480px;
+    color:#777;
+    font-size:14px;
     line-height:1.9;
 }
 
-.home-actions{
+.hero-description strong{
+    color:#ddd;
+}
+
+.hero-buttons{
     display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-    margin-top:35px;
+    gap:12px;
 }
 
-.gold-button{
+.btn{
     display:inline-flex;
-
     align-items:center;
-
-    gap:20px;
-
-    padding:16px 22px;
-
-    background:var(--gold);
-
-    color:#080808;
-
-    font-size:8px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    transition:.35s;
-}
-
-.gold-button::after{
-    content:"↗";
-
-    font-size:14px;
-}
-
-.gold-button:hover{
-    background:var(--gold-light);
-
-    transform:translateY(-4px);
-
-    box-shadow:0 20px 50px rgba(200,164,58,.15);
-}
-
-.text-button{
-    color:#666;
-
-    background:transparent;
-
-    font-size:8px;
-
+    justify-content:center;
+    min-width:170px;
+    padding:17px 25px;
+    font-size:9px;
     font-weight:800;
-
     letter-spacing:2px;
-
     transition:.3s;
 }
 
-.text-button:hover{
-    color:white;
+.btn-gold{
+    background:#d4af37;
+    color:#050505;
 }
 
-/* =========================================================
-   HOME SIDE INFO
-========================================================= */
+.btn-gold:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 45px rgba(212,175,55,.25);
+}
 
-.home-meta{
+.btn-outline{
+    border:1px solid rgba(255,255,255,.16);
+    color:#aaa;
+}
+
+.btn-outline:hover{
+    border-color:#d4af37;
+    color:#d4af37;
+}
+
+/* =========================
+   HERO DECOR
+========================= */
+
+.hero-number{
     position:absolute;
-
-    right:7vw;
-
-    bottom:55px;
-
-    width:260px;
-
-    border-top:1px solid var(--line);
-
-    padding-top:16px;
+    right:7%;
+    bottom:12%;
+    font-size:220px;
+    font-weight:900;
+    color:rgba(255,255,255,.025);
+    letter-spacing:-20px;
+    user-select:none;
 }
 
-.meta-top{
-    display:flex;
+/* =========================
+   SECTION
+========================= */
 
-    justify-content:space-between;
-
-    color:#444;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:7px;
-
-    letter-spacing:2px;
+section{
+    position:relative;
+    padding:140px 8%;
 }
-
-.meta-title{
-    margin-top:15px;
-
-    font-size:17px;
-
-    font-weight:800;
-}
-
-.meta-text{
-    margin-top:7px;
-
-    color:#555;
-
-    font-size:9px;
-
-    line-height:1.7;
-}
-
-/* =========================================================
-   SECTION HEADER
-========================================================= */
 
 .section-top{
     display:flex;
-
-    align-items:flex-end;
-
     justify-content:space-between;
-
-    margin-bottom:30px;
+    align-items:flex-end;
+    margin-bottom:65px;
 }
 
 .section-number{
-    color:var(--gold);
-
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-    letter-spacing:3px;
-
-    margin-bottom:12px;
+    color:#d4af37;
+    font-size:9px;
+    letter-spacing:4px;
+    font-weight:800;
 }
 
 .section-title{
-    font-size:clamp(55px,8vw,120px);
-
+    font-size:clamp(50px,7vw,100px);
+    line-height:.85;
+    letter-spacing:-6px;
     font-weight:900;
-
-    line-height:.8;
-
-    letter-spacing:-8px;
 }
 
 .section-title span{
-    color:var(--gold);
+    color:#d4af37;
 }
 
-.section-intro{
-    max-width:300px;
-
-    color:#555;
-
-    font-size:10px;
-
+.section-desc{
+    max-width:390px;
+    color:#666;
+    font-size:12px;
     line-height:1.8;
-
-    text-align:right;
 }
 
-/* =========================================================
-   PORTFOLIO
-========================================================= */
+/* =========================
+   WORK
+========================= */
 
-.portfolio-grid{
-    width:100%;
+.work{
+    border-top:1px solid rgba(255,255,255,.06);
+}
 
-    max-width:1250px;
-
-    height:calc(100vh - 245px);
-
-    overflow-y:auto;
-
-    padding-right:8px;
-
+.work-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(12,1fr);
-
-    grid-auto-rows:190px;
-
-    gap:12px;
+    grid-template-columns:repeat(12,1fr);
+    gap:18px;
 }
 
-.portfolio-grid::-webkit-scrollbar{
-    width:3px;
-}
-
-.portfolio-grid::-webkit-scrollbar-thumb{
-    background:var(--gold);
-}
-
-/* =========================================================
-   FLYER CARDS
-========================================================= */
-
-.portfolio-item{
+.work-card{
     position:relative;
-
     overflow:hidden;
-
     background:#0b0b0b;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    transition:.45s cubic-bezier(.2,.8,.2,1);
+    border:1px solid rgba(255,255,255,.08);
+    cursor:pointer;
 }
 
-.portfolio-item:nth-child(1){
-    grid-column:span 4;
-    grid-row:span 2;
+.work-card:nth-child(1),
+.work-card:nth-child(4),
+.work-card:nth-child(7){
+    grid-column:span 7;
 }
 
-.portfolio-item:nth-child(2){
-    grid-column:span 4;
+.work-card:nth-child(2),
+.work-card:nth-child(3),
+.work-card:nth-child(5),
+.work-card:nth-child(6),
+.work-card:nth-child(8){
+    grid-column:span 5;
 }
 
-.portfolio-item:nth-child(3){
-    grid-column:span 4;
-}
-
-.portfolio-item:nth-child(4){
-    grid-column:span 4;
-}
-
-.portfolio-item:nth-child(5){
-    grid-column:span 4;
-}
-
-.portfolio-item:nth-child(6){
-    grid-column:span 4;
-}
-
-.portfolio-item:nth-child(7){
-    grid-column:span 4;
-}
-
-.portfolio-item:nth-child(8){
-    grid-column:span 4;
-}
-
-.portfolio-item img{
+.work-card img{
     width:100%;
-    height:100%;
-
+    height:430px;
+    object-fit:contain;
     display:block;
-
-    object-fit:contain;
-
     background:#080808;
-
-    transition:.6s;
+    transition:.7s cubic-bezier(.2,.8,.2,1);
 }
 
-.portfolio-item::after{
-    content:"";
+.work-card:nth-child(2) img,
+.work-card:nth-child(3) img,
+.work-card:nth-child(5) img,
+.work-card:nth-child(6) img,
+.work-card:nth-child(8) img{
+    height:330px;
+}
 
+.work-card:hover img{
+    transform:scale(1.05);
+}
+
+.work-overlay{
     position:absolute;
-
     inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.8),
-            transparent 45%
-        );
-
-    opacity:0;
-
-    transition:.4s;
-}
-
-.portfolio-item:hover{
-    transform:translateY(-5px);
-
-    border-color:var(--gold);
-
-    box-shadow:0 25px 60px rgba(0,0,0,.5);
-}
-
-.portfolio-item:hover img{
-    transform:scale(1.04);
-}
-
-.portfolio-item:hover::after{
-    opacity:1;
-}
-
-.portfolio-info{
-    position:absolute;
-
-    left:16px;
-
-    bottom:14px;
-
-    z-index:5;
-
-    opacity:0;
-
-    transform:translateY(10px);
-
-    transition:.4s;
-}
-
-.portfolio-item:hover .portfolio-info{
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-.portfolio-info h3{
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-}
-
-.portfolio-info p{
-    margin-top:4px;
-
-    color:#aaa;
-
-    font-size:7px;
-
-    letter-spacing:2px;
-}
-
-/* =========================================================
-   LOGOS
-========================================================= */
-
-.logo-grid{
-    width:100%;
-
-    max-width:1200px;
-
-    height:calc(100vh - 245px);
-
-    overflow-y:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:12px;
-}
-
-.logo-grid::-webkit-scrollbar{
-    width:3px;
-}
-
-.logo-grid::-webkit-scrollbar-thumb{
-    background:var(--gold);
-}
-
-.logo-item{
-    min-height:230px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     padding:25px;
-
-    background:
-        radial-gradient(
-            circle,
-            #181818,
-            #080808
-        );
-
-    border:1px solid rgba(255,255,255,.07);
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.45s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.1),
+        rgba(0,0,0,.8)
+    );
+    opacity:0;
+    transition:.4s;
 }
 
-.logo-item::before{
-    content:"LOGO";
+.work-card:hover .work-overlay{
+    opacity:1;
+}
 
-    position:absolute;
-
-    top:12px;
-    left:15px;
-
-    color:#333;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:7px;
-
+.work-tag{
+    align-self:flex-start;
+    padding:8px 12px;
+    border:1px solid rgba(212,175,55,.6);
+    color:#d4af37;
+    font-size:8px;
     letter-spacing:2px;
 }
 
-.logo-item:hover{
-    border-color:var(--gold);
-
-    transform:translateY(-6px);
-
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
+.work-name{
+    font-size:24px;
+    font-weight:800;
 }
 
-.logo-item img{
-    width:100%;
-    height:100%;
+/* =========================
+   LOGO
+========================= */
 
+.logo-section{
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.logo-showcase{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.logo-main{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle,#1b1b1b,#070707);
+    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
+}
+
+.logo-main img{
+    width:75%;
+    height:75%;
     object-fit:contain;
-
     transition:.5s;
 }
 
-.logo-item:hover img{
-    transform:scale(1.07);
+.logo-main:hover img{
+    transform:scale(1.06);
 }
 
-/* =========================================================
-   BANNERS
-========================================================= */
+.logo-copy{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:50px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.015);
+}
 
-.banner-grid{
-    width:100%;
+.logo-copy h3{
+    font-size:50px;
+    line-height:.9;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
 
-    max-width:1250px;
+.logo-copy h3 span{
+    color:#d4af37;
+}
 
-    height:calc(100vh - 245px);
+.logo-copy p{
+    color:#666;
+    line-height:1.9;
+    font-size:13px;
+    max-width:450px;
+}
 
-    overflow:auto;
+/* =========================
+   STATS
+========================= */
 
+.stats{
+    padding-top:70px;
+    padding-bottom:70px;
+    border-top:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.stats-grid{
     display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:14px;
+    grid-template-columns:repeat(4,1fr);
 }
 
-.banner-grid::-webkit-scrollbar{
-    width:3px;
+.stat{
+    padding:25px 35px;
+    border-right:1px solid rgba(255,255,255,.07);
 }
 
-.banner-grid::-webkit-scrollbar-thumb{
-    background:var(--gold);
+.stat:last-child{
+    border:0;
 }
 
-.banner-item{
-    min-height:220px;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    background:#0a0a0a;
-
-    transition:.4s;
-}
-
-.banner-item:hover{
-    border-color:var(--gold);
-
-    transform:translateY(-5px);
-}
-
-/* =========================================================
-   HISTORY
-========================================================= */
-
-.history-layout{
-    max-width:1200px;
-
-    height:calc(100vh - 250px);
-
-    display:grid;
-
-    grid-template-columns:40% 60%;
-
-    border-top:1px solid var(--line);
-}
-
-.history-left{
-    padding-top:35px;
-
-    border-right:1px solid var(--line);
-
-    padding-right:50px;
-}
-
-.history-big{
-    font-size:clamp(130px,18vw,250px);
-
-    line-height:.7;
-
+.stat-number{
+    font-size:55px;
     font-weight:900;
-
-    letter-spacing:-20px;
-
-    color:rgba(200,164,58,.11);
+    letter-spacing:-4px;
 }
 
-.history-caption{
-    margin-top:55px;
+.stat-number span{
+    color:#d4af37;
+}
 
-    color:var(--gold);
-
-    font-family:"DM Mono",monospace;
-
+.stat-label{
+    margin-top:8px;
+    color:#666;
     font-size:8px;
-
     letter-spacing:3px;
 }
 
-.history-right{
-    padding:35px 0 30px 50px;
+/* =========================
+   ABOUT
+========================= */
 
-    overflow-y:auto;
-
-    padding-right:30px;
+.about{
+    min-height:750px;
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.history-right::-webkit-scrollbar{
-    width:3px;
+.about-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:100px;
 }
 
-.history-right::-webkit-scrollbar-thumb{
-    background:var(--gold);
+.about-mark{
+    font-size:220px;
+    font-weight:900;
+    color:#d4af37;
+    line-height:.7;
+    opacity:.8;
 }
 
-.history-right p{
-    max-width:650px;
+.about-text{
+    max-width:800px;
+}
 
+.about-text h3{
+    font-size:clamp(40px,5vw,75px);
+    line-height:.95;
+    letter-spacing:-4px;
+    margin-bottom:40px;
+}
+
+.about-text h3 span{
+    color:#d4af37;
+}
+
+.about-text p{
     color:#777;
-
-    font-size:14px;
-
+    font-size:15px;
     line-height:2;
-
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
-.history-right strong{
-    color:#eee;
+.about-text strong{
+    color:#ddd;
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* =========================
+   SERVICES
+========================= */
 
-.contact-page{
-    display:flex;
+.services{
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
 
+.service-list{
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.service{
+    min-height:105px;
+    display:grid;
+    grid-template-columns:80px 1fr 1fr 40px;
     align-items:center;
+    gap:30px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
 
+.service:hover{
+    padding-left:20px;
+    background:rgba(212,175,55,.025);
+}
+
+.service-num{
+    color:#d4af37;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.service h3{
+    font-size:25px;
+    letter-spacing:-1px;
+}
+
+.service p{
+    color:#666;
+    font-size:11px;
+}
+
+.service-arrow{
+    color:#d4af37;
+    font-size:25px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
     justify-content:center;
-
     text-align:center;
 }
 
 .contact-content{
-    max-width:1100px;
+    max-width:1000px;
 }
 
 .contact-small{
-    color:var(--gold);
-
-    font-family:"DM Mono",monospace;
-
-    font-size:8px;
-
-    letter-spacing:4px;
+    color:#d4af37;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:5px;
+    margin-bottom:30px;
 }
 
-.contact-content h2{
-    margin-top:30px;
-
+.contact h2{
     font-size:clamp(65px,10vw,150px);
-
     line-height:.78;
-
+    letter-spacing:-10px;
     font-weight:900;
-
-    letter-spacing:-11px;
 }
 
-.contact-content h2 span{
+.contact h2 span{
     display:block;
-
-    color:var(--gold);
+    color:#d4af37;
 }
 
-.contact-content p{
+.contact p{
     max-width:500px;
-
-    margin:35px auto;
-
+    margin:40px auto;
     color:#666;
-
-    font-size:12px;
-
     line-height:1.8;
+    font-size:13px;
 }
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
-.footer{
-    position:absolute;
-
-    left:7vw;
-    right:7vw;
-
-    bottom:22px;
-
+footer{
+    padding:30px 8%;
+    border-top:1px solid rgba(255,255,255,.07);
     display:flex;
-
     justify-content:space-between;
-
-    color:#333;
-
-    font-family:"DM Mono",monospace;
-
-    font-size:7px;
-
-    letter-spacing:2px;
+    color:#444;
+    font-size:8px;
+    letter-spacing:3px;
 }
 
-.footer span:first-child{
-    color:var(--gold);
+footer span{
+    color:#d4af37;
 }
 
-/* =========================================================
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    backdrop-filter:blur(20px);
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal img{
+    max-width:90vw;
+    max-height:88vh;
+    object-fit:contain;
+    border:1px solid rgba(212,175,55,.3);
+}
+
+.modal-close{
+    position:absolute;
+    top:30px;
+    right:35px;
+    color:#d4af37;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* =========================
    RESPONSIVE
-========================================================= */
+========================= */
 
-@media(max-width:1100px){
-
-    .home-meta{
-        display:none;
-    }
-
-    .portfolio-grid{
-        grid-template-columns:repeat(6,1fr);
-    }
-
-    .portfolio-item:nth-child(n){
-        grid-column:span 3;
-        grid-row:span 1;
-    }
-
-    .portfolio-item:nth-child(1){
-        grid-column:span 6;
-        grid-row:span 2;
-    }
-
-    .logo-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
-
-@media(max-width:800px){
-
-    header{
-        height:70px;
-
-        padding:0 4%;
-    }
-
-    .logo{
-        display:none;
-    }
+@media(max-width:1000px){
 
     nav{
-        width:100%;
-
-        justify-content:center;
-    }
-
-    .nav-btn{
-        padding:9px 7px;
-
-        font-size:6px;
-    }
-
-    .online-counter{
         display:none;
     }
 
-    .page{
-        padding:100px 5% 30px;
+    .header-contact{
+        display:none;
     }
 
-    .home h1{
-        font-size:65px;
+    .hero{
+        padding-left:7%;
+    }
 
+    .hero h1{
+        font-size:clamp(70px,15vw,130px);
+    }
+
+    .hero-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .work-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .work-card:nth-child(n){
+        grid-column:span 1;
+    }
+
+    .work-card img,
+    .work-card:nth-child(n) img{
+        height:300px;
+    }
+
+    .logo-showcase{
+        grid-template-columns:1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat:nth-child(2){
+        border:0;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .about-mark{
+        font-size:120px;
+    }
+}
+
+@media(max-width:600px){
+
+    .cursor,
+    .side{
+        display:none;
+    }
+
+    header{
+        height:72px;
+        padding:0 5%;
+    }
+
+    .brand{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .brand-box{
+        width:32px;
+        height:32px;
+    }
+
+    section{
+        padding:90px 6%;
+    }
+
+    .hero{
+        padding:130px 6% 70px;
+        min-height:100svh;
+    }
+
+    .hero h1{
+        font-size:19vw;
         letter-spacing:-6px;
     }
 
-    .home-sub{
-        font-size:12px;
+    .hero h1 div:last-child{
+        margin-left:0;
+    }
+
+    .hero-bottom{
+        margin-top:45px;
+    }
+
+    .hero-buttons{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
     }
 
     .section-top{
         display:block;
     }
 
-    .section-intro{
-        display:none;
+    .section-desc{
+        margin-top:25px;
     }
 
-    .section-title{
-        font-size:55px;
+    .work-grid{
+        grid-template-columns:1fr;
     }
 
-    .portfolio-grid{
-        grid-template-columns:repeat(2,1fr);
-
-        grid-auto-rows:170px;
-    }
-
-    .portfolio-item:nth-child(n){
+    .work-card:nth-child(n){
         grid-column:span 1;
-        grid-row:span 1;
     }
 
-    .portfolio-item:nth-child(1){
-        grid-column:span 2;
-        grid-row:span 2;
+    .work-card img,
+    .work-card:nth-child(n) img{
+        height:330px;
     }
 
-    .logo-grid{
-        grid-template-columns:repeat(2,1fr);
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .logo-item{
-        min-height:170px;
+    .stat{
+        padding:20px 10px;
     }
 
-    .banner-grid{
-        grid-template-columns:1fr;
+    .stat-number{
+        font-size:38px;
     }
 
-    .history-layout{
-        grid-template-columns:1fr;
+    .logo-main{
+        min-height:330px;
     }
 
-    .history-left{
+    .logo-copy{
+        padding:30px;
+    }
+
+    .logo-copy h3{
+        font-size:38px;
+    }
+
+    .service{
+        grid-template-columns:35px 1fr 25px;
+        gap:10px;
+    }
+
+    .service p{
         display:none;
     }
 
-    .history-right{
-        padding:25px 15px 30px 0;
+    .service h3{
+        font-size:19px;
     }
 
-    .footer{
-        display:none;
-    }
-
-}
-
-@media(max-width:500px){
-
-    nav{
-        gap:0;
-    }
-
-    .nav-btn{
-        padding:8px 5px;
-
-        font-size:5.5px;
-
-        letter-spacing:.5px;
-    }
-
-    .home{
-        text-align:center;
-    }
-
-    .eyebrow{
-        justify-content:center;
-
-        font-size:7px;
-
-        letter-spacing:2px;
-    }
-
-    .eyebrow::before{
-        display:none;
-    }
-
-    .home h1{
-        font-size:52px;
-
+    .contact h2{
+        font-size:17vw;
         letter-spacing:-5px;
     }
 
-    .home-sub{
-        margin-left:auto;
-        margin-right:auto;
+    footer{
+        flex-direction:column;
+        gap:15px;
     }
-
-    .home-actions{
-        justify-content:center;
-    }
-
-    .section-title{
-        font-size:45px;
-
-        letter-spacing:-4px;
-    }
-
-    .portfolio-grid{
-        grid-auto-rows:145px;
-    }
-
-    .portfolio-item:nth-child(1){
-        grid-row:span 2;
-    }
-
-    .logo-grid{
-        gap:8px;
-    }
-
-    .logo-item{
-        min-height:140px;
-
-        padding:12px;
-    }
-
-    .contact-content h2{
-        font-size:52px;
-
-        letter-spacing:-5px;
-    }
-
 }
-
-/* =========================================================
-   SELECTION
-========================================================= */
-
-::selection{
-    background:var(--gold);
-
-    color:#050505;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="bg"></div>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<div class="cursor" id="cursor"></div>
+
+<div class="side">
+    TRALHA STUDIO&nbsp;&nbsp; / &nbsp;&nbsp;<span>2026</span>
+</div>
 
 <header>
 
-    <div class="logo">
-
-        <div class="logo-mark">
-            T
-        </div>
-
+    <a href="#inicio" class="brand">
+        <div class="brand-box">T</div>
         TRALHA <span>STUDIO</span>
-
-    </div>
+    </a>
 
     <nav>
-
-        <button
-            class="nav-btn active"
-            onclick="abrirPagina('inicio',this)"
-        >
-            INÍCIO
-        </button>
-
-        <button
-            class="nav-btn"
-            onclick="abrirPagina('logos',this)"
-        >
-            LOGOS
-        </button>
-
-        <button
-            class="nav-btn"
-            onclick="abrirPagina('flyers',this)"
-        >
-            FLYERS
-        </button>
-
-        <button
-            class="nav-btn"
-            onclick="abrirPagina('banners',this)"
-        >
-            BANNERS
-        </button>
-
-        <button
-            class="nav-btn"
-            onclick="abrirPagina('historia',this)"
-        >
-            HISTÓRIA
-        </button>
-
-        <button
-            class="nav-btn"
-            onclick="abrirPagina('contato',this)"
-        >
-            CONTATO
-        </button>
-
+        <a href="#inicio">INÍCIO</a>
+        <a href="#trabalhos">TRABALHOS</a>
+        <a href="#identidade">LOGO</a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#servicos">SERVIÇOS</a>
     </nav>
+
+    <a
+        href="https://discord.gg/HHQgKSrA67"
+        target="_blank"
+        class="header-contact"
+    >
+        CONTATO ↗
+    </a>
 
 </header>
 
-<div class="online-counter">
 
-    <span class="online-dot"></span>
+<!-- =========================
+     HERO
+========================= -->
 
-    <strong>17</strong>
+<main id="inicio">
 
-    <span>ONLINE</span>
+<section class="hero">
 
-</div>
+    <div class="hero-content">
 
-<main class="main">
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<section
-    id="inicio"
-    class="page home active"
->
-
-    <div class="home-content">
-
-        <div class="eyebrow">
-            TRALHA STUDIO / CREATIVE STUDIO
+        <div class="overline">
+            DESIGN / DIGITAL / CREATIVE
         </div>
 
         <h1>
-            DESIGN
-            <span>SEM LIMITE.</span>
+            TRALHA
+            <div>STUDIO.</div>
         </h1>
 
-        <p class="home-sub">
+        <div class="hero-bottom">
 
-            Criamos identidades, flyers, banners
-            e experiências digitais para transformar
-            ideias em algo impossível de ignorar.
+            <p class="hero-description">
+                <strong>Não criamos apenas artes.</strong><br>
+                Criamos identidades, experiências e
+                projetos que fazem uma marca ser lembrada.
+            </p>
 
-        </p>
+            <div class="hero-buttons">
 
-        <div class="home-actions">
+                <a href="#trabalhos" class="btn btn-gold">
+                    EXPLORAR TRABALHOS
+                </a>
 
-            <button
-                class="gold-button"
-                onclick="abrirPaginaPorId('flyers')"
-            >
-                EXPLORAR PORTFÓLIO
-            </button>
+                <a href="#contato" class="btn btn-outline">
+                    COMEÇAR PROJETO
+                </a>
 
-            <button
-                class="text-button"
-                onclick="abrirPaginaPorId('contato')"
-            >
-                VAMOS CONVERSAR →
-            </button>
+            </div>
 
         </div>
 
     </div>
 
-    <div class="home-meta">
-
-        <div class="meta-top">
-
-            <span>TRALHA STUDIO</span>
-
-            <span>2026</span>
-
-        </div>
-
-        <div class="meta-title">
-            IDEIAS → VISUAL
-        </div>
-
-        <div class="meta-text">
-            Design e programação feitos
-            para criar presença.
-        </div>
-
+    <div class="hero-number">
+        01
     </div>
 
-    <div class="footer">
+</section>
 
-        <span>
-            TS / 001
-        </span>
 
-        <span>
-            DESIGN • PROGRAMMING • CREATIVE
-        </span>
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+            <div class="stat-number">
+                01<span>.</span>
+            </div>
+            <div class="stat-label">
+                STUDIO
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">
+                24<span>+</span>
+            </div>
+            <div class="stat-label">
+                PROJETOS
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">
+                03<span>+</span>
+            </div>
+            <div class="stat-label">
+                ÁREAS
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">
+                ∞
+            </div>
+            <div class="stat-label">
+                IDEIAS
+            </div>
+        </div>
 
     </div>
 
 </section>
 
-<!-- =====================================================
-     LOGOS
-===================================================== -->
 
-<section
-    id="logos"
-    class="page"
->
+<!-- =========================
+     TRABALHOS
+========================= -->
+
+<section class="work" id="trabalhos">
 
     <div class="section-top">
 
         <div>
 
             <div class="section-number">
-                01 / IDENTITY
+                01 — SELECTED WORK
             </div>
 
             <h2 class="section-title">
-                LOGO<span>S.</span>
+                O QUE<br>
+                <span>CRIAMOS.</span>
             </h2>
 
         </div>
 
-        <div class="section-intro">
+        <p class="section-desc">
+            Uma seleção de trabalhos desenvolvidos
+            pela Tralha Studio. Cada projeto possui
+            uma identidade própria.
+        </p>
 
-            Identidade visual criada
-            para diferentes projetos
-            e marcas.
+    </div>
+
+
+    <div class="work-grid">
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 01</span>
+                <div class="work-name">PROJECT 001 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 02</span>
+                <div class="work-name">PROJECT 002 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 03</span>
+                <div class="work-name">PROJECT 003 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 04</span>
+                <div class="work-name">PROJECT 004 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 05</span>
+                <div class="work-name">PROJECT 005 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 06</span>
+                <div class="work-name">PROJECT 006 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 07</span>
+                <div class="work-name">PROJECT 007 ↗</div>
+            </div>
+
+        </div>
+
+
+        <div class="work-card" onclick="abrirImagem(this)">
+
+            <img src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}">
+
+            <div class="work-overlay">
+                <span class="work-tag">FLYER / 08</span>
+                <div class="work-name">PROJECT 008 ↗</div>
+            </div>
 
         </div>
 
     </div>
 
-    <div class="logo-grid">
+</section>
 
-        <div class="logo-item">
+
+<!-- =========================
+     IDENTIDADE
+========================= -->
+
+<section class="logo-section" id="identidade">
+
+    <div class="section-top">
+
+        <div>
+
+            <div class="section-number">
+                02 — BRAND IDENTITY
+            </div>
+
+            <h2 class="section-title">
+                UMA<br>
+                <span>MARCA.</span>
+            </h2>
+
+        </div>
+
+        <p class="section-desc">
+            Identidade visual desenvolvida para
+            representar a essência da Tralha Studio.
+        </p>
+
+    </div>
+
+
+    <div class="logo-showcase">
+
+        <div class="logo-main">
 
             <img
                 src="{{ url_for('static', filename='imagens/image.png') }}"
@@ -1509,496 +1233,193 @@ nav{
 
         </div>
 
-    </div>
 
-    <div class="footer">
+        <div class="logo-copy">
 
-        <span>
-            01 / LOGOS
-        </span>
+            <h3>
+                IDEIAS<br>
+                <span>REAIS.</span>
+            </h3>
 
-        <span>
-            TRALHA STUDIO
-        </span>
+            <p>
+                Uma identidade construída para transmitir
+                criatividade, personalidade e evolução.
+                O objetivo nunca foi parecer igual a todo
+                mundo. É justamente o contrário.
+                <br><br>
+                A Tralha Studio nasceu para transformar
+                ideias em algo visualmente marcante.
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- =====================================================
-     FLYERS
-===================================================== -->
 
-<section
-    id="flyers"
-    class="page"
->
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="about" id="sobre">
 
     <div class="section-top">
 
         <div>
 
             <div class="section-number">
-                02 / SELECTED WORK
+                03 — ABOUT THE STUDIO
             </div>
 
             <h2 class="section-title">
-                FLYER<span>S.</span>
+                POR TRÁS<br>
+                <span>DA TRALHA.</span>
             </h2>
 
         </div>
 
-        <div class="section-intro">
-
-            Uma seleção de trabalhos
-            desenvolvidos pela
-            Tralha Studio.
-
-        </div>
-
     </div>
 
-    <div class="portfolio-grid">
 
-        <div class="portfolio-item">
+    <div class="about-grid">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
-                alt="Flyer 01"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 01</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
+        <div class="about-mark">
+            T®
         </div>
 
-        <div class="portfolio-item">
 
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
-                alt="Flyer 02"
-            >
+        <div class="about-text">
 
-            <div class="portfolio-info">
+            <h3>
+                TUDO COMEÇOU<br>
+                <span>COM UMA IDEIA.</span>
+            </h3>
 
-                <h3>FLYER 02</h3>
+            <p>
+                Meu nome é <strong>David</strong> e a Tralha Studio
+                nasceu da vontade de aprender, criar e transformar
+                ideias em projetos reais.
+            </p>
 
-                <p>TRALHA STUDIO</p>
+            <p>
+                No começo não existia uma grande estrutura.
+                Existia apenas curiosidade, vontade de experimentar
+                e muita coisa para aprender.
+            </p>
 
-            </div>
+            <p>
+                Aos poucos, o que começou como uma simples
+                experiência foi se tornando um projeto.
+                Cada flyer, cada logo e cada novo trabalho
+                representa uma nova etapa dessa evolução.
+            </p>
 
-        </div>
+            <p>
+                A Tralha Studio junta duas coisas que fazem parte
+                da nossa essência: <strong>design e tecnologia.</strong>
+            </p>
 
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
-                alt="Flyer 03"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 03</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
-                alt="Flyer 04"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 04</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
+            <p>
+                Ainda existe muito para aprender.
+                E é justamente isso que torna tudo mais interessante.
+                A história ainda está sendo escrita.
+            </p>
 
         </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
-                alt="Flyer 05"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 05</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
-                alt="Flyer 06"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 06</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
-                alt="Flyer 07"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 07</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
-        </div>
-
-        <div class="portfolio-item">
-
-            <img
-                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}"
-                alt="Flyer 08"
-            >
-
-            <div class="portfolio-info">
-
-                <h3>FLYER 08</h3>
-
-                <p>TRALHA STUDIO</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-
-        <span>
-            02 / FLYERS
-        </span>
-
-        <span>
-            08 PROJECTS
-        </span>
 
     </div>
 
 </section>
 
-<!-- =====================================================
-     BANNERS
-===================================================== -->
 
-<section
-    id="banners"
-    class="page"
->
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section class="services" id="servicos">
 
     <div class="section-top">
 
         <div>
 
             <div class="section-number">
-                03 / VISUAL
+                04 — WHAT WE DO
             </div>
 
             <h2 class="section-title">
-                BANNER<span>S.</span>
+                O QUE<br>
+                <span>FAZEMOS.</span>
             </h2>
 
         </div>
 
-        <div class="section-intro">
-
-            Espaço reservado para
-            os próximos projetos
-            da Tralha Studio.
-
-        </div>
+        <p class="section-desc">
+            Soluções visuais para projetos que
+            precisam de personalidade.
+        </p>
 
     </div>
 
-    <div class="banner-grid">
 
-        <div
-            class="banner-item"
-            style="
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#444;
-                font-family:'DM Mono',monospace;
-                font-size:8px;
-                letter-spacing:3px;
-                text-align:center;
-            "
-        >
+    <div class="service-list">
 
-            PROJECT 001<br>
-            COMING SOON
+        <div class="service">
+
+            <div class="service-num">01</div>
+
+            <h3>FLYERS</h3>
+
+            <p>
+                Artes promocionais e divulgação.
+            </p>
+
+            <div class="service-arrow">↗</div>
 
         </div>
 
-        <div
-            class="banner-item"
-            style="
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#444;
-                font-family:'DM Mono',monospace;
-                font-size:8px;
-                letter-spacing:3px;
-                text-align:center;
-            "
-        >
 
-            PROJECT 002<br>
-            COMING SOON
+        <div class="service">
+
+            <div class="service-num">02</div>
+
+            <h3>LOGOS</h3>
+
+            <p>
+                Identidade visual e marcas.
+            </p>
+
+            <div class="service-arrow">↗</div>
 
         </div>
 
-        <div
-            class="banner-item"
-            style="
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#444;
-                font-family:'DM Mono',monospace;
-                font-size:8px;
-                letter-spacing:3px;
-                text-align:center;
-            "
-        >
 
-            TRALHA STUDIO<br>
-            2026
+        <div class="service">
+
+            <div class="service-num">03</div>
+
+            <h3>BANNERS</h3>
+
+            <p>
+                Banners para projetos e comunidades.
+            </p>
+
+            <div class="service-arrow">↗</div>
 
         </div>
 
-    </div>
 
-    <div class="footer">
+        <div class="service">
 
-        <span>
-            03 / BANNERS
-        </span>
+            <div class="service-num">04</div>
 
-        <span>
-            TRALHA STUDIO
-        </span>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     HISTÓRIA
-===================================================== -->
-
-<section
-    id="historia"
-    class="page"
->
-
-    <div class="section-top">
-
-        <div>
-
-            <div class="section-number">
-                04 / STORY
-            </div>
-
-            <h2 class="section-title">
-                A HISTÓRIA<span>.</span>
-            </h2>
-
-        </div>
-
-    </div>
-
-    <div class="history-layout">
-
-        <div class="history-left">
-
-            <div class="history-big">
-                14
-            </div>
-
-            <div class="history-caption">
-                DAVID / FOUNDER / 2026
-            </div>
-
-        </div>
-
-        <div class="history-right">
+            <h3>DIGITAL</h3>
 
             <p>
-
-                <strong>Meu nome é David.</strong>
-                Tenho 14 anos e gosto muito de
-                <strong>design e programação.</strong>
-                A história da Tralha Studio começou
-                de uma forma simples: com curiosidade
-                e vontade de aprender.
-
+                Sites, interfaces e experiências digitais.
             </p>
 
-            <p>
-
-                Desde cedo comecei a me interessar
-                pelo mundo da tecnologia e da criação.
-                Sempre tive curiosidade para entender
-                como as coisas funcionavam e como eu
-                poderia criar algo com minhas próprias
-                ideias.
-
-            </p>
-
-            <p>
-
-                No começo, eu não tinha uma grande
-                estrutura, uma equipe ou anos de
-                experiência. Eu tinha apenas vontade
-                de aprender e descobrir até onde
-                conseguiria chegar.
-
-            </p>
-
-            <p>
-
-                Comecei experimentando. Testava fontes,
-                cores, efeitos, posições e diferentes
-                estilos. Algumas artes ficavam boas.
-                Outras não ficavam nem perto do que eu
-                imaginava. <strong>E tudo bem.</strong>
-
-            </p>
-
-            <p>
-
-                Cada erro fazia parte do aprendizado.
-                Com o passar do tempo, percebi que
-                aquilo já não era apenas uma brincadeira.
-                Eu realmente gostava de criar e,
-                principalmente, de ver uma ideia sair
-                da minha cabeça e virar algo real.
-
-            </p>
-
-            <p>
-
-                Foi então que nasceu a
-                <strong>Tralha Studio.</strong>
-                Não nasceu pronta. Não nasceu perfeita.
-                Nasceu pequena, com muito para aprender,
-                mas com uma coisa que continua sendo
-                a mesma desde o primeiro dia:
-                <strong>vontade de crescer.</strong>
-
-            </p>
-
-            <p>
-
-                Com o tempo, comecei a juntar minhas
-                duas grandes áreas de interesse:
-                <strong>design e programação.</strong>
-                Uma me permite criar visualmente,
-                enquanto a outra me permite transformar
-                ideias em projetos e experiências.
-
-            </p>
-
-            <p>
-
-                Hoje, cada flyer que eu crio, cada logo
-                que desenvolvo e cada projeto que programo
-                representa mais um passo nessa caminhada.
-
-            </p>
-
-            <p>
-
-                Eu sei que ainda estou no começo.
-                Sei que existem muitas coisas que ainda
-                preciso aprender, melhorar e descobrir.
-
-            </p>
-
-            <p>
-
-                <strong>
-                    Eu não quero apenas criar artes
-                    ou programar por programar.
-                    Quero construir algo que, daqui
-                    a alguns anos, eu possa olhar para
-                    trás e lembrar de onde tudo começou.
-                </strong>
-
-            </p>
-
-            <p>
-
-                A Tralha Studio começou com uma ideia.
-                Hoje é um projeto. Amanhã, eu quero
-                que seja uma marca reconhecida pelo
-                trabalho, pela criatividade e pela
-                dedicação colocada em cada criação.
-
-            </p>
-
-            <p>
-
-                Sei que ainda tenho muito para aprender,
-                mas também sei que cada novo projeto,
-                cada erro e cada experiência fazem parte
-                da minha evolução.
-
-            </p>
-
-            <p>
-
-                E se existe uma coisa que eu aprendi
-                até aqui, é que você não precisa começar
-                grande para sonhar grande.
-
-            </p>
-
-            <p>
-
-                <strong>
-                    Você só precisa começar.
-                </strong>
-
-            </p>
+            <div class="service-arrow">↗</div>
 
         </div>
 
@@ -2006,45 +1427,36 @@ nav{
 
 </section>
 
-<!-- =====================================================
+
+<!-- =========================
      CONTATO
-===================================================== -->
+========================= -->
 
-<section
-    id="contato"
-    class="page contact-page"
->
+<section class="contact" id="contato">
 
     <div class="contact-content">
 
         <div class="contact-small">
-            TRALHA STUDIO / LET'S CREATE
+            TEM UM PROJETO?
         </div>
 
         <h2>
-
-            SUA IDEIA
-
-            <span>
-                COMEÇA AQUI.
-            </span>
-
+            VAMOS
+            <span>CRIAR.</span>
         </h2>
 
         <p>
-
-            Tem um projeto em mente?
-            Vamos transformar sua ideia
-            em algo visualmente marcante.
-
+            Se você possui uma ideia e quer transformar
+            ela em algo visualmente marcante,
+            vamos conversar.
         </p>
 
         <a
             href="https://discord.gg/HHQgKSrA67"
             target="_blank"
-            class="gold-button"
+            class="btn btn-gold"
         >
-            ENTRAR EM CONTATO
+            ENTRAR EM CONTATO ↗
         </a>
 
     </div>
@@ -2053,115 +1465,179 @@ nav{
 
 </main>
 
+
+<footer>
+
+    <span>TRALHA® STUDIO</span>
+
+    <div>
+        DESIGN / DIGITAL / 2026
+    </div>
+
+    <div>
+        DAVID — FOUNDER
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     MODAL DAS FOTOS
+========================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-close" onclick="fecharImagem()">
+        ×
+    </div>
+
+    <img id="modalImg">
+
 </div>
+
 
 <script>
 
-function abrirPagina(id,botao){
+/* =========================
+   CURSOR
+========================= */
 
-    const paginas =
-        document.querySelectorAll(".page");
+const cursor = document.getElementById("cursor");
 
-    paginas.forEach(function(pagina){
+document.addEventListener("mousemove", function(e){
 
-        pagina.classList.remove("active");
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
 
+});
+
+
+document.querySelectorAll("a,button,.work-card").forEach(function(el){
+
+    el.addEventListener("mouseenter",function(){
+        cursor.classList.add("big");
     });
 
-    const pagina =
-        document.getElementById(id);
-
-    if(pagina){
-
-        pagina.classList.add("active");
-
-    }
-
-    const botoes =
-        document.querySelectorAll(".nav-btn");
-
-    botoes.forEach(function(btn){
-
-        btn.classList.remove("active");
-
+    el.addEventListener("mouseleave",function(){
+        cursor.classList.remove("big");
     });
 
-    if(botao){
+});
 
-        botao.classList.add("active");
 
-    }
+/* =========================
+   MODAL
+========================= */
 
-}
+function abrirImagem(card){
 
-function abrirPaginaPorId(id){
+    const img = card.querySelector("img");
 
-    const pagina =
-        document.getElementById(id);
-
-    if(!pagina){
-
+    if(!img){
         return;
-
     }
 
-    const paginas =
-        document.querySelectorAll(".page");
+    document.getElementById("modalImg").src = img.src;
 
-    paginas.forEach(function(item){
-
-        item.classList.remove("active");
-
-    });
-
-    pagina.classList.add("active");
-
-    const botoes =
-        document.querySelectorAll(".nav-btn");
-
-    botoes.forEach(function(btn){
-
-        btn.classList.remove("active");
-
-    });
-
-    const botao =
-        document.querySelector(
-            '.nav-btn[onclick*="' + id + '"]'
-        );
-
-    if(botao){
-
-        botao.classList.add("active");
-
-    }
+    document.getElementById("modal").classList.add("active");
 
 }
 
-/* =========================================================
-   TECLADO
-========================================================= */
 
-document.addEventListener("keydown",function(event){
+function fecharImagem(){
 
-    const teclas = {
+    document.getElementById("modal").classList.remove("active");
 
-        "1":"inicio",
-        "2":"logos",
-        "3":"flyers",
-        "4":"banners",
-        "5":"historia",
-        "6":"contato"
+}
 
-    };
 
-    if(teclas[event.key]){
+document.getElementById("modal").addEventListener("click",function(e){
 
-        const id = teclas[event.key];
-
-        abrirPaginaPorId(id);
-
+    if(e.target === this){
+        fecharImagem();
     }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        fecharImagem();
+    }
+
+});
+
+
+/* =========================
+   REVEAL
+========================= */
+
+const observer = new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document.querySelectorAll(
+    ".work-card,.stat,.service,.logo-main,.logo-copy,.about-text"
+).forEach(function(el){
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    observer.observe(el);
+
+});
+
+
+/* =========================
+   SMOOTH ANCHOR
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+
+    link.addEventListener("click",function(e){
+
+        const id = this.getAttribute("href");
+
+        if(id === "#"){
+            return;
+        }
+
+        const target = document.querySelector(id);
+
+        if(target){
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
 
 });
 
