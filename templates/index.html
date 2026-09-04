@@ -1,1937 +1,1909 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Tralha Studio — Design que marca</title>
-    <meta
-        name="description"
-        content="Tralha Studio: criação de logos, flyers, banners, sites e experiências digitais."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-        :root {
-            --background: #050505;
-            --surface: #0b0b0b;
-            --surface-light: #111111;
-            --gold: #d7b34a;
-            --gold-light: #f1d373;
-            --gold-dark: #8e7226;
-            --white: #f7f7f2;
-            --gray: #8c8c86;
-            --border: rgba(255, 255, 255, 0.09);
-            --border-gold: rgba(215, 179, 74, 0.35);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            background: var(--background);
-            color: var(--white);
-            font-family: "Inter", sans-serif;
-            overflow-x: hidden;
-        }
-
-        body.modal-open {
-            overflow: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            color: inherit;
-            font: inherit;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        ::selection {
-            color: #050505;
-            background: var(--gold);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-dark);
-            border-radius: 20px;
-        }
-
-        /* FUNDO */
-
-        .background {
-            position: fixed;
-            inset: 0;
-            z-index: -10;
-            pointer-events: none;
-            background:
-                radial-gradient(circle at 80% 15%, rgba(215, 179, 74, 0.12), transparent 28%),
-                radial-gradient(circle at 20% 80%, rgba(215, 179, 74, 0.06), transparent 25%),
-                #050505;
-        }
-
-        .background::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            opacity: 0.45;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-            background-size: 70px 70px;
-            mask-image: linear-gradient(to bottom, #000 15%, transparent 90%);
-        }
-
-        .background::after {
-            content: "";
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            top: -300px;
-            right: -200px;
-            border: 1px solid rgba(215, 179, 74, 0.12);
-            border-radius: 50%;
-            box-shadow:
-                0 0 0 80px rgba(215, 179, 74, 0.015),
-                0 0 0 160px rgba(215, 179, 74, 0.01);
-        }
-
-        /* CURSOR PERSONALIZADO */
-
-        @media (pointer: fine) {
-            body,
-            a,
-            button,
-            .project-card {
-                cursor: none;
-            }
-        }
-
-        .cursor-dot {
-            position: fixed;
-            width: 7px;
-            height: 7px;
-            left: 0;
-            top: 0;
-            z-index: 20001;
-            border-radius: 50%;
-            background: var(--gold-light);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 15px var(--gold);
-        }
-
-        .robot-cursor {
-            position: fixed;
-            width: 43px;
-            height: 43px;
-            left: 0;
-            top: 0;
-            z-index: 20000;
-            overflow: hidden;
-            border: 1px solid var(--border-gold);
-            border-radius: 50%;
-            background: #ff00e6;
-            pointer-events: none;
-            transform: translate(12px, 12px);
-            transition:
-                width 0.2s ease,
-                height 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .robot-cursor img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .robot-cursor::after {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            width: 10px;
-            height: 10px;
-            background: var(--gold);
-            clip-path: polygon(0 0, 100% 50%, 45% 100%);
-        }
-
-        .robot-cursor.active {
-            width: 60px;
-            height: 60px;
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(215, 179, 74, 0.3);
-        }
-
-        /* CABEÇALHO */
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 5000;
-            padding: 18px 5%;
-            border-bottom: 1px solid var(--border);
-            background: rgba(5, 5, 5, 0.72);
-            backdrop-filter: blur(22px);
-        }
-
-        .header-inner {
-            width: min(1380px, 100%);
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-        }
-
-        .brand-robot {
-            width: 48px;
-            height: 48px;
-            overflow: hidden;
-            border: 1px solid var(--border-gold);
-            border-radius: 14px;
-            background: #ff00e6;
-            transform: rotate(-3deg);
-            transition: 0.3s ease;
-        }
-
-        .brand:hover .brand-robot {
-            transform: rotate(4deg) scale(1.06);
-            box-shadow: 0 0 25px rgba(215, 179, 74, 0.18);
-        }
-
-        .brand-robot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .brand-copy strong {
-            display: block;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 0.94rem;
-            letter-spacing: 0.2em;
-        }
-
-        .brand-copy span {
-            display: block;
-            margin-top: 3px;
-            color: var(--gold);
-            font-size: 0.58rem;
-            font-weight: 700;
-            letter-spacing: 0.28em;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav a {
-            position: relative;
-            padding: 12px 13px;
-            color: #858580;
-            font-size: 0.66rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            transition: color 0.25s ease;
-        }
-
-        .nav a::after {
-            content: "";
-            position: absolute;
-            left: 13px;
-            right: 13px;
-            bottom: 6px;
-            height: 1px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: var(--white);
-        }
-
-        .nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 13px 18px;
-            border: 1px solid var(--border-gold);
-            border-radius: 100px;
-            color: var(--gold-light);
-            font-size: 0.67rem;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            transition: 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: #050505;
-            background: var(--gold);
-            transform: translateY(-2px);
-        }
-
-        .menu-button {
-            display: none;
-            width: 46px;
-            height: 46px;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            background: var(--surface);
-        }
-
-        /* ELEMENTOS GERAIS */
-
-        .container {
-            width: min(1280px, 88%);
-            margin-inline: auto;
-        }
-
-        .section {
-            position: relative;
-            padding: 130px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            margin-bottom: 25px;
-            color: var(--gold);
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 35px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 65px;
-        }
-
-        .section-title {
-            max-width: 760px;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(3.2rem, 7vw, 7rem);
-            font-weight: 700;
-            line-height: 0.88;
-            letter-spacing: -0.075em;
-        }
-
-        .section-title span {
-            color: var(--gold);
-        }
-
-        .section-description {
-            max-width: 390px;
-            color: var(--gray);
-            font-size: 0.96rem;
-            line-height: 1.8;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            min-height: 54px;
-            padding: 0 24px;
-            border: 1px solid transparent;
-            border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            transition: 0.3s ease;
-        }
-
-        .button-primary {
-            color: #080808;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            box-shadow: 0 12px 45px rgba(215, 179, 74, 0.14);
-        }
-
-        .button-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 55px rgba(215, 179, 74, 0.25);
-        }
-
-        .button-secondary {
-            border-color: var(--border);
-            color: #b6b6af;
-            background: rgba(255, 255, 255, 0.025);
-        }
-
-        .button-secondary:hover {
-            color: var(--gold-light);
-            border-color: var(--border-gold);
-            transform: translateY(-4px);
-        }
-
-        .arrow-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 23px;
-            height: 23px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.13);
-            transition: transform 0.3s ease;
-        }
-
-        .button:hover .arrow-icon {
-            transform: translate(3px, -3px);
-        }
-
-        /* HERO */
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 145px 0 80px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.75fr);
-            align-items: center;
-            gap: 40px;
-        }
-
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 35px;
-            padding: 9px 13px;
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            color: #aaa9a2;
-            background: rgba(255, 255, 255, 0.025);
-            font-size: 0.63rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #67d486;
-            box-shadow: 0 0 14px #67d486;
-        }
-
-        .hero h1 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(4.8rem, 10vw, 10.5rem);
-            font-weight: 700;
-            line-height: 0.76;
-            letter-spacing: -0.09em;
-        }
-
-        .hero h1 span {
-            display: block;
-            margin-left: 8%;
-            color: var(--gold);
-        }
-
-        .hero-intro {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .hero-intro p {
-            max-width: 490px;
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .hero-intro strong {
-            color: var(--white);
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .hero-mascot {
-            position: relative;
-            min-height: 570px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mascot-orbit {
-            position: absolute;
-            width: 480px;
-            height: 480px;
-            border: 1px solid rgba(215, 179, 74, 0.14);
-            border-radius: 50%;
-            animation: rotate 18s linear infinite;
-        }
-
-        .mascot-orbit::before,
-        .mascot-orbit::after {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gold);
-            box-shadow: 0 0 20px var(--gold);
-        }
-
-        .mascot-orbit::before {
-            top: 48px;
-            left: 68px;
-        }
-
-        .mascot-orbit::after {
-            right: 30px;
-            bottom: 95px;
-        }
-
-        .mascot-frame {
-            position: relative;
-            width: min(390px, 90%);
-            aspect-ratio: 1;
-            overflow: hidden;
-            border: 1px solid var(--border-gold);
-            border-radius: 48% 52% 44% 56% / 48% 42% 58% 52%;
-            background: #ff00e6;
-            box-shadow:
-                0 40px 100px rgba(0, 0, 0, 0.55),
-                0 0 80px rgba(215, 179, 74, 0.09);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .mascot-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .mascot-badge {
-            position: absolute;
-            right: 0;
-            bottom: 70px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 13px 16px;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            background: rgba(12, 12, 12, 0.85);
-            backdrop-filter: blur(18px);
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            animation: float 4s 0.7s ease-in-out infinite;
-        }
-
-        .mascot-badge span {
-            color: var(--gold);
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-14px);
-            }
-        }
-
-        @keyframes rotate {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ESTATÍSTICAS */
-
-        .stats {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .stat {
-            position: relative;
-            padding: 42px 35px;
-            border-right: 1px solid var(--border);
-        }
-
-        .stat:last-child {
-            border-right: 0;
-        }
-
-        .stat strong {
-            display: block;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2.6rem, 5vw, 4.6rem);
-            line-height: 1;
-            letter-spacing: -0.08em;
-        }
-
-        .stat strong span {
-            color: var(--gold);
-        }
-
-        .stat p {
-            margin-top: 12px;
-            color: #6f6f69;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-        }
-
-        /* PORTFÓLIO */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 18px;
-        }
-
-        .project-card {
-            position: relative;
-            grid-column: span 5;
-            min-height: 390px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            background: var(--surface);
-            isolation: isolate;
-        }
-
-        .project-card:nth-child(1),
-        .project-card:nth-child(4),
-        .project-card:nth-child(5),
-        .project-card:nth-child(8) {
-            grid-column: span 7;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            min-height: 390px;
-            display: block;
-            object-fit: contain;
-            background: #090909;
-            transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .project-card:hover img {
-            transform: scale(1.045);
-        }
-
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 24px;
-            background:
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.08), transparent 40%),
-                linear-gradient(to top, rgba(0, 0, 0, 0.92), transparent 55%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-tag {
-            align-self: flex-start;
-            padding: 8px 11px;
-            border: 1px solid var(--border-gold);
-            border-radius: 100px;
-            color: var(--gold-light);
-            background: rgba(0, 0, 0, 0.5);
-            font-size: 0.62rem;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-        }
-
-        .project-info {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .project-info h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.45rem;
-        }
-
-        .project-view {
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            border-radius: 50%;
-            color: #050505;
-            background: var(--gold);
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-view {
-            transform: rotate(45deg);
-        }
-
-        /* IDENTIDADE */
-
-        .identity-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            border: 1px solid var(--border);
-            border-radius: 26px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.018);
-        }
-
-        .identity-image {
-            min-height: 530px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 55px;
-            border-right: 1px solid var(--border);
-            background:
-                radial-gradient(circle, rgba(215, 179, 74, 0.1), transparent 52%),
-                #080808;
-        }
-
-        .identity-image img {
-            width: min(470px, 90%);
-            max-height: 430px;
-            object-fit: contain;
-            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.45));
-            transition: transform 0.4s ease;
-        }
-
-        .identity-image:hover img {
-            transform: scale(1.04) rotate(-1deg);
-        }
-
-        .identity-copy {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: clamp(40px, 7vw, 90px);
-        }
-
-        .identity-copy h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(3rem, 5vw, 5.2rem);
-            line-height: 0.9;
-            letter-spacing: -0.065em;
-        }
-
-        .identity-copy h3 span {
-            color: var(--gold);
-        }
-
-        .identity-copy p {
-            margin-top: 30px;
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.9;
-        }
-
-        /* HISTÓRIA */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 0.65fr 1.35fr;
-            gap: 90px;
-        }
-
-        .about-symbol {
-            position: sticky;
-            top: 150px;
-            align-self: start;
-        }
-
-        .about-symbol strong {
-            display: block;
-            color: var(--gold);
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(7rem, 15vw, 14rem);
-            line-height: 0.75;
-            letter-spacing: -0.12em;
-        }
-
-        .about-symbol p {
-            margin-top: 28px;
-            color: #5e5e59;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-        }
-
-        .about-content h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2.8rem, 5vw, 5.5rem);
-            line-height: 0.95;
-            letter-spacing: -0.065em;
-        }
-
-        .about-content h3 span {
-            color: var(--gold);
-        }
-
-        .about-content p {
-            max-width: 730px;
-            margin-top: 28px;
-            color: var(--gray);
-            font-size: 1.02rem;
-            line-height: 2;
-        }
-
-        .about-content strong {
-            color: var(--white);
-        }
-
-        /* SERVIÇOS */
-
-        .services-list {
-            border-top: 1px solid var(--border);
-        }
-
-        .service {
-            display: grid;
-            grid-template-columns: 70px 1fr 1fr 55px;
-            align-items: center;
-            gap: 30px;
-            min-height: 120px;
-            border-bottom: 1px solid var(--border);
-            transition: 0.3s ease;
-        }
-
-        .service:hover {
-            padding-inline: 20px;
-            background: linear-gradient(90deg, rgba(215, 179, 74, 0.06), transparent);
-        }
-
-        .service-number {
-            color: var(--gold);
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-        }
-
-        .service h3 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-        }
-
-        .service p {
-            color: var(--gray);
-            font-size: 0.93rem;
-            line-height: 1.6;
-        }
-
-        .service-arrow {
-            width: 46px;
-            height: 46px;
-            display: grid;
-            place-items: center;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            color: var(--gold);
-            transition: 0.3s ease;
-        }
-
-        .service:hover .service-arrow {
-            color: #050505;
-            background: var(--gold);
-            transform: rotate(45deg);
-        }
-
-        /* CONTATO */
-
-        .contact {
-            min-height: 88vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .contact-content {
-            position: relative;
-            width: 100%;
-        }
-
-        .contact-robot {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 25px;
-            overflow: hidden;
-            border: 1px solid var(--border-gold);
-            border-radius: 50%;
-            background: #ff00e6;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .contact-robot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .contact h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(4rem, 10vw, 10rem);
-            line-height: 0.78;
-            letter-spacing: -0.085em;
-        }
-
-        .contact h2 span {
-            display: block;
-            color: var(--gold);
-        }
-
-        .contact p {
-            max-width: 540px;
-            margin: 40px auto;
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        /* RODAPÉ */
-
-        .footer {
-            padding: 35px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            color: #666660;
-            font-size: 0.66rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-        }
-
-        .footer strong {
-            color: var(--gold);
-        }
-
-        /* MODAL */
-
-        .modal {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 70px 5%;
-            visibility: hidden;
-            opacity: 0;
-            background: rgba(0, 0, 0, 0.94);
-            backdrop-filter: blur(22px);
-            transition: 0.3s ease;
-        }
-
-        .modal.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .modal img {
-            max-width: 92vw;
-            max-height: 84vh;
-            object-fit: contain;
-            border: 1px solid var(--border-gold);
-            border-radius: 16px;
-            box-shadow: 0 30px 100px #000;
-            transform: scale(0.94);
-            transition: transform 0.35s ease;
-        }
-
-        .modal.active img {
-            transform: scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 24px;
-            right: 4%;
-            width: 48px;
-            height: 48px;
-            border: 1px solid var(--border-gold);
-            border-radius: 50%;
-            color: var(--gold);
-            background: #0b0b0b;
-            font-size: 1.5rem;
-        }
-
-        /* ANIMAÇÕES */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVO */
-
-        @media (max-width: 1050px) {
-            .nav {
-                position: fixed;
-                top: 85px;
-                left: 5%;
-                right: 5%;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                padding: 20px;
-                border: 1px solid var(--border);
-                border-radius: 20px;
-                background: rgba(8, 8, 8, 0.97);
-                backdrop-filter: blur(20px);
-            }
-
-            .nav.active {
-                display: flex;
-            }
-
-            .nav a {
-                padding: 15px;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav a:last-child {
-                border-bottom: 0;
-            }
-
-            .contact-link {
-                display: none;
-            }
-
-            .menu-button {
-                display: grid;
-                place-items: center;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                padding-top: 50px;
-            }
-
-            .hero-mascot {
-                min-height: 470px;
-            }
-
-            .mascot-frame {
-                width: 360px;
-            }
-
-            .mascot-orbit {
-                width: 420px;
-                height: 420px;
-            }
-
-            .section-header {
-                display: block;
-            }
-
-            .section-description {
-                margin-top: 30px;
-            }
-
-            .project-card,
-            .project-card:nth-child(n) {
-                grid-column: span 6;
-            }
-
-            .identity-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .identity-image {
-                border-right: 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .about-symbol {
-                position: static;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .cursor-dot,
-            .robot-cursor {
-                display: none;
-            }
-
-            .header {
-                padding: 13px 5%;
-            }
-
-            .brand-robot {
-                width: 42px;
-                height: 42px;
-            }
-
-            .container {
-                width: min(90%, 1280px);
-            }
-
-            .section {
-                padding: 90px 0;
-            }
-
-            .hero {
-                padding-top: 125px;
-            }
-
-            .hero h1 {
-                font-size: 21vw;
-            }
-
-            .hero h1 span {
-                margin-left: 0;
-            }
-
-            .hero-intro {
-                display: block;
-                margin-top: 40px;
-            }
-
-            .hero-buttons {
-                margin-top: 30px;
-            }
-
-            .button {
-                width: 100%;
-            }
-
-            .hero-mascot {
-                min-height: 390px;
-            }
-
-            .mascot-frame {
-                width: 285px;
-            }
-
-            .mascot-orbit {
-                width: 330px;
-                height: 330px;
-            }
-
-            .mascot-badge {
-                right: 5px;
-                bottom: 35px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat {
-                padding: 30px 20px;
-            }
-
-            .stat:nth-child(2) {
-                border-right: 0;
-            }
-
-            .stat:nth-child(-n + 2) {
-                border-bottom: 1px solid var(--border);
-            }
-
-            .section-header {
-                margin-bottom: 45px;
-            }
-
-            .section-title {
-                font-size: clamp(3rem, 15vw, 5rem);
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card,
-            .project-card:nth-child(n) {
-                grid-column: span 1;
-                min-height: 330px;
-            }
-
-            .project-card img {
-                min-height: 330px;
-            }
-
-            .project-overlay {
-                opacity: 1;
-                padding: 18px;
-            }
-
-            .identity-image {
-                min-height: 350px;
-                padding: 30px;
-            }
-
-            .identity-copy {
-                padding: 40px 28px;
-            }
-
-            .service {
-                grid-template-columns: 42px 1fr 45px;
-                gap: 12px;
-            }
-
-            .service p {
-                display: none;
-            }
-
-            .service:hover {
-                padding-inline: 8px;
-            }
-
-            .contact h2 {
-                font-size: 19vw;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tralha Studio — Design, tecnologia e criação</title>
+
+<meta
+    name="description"
+    content="Tralha Studio: logos, flyers, banners, sites, bots e roupas para FiveM."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+:root{
+    --paper:#f0efe9;
+    --black:#0b0b0b;
+    --orange:#ff5c1a;
+    --blue:#42cce5;
+    --white:#ffffff;
+    --gray:#666661;
+    --line:rgba(11,11,11,.18);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:90px;
+}
+
+body{
+    background:var(--paper);
+    color:var(--black);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    color:inherit;
+    font:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+::selection{
+    color:var(--white);
+    background:var(--orange);
+}
+
+/* FUNDO */
+
+.page-grid{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    pointer-events:none;
+    opacity:.35;
+    background-image:
+        linear-gradient(rgba(0,0,0,.055) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,0,0,.055) 1px,transparent 1px);
+    background-size:80px 80px;
+}
+
+/* CURSOR */
+
+@media(pointer:fine){
+    body,
+    a,
+    button,
+    .project{
+        cursor:none;
+    }
+}
+
+.cursor-dot{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:20001;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--orange);
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+}
+
+.cursor-robot{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:20000;
+    width:48px;
+    height:48px;
+    pointer-events:none;
+    transform:translate(14px,14px);
+    transition:
+        width .2s ease,
+        height .2s ease;
+}
+
+.cursor-robot img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(3px 5px 4px rgba(0,0,0,.25));
+}
+
+.cursor-robot.active{
+    width:65px;
+    height:65px;
+}
+
+/* CABEÇALHO */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:5000;
+    border-bottom:2px solid var(--black);
+    background:rgba(240,239,233,.9);
+    backdrop-filter:blur(18px);
+}
+
+.header-inner{
+    min-height:82px;
+    display:grid;
+    grid-template-columns:280px 1fr 230px;
+    align-items:center;
+}
+
+.brand{
+    height:82px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 25px;
+    border-right:2px solid var(--black);
+}
+
+.brand img{
+    width:48px;
+    height:55px;
+    object-fit:contain;
+    transition:.3s;
+}
+
+.brand:hover img{
+    transform:translateY(-5px) rotate(5deg);
+}
+
+.brand-text strong{
+    display:block;
+    font-family:"Archivo Black",sans-serif;
+    font-size:.9rem;
+    letter-spacing:.05em;
+}
+
+.brand-text span{
+    color:var(--orange);
+    font-size:.62rem;
+    font-weight:700;
+    letter-spacing:.14em;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+}
+
+nav a{
+    position:relative;
+    font-size:.71rem;
+    font-weight:700;
+    letter-spacing:.08em;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-6px;
+    height:3px;
+    background:var(--orange);
+    transform:scaleX(0);
+    transition:.3s;
+}
+
+nav a:hover::after{
+    transform:scaleX(1);
+}
+
+.header-contact{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    color:var(--white);
+    background:var(--black);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    transition:.3s;
+}
+
+.header-contact:hover{
+    background:var(--orange);
+}
+
+.menu-button{
+    display:none;
+    width:48px;
+    height:48px;
+    border:2px solid var(--black);
+    background:transparent;
+    font-size:1.2rem;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding-top:82px;
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    border-bottom:2px solid var(--black);
+}
+
+.hero-copy{
+    min-height:calc(100vh - 82px);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:7vw 5vw 45px;
+    border-right:2px solid var(--black);
+}
+
+.hero-small{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.13em;
+}
+
+.live-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#20bd62;
+    box-shadow:0 0 12px #20bd62;
+}
+
+.hero h1{
+    max-width:900px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(4rem,9vw,9rem);
+    line-height:.83;
+    letter-spacing:-.07em;
+    text-transform:uppercase;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--orange);
+    -webkit-text-stroke:2px var(--black);
+    text-shadow:5px 5px 0 var(--black);
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.hero-description{
+    max-width:510px;
+    color:var(--gray);
+    font-size:1.05rem;
+    line-height:1.7;
+}
+
+.hero-description strong{
+    color:var(--black);
+}
+
+.hero-button{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+    padding:18px 24px;
+    border:2px solid var(--black);
+    color:var(--white);
+    background:var(--black);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    transition:.3s;
+}
+
+.hero-button span{
+    font-size:1.25rem;
+    transition:.3s;
+}
+
+.hero-button:hover{
+    color:var(--black);
+    background:var(--blue);
+    transform:translate(-5px,-5px);
+    box-shadow:5px 5px 0 var(--black);
+}
+
+.hero-button:hover span{
+    transform:translate(4px,-4px);
+}
+
+.hero-visual{
+    position:relative;
+    min-height:calc(100vh - 82px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:var(--blue);
+}
+
+.hero-visual::before{
+    content:"TRALHA";
+    position:absolute;
+    top:45px;
+    right:-40px;
+    color:transparent;
+    font-family:"Archivo Black",sans-serif;
+    font-size:8rem;
+    writing-mode:vertical-rl;
+    -webkit-text-stroke:1px rgba(11,11,11,.25);
+}
+
+.robot-main{
+    position:relative;
+    z-index:2;
+    width:min(430px,85%);
+    animation:float 4s ease-in-out infinite;
+}
+
+.robot-main img{
+    width:100%;
+    height:580px;
+    display:block;
+    object-fit:contain;
+    filter:drop-shadow(18px 25px 0 rgba(11,11,11,.18));
+}
+
+.robot-note{
+    position:absolute;
+    z-index:3;
+    left:30px;
+    bottom:35px;
+    max-width:230px;
+    padding:16px;
+    border:2px solid var(--black);
+    background:var(--paper);
+    font-size:.75rem;
+    font-weight:700;
+    line-height:1.5;
+    transform:rotate(-3deg);
+    box-shadow:6px 6px 0 var(--black);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-18px) rotate(2deg)}
+}
+
+/* FAIXA */
+
+.marquee{
+    overflow:hidden;
+    color:var(--white);
+    background:var(--orange);
+    border-bottom:2px solid var(--black);
+}
+
+.marquee-track{
+    width:max-content;
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding:18px 0;
+    animation:marquee 22s linear infinite;
+}
+
+.marquee-track span{
+    font-family:"Archivo Black",sans-serif;
+    font-size:.85rem;
+    letter-spacing:.08em;
+}
+
+.marquee-track b{
+    color:var(--black);
+}
+
+@keyframes marquee{
+    to{transform:translateX(-50%)}
+}
+
+/* CONFIGURAÇÕES */
+
+.section{
+    padding:120px 5vw;
+    border-bottom:2px solid var(--black);
+}
+
+.section-label{
+    margin-bottom:25px;
+    color:var(--orange);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.16em;
+}
+
+.section-header{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    align-items:end;
+    gap:60px;
+    margin-bottom:65px;
+}
+
+.section-title{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(3rem,7vw,7rem);
+    line-height:.88;
+    letter-spacing:-.065em;
+    text-transform:uppercase;
+}
+
+.section-title span{
+    color:var(--orange);
+}
+
+.section-description{
+    max-width:470px;
+    color:var(--gray);
+    font-size:1rem;
+    line-height:1.8;
+}
+
+/* PORTFÓLIO */
+
+.portfolio{
+    background:var(--black);
+    color:var(--white);
+}
+
+.portfolio .section-description{
+    color:#aaa;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:18px;
+}
+
+.project{
+    position:relative;
+    grid-column:span 4;
+    min-height:420px;
+    overflow:hidden;
+    border:2px solid #343434;
+    background:#111;
+    transition:.35s;
+}
+
+.project:nth-child(1),
+.project:nth-child(5),
+.project:nth-child(8){
+    grid-column:span 8;
+}
+
+.project:nth-child(1){
+    min-height:570px;
+}
+
+.project:nth-child(5),
+.project:nth-child(8){
+    min-height:500px;
+}
+
+.project:hover{
+    border-color:var(--orange);
+    transform:translateY(-8px);
+    box-shadow:8px 8px 0 var(--orange);
+}
+
+.project img{
+    width:100%;
+    height:100%;
+    min-height:420px;
+    display:block;
+    object-fit:contain;
+    background:#090909;
+    transition:transform .7s ease;
+}
+
+.project:nth-child(1) img{
+    min-height:570px;
+}
+
+.project:nth-child(5) img,
+.project:nth-child(8) img{
+    min-height:500px;
+}
+
+.project:hover img{
+    transform:scale(1.04);
+}
+
+.project-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+    transform:translateY(100%);
+    transition:.35s;
+}
+
+.project:hover .project-info{
+    transform:translateY(0);
+}
+
+.project-info span{
+    color:var(--orange);
+    font-size:.69rem;
+    font-weight:700;
+    letter-spacing:.13em;
+}
+
+.project-info h3{
+    margin-top:6px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:1.25rem;
+}
+
+.project-arrow{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+    color:var(--black);
+    background:var(--orange);
+    font-size:1.2rem;
+}
+
+/* SERVIÇOS */
+
+.services-layout{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:60px;
+}
+
+.services-intro{
+    position:sticky;
+    top:120px;
+    align-self:start;
+}
+
+.services-intro img{
+    width:180px;
+    height:220px;
+    object-fit:contain;
+    margin-bottom:25px;
+    filter:drop-shadow(10px 12px 0 rgba(11,11,11,.13));
+}
+
+.services-intro p{
+    color:var(--gray);
+    font-size:1rem;
+    line-height:1.8;
+}
+
+.services-list{
+    border-top:2px solid var(--black);
+}
+
+.service{
+    display:grid;
+    grid-template-columns:70px 1fr 50px;
+    align-items:center;
+    gap:20px;
+    min-height:120px;
+    border-bottom:2px solid var(--black);
+    transition:.3s;
+}
+
+.service:hover{
+    padding:0 20px;
+    color:var(--white);
+    background:var(--orange);
+}
+
+.service-number{
+    font-size:.72rem;
+    font-weight:700;
+}
+
+.service h3{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(1.5rem,3vw,2.7rem);
+}
+
+.service-arrow{
+    font-size:1.5rem;
+    transition:.3s;
+}
+
+.service:hover .service-arrow{
+    transform:rotate(45deg);
+}
+
+/* IDENTIDADE */
+
+.identity{
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.identity-logo{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:70px;
+    border-right:2px solid var(--black);
+    background:var(--orange);
+}
+
+.identity-logo img{
+    width:min(520px,90%);
+    max-height:520px;
+    object-fit:contain;
+    filter:drop-shadow(15px 18px 0 rgba(11,11,11,.18));
+    transition:.4s;
+}
+
+.identity-logo:hover img{
+    transform:rotate(-3deg) scale(1.04);
+}
+
+.identity-copy{
+    min-height:720px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:7vw;
+}
+
+.identity-copy small{
+    margin-bottom:25px;
+    color:var(--orange);
+    font-weight:700;
+    letter-spacing:.14em;
+}
+
+.identity-copy h2{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(3rem,6vw,6rem);
+    line-height:.88;
+    letter-spacing:-.06em;
+    text-transform:uppercase;
+}
+
+.identity-copy p{
+    max-width:550px;
+    margin-top:35px;
+    color:var(--gray);
+    font-size:1.05rem;
+    line-height:1.85;
+}
+
+/* HISTÓRIA */
+
+.story{
+    background:var(--blue);
+}
+
+.story-layout{
+    display:grid;
+    grid-template-columns:.75fr 1.25fr;
+    gap:70px;
+}
+
+.story-big{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(8rem,18vw,18rem);
+    line-height:.7;
+    letter-spacing:-.1em;
+}
+
+.story-big span{
+    color:var(--orange);
+    -webkit-text-stroke:2px var(--black);
+}
+
+.story-content h3{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(2.5rem,5vw,5rem);
+    line-height:.93;
+    letter-spacing:-.05em;
+    text-transform:uppercase;
+}
+
+.story-content p{
+    max-width:760px;
+    margin-top:25px;
+    font-size:1.05rem;
+    line-height:1.9;
+}
+
+.story-content strong{
+    font-weight:700;
+}
+
+.story-points{
+    margin-top:45px;
+    border-top:2px solid var(--black);
+}
+
+.story-point{
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:20px;
+    padding:25px 0;
+    border-bottom:2px solid var(--black);
+}
+
+.story-point span{
+    color:var(--orange);
+    font-weight:700;
+}
+
+.story-point h4{
+    margin-bottom:7px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:1.15rem;
+}
+
+.story-point p{
+    margin:0;
+    font-size:.95rem;
+}
+
+/* CONTATO */
+
+.contact{
+    min-height:90vh;
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    padding:0;
+    background:var(--orange);
+}
+
+.contact-copy{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:8vw 5vw;
+    border-right:2px solid var(--black);
+}
+
+.contact-copy small{
+    margin-bottom:25px;
+    font-weight:700;
+    letter-spacing:.15em;
+}
+
+.contact-copy h2{
+    max-width:900px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(4rem,9vw,9rem);
+    line-height:.8;
+    letter-spacing:-.08em;
+    text-transform:uppercase;
+}
+
+.contact-copy h2 span{
+    color:var(--paper);
+    -webkit-text-stroke:2px var(--black);
+    text-shadow:5px 5px 0 var(--black);
+}
+
+.contact-copy p{
+    max-width:550px;
+    margin:35px 0;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+.contact-button{
+    width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:15px;
+    padding:19px 25px;
+    border:2px solid var(--black);
+    color:var(--white);
+    background:var(--black);
+    font-size:.73rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    transition:.3s;
+}
+
+.contact-button:hover{
+    color:var(--black);
+    background:var(--paper);
+    transform:translate(-6px,-6px);
+    box-shadow:6px 6px 0 var(--black);
+}
+
+.contact-robot{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:var(--paper);
+}
+
+.contact-robot img{
+    width:80%;
+    height:650px;
+    object-fit:contain;
+    animation:float 4s ease-in-out infinite;
+    filter:drop-shadow(18px 24px 0 rgba(11,11,11,.15));
+}
+
+/* RODAPÉ */
+
+footer{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    border-top:2px solid var(--black);
+    color:var(--white);
+    background:var(--black);
+}
+
+footer div{
+    padding:27px 35px;
+    border-right:1px solid #333;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.11em;
+}
+
+footer div:last-child{
+    border-right:0;
+    text-align:right;
+}
+
+footer strong{
+    color:var(--orange);
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:70px 5%;
+    visibility:hidden;
+    opacity:0;
+    background:rgba(0,0,0,.96);
+    transition:.3s;
+}
+
+.modal.active{
+    visibility:visible;
+    opacity:1;
+}
+
+.modal img{
+    max-width:92vw;
+    max-height:84vh;
+    object-fit:contain;
+    border:2px solid var(--orange);
+    transform:scale(.93);
+    transition:.35s;
+}
+
+.modal.active img{
+    transform:scale(1);
+}
+
+.modal-close{
+    position:absolute;
+    top:25px;
+    right:4%;
+    width:50px;
+    height:50px;
+    border:2px solid var(--white);
+    color:var(--white);
+    background:transparent;
+    font-size:1.5rem;
+}
+
+.modal-close:hover{
+    color:var(--black);
+    background:var(--orange);
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:1050px){
+    .header-inner{
+        grid-template-columns:1fr auto;
+        padding-right:20px;
+    }
+
+    .brand{
+        border-right:0;
+    }
+
+    nav{
+        position:fixed;
+        top:84px;
+        left:20px;
+        right:20px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:15px;
+        border:2px solid var(--black);
+        background:var(--paper);
+        box-shadow:8px 8px 0 var(--black);
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        padding:15px;
+        border-bottom:1px solid var(--line);
+    }
+
+    .header-contact{
+        display:none;
+    }
+
+    .menu-button{
+        display:grid;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-copy{
+        min-height:auto;
+        border-right:0;
+    }
+
+    .hero-visual{
+        min-height:650px;
+        border-top:2px solid var(--black);
+    }
+
+    .section-header{
+        grid-template-columns:1fr;
+    }
+
+    .project,
+    .project:nth-child(n){
+        grid-column:span 6;
+        min-height:420px;
+    }
+
+    .project:nth-child(n) img{
+        min-height:420px;
+    }
+
+    .services-layout{
+        grid-template-columns:1fr;
+    }
+
+    .services-intro{
+        position:static;
+    }
+
+    .identity,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .identity-logo,
+    .contact-copy{
+        border-right:0;
+        border-bottom:2px solid var(--black);
+    }
+
+    .story-layout{
+        grid-template-columns:1fr;
+    }
+}
+
+/* CELULAR */
+
+@media(max-width:650px){
+    .cursor-dot,
+    .cursor-robot{
+        display:none;
+    }
+
+    .brand{
+        height:72px;
+        padding-left:15px;
+    }
+
+    .brand img{
+        width:42px;
+        height:48px;
+    }
+
+    .brand-text strong{
+        font-size:.78rem;
+    }
+
+    .brand-text span{
+        font-size:.5rem;
+    }
+
+    nav{
+        top:74px;
+    }
+
+    .hero{
+        padding-top:72px;
+    }
+
+    .hero-copy{
+        min-height:650px;
+        padding:75px 6vw 40px;
+    }
+
+    .hero h1{
+        font-size:19vw;
+    }
+
+    .hero-bottom{
+        display:block;
+    }
+
+    .hero-button{
+        margin-top:28px;
+    }
+
+    .hero-visual{
+        min-height:520px;
+    }
+
+    .robot-main img{
+        height:450px;
+    }
+
+    .section{
+        padding:85px 6vw;
+    }
+
+    .section-title{
+        font-size:14vw;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .project,
+    .project:nth-child(n){
+        grid-column:span 1;
+        min-height:350px;
+    }
+
+    .project:nth-child(n) img{
+        min-height:350px;
+    }
+
+    .project-info{
+        transform:translateY(0);
+    }
+
+    .identity-logo,
+    .identity-copy{
+        min-height:auto;
+        padding:65px 6vw;
+    }
+
+    .story-big{
+        font-size:42vw;
+    }
+
+    .service{
+        grid-template-columns:45px 1fr 30px;
+    }
+
+    .contact-copy{
+        padding:100px 6vw;
+    }
+
+    .contact-copy h2{
+        font-size:19vw;
+    }
+
+    .contact-robot img{
+        height:500px;
+    }
+
+    footer{
+        grid-template-columns:1fr;
+    }
+
+    footer div{
+        border-right:0;
+        border-bottom:1px solid #333;
+    }
+
+    footer div:last-child{
+        text-align:left;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+}
+</style>
 </head>
 
 <body>
-    <div class="background"></div>
 
-    <div class="cursor-dot" id="cursorDot"></div>
+<div class="page-grid"></div>
 
-    <div class="robot-cursor" id="robotCursor">
-        <img
-            src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
-            alt=""
-        >
-    </div>
+<div class="cursor-dot" id="cursorDot"></div>
 
-    <header class="header">
-        <div class="header-inner">
-            <a href="#inicio" class="brand">
-                <div class="brand-robot">
-                    <img
-                        src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
-                        alt="Mascote da Tralha Studio"
-                    >
-                </div>
-
-                <div class="brand-copy">
-                    <strong>TRALHA STUDIO</strong>
-                    <span>DESIGN & TECNOLOGIA</span>
-                </div>
-            </a>
-
-            <nav class="nav" id="navigation">
-                <a href="#inicio">INÍCIO</a>
-                <a href="#trabalhos">TRABALHOS</a>
-                <a href="#identidade">IDENTIDADE</a>
-                <a href="#sobre">HISTÓRIA</a>
-                <a href="#servicos">SERVIÇOS</a>
-                <a href="#contato">CONTATO</a>
-            </nav>
-
-            <a
-                href="https://discord.gg/HHQgKSrA67"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-            >
-                ABRIR PROJETO <span>↗</span>
-            </a>
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero" id="inicio">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <div class="hero-label">
-                        <span class="status-dot"></span>
-                        ACEITANDO NOVOS PROJETOS
-                    </div>
-
-                    <h1>
-                        TRALHA
-                        <span>STUDIO.</span>
-                    </h1>
-
-                    <div class="hero-intro">
-                        <p>
-                            <strong>Design que não passa despercebido.</strong>
-                            Criamos identidades, artes e experiências digitais
-                            que transformam ideias em marcas memoráveis.
-                        </p>
-                    </div>
-
-                    <div class="hero-buttons">
-                        <a href="#trabalhos" class="button button-primary">
-                            EXPLORAR TRABALHOS
-                            <span class="arrow-icon">↗</span>
-                        </a>
-
-                        <a href="#contato" class="button button-secondary">
-                            INICIAR PROJETO
-                            <span class="arrow-icon">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-mascot">
-                    <div class="mascot-orbit"></div>
-
-                    <div class="mascot-frame">
-                        <img
-                            src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
-                            alt="Robô mascote da Tralha Studio"
-                        >
-                    </div>
-
-                    <div class="mascot-badge">
-                        MASCOTE OFICIAL <span>TRALHA®</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="stats">
-            <div class="container stats-grid">
-                <article class="stat reveal">
-                    <strong>01<span>.</span></strong>
-                    <p>STUDIO CRIATIVO</p>
-                </article>
-
-                <article class="stat reveal">
-                    <strong>24<span>+</span></strong>
-                    <p>PROJETOS CRIADOS</p>
-                </article>
-
-                <article class="stat reveal">
-                    <strong>04<span>+</span></strong>
-                    <p>ÁREAS DE ATUAÇÃO</p>
-                </article>
-
-                <article class="stat reveal">
-                    <strong>∞</strong>
-                    <p>IDEIAS POSSÍVEIS</p>
-                </article>
-            </div>
-        </div>
-
-        <section class="section" id="trabalhos">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <div class="eyebrow">01 — PORTFÓLIO</div>
-
-                        <h2 class="section-title">
-                            TRABALHOS QUE<br>
-                            <span>FALAM POR NÓS.</span>
-                        </h2>
-                    </div>
-
-                    <p class="section-description">
-                        Uma seleção de projetos desenvolvidos pela Tralha Studio.
-                        Clique em qualquer trabalho para visualizar em tamanho maior.
-                    </p>
-                </div>
-
-                <div class="projects">
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
-                            alt="Projeto 01 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 01</span>
-                            <div class="project-info">
-                                <h3>Projeto 001</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
-                            alt="Projeto 02 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 02</span>
-                            <div class="project-info">
-                                <h3>Projeto 002</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
-                            alt="Projeto 03 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 03</span>
-                            <div class="project-info">
-                                <h3>Projeto 003</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
-                            alt="Projeto 04 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 04</span>
-                            <div class="project-info">
-                                <h3>Projeto 004</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
-                            alt="Projeto 05 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 05</span>
-                            <div class="project-info">
-                                <h3>Projeto 005</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
-                            alt="Projeto 06 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 06</span>
-                            <div class="project-info">
-                                <h3>Projeto 006</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
-                            alt="Projeto 07 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 07</span>
-                            <div class="project-info">
-                                <h3>Projeto 007</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" onclick="abrirImagem(this)">
-                        <img
-                            src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}"
-                            alt="Projeto 08 da Tralha Studio"
-                            loading="lazy"
-                        >
-
-                        <div class="project-overlay">
-                            <span class="project-tag">FLYER / 08</span>
-                            <div class="project-info">
-                                <h3>Projeto 008</h3>
-                                <span class="project-view">↗</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="identidade">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <div class="eyebrow">02 — IDENTIDADE</div>
-
-                        <h2 class="section-title">
-                            UMA MARCA.<br>
-                            <span>UMA PRESENÇA.</span>
-                        </h2>
-                    </div>
-
-                    <p class="section-description">
-                        Uma identidade criada para representar personalidade,
-                        criatividade e evolução.
-                    </p>
-                </div>
-
-                <div class="identity-grid reveal">
-                    <div class="identity-image">
-                        <img
-                            src="{{ url_for('static', filename='imagens/image.png') }}"
-                            alt="Logo oficial da Tralha Studio"
-                            loading="lazy"
-                        >
-                    </div>
-
-                    <div class="identity-copy">
-                        <div class="eyebrow">TRALHA®</div>
-
-                        <h3>
-                            IDEIAS<br>
-                            <span>REAIS.</span>
-                        </h3>
-
-                        <p>
-                            Não queremos parecer iguais a todo mundo. A Tralha Studio
-                            nasceu para transformar ideias em projetos visualmente
-                            marcantes, juntando design, personalidade e tecnologia.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="sobre">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <div class="eyebrow">03 — NOSSA HISTÓRIA</div>
-
-                        <h2 class="section-title">
-                            POR TRÁS<br>
-                            <span>DA TRALHA.</span>
-                        </h2>
-                    </div>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-symbol reveal">
-                        <strong>T®</strong>
-                        <p>CRIADO POR DAVID</p>
-                    </div>
-
-                    <div class="about-content reveal">
-                        <h3>
-                            TUDO COMEÇOU<br>
-                            <span>COM UMA IDEIA.</span>
-                        </h3>
-
-                        <p>
-                            Meu nome é <strong>David</strong>, e a Tralha Studio
-                            nasceu da vontade de aprender, criar e transformar
-                            ideias em projetos reais.
-                        </p>
-
-                        <p>
-                            No início não existia uma grande estrutura. Existia
-                            curiosidade, vontade de experimentar e muita coisa
-                            para aprender.
-                        </p>
-
-                        <p>
-                            Aos poucos, cada flyer, logo, banner e projeto digital
-                            passou a representar uma nova etapa da nossa evolução.
-                        </p>
-
-                        <p>
-                            Hoje, a Tralha Studio une duas partes importantes da
-                            nossa essência: <strong>design e tecnologia.</strong>
-                            A história continua sendo escrita em cada novo projeto.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="servicos">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <div class="eyebrow">04 — SERVIÇOS</div>
-
-                        <h2 class="section-title">
-                            O QUE NÓS<br>
-                            <span>CRIAMOS.</span>
-                        </h2>
-                    </div>
-
-                    <p class="section-description">
-                        Soluções visuais e digitais para projetos que precisam
-                        de personalidade e presença.
-                    </p>
-                </div>
-
-                <div class="services-list">
-                    <article class="service reveal">
-                        <span class="service-number">01</span>
-                        <h3>Flyers</h3>
-                        <p>Artes promocionais e materiais para divulgação.</p>
-                        <span class="service-arrow">↗</span>
-                    </article>
-
-                    <article class="service reveal">
-                        <span class="service-number">02</span>
-                        <h3>Logos</h3>
-                        <p>Identidades visuais únicas e marcas reconhecíveis.</p>
-                        <span class="service-arrow">↗</span>
-                    </article>
-
-                    <article class="service reveal">
-                        <span class="service-number">03</span>
-                        <h3>Banners</h3>
-                        <p>Banners para lojas, comunidades e projetos digitais.</p>
-                        <span class="service-arrow">↗</span>
-                    </article>
-
-                    <article class="service reveal">
-                        <span class="service-number">04</span>
-                        <h3>Sites</h3>
-                        <p>Interfaces modernas, responsivas e personalizadas.</p>
-                        <span class="service-arrow">↗</span>
-                    </article>
-
-                    <article class="service reveal">
-                        <span class="service-number">05</span>
-                        <h3>Roupas FiveM</h3>
-                        <p>Roupas personalizadas para cidades e organizações.</p>
-                        <span class="service-arrow">↗</span>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section contact" id="contato">
-            <div class="container contact-content reveal">
-                <div class="contact-robot">
-                    <img
-                        src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
-                        alt="Robô da Tralha Studio"
-                    >
-                </div>
-
-                <div class="eyebrow" style="justify-content:center;">
-                    TEM UMA IDEIA?
-                </div>
-
-                <h2>
-                    VAMOS
-                    <span>CRIAR.</span>
-                </h2>
-
-                <p>
-                    Chame a Tralha Studio e transforme sua ideia em um projeto
-                    com identidade, presença e personalidade.
-                </p>
-
-                <a
-                    href="https://discord.gg/HHQgKSrA67"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button button-primary"
-                >
-                    ENTRAR EM CONTATO
-                    <span class="arrow-icon">↗</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <strong>TRALHA® STUDIO</strong>
-            <span>DESIGN / DIGITAL / 2026</span>
-            <span>DAVID — FUNDADOR</span>
-            <span>TRALHA STUDIO • TODOS OS DIREITOS RESERVADOS</span>
-        </div>
-    </footer>
-
-    <div
-        class="modal"
-        id="imageModal"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Visualização do projeto"
+<div class="cursor-robot" id="cursorRobot">
+    <img
+        src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
+        alt=""
     >
-        <button
-            class="modal-close"
-            id="modalClose"
-            type="button"
-            aria-label="Fechar imagem"
+</div>
+
+<header>
+    <div class="header-inner">
+
+        <a href="#inicio" class="brand">
+            <img
+                src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
+                alt="Robô da Tralha Studio"
+            >
+
+            <div class="brand-text">
+                <strong>TRALHA STUDIO</strong>
+                <span>DESIGN & TECNOLOGIA</span>
+            </div>
+        </a>
+
+        <nav id="navigation">
+            <a href="#inicio">INÍCIO</a>
+            <a href="#portfolio">PORTFÓLIO</a>
+            <a href="#servicos">SERVIÇOS</a>
+            <a href="#identidade">IDENTIDADE</a>
+            <a href="#historia">HISTÓRIA</a>
+            <a href="#contato">CONTATO</a>
+        </nav>
+
+        <a
+            href="https://discord.gg/HHQgKSrA67"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header-contact"
         >
-            ×
+            PEDIR ORÇAMENTO ↗
+        </a>
+
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Abrir menu"
+        >
+            ☰
         </button>
 
-        <img id="modalImage" src="" alt="Projeto ampliado">
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-copy">
+
+        <div class="hero-small">
+            <span class="live-dot"></span>
+            ACEITANDO NOVOS PROJETOS
+        </div>
+
+        <h1>
+            IDEIAS<br>
+            VIRAM
+            <span>IMPACTO.</span>
+        </h1>
+
+        <div class="hero-bottom">
+
+            <p class="hero-description">
+                A <strong>Tralha Studio</strong> mistura criatividade,
+                design e tecnologia para criar projetos que chamam
+                atenção e constroem uma identidade de verdade.
+            </p>
+
+            <a href="#portfolio" class="hero-button">
+                VER TRABALHOS
+                <span>↗</span>
+            </a>
+
+        </div>
+
     </div>
 
-    <script>
-        const cursorDot = document.getElementById("cursorDot");
-        const robotCursor = document.getElementById("robotCursor");
+    <div class="hero-visual">
 
-        let cursorX = 0;
-        let cursorY = 0;
-        let robotX = 0;
-        let robotY = 0;
+        <div class="robot-main">
+            <img
+                src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
+                alt="Mascote da Tralha Studio"
+            >
+        </div>
 
-        document.addEventListener("mousemove", (event) => {
-            cursorX = event.clientX;
-            cursorY = event.clientY;
+        <div class="robot-note">
+            DESIGN QUE NÃO NASCE PARA SER IGUAL.
+        </div>
 
-            cursorDot.style.left = cursorX + "px";
-            cursorDot.style.top = cursorY + "px";
-        });
+    </div>
 
-        function animateCursor() {
-            robotX += (cursorX - robotX) * 0.14;
-            robotY += (cursorY - robotY) * 0.14;
+</section>
 
-            robotCursor.style.left = robotX + "px";
-            robotCursor.style.top = robotY + "px";
+<div class="marquee">
+    <div class="marquee-track">
 
-            requestAnimationFrame(animateCursor);
-        }
+        <span>LOGOS</span><b>✦</b>
+        <span>FLYERS</span><b>✦</b>
+        <span>BANNERS</span><b>✦</b>
+        <span>SITES</span><b>✦</b>
+        <span>ROUPAS FIVEM</span><b>✦</b>
+        <span>IDENTIDADE VISUAL</span><b>✦</b>
 
-        animateCursor();
+        <span>LOGOS</span><b>✦</b>
+        <span>FLYERS</span><b>✦</b>
+        <span>BANNERS</span><b>✦</b>
+        <span>SITES</span><b>✦</b>
+        <span>ROUPAS FIVEM</span><b>✦</b>
+        <span>IDENTIDADE VISUAL</span><b>✦</b>
 
-        document
-            .querySelectorAll("a, button, .project-card, .service")
-            .forEach((element) => {
-                element.addEventListener("mouseenter", () => {
-                    robotCursor.classList.add("active");
-                });
+    </div>
+</div>
 
-                element.addEventListener("mouseleave", () => {
-                    robotCursor.classList.remove("active");
-                });
-            });
+<section class="section portfolio" id="portfolio">
 
-        const menuButton = document.getElementById("menuButton");
-        const navigation = document.getElementById("navigation");
+    <div class="section-header">
 
-        menuButton.addEventListener("click", () => {
-            const menuIsOpen = navigation.classList.toggle("active");
+        <div>
+            <div class="section-label">01 — TRABALHOS SELECIONADOS</div>
 
-            menuButton.setAttribute("aria-expanded", menuIsOpen);
-            menuButton.textContent = menuIsOpen ? "×" : "☰";
-        });
+            <h2 class="section-title">
+                NOSSO<br>
+                <span>PORTFÓLIO.</span>
+            </h2>
+        </div>
 
-        navigation.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => {
-                navigation.classList.remove("active");
-                menuButton.setAttribute("aria-expanded", "false");
-                menuButton.textContent = "☰";
-            });
-        });
+        <p class="section-description">
+            Uma coleção de projetos desenvolvidos pela Tralha Studio.
+            Clique nas imagens para visualizar cada trabalho completo.
+        </p>
 
-        const imageModal = document.getElementById("imageModal");
-        const modalImage = document.getElementById("modalImage");
-        const modalClose = document.getElementById("modalClose");
+    </div>
 
-        function abrirImagem(card) {
-            const selectedImage = card.querySelector("img");
+    <div class="projects">
 
-            if (!selectedImage) {
-                return;
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 120730.png') }}"
+                alt="Projeto 01"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 01</span>
+                    <h3>Identidade visual</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 193239.png') }}"
+                alt="Projeto 02"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 02</span>
+                    <h3>Arte promocional</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 223208.png') }}"
+                alt="Projeto 03"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 03</span>
+                    <h3>Flyer personalizado</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-04 224827.png') }}"
+                alt="Projeto 04"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 04</span>
+                    <h3>Design para comunidade</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 115720.png') }}"
+                alt="Projeto 05"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 05</span>
+                    <h3>Direção criativa</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202345.png') }}"
+                alt="Projeto 06"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 06</span>
+                    <h3>Comunicação visual</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-05 202447.png') }}"
+                alt="Projeto 07"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 07</span>
+                    <h3>Arte digital</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+        <article class="project reveal" onclick="abrirImagem(this)">
+            <img
+                src="{{ url_for('static', filename='imagens/Captura de tela 2026-08-10 211754.png') }}"
+                alt="Projeto 08"
+                loading="lazy"
+            >
+
+            <div class="project-info">
+                <div>
+                    <span>PROJETO 08</span>
+                    <h3>Projeto exclusivo</h3>
+                </div>
+                <div class="project-arrow">↗</div>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<section class="section" id="servicos">
+
+    <div class="section-header">
+
+        <div>
+            <div class="section-label">02 — O QUE FAZEMOS</div>
+
+            <h2 class="section-title">
+                CRIAMOS<br>
+                <span>SEM LIMITES.</span>
+            </h2>
+        </div>
+
+        <p class="section-description">
+            Do primeiro conceito até a entrega final, cada trabalho
+            recebe uma direção visual feita para o projeto.
+        </p>
+
+    </div>
+
+    <div class="services-layout">
+
+        <aside class="services-intro reveal">
+            <img
+                src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
+                alt="Robô da Tralha Studio"
+            >
+
+            <p>
+                Uma boa arte não precisa gritar. Ela precisa ser
+                reconhecida, lembrada e representar quem está por trás dela.
+            </p>
+        </aside>
+
+        <div class="services-list">
+
+            <article class="service reveal">
+                <span class="service-number">01</span>
+                <h3>Logos e identidades</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+            <article class="service reveal">
+                <span class="service-number">02</span>
+                <h3>Flyers e divulgações</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+            <article class="service reveal">
+                <span class="service-number">03</span>
+                <h3>Banners profissionais</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+            <article class="service reveal">
+                <span class="service-number">04</span>
+                <h3>Sites e interfaces</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+            <article class="service reveal">
+                <span class="service-number">05</span>
+                <h3>Roupas para FiveM</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+            <article class="service reveal">
+                <span class="service-number">06</span>
+                <h3>Bots para Discord</h3>
+                <span class="service-arrow">↗</span>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="identity" id="identidade">
+
+    <div class="identity-logo reveal">
+        <img
+            src="{{ url_for('static', filename='imagens/image.png') }}"
+            alt="Logo oficial da Tralha Studio"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="identity-copy reveal">
+
+        <small>03 — IDENTIDADE TRALHA</small>
+
+        <h2>
+            MAIS QUE<br>
+            UMA LOGO.
+        </h2>
+
+        <p>
+            A identidade da Tralha Studio representa uma mistura de
+            criatividade, tecnologia e personalidade. Não queremos
+            copiar o que todo mundo faz. Queremos criar algo que tenha
+            presença e seja reconhecido como nosso.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="section story" id="historia">
+
+    <div class="section-label">04 — NOSSA HISTÓRIA</div>
+
+    <div class="story-layout">
+
+        <div class="story-big reveal">
+            T<span>®</span>
+        </div>
+
+        <div class="story-content reveal">
+
+            <h3>
+                TUDO COMEÇOU<br>
+                COM VONTADE DE CRIAR.
+            </h3>
+
+            <p>
+                A Tralha Studio nasceu quando <strong>David</strong>
+                começou a transformar sua curiosidade por design e
+                programação em projetos reais.
+            </p>
+
+            <p>
+                Primeiro vieram as artes para comunidades e cidades de
+                Roleplay. Depois chegaram novos desafios: logos, flyers,
+                banners, roupas para FiveM, bots e sites completos.
+            </p>
+
+            <p>
+                O que antes era apenas uma forma de aprender ganhou nome,
+                identidade e objetivo. Hoje, cada projeto representa uma
+                etapa da evolução da Tralha Studio.
+            </p>
+
+            <p>
+                A nossa história ainda está começando. A meta é continuar
+                evoluindo, construindo um portfólio cada vez mais forte e
+                ajudando outras ideias a se transformarem em marcas reais.
+            </p>
+
+            <div class="story-points">
+
+                <article class="story-point">
+                    <span>01</span>
+                    <div>
+                        <h4>A curiosidade</h4>
+                        <p>
+                            A vontade de aprender design e programação
+                            iniciou os primeiros projetos.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="story-point">
+                    <span>02</span>
+                    <div>
+                        <h4>Os primeiros clientes</h4>
+                        <p>
+                            Comunidades e projetos de Roleplay ajudaram
+                            a construir experiência.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="story-point">
+                    <span>03</span>
+                    <div>
+                        <h4>A criação da Tralha</h4>
+                        <p>
+                            Os trabalhos ganharam uma identidade própria
+                            e viraram um studio.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="story-point">
+                    <span>04</span>
+                    <div>
+                        <h4>O próximo capítulo</h4>
+                        <p>
+                            Projetos maiores, novas experiências e evolução
+                            constante.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contato">
+
+    <div class="contact-copy">
+
+        <small>05 — VAMOS TRABALHAR JUNTOS</small>
+
+        <h2>
+            SUA IDEIA.<br>
+            <span>NOSSA MISSÃO.</span>
+        </h2>
+
+        <p>
+            Conte o que você precisa e vamos criar um projeto
+            personalizado, profissional e feito para chamar atenção.
+        </p>
+
+        <a
+            href="https://discord.gg/HHQgKSrA67"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-button"
+        >
+            CHAMAR NO DISCORD ↗
+        </a>
+
+    </div>
+
+    <div class="contact-robot">
+        <img
+            src="{{ url_for('static', filename='imagens/tralha-studio-mascote-robo.png') }}"
+            alt="Mascote da Tralha Studio"
+        >
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div>
+        <strong>TRALHA® STUDIO</strong>
+    </div>
+
+    <div>
+        DESIGN / TECNOLOGIA / 2026
+    </div>
+
+    <div>
+        TODOS OS DIREITOS RESERVADOS
+    </div>
+
+</footer>
+
+<div
+    class="modal"
+    id="imageModal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visualização do projeto"
+>
+
+    <button
+        type="button"
+        class="modal-close"
+        id="modalClose"
+        aria-label="Fechar imagem"
+    >
+        ×
+    </button>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Projeto ampliado"
+    >
+
+</div>
+
+<script>
+const cursorDot = document.getElementById("cursorDot");
+const cursorRobot = document.getElementById("cursorRobot");
+
+let mouseX = 0;
+let mouseY = 0;
+let robotX = 0;
+let robotY = 0;
+
+document.addEventListener("mousemove", function(event){
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    cursorDot.style.left = mouseX + "px";
+    cursorDot.style.top = mouseY + "px";
+});
+
+function moverCursor(){
+    robotX += (mouseX - robotX) * 0.15;
+    robotY += (mouseY - robotY) * 0.15;
+
+    cursorRobot.style.left = robotX + "px";
+    cursorRobot.style.top = robotY + "px";
+
+    requestAnimationFrame(moverCursor);
+}
+
+moverCursor();
+
+document
+.querySelectorAll("a,button,.project,.service")
+.forEach(function(elemento){
+
+    elemento.addEventListener("mouseenter",function(){
+        cursorRobot.classList.add("active");
+    });
+
+    elemento.addEventListener("mouseleave",function(){
+        cursorRobot.classList.remove("active");
+    });
+
+});
+
+const menuButton = document.getElementById("menuButton");
+const navigation = document.getElementById("navigation");
+
+menuButton.addEventListener("click",function(){
+    navigation.classList.toggle("active");
+
+    if(navigation.classList.contains("active")){
+        menuButton.textContent = "×";
+    }else{
+        menuButton.textContent = "☰";
+    }
+});
+
+navigation.querySelectorAll("a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+        navigation.classList.remove("active");
+        menuButton.textContent = "☰";
+    });
+
+});
+
+const imageModal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalClose = document.getElementById("modalClose");
+
+function abrirImagem(card){
+    const imagem = card.querySelector("img");
+
+    if(!imagem){
+        return;
+    }
+
+    modalImage.src = imagem.src;
+    modalImage.alt = imagem.alt;
+
+    imageModal.classList.add("active");
+    document.body.classList.add("modal-open");
+}
+
+function fecharImagem(){
+    imageModal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+
+    setTimeout(function(){
+        modalImage.src = "";
+    },300);
+}
+
+modalClose.addEventListener("click",fecharImagem);
+
+imageModal.addEventListener("click",function(event){
+
+    if(event.target === imageModal){
+        fecharImagem();
+    }
+
+});
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        fecharImagem();
+    }
+
+});
+
+const observer = new IntersectionObserver(
+    function(entries,currentObserver){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+                currentObserver.unobserve(entry.target);
             }
 
-            modalImage.src = selectedImage.src;
-            modalImage.alt = selectedImage.alt;
-
-            imageModal.classList.add("active");
-            document.body.classList.add("modal-open");
-        }
-
-        function fecharImagem() {
-            imageModal.classList.remove("active");
-            document.body.classList.remove("modal-open");
-
-            setTimeout(() => {
-                modalImage.src = "";
-            }, 300);
-        }
-
-        modalClose.addEventListener("click", fecharImagem);
-
-        imageModal.addEventListener("click", (event) => {
-            if (event.target === imageModal) {
-                fecharImagem();
-            }
         });
 
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
-                fecharImagem();
-            }
-        });
+    },
+    {
+        threshold:0.12
+    }
+);
 
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.12
-            }
-        );
+document.querySelectorAll(".reveal").forEach(function(elemento){
+    observer.observe(elemento);
+});
+</script>
 
-        document.querySelectorAll(".reveal").forEach((element) => {
-            revealObserver.observe(element);
-        });
-    </script>
 </body>
 </html>
